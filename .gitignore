@@ -6,8 +6,8 @@ __pycache__/
 .env
 
 # Project Data
-data/cache/
-data/temp/
+#data/cache/
+#data/temp/
 logs/
 
 # Reports

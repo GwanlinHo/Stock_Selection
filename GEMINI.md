@@ -25,3 +25,4 @@
 2.  讀取 `data/temp/candidates.json`。
 3.  對技術面最強的標的進行 `google_web_search`。
 4.  將 AI 分析內容回填至 `reports/WEEKLY_REPORT_YYYY-MM-DD.md` 並呈現在對話中。
+5.  將產生的報告與json檔上傳至github。
