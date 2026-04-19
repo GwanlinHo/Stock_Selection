@@ -9,7 +9,11 @@ __pycache__/
 data/cache/
 data/temp/
 logs/
-# reports/*.md (移除此行以允許報告上傳)
+
+# Reports
+# 僅允許上傳正式的週報，忽略所有掃描過程數據報告
+reports/SCAN_DATA_*.md
+reports/REPORT_*.md
 
 # IDE
 .vscode/
