@@ -9,7 +9,7 @@ __pycache__/
 data/cache/
 data/temp/
 logs/
-reports/*.md
+# reports/*.md (移除此行以允許報告上傳)
 
 # IDE
 .vscode/
