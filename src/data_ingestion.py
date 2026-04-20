@@ -96,8 +96,10 @@ class DataIngestion:
             time.sleep(random.uniform(1, 2))
         return results
 
-    def save_to_cache(self, ticker, df):
-        df.to_parquet(self.CACHE_DIR / f"{ticker}.parquet")
+    def save_to_cache(self, ticker, df, max_rows=250):
+        """儲存快取並限制最大行數，確保資料量適中"""
+        df_slim = df.sort_index().tail(max_rows)
+        df_slim.to_parquet(self.CACHE_DIR / f"{ticker}.parquet")
 
     def cleanup_cache(self, expiry_days=90):
         """清理超過 N 天未更新的過時快取檔案"""
