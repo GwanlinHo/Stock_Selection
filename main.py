@@ -55,9 +55,6 @@ class StockScanner:
         final_data = []
 
         if self.mode == "full":
-            # Full 模式下清空暫存
-            for f in self.temp_dir.glob("*.json"): f.unlink()
-            
             yfinance_tickers = [t['yfinance_ticker'] for t in tickers_info]
             raw_data = DataIngestion(batch_size=50).fetch_weekly_data(yfinance_tickers)
             pv_filter = PriceVolumeFilter(config={

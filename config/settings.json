@@ -2,9 +2,9 @@
     "active_level": "Strict",
     "levels": {
         "Strict": {
-            "ma_20_slope": 0.001,
+            "ma_20_slope": 0.005,
             "ma_60_slope": 0.0,
-            "min_volume_avg": 1000,
+            "min_volume_avg": 1000000,
             "yoy_min": 0,
             "inst_net_buy_days": 5
         },
