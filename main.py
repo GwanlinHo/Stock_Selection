@@ -85,16 +85,44 @@ class StockScanner:
         if self.mode in ["full", "skip-scan"] and l2_candidates:
             premium_data = DataPremium()
             adv_filter = AdvancedFilter()
-            for cand in tqdm(l2_candidates, desc="精煉數據"):
-                ticker = cand['Ticker'].split('.')[0]
+            
+            # [斷點續傳邏輯] 讀取現有進度
+            existing_progress = {}
+            if self.final_cache_file.exists():
+                try:
+                    with open(self.final_cache_file, "r", encoding="utf-8") as f:
+                        old_data = json.load(f)
+                        # 只有當 L3_Pass 或 L4_Pass 且數值非 0 時才視為已完成
+                        existing_progress = {d['Ticker']: d for d in old_data if d.get('L3_Value') != 0 or d.get('L4_Value') != 0}
+                    log.info(f"偵測到現有進度，將跳過 {len(existing_progress)} 檔已處理標的。")
+                except: pass
+
+            for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
+                ticker_full = cand['Ticker']
+                ticker = ticker_full.split('.')[0]
+                
+                # 檢查是否可跳過
+                if ticker_full in existing_progress:
+                    l2_candidates[i] = existing_progress[ticker_full]
+                    continue
+                
                 df_inst = premium_data.fetch_chip_data(ticker)
                 df_rev = premium_data.fetch_fundamental_data(ticker)
                 l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
                 l4_pass, l4_val = adv_filter.run_l4(ticker, df_rev)
+                
                 cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
                 cand['L4_Pass'], cand['L4_Value'] = bool(l4_pass), float(l4_val)
-                final_data.append(cand)
+                final_data.append(cand) # 舊邏輯，改為直接更新 l2_candidates 並定期儲存
+                
+                # 每 10 筆存檔一次，確保斷點
+                if (i + 1) % 10 == 0:
+                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
+                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
+                
                 time.sleep(0.1)
+            
+            final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
                 json.dump(final_data, f, ensure_ascii=False, indent=4)
         else:
