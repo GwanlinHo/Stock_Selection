@@ -184,8 +184,10 @@ class StockScanner:
             f.write(md_content)
         log.info(f"高品質週報已產出: {report_file}")
 
-        # 產生 index.html 用於 GitHub Pages
-        self.generate_index_html(md_content)
+        # 產生 index.html 用於 GitHub Pages (讀取最新的檔案內容，包含可能已填寫的 AI 分析)
+        with open(report_file, "r", encoding="utf-8") as f:
+            final_md = f.read()
+        self.generate_index_html(final_md)
 
     def generate_index_html(self, md_content):
         """將 Markdown 轉換為漂亮的 HTML 並存為 index.html"""
