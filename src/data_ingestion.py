@@ -30,7 +30,8 @@ class DataIngestion:
             return None, True, None
 
     def fetch_weekly_data(self, tickers: list):
-        """抓取日線數據 (優化版：週更新 + 增量合併)"""
+        """抓取日線數據 (優化版：週更新 + 增量合併 + 自動清理)"""
+        self.cleanup_cache() # 執行快取清理
         log.info(f"開始檢查 {len(tickers)} 檔標的的快取狀態...")
         
         to_download = {} # ticker -> start_date
@@ -97,3 +98,22 @@ class DataIngestion:
 
     def save_to_cache(self, ticker, df):
         df.to_parquet(self.CACHE_DIR / f"{ticker}.parquet")
+
+    def cleanup_cache(self, expiry_days=90):
+        """清理超過 N 天未更新的過時快取檔案"""
+        log.info(f"掃描快取資料夾，清理超過 {expiry_days} 天未更新的資料...")
+        count = 0
+        for path in self.CACHE_DIR.glob("*.parquet"):
+            try:
+                df = pd.read_parquet(path)
+                if not df.empty:
+                    last_date = df.index.max()
+                    # 確保 last_date 是 datetime 型態
+                    if (datetime.now() - pd.to_datetime(last_date)).days > expiry_days:
+                        path.unlink()
+                        count += 1
+            except:
+                path.unlink()
+                count += 1
+        if count > 0:
+            log.info(f"已清理 {count} 個過時快取檔案。")
