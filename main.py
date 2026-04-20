@@ -1,6 +1,7 @@
 import json
 import time
 import argparse
+import markdown
 from pathlib import Path
 from datetime import datetime
 from tqdm import tqdm
@@ -93,29 +94,73 @@ class StockScanner:
     def generate_rich_report(self, data):
         date_str = datetime.now().strftime("%Y-%m-%d")
         report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
+        
+        md_content = f"# 台股選股掃描綜合週報 ({date_str})\n\n"
+        md_content += f"**摘要**: (待 AI 填寫...)\n\n"
+        md_content += f"**標準**: `{self.active_level}` | **海選通過**: {self.stats['l1_l2_pass']} 檔 | **籌碼偏多**: {self.stats['l3_l4_pass']} 檔\n\n"
+        
+        md_content += "## AI 深度分析與市場動態\n"
+        md_content += "(請執行 AI 分析流程以填充此章節...)\n\n"
+
+        md_content += "## 候選名單詳細數據面板\n"
+        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 5日均量 | 籌碼(張) | 營收YoY% |\n"
+        md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        
+        for item in sorted(data, key=lambda x: x.get('M20_Slope', 0), reverse=True):
+            l3_val = item.get('L3_Value', 0)
+            l4_val = item.get('L4_Value', 0)
+            l3_txt = f"{l3_val:+,.1f}"
+            l4_txt = f"{l4_val:+.2f}%"
+            l3_status = "✅" if item.get('L3_Pass') else "❌"
+            l4_status = "✅" if item.get('L4_Pass') else "⚠️"
+            name = item.get('Name', '未知')
+            ind = item.get('Industry', '未知')
+            code = item['Ticker'].split('.')[0]
+            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {item['AvgDailyVol']:.0f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} |\n"
+
+        # 寫入 Markdown 檔案
         with open(report_file, "w", encoding="utf-8") as f:
-            f.write(f"# 📊 台股選股掃描綜合週報 ({date_str})\n\n")
-            f.write(f"**摘要**: (待 AI 填寫...)\n\n")
-            f.write(f"**標準**: `{self.active_level}` | **海選通過**: {self.stats['l1_l2_pass']} 檔 | **籌碼偏多**: {self.stats['l3_l4_pass']} 檔\n\n")
-
-            f.write("## 🤖 AI 深度分析與市場動態\n")
-            f.write("(請執行 AI 分析流程以填充此章節...)\n\n")
-
-            f.write("## 🔍 候選名單詳細數據面板\n")
-            f.write("| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 5日均量 | 籌碼(張) | 營收YoY% |\n")
-            f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
-            for item in sorted(data, key=lambda x: x.get('M20_Slope', 0), reverse=True):
-                l3_val = item.get('L3_Value', 0)
-                l4_val = item.get('L4_Value', 0)
-                l3_txt = f"{l3_val:+,.1f}"
-                l4_txt = f"{l4_val:+.2f}%"
-                l3_status = "✅" if item.get('L3_Pass') else "❌"
-                l4_status = "✅" if item.get('L4_Pass') else "⚠️"
-                name = item.get('Name', '未知')
-                ind = item.get('Industry', '未知')
-                code = item['Ticker'].split('.')[0]
-                f.write(f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {item['AvgDailyVol']:.0f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} |\n")
+            f.write(md_content)
         log.info(f"高品質週報已產出: {report_file}")
+
+        # 產生 index.html 用於 GitHub Pages
+        self.generate_index_html(md_content)
+
+    def generate_index_html(self, md_content):
+        """將 Markdown 轉換為漂亮的 HTML 並存為 index.html"""
+        html_body = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])
+        
+        html_template = f"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股選股週報 - GitHub Pages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <style>
+        .markdown-body {{
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }}
+        @media (max-width: 767px) {{
+            .markdown-body {{ padding: 15px; }}
+        }}
+        body {{ background-color: #f6f8fa; }}
+    </style>
+</head>
+<body>
+    <article class="markdown-body">
+        {html_body}
+    </article>
+</body>
+</html>"""
+        
+        with open("index.html", "w", encoding="utf-8") as f:
+            f.write(html_template)
+        log.info("GitHub Pages 入口首頁 index.html 已更新。")
 
 
 if __name__ == "__main__":
