@@ -147,9 +147,7 @@ class StockScanner:
         
         # 2. AI 深度分析 (第一順位)
         md_content += "## AI 深度分析與市場動態\n"
-        md_content += "**摘要**: (待 AI 填寫...)\n\n"
-        md_content += "(請執行 AI 分析流程以填充此章節...)\n\n"
-
+        
         # 3. 篩選漏斗統計
         md_content += "## 篩選漏斗統計\n"
         md_content += f"*   **[L1/L2] 價量趨勢通過**: {self.stats['l1_l2_pass']} 檔\n"
