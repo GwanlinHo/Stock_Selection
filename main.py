@@ -95,7 +95,12 @@ class StockScanner:
         report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
         with open(report_file, "w", encoding="utf-8") as f:
             f.write(f"# 📊 台股選股掃描綜合週報 ({date_str})\n\n")
+            f.write(f"**摘要**: (待 AI 填寫...)\n\n")
             f.write(f"**標準**: `{self.active_level}` | **海選通過**: {self.stats['l1_l2_pass']} 檔 | **籌碼偏多**: {self.stats['l3_l4_pass']} 檔\n\n")
+
+            f.write("## 🤖 AI 深度分析與市場動態\n")
+            f.write("(請執行 AI 分析流程以填充此章節...)\n\n")
+
             f.write("## 🔍 候選名單詳細數據面板\n")
             f.write("| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 5日均量 | 籌碼(張) | 營收YoY% |\n")
             f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
@@ -111,6 +116,7 @@ class StockScanner:
                 code = item['Ticker'].split('.')[0]
                 f.write(f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {item['AvgDailyVol']:.0f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} |\n")
         log.info(f"高品質週報已產出: {report_file}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
