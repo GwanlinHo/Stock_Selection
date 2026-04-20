@@ -890,10 +890,10 @@
         "M20_Slope": 0.01050866576397859,
         "Name": "榮創",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 957.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -21.73
     },
     {
         "Ticker": "3443.TW",
@@ -904,10 +904,10 @@
         "M20_Slope": 0.01425132402503611,
         "Name": "創意",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 248.4,
+        "L4_Pass": true,
+        "L4_Value": 33.48
     },
     {
         "Ticker": "3450.TW",
@@ -919,9 +919,9 @@
         "Name": "聯鈞",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2999.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -25.59
     },
     {
         "Ticker": "3504.TW",
@@ -932,10 +932,10 @@
         "M20_Slope": 0.007103679108639771,
         "Name": "揚明光",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 740.7,
+        "L4_Pass": true,
+        "L4_Value": 21.57
     },
     {
         "Ticker": "3518.TW",
@@ -946,10 +946,10 @@
         "M20_Slope": 0.012203544147121178,
         "Name": "柏騰",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 168.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -40.26
     },
     {
         "Ticker": "3532.TW",
@@ -961,9 +961,9 @@
         "Name": "台勝科",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -684.2,
+        "L4_Pass": true,
+        "L4_Value": 15.78
     },
     {
         "Ticker": "3533.TW",
@@ -975,9 +975,9 @@
         "Name": "嘉澤",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -456.9,
+        "L4_Pass": true,
+        "L4_Value": 23.4
     },
     {
         "Ticker": "3563.TW",
@@ -989,9 +989,9 @@
         "Name": "牧德",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -439.7,
+        "L4_Pass": true,
+        "L4_Value": 11.1
     },
     {
         "Ticker": "3583.TW",
@@ -1003,9 +1003,9 @@
         "Name": "辛耘",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -328.1,
+        "L4_Pass": true,
+        "L4_Value": 6.08
     },
     {
         "Ticker": "3591.TW",
@@ -1016,10 +1016,10 @@
         "M20_Slope": 0.011041376133509685,
         "Name": "艾笛森",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2152.7,
+        "L4_Pass": true,
+        "L4_Value": 11.63
     },
     {
         "Ticker": "3645.TW",
@@ -1031,9 +1031,9 @@
         "Name": "達邁",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -3776.5,
+        "L4_Pass": true,
+        "L4_Value": 23.85
     },
     {
         "Ticker": "3653.TW",
@@ -1058,10 +1058,10 @@
         "M20_Slope": 0.01719307182883342,
         "Name": "貿聯-KY",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 616.7,
+        "L4_Pass": true,
+        "L4_Value": 22.21
     },
     {
         "Ticker": "3673.TW",
@@ -1073,9 +1073,9 @@
         "Name": "TPK-KY",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -2528.2,
+        "L4_Pass": true,
+        "L4_Value": 23.59
     },
     {
         "Ticker": "3711.TW",
@@ -1087,9 +1087,9 @@
         "Name": "日月光投控",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1700.4,
+        "L4_Pass": true,
+        "L4_Value": 14.57
     },
     {
         "Ticker": "3714.TW",
@@ -1101,9 +1101,9 @@
         "Name": "富采",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -12397.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -6.51
     },
     {
         "Ticker": "3715.TW",
@@ -1115,9 +1115,9 @@
         "Name": "定穎投控",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -275.6,
+        "L4_Pass": true,
+        "L4_Value": 41.91
     },
     {
         "Ticker": "3717.TW",
@@ -1128,8 +1128,8 @@
         "M20_Slope": 0.006689733866874114,
         "Name": "聯嘉投控",
         "Industry": "汽車工業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 701.0,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -1142,10 +1142,10 @@
         "M20_Slope": 0.0123772009217234,
         "Name": "全球傳動",
         "Industry": "電機機械",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1164.6,
+        "L4_Pass": true,
+        "L4_Value": 75.05
     },
     {
         "Ticker": "4566.TW",
@@ -1156,10 +1156,10 @@
         "M20_Slope": 0.006839441956644604,
         "Name": "時碩工業",
         "Industry": "電機機械",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 153.4,
+        "L4_Pass": true,
+        "L4_Value": 12.61
     },
     {
         "Ticker": "4576.TW",
@@ -1170,10 +1170,10 @@
         "M20_Slope": 0.025826446280991736,
         "Name": "大銀微系統",
         "Industry": "電機機械",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 49.3,
+        "L4_Pass": true,
+        "L4_Value": 49.48
     },
     {
         "Ticker": "4720.TW",
@@ -1184,10 +1184,10 @@
         "M20_Slope": 0.013047026839552783,
         "Name": "德淵",
         "Industry": "化學工業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 993.0,
+        "L4_Pass": true,
+        "L4_Value": 25.16
     },
     {
         "Ticker": "4764.TW",
@@ -1198,10 +1198,10 @@
         "M20_Slope": 0.01972555746140652,
         "Name": "雙鍵",
         "Industry": "化學工業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 111.2,
+        "L4_Pass": true,
+        "L4_Value": 50.27
     },
     {
         "Ticker": "4906.TW",
@@ -1213,9 +1213,9 @@
         "Name": "正文",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -817.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -39.83
     },
     {
         "Ticker": "4916.TW",
@@ -1241,9 +1241,9 @@
         "Name": "新唐",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -4477.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -6.06
     },
     {
         "Ticker": "4927.TW",
@@ -1254,10 +1254,10 @@
         "M20_Slope": 0.0052174881939089325,
         "Name": "泰鼎-KY",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 3257.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -10.65
     },
     {
         "Ticker": "4949.TW",
@@ -1269,9 +1269,9 @@
         "Name": "有成精密",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -9.9,
+        "L4_Pass": true,
+        "L4_Value": 42.24
     },
     {
         "Ticker": "4956.TW",
@@ -1282,10 +1282,10 @@
         "M20_Slope": 0.024935928503827406,
         "Name": "光鋐",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1906.2,
+        "L4_Pass": true,
+        "L4_Value": 12.6
     },
     {
         "Ticker": "4958.TW",
@@ -1296,10 +1296,10 @@
         "M20_Slope": 0.016432953549517966,
         "Name": "臻鼎-KY",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 392.7,
+        "L4_Pass": true,
+        "L4_Value": 7.18
     },
     {
         "Ticker": "4960.TW",
@@ -1310,10 +1310,10 @@
         "M20_Slope": 0.013927007262245937,
         "Name": "誠美材",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 19498.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -23.86
     },
     {
         "Ticker": "4977.TW",
@@ -1324,10 +1324,10 @@
         "M20_Slope": 0.012539184952978085,
         "Name": "眾達-KY",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 69.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -19.39
     },
     {
         "Ticker": "4989.TW",
@@ -1338,10 +1338,10 @@
         "M20_Slope": 0.01829392223898233,
         "Name": "榮科",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 4142.6,
+        "L4_Pass": true,
+        "L4_Value": 53.99
     },
     {
         "Ticker": "5234.TW",
@@ -1352,10 +1352,10 @@
         "M20_Slope": 0.006715784595331522,
         "Name": "達興材料",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 454.4,
+        "L4_Pass": true,
+        "L4_Value": 5.52
     },
     {
         "Ticker": "5243.TW",
@@ -1367,9 +1367,9 @@
         "Name": "乙盛-KY",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -87.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -3.17
     },
     {
         "Ticker": "5244.TW",
@@ -1381,9 +1381,9 @@
         "Name": "弘凱",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -169.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -18.76
     },
     {
         "Ticker": "5284.TW",
@@ -1394,10 +1394,10 @@
         "M20_Slope": 0.007536382536382378,
         "Name": "jpp-KY",
         "Industry": "其他業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 390.4,
+        "L4_Pass": true,
+        "L4_Value": 47.49
     },
     {
         "Ticker": "5434.TW",
@@ -1408,10 +1408,10 @@
         "M20_Slope": 0.01116758536759962,
         "Name": "崇越",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 467.4,
+        "L4_Pass": true,
+        "L4_Value": 30.64
     },
     {
         "Ticker": "5515.TW",
@@ -1423,9 +1423,9 @@
         "Name": "建國",
         "Industry": "建材營造業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -341.7,
+        "L4_Pass": true,
+        "L4_Value": 84.03
     },
     {
         "Ticker": "6139.TW",
@@ -1436,10 +1436,10 @@
         "M20_Slope": 0.011712782210151039,
         "Name": "亞翔",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 6205.6,
+        "L4_Pass": true,
+        "L4_Value": 47.45
     },
     {
         "Ticker": "6141.TW",
@@ -1450,10 +1450,10 @@
         "M20_Slope": 0.011158799966144183,
         "Name": "柏承",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 300.0,
+        "L4_Pass": true,
+        "L4_Value": 9.42
     },
     {
         "Ticker": "6166.TW",
@@ -1464,10 +1464,10 @@
         "M20_Slope": 0.0102049099853324,
         "Name": "凌華",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 785.8,
+        "L4_Pass": true,
+        "L4_Value": 28.76
     },
     {
         "Ticker": "6168.TW",
@@ -1479,9 +1479,9 @@
         "Name": "宏齊",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -1539.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -0.94
     },
     {
         "Ticker": "6196.TW",
@@ -1492,10 +1492,10 @@
         "M20_Slope": 0.012270450751252125,
         "Name": "帆宣",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 129.0,
+        "L4_Pass": true,
+        "L4_Value": 17.51
     },
     {
         "Ticker": "6205.TW",
@@ -1507,9 +1507,9 @@
         "Name": "詮欣",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -186.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -16.67
     },
     {
         "Ticker": "6213.TW",
@@ -1521,9 +1521,9 @@
         "Name": "聯茂",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -24730.8,
+        "L4_Pass": true,
+        "L4_Value": 13.8
     },
     {
         "Ticker": "6214.TW",
@@ -1534,10 +1534,10 @@
         "M20_Slope": 0.005580357142857143,
         "Name": "精誠",
         "Industry": "資訊服務業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2051.3,
+        "L4_Pass": true,
+        "L4_Value": 31.49
     },
     {
         "Ticker": "6224.TW",
@@ -1548,10 +1548,10 @@
         "M20_Slope": 0.02468662716530199,
         "Name": "聚鼎",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 300.4,
+        "L4_Pass": true,
+        "L4_Value": 1.85
     },
     {
         "Ticker": "6257.TW",
@@ -1563,9 +1563,9 @@
         "Name": "矽格",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -4317.5,
+        "L4_Pass": true,
+        "L4_Value": 16.75
     },
     {
         "Ticker": "6269.TW",
@@ -1576,10 +1576,10 @@
         "M20_Slope": 0.006046243730660842,
         "Name": "台郡",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2301.9,
+        "L4_Pass": true,
+        "L4_Value": 8.56
     },
     {
         "Ticker": "6271.TW",
@@ -1591,9 +1591,9 @@
         "Name": "同欣電",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2252.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -4.62
     },
     {
         "Ticker": "6278.TW",
@@ -1604,10 +1604,10 @@
         "M20_Slope": 0.027823558767889417,
         "Name": "台表科",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 2927.7,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -2.63
     },
     {
         "Ticker": "6285.TW",
@@ -1660,10 +1660,10 @@
         "M20_Slope": 0.02019755270529271,
         "Name": "統新",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 664.2,
+        "L4_Pass": true,
+        "L4_Value": 70.04
     },
     {
         "Ticker": "6438.TW",
@@ -1674,10 +1674,10 @@
         "M20_Slope": 0.006651243493348789,
         "Name": "迅得",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1203.1,
+        "L4_Pass": true,
+        "L4_Value": 15.66
     },
     {
         "Ticker": "6442.TW",
@@ -1688,10 +1688,10 @@
         "M20_Slope": 0.007413709285367039,
         "Name": "光聖",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 660.4,
+        "L4_Pass": true,
+        "L4_Value": 75.56
     },
     {
         "Ticker": "6451.TW",
@@ -1702,10 +1702,10 @@
         "M20_Slope": 0.03207721240508129,
         "Name": "訊芯-KY",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 184.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -25.39
     },
     {
         "Ticker": "6456.TW",
@@ -1717,9 +1717,9 @@
         "Name": "GIS-KY",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -12873.8,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -15.22
     },
     {
         "Ticker": "6531.TW",
@@ -1730,10 +1730,10 @@
         "M20_Slope": 0.006956521739130478,
         "Name": "愛普*",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1671.5,
+        "L4_Pass": true,
+        "L4_Value": 112.62
     },
     {
         "Ticker": "6658.TW",
@@ -1744,10 +1744,10 @@
         "M20_Slope": 0.00798733466919979,
         "Name": "聯策",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 117.4,
+        "L4_Pass": true,
+        "L4_Value": 60.87
     },
     {
         "Ticker": "6672.TW",
@@ -1759,9 +1759,9 @@
         "Name": "騰輝電子-KY",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -960.2,
+        "L4_Pass": true,
+        "L4_Value": 32.73
     },
     {
         "Ticker": "6706.TW",
@@ -1773,9 +1773,9 @@
         "Name": "惠特",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2428.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -59.57
     },
     {
         "Ticker": "6715.TW",
@@ -1786,10 +1786,10 @@
         "M20_Slope": 0.013512562460412285,
         "Name": "嘉基",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 49.2,
+        "L4_Pass": true,
+        "L4_Value": 9.55
     },
     {
         "Ticker": "6789.TW",
@@ -1800,10 +1800,10 @@
         "M20_Slope": 0.010319017513262151,
         "Name": "采鈺",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 473.8,
+        "L4_Pass": true,
+        "L4_Value": 6.24
     },
     {
         "Ticker": "6831.TW",
@@ -1814,8 +1814,8 @@
         "M20_Slope": 0.020596980097766296,
         "Name": "邁科",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 747.1,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -1828,10 +1828,10 @@
         "M20_Slope": 0.008340983818417962,
         "Name": "天二科技",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 163.4,
+        "L4_Pass": true,
+        "L4_Value": 32.6
     },
     {
         "Ticker": "6909.TW",
@@ -1843,9 +1843,9 @@
         "Name": "創控",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -860.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -9.62
     },
     {
         "Ticker": "6933.TW",
@@ -1857,9 +1857,9 @@
         "Name": "AMAX-KY",
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -75.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -13.74
     },
     {
         "Ticker": "6937.TW",
@@ -1870,10 +1870,10 @@
         "M20_Slope": 0.005746061167747957,
         "Name": "天虹",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 198.0,
+        "L4_Pass": true,
+        "L4_Value": 26.65
     },
     {
         "Ticker": "6944.TW",
@@ -1885,9 +1885,9 @@
         "Name": "兆聯實業",
         "Industry": "綠能環保",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -375.9,
+        "L4_Pass": true,
+        "L4_Value": 23.45
     },
     {
         "Ticker": "7711.TW",
@@ -1898,8 +1898,8 @@
         "M20_Slope": 0.010055665289998246,
         "Name": "永擎",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 114.0,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -1912,8 +1912,8 @@
         "M20_Slope": 0.027043462235895585,
         "Name": "微程式",
         "Industry": "數位雲端",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 136.9,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -1926,10 +1926,10 @@
         "M20_Slope": 0.023276633840644583,
         "Name": "尖點",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 702.7,
+        "L4_Pass": true,
+        "L4_Value": 51.36
     },
     {
         "Ticker": "8039.TW",
@@ -1941,9 +1941,9 @@
         "Name": "台虹",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1338.8,
+        "L4_Pass": true,
+        "L4_Value": 10.46
     },
     {
         "Ticker": "8046.TW",
@@ -1954,10 +1954,10 @@
         "M20_Slope": 0.013212151813515144,
         "Name": "南電",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2556.0,
+        "L4_Pass": true,
+        "L4_Value": 39.03
     },
     {
         "Ticker": "8104.TW",
@@ -1969,9 +1969,9 @@
         "Name": "錸寶",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -444.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -36.73
     },
     {
         "Ticker": "8210.TW",
@@ -1982,10 +1982,10 @@
         "M20_Slope": 0.007204610951008645,
         "Name": "勤誠",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1534.0,
+        "L4_Pass": true,
+        "L4_Value": 44.72
     },
     {
         "Ticker": "8215.TW",
@@ -1997,9 +1997,9 @@
         "Name": "明基材",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -555.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -3.14
     },
     {
         "Ticker": "8261.TW",
@@ -2010,10 +2010,10 @@
         "M20_Slope": 0.00635383817523164,
         "Name": "富鼎",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2277.8,
+        "L4_Pass": true,
+        "L4_Value": 10.86
     },
     {
         "Ticker": "8438.TW",
@@ -2025,9 +2025,9 @@
         "Name": "昶昕",
         "Industry": "綠能環保",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -260.6,
+        "L4_Pass": true,
+        "L4_Value": 20.75
     },
     {
         "Ticker": "8996.TW",
@@ -2039,9 +2039,9 @@
         "Name": "高力",
         "Industry": "電機機械",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -425.6,
+        "L4_Pass": true,
+        "L4_Value": 205.35
     },
     {
         "Ticker": "9933.TW",
@@ -2053,9 +2053,9 @@
         "Name": "中鼎",
         "Industry": "其他業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2753.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -24.62
     },
     {
         "Ticker": "6854.TW",
@@ -2066,10 +2066,10 @@
         "M20_Slope": 0.009336099585062202,
         "Name": "錼創科技-KY創",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 69.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -29.76
     },
     {
         "Ticker": "7610.TW",
@@ -2081,7 +2081,7 @@
         "Name": "聯友金屬-創",
         "Industry": "綠能環保",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -4.0,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -2094,10 +2094,10 @@
         "M20_Slope": 0.012963670642775612,
         "Name": "駿吉-KY",
         "Industry": "電機機械",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 171.2,
+        "L4_Pass": true,
+        "L4_Value": 2218.26
     },
     {
         "Ticker": "1595.TWO",
@@ -2109,9 +2109,9 @@
         "Name": "川寶",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -283.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -20.91
     },
     {
         "Ticker": "1785.TWO",
@@ -2123,9 +2123,9 @@
         "Name": "光洋科",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -5152.4,
+        "L4_Pass": true,
+        "L4_Value": 95.58
     },
     {
         "Ticker": "1815.TWO",
@@ -2136,10 +2136,10 @@
         "M20_Slope": 0.006768110525425956,
         "Name": "富喬",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 4032.2,
+        "L4_Pass": true,
+        "L4_Value": 33.01
     },
     {
         "Ticker": "3071.TWO",
@@ -2151,9 +2151,9 @@
         "Name": "協禧",
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -285.0,
+        "L4_Pass": true,
+        "L4_Value": 29.37
     },
     {
         "Ticker": "3081.TWO",
@@ -2164,10 +2164,10 @@
         "M20_Slope": 0.0314107771459518,
         "Name": "聯亞",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 336.6,
+        "L4_Pass": true,
+        "L4_Value": 89.35
     },
     {
         "Ticker": "3088.TWO",
@@ -2178,10 +2178,10 @@
         "M20_Slope": 0.008010761595046803,
         "Name": "艾訊",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 537.1,
+        "L4_Pass": true,
+        "L4_Value": 30.52
     },
     {
         "Ticker": "3093.TWO",
@@ -2193,9 +2193,9 @@
         "Name": "港建*",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -1107.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -85.56
     },
     {
         "Ticker": "3105.TWO",
@@ -2206,10 +2206,10 @@
         "M20_Slope": 0.02765536181899467,
         "Name": "穩懋",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 20452.5,
+        "L4_Pass": true,
+        "L4_Value": 34.25
     },
     {
         "Ticker": "3152.TWO",
@@ -2221,9 +2221,9 @@
         "Name": "璟德",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -238.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -0.96
     },
     {
         "Ticker": "3211.TWO",
@@ -2235,9 +2235,9 @@
         "Name": "順達",
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -954.9,
+        "L4_Pass": true,
+        "L4_Value": 76.33
     },
     {
         "Ticker": "3221.TWO",
@@ -2249,9 +2249,9 @@
         "Name": "台嘉碩",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -42.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -4.5
     },
     {
         "Ticker": "3234.TWO",
@@ -2263,9 +2263,9 @@
         "Name": "光環",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -184.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -9.16
     },
     {
         "Ticker": "3264.TWO",
@@ -2277,9 +2277,9 @@
         "Name": "欣銓",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -2807.5,
+        "L4_Pass": true,
+        "L4_Value": 27.02
     },
     {
         "Ticker": "3265.TWO",
@@ -2291,9 +2291,9 @@
         "Name": "台星科",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -204.1,
+        "L4_Pass": true,
+        "L4_Value": 25.29
     },
     {
         "Ticker": "3289.TWO",
@@ -2305,9 +2305,9 @@
         "Name": "宜特",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2482.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -11.15
     },
     {
         "Ticker": "3317.TWO",
@@ -2318,10 +2318,10 @@
         "M20_Slope": 0.0068311551585571164,
         "Name": "尼克森",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 139.0,
+        "L4_Pass": true,
+        "L4_Value": 12.55
     },
     {
         "Ticker": "3339.TWO",
@@ -2332,10 +2332,10 @@
         "M20_Slope": 0.044068002736947595,
         "Name": "泰谷",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 361.1,
+        "L4_Pass": true,
+        "L4_Value": 54.07
     },
     {
         "Ticker": "3362.TWO",
@@ -2346,10 +2346,10 @@
         "M20_Slope": 0.007303713528477698,
         "Name": "先進光",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 463.5,
+        "L4_Pass": true,
+        "L4_Value": 16.58
     },
     {
         "Ticker": "3363.TWO",
@@ -2360,10 +2360,10 @@
         "M20_Slope": 0.019331395348837144,
         "Name": "上詮",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 259.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -25.71
     },
     {
         "Ticker": "3388.TWO",
@@ -2375,9 +2375,9 @@
         "Name": "崇越電",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -147.0,
+        "L4_Pass": true,
+        "L4_Value": 26.09
     },
     {
         "Ticker": "3444.TWO",
@@ -2388,10 +2388,10 @@
         "M20_Slope": 0.01283890953669957,
         "Name": "利機",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 131.0,
+        "L4_Pass": true,
+        "L4_Value": 8.99
     },
     {
         "Ticker": "3455.TWO",
@@ -2403,9 +2403,9 @@
         "Name": "由田",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -585.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -83.58
     },
     {
         "Ticker": "3466.TWO",
@@ -2416,10 +2416,10 @@
         "M20_Slope": 0.006298992181435158,
         "Name": "德晉",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 65.5,
+        "L4_Pass": true,
+        "L4_Value": 711.25
     },
     {
         "Ticker": "3490.TWO",
@@ -2431,9 +2431,9 @@
         "Name": "單井",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -65.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -14.16
     },
     {
         "Ticker": "3491.TWO",
@@ -2445,9 +2445,9 @@
         "Name": "昇達科",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -603.7,
+        "L4_Pass": true,
+        "L4_Value": 36.25
     },
     {
         "Ticker": "3498.TWO",
@@ -2459,9 +2459,9 @@
         "Name": "陽程",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -366.0,
+        "L4_Pass": true,
+        "L4_Value": 156.95
     },
     {
         "Ticker": "3529.TWO",
@@ -2472,10 +2472,10 @@
         "M20_Slope": 0.023415141791691962,
         "Name": "力旺",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 449.1,
+        "L4_Pass": true,
+        "L4_Value": 30.35
     },
     {
         "Ticker": "3548.TWO",
@@ -2486,10 +2486,10 @@
         "M20_Slope": 0.011939600575967144,
         "Name": "兆利",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 189.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -36.55
     },
     {
         "Ticker": "3580.TWO",
@@ -2501,9 +2501,9 @@
         "Name": "友威科",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -889.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -21.7
     },
     {
         "Ticker": "3581.TWO",
@@ -2514,10 +2514,10 @@
         "M20_Slope": 0.02949465810118907,
         "Name": "博磊",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 191.0,
+        "L4_Pass": true,
+        "L4_Value": 39.67
     },
     {
         "Ticker": "3587.TWO",
@@ -2528,10 +2528,10 @@
         "M20_Slope": 0.03513298928146087,
         "Name": "閎康",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 372.4,
+        "L4_Pass": true,
+        "L4_Value": 21.27
     },
     {
         "Ticker": "3693.TWO",
@@ -2542,10 +2542,10 @@
         "M20_Slope": 0.012359550561797796,
         "Name": "營邦",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 221.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -24.82
     },
     {
         "Ticker": "4541.TWO",
@@ -2556,10 +2556,10 @@
         "M20_Slope": 0.00750305447578976,
         "Name": "晟田",
         "Industry": "其他業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 909.0,
+        "L4_Pass": true,
+        "L4_Value": 83.94
     },
     {
         "Ticker": "4543.TWO",
@@ -2571,9 +2571,9 @@
         "Name": "萬在",
         "Industry": "電機機械",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -602.2,
+        "L4_Pass": true,
+        "L4_Value": 49.07
     },
     {
         "Ticker": "4577.TWO",
@@ -2584,10 +2584,10 @@
         "M20_Slope": 0.024858402814004362,
         "Name": "達航科技",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 84.0,
+        "L4_Pass": true,
+        "L4_Value": 83.1
     },
     {
         "Ticker": "4707.TWO",
@@ -2599,9 +2599,9 @@
         "Name": "磐亞",
         "Industry": "化學工業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -175.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -15.87
     },
     {
         "Ticker": "4716.TWO",
@@ -2612,10 +2612,10 @@
         "M20_Slope": 0.005695549021622758,
         "Name": "大立",
         "Industry": "化學工業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 717.0,
+        "L4_Pass": true,
+        "L4_Value": 18.94
     },
     {
         "Ticker": "4721.TWO",
@@ -2627,9 +2627,9 @@
         "Name": "美琪瑪",
         "Industry": "化學工業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -183.0,
+        "L4_Pass": true,
+        "L4_Value": 121.08
     },
     {
         "Ticker": "4760.TWO",
@@ -2641,9 +2641,9 @@
         "Name": "勤凱",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -225.0,
+        "L4_Pass": true,
+        "L4_Value": 72.27
     },
     {
         "Ticker": "4908.TWO",
@@ -2655,9 +2655,9 @@
         "Name": "前鼎",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -200.3,
+        "L4_Pass": true,
+        "L4_Value": 5.97
     },
     {
         "Ticker": "4939.TWO",
@@ -2668,10 +2668,10 @@
         "M20_Slope": 0.015345059587020544,
         "Name": "亞電",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 1996.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -1.89
     },
     {
         "Ticker": "4979.TWO",
@@ -2682,10 +2682,10 @@
         "M20_Slope": 0.030951675066706222,
         "Name": "華星光",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 5412.1,
+        "L4_Pass": true,
+        "L4_Value": 20.18
     },
     {
         "Ticker": "4991.TWO",
@@ -2696,10 +2696,10 @@
         "M20_Slope": 0.032530248354914006,
         "Name": "環宇-KY",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 205.1,
+        "L4_Pass": true,
+        "L4_Value": 39.97
     },
     {
         "Ticker": "5228.TWO",
@@ -2710,10 +2710,10 @@
         "M20_Slope": 0.023684719086353747,
         "Name": "鈺鎧",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 73.0,
+        "L4_Pass": true,
+        "L4_Value": 82.12
     },
     {
         "Ticker": "5340.TWO",
@@ -2725,9 +2725,9 @@
         "Name": "建榮",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1885.6,
+        "L4_Pass": true,
+        "L4_Value": 18.48
     },
     {
         "Ticker": "5439.TWO",
@@ -2738,10 +2738,10 @@
         "M20_Slope": 0.020408163265306086,
         "Name": "高技",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2945.5,
+        "L4_Pass": true,
+        "L4_Value": 60.32
     },
     {
         "Ticker": "5475.TWO",
@@ -2753,9 +2753,9 @@
         "Name": "德宏",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -404.8,
+        "L4_Pass": true,
+        "L4_Value": 105.08
     },
     {
         "Ticker": "5536.TWO",
@@ -2766,10 +2766,10 @@
         "M20_Slope": 0.009688203588728966,
         "Name": "聖暉*",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1974.2,
+        "L4_Pass": true,
+        "L4_Value": 60.12
     },
     {
         "Ticker": "6127.TWO",
@@ -2780,10 +2780,10 @@
         "M20_Slope": 0.011505604809707899,
         "Name": "九豪",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1627.0,
+        "L4_Pass": true,
+        "L4_Value": 10.04
     },
     {
         "Ticker": "6147.TWO",
@@ -2795,9 +2795,9 @@
         "Name": "頎邦",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -575.3,
+        "L4_Pass": true,
+        "L4_Value": 11.45
     },
     {
         "Ticker": "6163.TWO",
@@ -2808,10 +2808,10 @@
         "M20_Slope": 0.006730459796422535,
         "Name": "華電網",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 7272.0,
+        "L4_Pass": true,
+        "L4_Value": 69.39
     },
     {
         "Ticker": "6173.TWO",
@@ -2822,10 +2822,10 @@
         "M20_Slope": 0.019679239022545703,
         "Name": "信昌電",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 3684.6,
+        "L4_Pass": true,
+        "L4_Value": 12.69
     },
     {
         "Ticker": "6174.TWO",
@@ -2837,9 +2837,9 @@
         "Name": "安碁",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -29.9,
+        "L4_Pass": true,
+        "L4_Value": 30.99
     },
     {
         "Ticker": "6175.TWO",
@@ -2851,9 +2851,9 @@
         "Name": "立敦",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -138.1,
+        "L4_Pass": true,
+        "L4_Value": 18.86
     },
     {
         "Ticker": "6187.TWO",
@@ -2865,9 +2865,9 @@
         "Name": "萬潤",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -2072.2,
+        "L4_Pass": true,
+        "L4_Value": 19.59
     },
     {
         "Ticker": "6190.TWO",
@@ -2878,10 +2878,10 @@
         "M20_Slope": 0.00943973360322936,
         "Name": "萬泰科",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 829.0,
+        "L4_Pass": true,
+        "L4_Value": 11.86
     },
     {
         "Ticker": "6208.TWO",
@@ -2892,10 +2892,10 @@
         "M20_Slope": 0.0249108642907098,
         "Name": "日揚",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 76.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -18.4
     },
     {
         "Ticker": "6217.TWO",
@@ -2906,10 +2906,10 @@
         "M20_Slope": 0.01994818652849738,
         "Name": "中探針",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 223.0,
+        "L4_Pass": true,
+        "L4_Value": 15.42
     },
     {
         "Ticker": "6218.TWO",
@@ -2920,10 +2920,10 @@
         "M20_Slope": 0.02360237554070393,
         "Name": "豪勉",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 7.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -16.1
     },
     {
         "Ticker": "6234.TWO",
@@ -2935,9 +2935,9 @@
         "Name": "高僑",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -751.0,
+        "L4_Pass": true,
+        "L4_Value": 63.64
     },
     {
         "Ticker": "6245.TWO",
@@ -2948,10 +2948,10 @@
         "M20_Slope": 0.011675629612508702,
         "Name": "立端",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1686.3,
+        "L4_Pass": true,
+        "L4_Value": 18.83
     },
     {
         "Ticker": "6259.TWO",
@@ -2963,9 +2963,9 @@
         "Name": "百徽",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -89.8,
+        "L4_Pass": true,
+        "L4_Value": 37.12
     },
     {
         "Ticker": "6261.TWO",
@@ -2976,10 +2976,10 @@
         "M20_Slope": 0.006780803058240419,
         "Name": "久元",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1391.0,
+        "L4_Pass": true,
+        "L4_Value": 4.15
     },
     {
         "Ticker": "6274.TWO",
@@ -2990,10 +2990,10 @@
         "M20_Slope": 0.0311565730664646,
         "Name": "台燿",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 499.4,
+        "L4_Pass": true,
+        "L4_Value": 72.34
     },
     {
         "Ticker": "6291.TWO",
@@ -3005,9 +3005,9 @@
         "Name": "沛亨",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -930.8,
+        "L4_Pass": true,
+        "L4_Value": 43.44
     },
     {
         "Ticker": "6425.TWO",
@@ -3019,9 +3019,9 @@
         "Name": "易發",
         "Industry": "電機機械",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -542.0,
+        "L4_Pass": true,
+        "L4_Value": 7.17
     },
     {
         "Ticker": "6462.TWO",
@@ -3033,9 +3033,9 @@
         "Name": "神盾",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1788.3,
+        "L4_Pass": true,
+        "L4_Value": 100.42
     },
     {
         "Ticker": "6530.TWO",
@@ -3046,10 +3046,10 @@
         "M20_Slope": 0.02568885426734895,
         "Name": "創威",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1112.8,
+        "L4_Pass": true,
+        "L4_Value": 10.57
     },
     {
         "Ticker": "6532.TWO",
@@ -3060,10 +3060,10 @@
         "M20_Slope": 0.008606421671193862,
         "Name": "瑞耘",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 125.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -4.13
     },
     {
         "Ticker": "6548.TWO",
@@ -3075,9 +3075,9 @@
         "Name": "長科*",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1267.8,
+        "L4_Pass": true,
+        "L4_Value": 20.12
     },
     {
         "Ticker": "6568.TWO",
@@ -3088,10 +3088,10 @@
         "M20_Slope": 0.00760233918128655,
         "Name": "宏觀",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 725.9,
+        "L4_Pass": true,
+        "L4_Value": 65.87
     },
     {
         "Ticker": "6588.TWO",
@@ -3103,9 +3103,9 @@
         "Name": "東典光電",
         "Industry": "通信網路業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -453.8,
+        "L4_Pass": true,
+        "L4_Value": 146.24
     },
     {
         "Ticker": "6664.TWO",
@@ -3117,9 +3117,9 @@
         "Name": "群翊",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -939.0,
+        "L4_Pass": true,
+        "L4_Value": 22.91
     },
     {
         "Ticker": "6667.TWO",
@@ -3130,10 +3130,10 @@
         "M20_Slope": 0.006494155260265761,
         "Name": "信紘科",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 404.0,
+        "L4_Pass": true,
+        "L4_Value": 41.3
     },
     {
         "Ticker": "6693.TWO",
@@ -3144,10 +3144,10 @@
         "M20_Slope": 0.017599660729431626,
         "Name": "廣閎科",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 78.0,
+        "L4_Pass": true,
+        "L4_Value": 111.9
     },
     {
         "Ticker": "6725.TWO",
@@ -3158,8 +3158,8 @@
         "M20_Slope": 0.02632960111966402,
         "Name": "矽科宏晟",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 25.3,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -3173,9 +3173,9 @@
         "Name": "竹陞科技",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -68.0,
+        "L4_Pass": true,
+        "L4_Value": 87.84
     },
     {
         "Ticker": "6761.TWO",
@@ -3186,10 +3186,10 @@
         "M20_Slope": 0.00765951953887262,
         "Name": "穩得",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 115.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -14.75
     },
     {
         "Ticker": "6788.TWO",
@@ -3200,10 +3200,10 @@
         "M20_Slope": 0.006108086575488013,
         "Name": "華景電",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1422.0,
+        "L4_Pass": true,
+        "L4_Value": 2.29
     },
     {
         "Ticker": "6821.TWO",
@@ -3214,10 +3214,10 @@
         "M20_Slope": 0.029179473399384582,
         "Name": "聯寶",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 121.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -17.59
     },
     {
         "Ticker": "6829.TWO",
@@ -3228,10 +3228,10 @@
         "M20_Slope": 0.03314034737472554,
         "Name": "千附精密",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 95.8,
+        "L4_Pass": true,
+        "L4_Value": 107.14
     },
     {
         "Ticker": "6903.TWO",
@@ -3243,9 +3243,9 @@
         "Name": "巨漢",
         "Industry": "其他電子業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -56.0,
+        "L4_Pass": true,
+        "L4_Value": 320.45
     },
     {
         "Ticker": "8027.TWO",
@@ -3257,9 +3257,9 @@
         "Name": "鈦昇",
         "Industry": "電機機械",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -3595.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -9.58
     },
     {
         "Ticker": "8040.TWO",
@@ -3271,9 +3271,9 @@
         "Name": "九暘",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -205.0,
+        "L4_Pass": true,
+        "L4_Value": 46.02
     },
     {
         "Ticker": "8042.TWO",
@@ -3285,9 +3285,9 @@
         "Name": "金山電",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -42.5,
+        "L4_Pass": true,
+        "L4_Value": 20.54
     },
     {
         "Ticker": "8043.TWO",
@@ -3299,9 +3299,9 @@
         "Name": "蜜望實",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -531.0,
+        "L4_Pass": true,
+        "L4_Value": 170.48
     },
     {
         "Ticker": "8064.TWO",
@@ -3312,10 +3312,10 @@
         "M20_Slope": 0.007664468834160309,
         "Name": "東捷",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 4678.0,
+        "L4_Pass": true,
+        "L4_Value": 27.24
     },
     {
         "Ticker": "8086.TWO",
@@ -3327,9 +3327,9 @@
         "Name": "宏捷科",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -1151.3,
+        "L4_Pass": true,
+        "L4_Value": 47.95
     },
     {
         "Ticker": "8091.TWO",
