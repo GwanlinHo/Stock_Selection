@@ -102,20 +102,24 @@ class DataIngestion:
         df_slim.to_parquet(self.CACHE_DIR / f"{ticker}.parquet")
 
     def cleanup_cache(self, expiry_days=90):
-        """清理超過 N 天未更新的過時快取檔案"""
-        log.info(f"掃描快取資料夾，清理超過 {expiry_days} 天未更新的資料...")
+        """清理超過 N 天未更新的過時快取檔案 (通常為下市或停止追蹤的股票)"""
+        log.info(f"掃描快取資料夾，清理超過 {expiry_days} 天未更新的過時資料...")
         count = 0
+        now = time.time()
+        expiry_seconds = expiry_days * 86400
+
         for path in self.CACHE_DIR.glob("*.parquet"):
             try:
-                df = pd.read_parquet(path)
-                if not df.empty:
-                    last_date = df.index.max()
-                    # 確保 last_date 是 datetime 型態
-                    if (datetime.now() - pd.to_datetime(last_date)).days > expiry_days:
-                        path.unlink()
-                        count += 1
-            except:
-                path.unlink()
-                count += 1
+                # 使用檔案最後修改時間判定，效能較佳
+                mtime = os.path.getmtime(path)
+                if (now - mtime) > expiry_seconds:
+                    path.unlink()
+                    count += 1
+            except Exception as e:
+                log.warning(f"清理快取檔案 {path.name} 時出錯: {e}")
+        
         if count > 0:
+            log.info(f"清理完成: 已移除 {count} 檔過時股票資料。")
+        else:
+            log.info("快取檢查完成，無過時資料需要移除。")
             log.info(f"已清理 {count} 個過時快取檔案。")

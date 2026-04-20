@@ -11,7 +11,7 @@
         "L3_Pass": false,
         "L3_Value": -6172.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -8.97
     },
     {
         "Ticker": "1103.TW",
@@ -25,7 +25,7 @@
         "L3_Pass": true,
         "L3_Value": 270.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -8.85
     },
     {
         "Ticker": "1203.TW",
@@ -39,7 +39,7 @@
         "L3_Pass": true,
         "L3_Value": 95.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -10.87
     },
     {
         "Ticker": "1219.TW",
@@ -52,8 +52,8 @@
         "Industry": "食品工業",
         "L3_Pass": true,
         "L3_Value": 56.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 0.74
     },
     {
         "Ticker": "1225.TW",
@@ -66,8 +66,8 @@
         "Industry": "食品工業",
         "L3_Pass": true,
         "L3_Value": 89.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 1.57
     },
     {
         "Ticker": "1235.TW",
@@ -80,8 +80,8 @@
         "Industry": "食品工業",
         "L3_Pass": true,
         "L3_Value": 56.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 49.78
     },
     {
         "Ticker": "1301.TW",
@@ -94,8 +94,8 @@
         "Industry": "塑膠工業",
         "L3_Pass": true,
         "L3_Value": 28661.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 1.53
     },
     {
         "Ticker": "1312.TW",
@@ -108,8 +108,8 @@
         "Industry": "塑膠工業",
         "L3_Pass": false,
         "L3_Value": -7275.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.51
     },
     {
         "Ticker": "1326.TW",
@@ -122,8 +122,8 @@
         "Industry": "塑膠工業",
         "L3_Pass": false,
         "L3_Value": -24126.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 21.56
     },
     {
         "Ticker": "1341.TW",
@@ -136,8 +136,8 @@
         "Industry": "塑膠工業",
         "L3_Pass": true,
         "L3_Value": 9.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 15.11
     },
     {
         "Ticker": "1342.TW",
@@ -150,8 +150,8 @@
         "Industry": "其他業",
         "L3_Pass": true,
         "L3_Value": 87.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 31.74
     },
     {
         "Ticker": "1445.TW",
@@ -165,7 +165,7 @@
         "L3_Pass": true,
         "L3_Value": 56.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -25.33
     },
     {
         "Ticker": "1449.TW",
@@ -178,8 +178,8 @@
         "Industry": "紡織纖維",
         "L3_Pass": false,
         "L3_Value": -563.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 33.62
     },
     {
         "Ticker": "1452.TW",
@@ -192,8 +192,8 @@
         "Industry": "紡織纖維",
         "L3_Pass": true,
         "L3_Value": 60.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 40.44
     },
     {
         "Ticker": "1454.TW",
@@ -207,7 +207,7 @@
         "L3_Pass": true,
         "L3_Value": 12.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -26.22
     },
     {
         "Ticker": "1456.TW",
@@ -221,7 +221,7 @@
         "L3_Pass": true,
         "L3_Value": 20.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -14.03
     },
     {
         "Ticker": "1465.TW",
@@ -234,8 +234,8 @@
         "Industry": "紡織纖維",
         "L3_Pass": true,
         "L3_Value": 20.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 37.79
     },
     {
         "Ticker": "1470.TW",
@@ -249,7 +249,7 @@
         "L3_Pass": true,
         "L3_Value": 21.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -24.02
     },
     {
         "Ticker": "1474.TW",
@@ -262,8 +262,8 @@
         "Industry": "紡織纖維",
         "L3_Pass": true,
         "L3_Value": 2.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.96
     },
     {
         "Ticker": "1524.TW",
@@ -277,7 +277,7 @@
         "L3_Pass": false,
         "L3_Value": -202.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -30.4
     },
     {
         "Ticker": "1528.TW",
@@ -290,8 +290,8 @@
         "Industry": "電機機械",
         "L3_Pass": true,
         "L3_Value": 3497.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 30.9
     },
     {
         "Ticker": "1530.TW",
@@ -305,7 +305,7 @@
         "L3_Pass": true,
         "L3_Value": 36.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -0.61
     },
     {
         "Ticker": "1560.TW",
@@ -318,8 +318,8 @@
         "Industry": "電機機械",
         "L3_Pass": true,
         "L3_Value": 1821.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 31.15
     },
     {
         "Ticker": "1568.TW",
@@ -332,8 +332,8 @@
         "Industry": "汽車工業",
         "L3_Pass": true,
         "L3_Value": 91.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 27.04
     },
     {
         "Ticker": "1582.TW",
@@ -347,7 +347,7 @@
         "L3_Pass": false,
         "L3_Value": -1741.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -0.1
     },
     {
         "Ticker": "1583.TW",
@@ -360,8 +360,8 @@
         "Industry": "電機機械",
         "L3_Pass": true,
         "L3_Value": 21.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 44.32
     },
     {
         "Ticker": "1590.TW",
@@ -374,8 +374,8 @@
         "Industry": "電機機械",
         "L3_Pass": false,
         "L3_Value": -228.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 18.09
     },
     {
         "Ticker": "1597.TW",
@@ -388,8 +388,8 @@
         "Industry": "電機機械",
         "L3_Pass": true,
         "L3_Value": 1047.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 38.54
     },
     {
         "Ticker": "1598.TW",
@@ -402,8 +402,8 @@
         "Industry": "運動休閒",
         "L3_Pass": true,
         "L3_Value": 289.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 16.8
     },
     {
         "Ticker": "1617.TW",
@@ -416,8 +416,8 @@
         "Industry": "電器電纜",
         "L3_Pass": true,
         "L3_Value": 146.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 45.47
     },
     {
         "Ticker": "1623.TW",
@@ -445,7 +445,7 @@
         "L3_Pass": false,
         "L3_Value": -40.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -11.46
     },
     {
         "Ticker": "1709.TW",
@@ -458,8 +458,8 @@
         "Industry": "化學工業",
         "L3_Pass": true,
         "L3_Value": 410.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 2.23
     },
     {
         "Ticker": "1711.TW",
@@ -472,8 +472,8 @@
         "Industry": "化學工業",
         "L3_Pass": true,
         "L3_Value": 10569.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 28.15
     },
     {
         "Ticker": "1717.TW",
@@ -486,8 +486,8 @@
         "Industry": "化學工業",
         "L3_Pass": true,
         "L3_Value": 1787.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 5.38
     },
     {
         "Ticker": "1721.TW",
@@ -501,7 +501,7 @@
         "L3_Pass": true,
         "L3_Value": 2118.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -22.89
     },
     {
         "Ticker": "1723.TW",
@@ -514,8 +514,8 @@
         "Industry": "化學工業",
         "L3_Pass": true,
         "L3_Value": 524.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 13.81
     },
     {
         "Ticker": "1734.TW",
@@ -528,8 +528,8 @@
         "Industry": "生技醫療業",
         "L3_Pass": true,
         "L3_Value": 466.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 5.08
     },
     {
         "Ticker": "1760.TW",
@@ -542,8 +542,8 @@
         "Industry": "生技醫療業",
         "L3_Pass": true,
         "L3_Value": 146.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.13
     },
     {
         "Ticker": "1802.TW",
@@ -556,8 +556,8 @@
         "Industry": "玻璃陶瓷",
         "L3_Pass": true,
         "L3_Value": 50781.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 16.36
     },
     {
         "Ticker": "2002.TW",
@@ -571,7 +571,7 @@
         "L3_Pass": true,
         "L3_Value": 19189.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -2.3
     },
     {
         "Ticker": "2014.TW",
@@ -585,7 +585,7 @@
         "L3_Pass": true,
         "L3_Value": 1441.8,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -24.74
     },
     {
         "Ticker": "2020.TW",
@@ -599,7 +599,7 @@
         "L3_Pass": false,
         "L3_Value": -1449.7,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -16.77
     },
     {
         "Ticker": "2025.TW",
@@ -612,8 +612,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 100.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 127.24
     },
     {
         "Ticker": "2028.TW",
@@ -626,8 +626,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 61.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 15.8
     },
     {
         "Ticker": "2030.TW",
@@ -641,7 +641,7 @@
         "L3_Pass": true,
         "L3_Value": 49.7,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -3.16
     },
     {
         "Ticker": "2031.TW",
@@ -654,8 +654,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 50.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 0.33
     },
     {
         "Ticker": "2032.TW",
@@ -668,8 +668,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": false,
         "L3_Value": -162.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.13
     },
     {
         "Ticker": "2033.TW",
@@ -682,8 +682,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 61.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 22.54
     },
     {
         "Ticker": "2034.TW",
@@ -696,8 +696,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 1410.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 0.13
     },
     {
         "Ticker": "2049.TW",
@@ -710,8 +710,8 @@
         "Industry": "電機機械",
         "L3_Pass": true,
         "L3_Value": 2609.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.39
     },
     {
         "Ticker": "2059.TW",
@@ -724,8 +724,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 144.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 38.87
     },
     {
         "Ticker": "2062.TW",
@@ -738,8 +738,8 @@
         "Industry": "居家生活",
         "L3_Pass": true,
         "L3_Value": 296.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 20.25
     },
     {
         "Ticker": "2105.TW",
@@ -752,8 +752,8 @@
         "Industry": "橡膠工業",
         "L3_Pass": true,
         "L3_Value": 1895.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 7.24
     },
     {
         "Ticker": "2107.TW",
@@ -766,8 +766,8 @@
         "Industry": "橡膠工業",
         "L3_Pass": true,
         "L3_Value": 118.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 3.88
     },
     {
         "Ticker": "2108.TW",
@@ -780,8 +780,8 @@
         "Industry": "橡膠工業",
         "L3_Pass": false,
         "L3_Value": -259.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 23.83
     },
     {
         "Ticker": "2227.TW",
@@ -795,7 +795,7 @@
         "L3_Pass": true,
         "L3_Value": 106.5,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -19.02
     },
     {
         "Ticker": "2231.TW",
@@ -809,7 +809,7 @@
         "L3_Pass": true,
         "L3_Value": 286.0,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -26.94
     },
     {
         "Ticker": "2236.TW",
@@ -822,8 +822,8 @@
         "Industry": "汽車工業",
         "L3_Pass": false,
         "L3_Value": -72.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 66.09
     },
     {
         "Ticker": "2243.TW",
@@ -836,8 +836,8 @@
         "Industry": "汽車工業",
         "L3_Pass": true,
         "L3_Value": 735.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 52.47
     },
     {
         "Ticker": "2248.TW",
@@ -850,8 +850,8 @@
         "Industry": "汽車工業",
         "L3_Pass": true,
         "L3_Value": 34.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 64.47
     },
     {
         "Ticker": "2303.TW",
@@ -864,8 +864,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 168707.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.89
     },
     {
         "Ticker": "2305.TW",
@@ -878,8 +878,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
         "L3_Value": -379.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 74.93
     },
     {
         "Ticker": "2308.TW",
@@ -892,8 +892,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 3070.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 37.6
     },
     {
         "Ticker": "2313.TW",
@@ -906,8 +906,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -4065.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.12
     },
     {
         "Ticker": "2327.TW",
@@ -920,8 +920,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 11961.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 22.78
     },
     {
         "Ticker": "2329.TW",
@@ -934,8 +934,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 4559.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.1
     },
     {
         "Ticker": "2330.TW",
@@ -948,8 +948,8 @@
         "Industry": "半導體業",
         "L3_Pass": false,
         "L3_Value": -8964.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 45.19
     },
     {
         "Ticker": "2340.TW",
@@ -963,7 +963,7 @@
         "L3_Pass": false,
         "L3_Value": -742.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -10.24
     },
     {
         "Ticker": "2345.TW",
@@ -976,8 +976,8 @@
         "Industry": "通信網路業",
         "L3_Pass": true,
         "L3_Value": 1635.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 44.43
     },
     {
         "Ticker": "2347.TW",
@@ -990,8 +990,8 @@
         "Industry": "電子通路業",
         "L3_Pass": true,
         "L3_Value": 4165.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 64.69
     },
     {
         "Ticker": "2351.TW",
@@ -1004,8 +1004,8 @@
         "Industry": "半導體業",
         "L3_Pass": false,
         "L3_Value": -173.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.88
     },
     {
         "Ticker": "2352.TW",
@@ -1018,8 +1018,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 7122.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.35
     },
     {
         "Ticker": "2355.TW",
@@ -1032,8 +1032,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 3308.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 5.7
     },
     {
         "Ticker": "2356.TW",
@@ -1046,8 +1046,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 16848.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 47.11
     },
     {
         "Ticker": "2360.TW",
@@ -1060,8 +1060,8 @@
         "Industry": "其他電子業",
         "L3_Pass": false,
         "L3_Value": -2641.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 63.49
     },
     {
         "Ticker": "2363.TW",
@@ -1074,8 +1074,8 @@
         "Industry": "半導體業",
         "L3_Pass": false,
         "L3_Value": -1590.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 30.89
     },
     {
         "Ticker": "2368.TW",
@@ -1088,8 +1088,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 798.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 63.14
     },
     {
         "Ticker": "2371.TW",
@@ -1102,8 +1102,8 @@
         "Industry": "電機機械",
         "L3_Pass": false,
         "L3_Value": -2289.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 8.42
     },
     {
         "Ticker": "2373.TW",
@@ -1117,7 +1117,7 @@
         "L3_Pass": true,
         "L3_Value": 86.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -10.45
     },
     {
         "Ticker": "2376.TW",
@@ -1130,8 +1130,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 16063.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 74.84
     },
     {
         "Ticker": "2379.TW",
@@ -1144,8 +1144,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 5581.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.48
     },
     {
         "Ticker": "2382.TW",
@@ -1158,8 +1158,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 4702.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 88.42
     },
     {
         "Ticker": "2383.TW",
@@ -1172,8 +1172,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -472.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 56.63
     },
     {
         "Ticker": "2385.TW",
@@ -1186,8 +1186,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 46.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 3.89
     },
     {
         "Ticker": "2388.TW",
@@ -1200,8 +1200,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 5996.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 69.4
     },
     {
         "Ticker": "2393.TW",
@@ -1215,7 +1215,7 @@
         "L3_Pass": true,
         "L3_Value": 1346.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -4.35
     },
     {
         "Ticker": "2395.TW",
@@ -1228,8 +1228,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 4167.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 21.75
     },
     {
         "Ticker": "2399.TW",
@@ -1243,7 +1243,7 @@
         "L3_Pass": true,
         "L3_Value": 1663.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -21.65
     },
     {
         "Ticker": "2401.TW",
@@ -1256,8 +1256,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 6129.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 22.14
     },
     {
         "Ticker": "2402.TW",
@@ -1270,8 +1270,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -7887.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 13.5
     },
     {
         "Ticker": "2404.TW",
@@ -1284,8 +1284,8 @@
         "Industry": "其他電子業",
         "L3_Pass": true,
         "L3_Value": 3175.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 100.58
     },
     {
         "Ticker": "2409.TW",
@@ -1298,8 +1298,8 @@
         "Industry": "光電業",
         "L3_Pass": false,
         "L3_Value": -96455.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 0.65
     },
     {
         "Ticker": "2414.TW",
@@ -1312,8 +1312,8 @@
         "Industry": "電子通路業",
         "L3_Pass": true,
         "L3_Value": 114.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 47.28
     },
     {
         "Ticker": "2417.TW",
@@ -1326,8 +1326,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 841.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 33.0
     },
     {
         "Ticker": "2419.TW",
@@ -1340,8 +1340,8 @@
         "Industry": "通信網路業",
         "L3_Pass": true,
         "L3_Value": 4511.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 54.96
     },
     {
         "Ticker": "2420.TW",
@@ -1354,8 +1354,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 344.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 3.16
     },
     {
         "Ticker": "2426.TW",
@@ -1369,7 +1369,7 @@
         "L3_Pass": true,
         "L3_Value": 3304.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -14.1
     },
     {
         "Ticker": "2428.TW",
@@ -1382,8 +1382,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 488.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.26
     },
     {
         "Ticker": "2454.TW",
@@ -1396,8 +1396,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 13945.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 12.9
     },
     {
         "Ticker": "2455.TW",
@@ -1410,8 +1410,8 @@
         "Industry": "通信網路業",
         "L3_Pass": true,
         "L3_Value": 2768.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 16.64
     },
     {
         "Ticker": "2460.TW",
@@ -1424,8 +1424,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 25.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 50.09
     },
     {
         "Ticker": "2467.TW",
@@ -1438,8 +1438,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 541.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 77.59
     },
     {
         "Ticker": "2472.TW",
@@ -1452,8 +1452,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -1309.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 9.32
     },
     {
         "Ticker": "2474.TW",
@@ -1467,7 +1467,7 @@
         "L3_Pass": false,
         "L3_Value": -332.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -24.96
     },
     {
         "Ticker": "2476.TW",
@@ -1480,8 +1480,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 2388.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 42.01
     },
     {
         "Ticker": "2478.TW",
@@ -1494,8 +1494,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 4675.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 13.53
     },
     {
         "Ticker": "2481.TW",
@@ -1508,8 +1508,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 14707.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 19.14
     },
     {
         "Ticker": "2482.TW",
@@ -1523,7 +1523,7 @@
         "L3_Pass": true,
         "L3_Value": 82.1,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -13.95
     },
     {
         "Ticker": "2483.TW",
@@ -1536,8 +1536,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 60.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.75
     },
     {
         "Ticker": "2484.TW",
@@ -1551,7 +1551,7 @@
         "L3_Pass": true,
         "L3_Value": 1022.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -4.57
     },
     {
         "Ticker": "2486.TW",
@@ -1564,8 +1564,8 @@
         "Industry": "光電業",
         "L3_Pass": true,
         "L3_Value": 713.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 20.12
     },
     {
         "Ticker": "2488.TW",
@@ -1579,7 +1579,7 @@
         "L3_Pass": true,
         "L3_Value": 67.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -14.04
     },
     {
         "Ticker": "2489.TW",
@@ -1592,8 +1592,8 @@
         "Industry": "光電業",
         "L3_Pass": true,
         "L3_Value": 2901.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.17
     },
     {
         "Ticker": "2492.TW",
@@ -1606,8 +1606,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 8107.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.13
     },
     {
         "Ticker": "2493.TW",
@@ -1621,7 +1621,7 @@
         "L3_Pass": false,
         "L3_Value": -1456.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -6.18
     },
     {
         "Ticker": "2495.TW",
@@ -1634,8 +1634,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 2908.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 61.01
     },
     {
         "Ticker": "2497.TW",
@@ -1648,8 +1648,8 @@
         "Industry": "汽車工業",
         "L3_Pass": true,
         "L3_Value": 296.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.7
     },
     {
         "Ticker": "2501.TW",
@@ -1662,8 +1662,8 @@
         "Industry": "建材營造業",
         "L3_Pass": true,
         "L3_Value": 2548.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 286.16
     },
     {
         "Ticker": "2527.TW",
@@ -1676,8 +1676,8 @@
         "Industry": "建材營造業",
         "L3_Pass": true,
         "L3_Value": 1018.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 3888.17
     },
     {
         "Ticker": "2535.TW",
@@ -1690,8 +1690,8 @@
         "Industry": "建材營造業",
         "L3_Pass": true,
         "L3_Value": 285.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 24.71
     },
     {
         "Ticker": "2540.TW",
@@ -1704,8 +1704,8 @@
         "Industry": "建材營造業",
         "L3_Pass": true,
         "L3_Value": 332.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 27.58
     },
     {
         "Ticker": "2548.TW",
@@ -1718,8 +1718,8 @@
         "Industry": "建材營造業",
         "L3_Pass": true,
         "L3_Value": 1031.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 81838.77
     },
     {
         "Ticker": "2606.TW",
@@ -1732,8 +1732,8 @@
         "Industry": "航運業",
         "L3_Pass": true,
         "L3_Value": 6497.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.69
     },
     {
         "Ticker": "2611.TW",
@@ -1746,8 +1746,8 @@
         "Industry": "航運業",
         "L3_Pass": true,
         "L3_Value": 206.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 307.74
     },
     {
         "Ticker": "2637.TW",
@@ -1760,8 +1760,8 @@
         "Industry": "航運業",
         "L3_Pass": true,
         "L3_Value": 6532.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 34.91
     },
     {
         "Ticker": "2702.TW",
@@ -1774,8 +1774,8 @@
         "Industry": "觀光餐旅",
         "L3_Pass": true,
         "L3_Value": 41.8,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 1.57
     },
     {
         "Ticker": "2705.TW",
@@ -1789,7 +1789,7 @@
         "L3_Pass": true,
         "L3_Value": 47.9,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -2.17
     },
     {
         "Ticker": "2707.TW",
@@ -1802,8 +1802,8 @@
         "Industry": "觀光餐旅",
         "L3_Pass": false,
         "L3_Value": -23.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 5.88
     },
     {
         "Ticker": "2739.TW",
@@ -1816,8 +1816,8 @@
         "Industry": "觀光餐旅",
         "L3_Pass": false,
         "L3_Value": -61.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.6
     },
     {
         "Ticker": "2801.TW",
@@ -1830,8 +1830,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 13774.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 23.7
     },
     {
         "Ticker": "2834.TW",
@@ -1844,8 +1844,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 26600.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.82
     },
     {
         "Ticker": "2838.TW",
@@ -1858,8 +1858,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 686.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 8.25
     },
     {
         "Ticker": "2849.TW",
@@ -1872,8 +1872,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 461.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 9.06
     },
     {
         "Ticker": "2850.TW",
@@ -1886,8 +1886,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 174.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 34.18
     },
     {
         "Ticker": "2867.TW",
@@ -1901,7 +1901,7 @@
         "L3_Pass": true,
         "L3_Value": 12724.4,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -119.45
     },
     {
         "Ticker": "2880.TW",
@@ -1914,8 +1914,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 7769.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 17.7
     },
     {
         "Ticker": "2885.TW",
@@ -1928,8 +1928,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 4306.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 22.15
     },
     {
         "Ticker": "2890.TW",
@@ -1942,8 +1942,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 6452.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 50.7
     },
     {
         "Ticker": "2897.TW",
@@ -1956,8 +1956,8 @@
         "Industry": "金融保險業",
         "L3_Pass": true,
         "L3_Value": 1394.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 38.23
     },
     {
         "Ticker": "2910.TW",
@@ -1970,8 +1970,8 @@
         "Industry": "貿易百貨業",
         "L3_Pass": true,
         "L3_Value": 57.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 6.3
     },
     {
         "Ticker": "2912.TW",
@@ -1984,8 +1984,8 @@
         "Industry": "貿易百貨業",
         "L3_Pass": true,
         "L3_Value": 2218.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 4.93
     },
     {
         "Ticker": "2923.TW",
@@ -1999,7 +1999,7 @@
         "L3_Pass": true,
         "L3_Value": 643.3,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -15.25
     },
     {
         "Ticker": "2945.TW",
@@ -2012,8 +2012,8 @@
         "Industry": "貿易百貨業",
         "L3_Pass": true,
         "L3_Value": 14.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 13.38
     },
     {
         "Ticker": "3003.TW",
@@ -2026,8 +2026,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -239.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 25.61
     },
     {
         "Ticker": "3004.TW",
@@ -2040,8 +2040,8 @@
         "Industry": "鋼鐵工業",
         "L3_Pass": true,
         "L3_Value": 222.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 31.17
     },
     {
         "Ticker": "3008.TW",
@@ -2054,8 +2054,8 @@
         "Industry": "光電業",
         "L3_Pass": true,
         "L3_Value": 134.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.77
     },
     {
         "Ticker": "3014.TW",
@@ -2068,8 +2068,8 @@
         "Industry": "半導體業",
         "L3_Pass": true,
         "L3_Value": 572.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 7.65
     },
     {
         "Ticker": "3017.TW",
@@ -2082,8 +2082,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
         "L3_Value": -1392.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 111.72
     },
     {
         "Ticker": "3022.TW",
@@ -2096,8 +2096,8 @@
         "Industry": "電腦及週邊設備業",
         "L3_Pass": true,
         "L3_Value": 304.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 9.71
     },
     {
         "Ticker": "3023.TW",
@@ -2110,8 +2110,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 1409.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 7.55
     },
     {
         "Ticker": "3026.TW",
@@ -2124,8 +2124,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -1704.3,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 0.11
     },
     {
         "Ticker": "3028.TW",
@@ -2138,8 +2138,8 @@
         "Industry": "電子通路業",
         "L3_Pass": false,
         "L3_Value": -924.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 125.18
     },
     {
         "Ticker": "3030.TW",
@@ -2152,8 +2152,8 @@
         "Industry": "其他電子業",
         "L3_Pass": true,
         "L3_Value": 64.6,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 14.72
     },
     {
         "Ticker": "3031.TW",
@@ -2166,8 +2166,8 @@
         "Industry": "光電業",
         "L3_Pass": false,
         "L3_Value": -946.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 22.68
     },
     {
         "Ticker": "3034.TW",
@@ -2181,7 +2181,7 @@
         "L3_Pass": true,
         "L3_Value": 2047.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -9.64
     },
     {
         "Ticker": "3037.TW",
@@ -2194,8 +2194,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 2996.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 23.27
     },
     {
         "Ticker": "3038.TW",
@@ -2209,7 +2209,7 @@
         "L3_Pass": true,
         "L3_Value": 508.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -0.61
     },
     {
         "Ticker": "3042.TW",
@@ -2222,8 +2222,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 3534.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 2.66
     },
     {
         "Ticker": "3044.TW",
@@ -2236,8 +2236,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 769.9,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 24.38
     },
     {
         "Ticker": "3045.TW",
@@ -2250,8 +2250,8 @@
         "Industry": "通信網路業",
         "L3_Pass": true,
         "L3_Value": 16546.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 5.76
     },
     {
         "Ticker": "3062.TW",
@@ -2264,8 +2264,8 @@
         "Industry": "通信網路業",
         "L3_Pass": true,
         "L3_Value": 2858.7,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 30.9
     },
     {
         "Ticker": "3090.TW",
@@ -2278,8 +2278,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 3204.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 34.11
     },
     {
         "Ticker": "3092.TW",
@@ -2292,8 +2292,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": false,
         "L3_Value": -1101.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 6.8
     },
     {
         "Ticker": "3094.TW",
@@ -2307,7 +2307,7 @@
         "L3_Pass": false,
         "L3_Value": -324.6,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -11.43
     },
     {
         "Ticker": "3167.TW",
@@ -2320,8 +2320,8 @@
         "Industry": "電機機械",
         "L3_Pass": false,
         "L3_Value": -2.5,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 146.84
     },
     {
         "Ticker": "3168.TW",
@@ -2334,8 +2334,8 @@
         "Industry": "光電業",
         "L3_Pass": false,
         "L3_Value": -20.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 10.68
     },
     {
         "Ticker": "3189.TW",
@@ -2348,8 +2348,8 @@
         "Industry": "半導體業",
         "L3_Pass": false,
         "L3_Value": -177.2,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 25.06
     },
     {
         "Ticker": "3209.TW",
@@ -2362,8 +2362,8 @@
         "Industry": "電子通路業",
         "L3_Pass": true,
         "L3_Value": 2635.4,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 11.85
     },
     {
         "Ticker": "3229.TW",
@@ -2376,8 +2376,8 @@
         "Industry": "電子零組件業",
         "L3_Pass": true,
         "L3_Value": 343.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Pass": true,
+        "L4_Value": 73.04
     },
     {
         "Ticker": "3305.TW",
@@ -2388,10 +2388,10 @@
         "M20_Slope": 0.0036866359447005133,
         "Name": "昇貿",
         "Industry": "其他電子業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1550.0,
+        "L4_Pass": true,
+        "L4_Value": 72.74
     },
     {
         "Ticker": "3312.TW",
@@ -2402,10 +2402,10 @@
         "M20_Slope": 0.00809744256941559,
         "Name": "弘憶股",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 1949.9,
+        "L4_Pass": true,
+        "L4_Value": 3.26
     },
     {
         "Ticker": "3338.TW",
@@ -2416,10 +2416,10 @@
         "M20_Slope": 0.0016310552917596084,
         "Name": "泰碩",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 475.6,
+        "L4_Pass": true,
+        "L4_Value": 5.2
     },
     {
         "Ticker": "3356.TW",
@@ -2430,10 +2430,10 @@
         "M20_Slope": 0.001198203471444665,
         "Name": "奇偶",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 27.4,
+        "L4_Pass": true,
+        "L4_Value": 10.61
     },
     {
         "Ticker": "3380.TW",
@@ -2444,10 +2444,10 @@
         "M20_Slope": 0.007506197278798716,
         "Name": "明泰",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2729.2,
+        "L4_Pass": true,
+        "L4_Value": 50.49
     },
     {
         "Ticker": "3406.TW",
@@ -2459,9 +2459,9 @@
         "Name": "玉晶光",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -358.0,
+        "L4_Pass": true,
+        "L4_Value": 14.32
     },
     {
         "Ticker": "3413.TW",
@@ -2473,9 +2473,9 @@
         "Name": "京鼎",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Value": -44.5,
+        "L4_Pass": true,
+        "L4_Value": 26.77
     },
     {
         "Ticker": "3416.TW",
@@ -2487,7 +2487,7 @@
         "Name": "融程電",
         "Industry": "電腦及週邊設備業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -220.1,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -3130,10 +3130,10 @@
         "M20_Slope": 0.005096410309579583,
         "Name": "事欣科",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 8077.9,
+        "L4_Pass": true,
+        "L4_Value": 21.57
     },
     {
         "Ticker": "4919.TW",
@@ -3788,10 +3788,10 @@
         "M20_Slope": 0.02305548517861673,
         "Name": "啟碁",
         "Industry": "通信網路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 8718.3,
+        "L4_Pass": true,
+        "L4_Value": 3.8
     },
     {
         "Ticker": "6405.TW",
@@ -3802,10 +3802,10 @@
         "M20_Slope": 0.007789093525708593,
         "Name": "悅城",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 166.2,
         "L4_Pass": false,
-        "L4_Value": 0.0
+        "L4_Value": -76.0
     },
     {
         "Ticker": "6414.TW",
@@ -3816,10 +3816,10 @@
         "M20_Slope": 0.0045191612436731735,
         "Name": "樺漢",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0
+        "L3_Pass": true,
+        "L3_Value": 2039.4,
+        "L4_Pass": true,
+        "L4_Value": 19.23
     },
     {
         "Ticker": "6415.TW",
@@ -3830,8 +3830,8 @@
         "M20_Slope": 0.008027659712068496,
         "Name": "矽力*-KY",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 4991.9,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -5692,8 +5692,8 @@
         "M20_Slope": 0.0056604822135630575,
         "Name": "禾瑞亞",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 152.0,
         "L4_Pass": false,
         "L4_Value": 0.0
     },
@@ -6952,8 +6952,8 @@
         "M20_Slope": 0.005887960462170323,
         "Name": "茂綸",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 290.8,
         "L4_Pass": false,
         "L4_Value": 0.0
     },

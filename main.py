@@ -2,6 +2,7 @@ import json
 import time
 import argparse
 import markdown
+import os
 from pathlib import Path
 from datetime import datetime
 from tqdm import tqdm
@@ -31,8 +32,22 @@ class StockScanner:
             self.active_level = full_config["active_level"]
             self.params = full_config["levels"][self.active_level]
 
+    def cleanup_old_files(self):
+        """清理超過 30 天的舊週報"""
+        log.info("掃描報告資料夾，清理超過 30 天的舊週報...")
+        count = 0
+        now = time.time()
+        expiry_seconds = 30 * 86400
+        for path in self.report_dir.glob("WEEKLY_REPORT_*.md"):
+            if (now - os.path.getmtime(path)) > expiry_seconds:
+                path.unlink()
+                count += 1
+        if count > 0: log.info(f"已清理 {count} 份舊報告。")
+
     def run(self):
         log.info(f"=== 啟動選股程序 [模式: {self.mode}] [標準: {self.active_level}] ===")
+        self.cleanup_old_files()
+        
         tickers_info = TickerManager().load_tickers()
         meta_map = {str(t['Ticker']): {"Name": t['Name'], "Industry": t['Industry']} for t in tickers_info}
         self.stats["total"] = len(tickers_info)
@@ -40,6 +55,9 @@ class StockScanner:
         final_data = []
 
         if self.mode == "full":
+            # Full 模式下清空暫存
+            for f in self.temp_dir.glob("*.json"): f.unlink()
+            
             yfinance_tickers = [t['yfinance_ticker'] for t in tickers_info]
             raw_data = DataIngestion(batch_size=50).fetch_weekly_data(yfinance_tickers)
             pv_filter = PriceVolumeFilter(config={

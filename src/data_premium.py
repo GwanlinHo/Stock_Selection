@@ -17,12 +17,11 @@ class DataPremium:
             self.dl.login(api_token=self.api_token)
 
     def fetch_chip_data(self, ticker: str, days=30):
-        """獲取法人買賣超數據"""
+        """獲取法人買賣超數據 (預設 30 天以滿足 L3 的 15 天分析)"""
         try:
             raw_ticker = ticker.split('.')[0]
             start_date = (pd.Timestamp.now() - pd.Timedelta(days=days)).strftime('%Y-%m-%d')
             
-            # 使用法人買賣超
             df_inst = self.dl.taiwan_stock_institutional_investors(
                 stock_id=raw_ticker,
                 start_date=start_date
@@ -33,11 +32,11 @@ class DataPremium:
             return pd.DataFrame()
 
     def fetch_fundamental_data(self, ticker: str):
-        """獲取營收與 EPS"""
+        """獲取營收數據 (抓取 450 天以確保有 13 個月數據計算 YoY)"""
         try:
             raw_ticker = ticker.split('.')[0]
-            # 獲取最近三個月營收
-            start_date = (pd.Timestamp.now() - pd.Timedelta(days=120)).strftime('%Y-%m-%d')
+            # 增加天數至 450 天
+            start_date = (pd.Timestamp.now() - pd.Timedelta(days=450)).strftime('%Y-%m-%d')
             df_revenue = self.dl.taiwan_stock_month_revenue(
                 stock_id=raw_ticker,
                 start_date=start_date
