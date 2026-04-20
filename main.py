@@ -131,35 +131,53 @@ class StockScanner:
                     info = meta_map.get(pure_ticker, {"Name": "未知", "Industry": "未知"})
                     cand.update(info)
 
-        self.stats["l3_l4_pass"] = len([d for d in final_data if d.get('L3_Pass')])
+        # 計算各階段統計
+        self.stats["l1_l2_pass"] = len(l2_candidates)
+        self.stats["l3_pass"] = len([d for d in final_data if d.get('L3_Pass')])
+        self.stats["l4_pass"] = len([d for d in final_data if d.get('L3_Pass') and d.get('L4_Pass')])
+        
         self.generate_rich_report(final_data)
 
     def generate_rich_report(self, data):
         date_str = datetime.now().strftime("%Y-%m-%d")
         report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
         
+        # 1. 標題
         md_content = f"# 台股選股掃描綜合週報 ({date_str})\n\n"
-        md_content += f"**摘要**: (待 AI 填寫...)\n\n"
-        md_content += f"**標準**: `{self.active_level}` | **海選通過**: {self.stats['l1_l2_pass']} 檔 | **籌碼偏多**: {self.stats['l3_l4_pass']} 檔\n\n"
         
+        # 2. AI 深度分析 (第一順位)
         md_content += "## AI 深度分析與市場動態\n"
+        md_content += "**摘要**: (待 AI 填寫...)\n\n"
         md_content += "(請執行 AI 分析流程以填充此章節...)\n\n"
 
-        md_content += "## 候選名單詳細數據面板\n"
+        # 3. 篩選漏斗統計
+        md_content += "## 篩選漏斗統計\n"
+        md_content += f"*   **[L1/L2] 價量趨勢通過**: {self.stats['l1_l2_pass']} 檔\n"
+        md_content += f"*   **[L3] 法人籌碼偏多**: {self.stats['l3_pass']} 檔\n"
+        md_content += f"*   **[L4] 營收年增成長**: {self.stats['l4_pass']} 檔 (最終精選)\n\n"
+
+        # 4. 最終精選池 (僅顯示 L4 通過標的)
+        md_content += "## 最終精選池 (Level 4 全通過)\n"
         md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 5日均量 | 籌碼(張) | 營收YoY% |\n"
         md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         
-        for item in sorted(data, key=lambda x: x.get('M20_Slope', 0), reverse=True):
+        # 過濾：僅保留同時通過 L3 與 L4 的標的
+        final_pool = [d for d in data if d.get('L3_Pass') and d.get('L4_Pass')]
+        
+        for item in sorted(final_pool, key=lambda x: x.get('M20_Slope', 0), reverse=True):
             l3_val = item.get('L3_Value', 0)
             l4_val = item.get('L4_Value', 0)
             l3_txt = f"{l3_val:+,.1f}"
             l4_txt = f"{l4_val:+.2f}%"
-            l3_status = "✅" if item.get('L3_Pass') else "❌"
-            l4_status = "✅" if item.get('L4_Pass') else "⚠️"
+            l3_status = "✅"
+            l4_status = "✅"
             name = item.get('Name', '未知')
             ind = item.get('Industry', '未知')
             code = item['Ticker'].split('.')[0]
             md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {item['AvgDailyVol']:.0f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} |\n"
+
+        if not final_pool:
+            md_content += "> *目前尚無同時符合籌碼與營收篩選標準的標的。*\n"
 
         # 寫入 Markdown 檔案
         with open(report_file, "w", encoding="utf-8") as f:
