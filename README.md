@@ -1,5 +1,7 @@
 # 台股「四層過濾網」AI 自動化選股系統
 
+[![Report](https://img.shields.io/badge/📊_查看最新選股報告-GitHub_Pages-blue?style=for-the-badge)](https://gwanlinho.github.io/Stock_Selection/)
+
 這是一套根據網路高手選股邏輯開發的自動化系統，旨在將全市場 2,000+ 檔標的，透過四層過濾網（技術、量能、籌碼、基本面），精煉出最後 5 檔優質觀察名單。
 
 本系統採用 **Python (高併發計算)** 與 **Gemini CLI Agent (智能決策)** 的協作模式。
