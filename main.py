@@ -223,9 +223,26 @@ class StockScanner:
             f.write(html_template)
         log.info("GitHub Pages 入口首頁 index.html 已更新。")
 
+    def sync_index(self):
+        """僅將最新的 .md 報告同步到 index.html，保留 AI 分析後的內容"""
+        reports = sorted(self.report_dir.glob("WEEKLY_REPORT_*.md"))
+        if not reports:
+            log.error("找不到任何報告檔案，無法同步。")
+            return
+        
+        latest_report = reports[-1]
+        log.info(f"正在從最新報告同步 HTML: {latest_report}")
+        with open(latest_report, "r", encoding="utf-8") as f:
+            md_content = f.read()
+        self.generate_index_html(md_content)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["full", "skip-scan", "report-only"], default="full")
+    parser.add_argument("--mode", choices=["full", "skip-scan", "report-only", "sync"], default="full")
     args = parser.parse_args()
-    StockScanner(mode=args.mode).run()
+    scanner = StockScanner(mode=args.mode)
+    if args.mode == "sync":
+        scanner.sync_index()
+    else:
+        scanner.run()
