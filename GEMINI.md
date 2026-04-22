@@ -25,14 +25,14 @@
 *   **強制同步**: 每次完成報告更新（含 .md 與 index.html）後，**必須執行 git add/commit/push 將成果同步至 GitHub**。
 
 當您下達上述指令後，我會：
-1.  執行對應的 Python 模式。
+1.  執行對應的 Python 模式（系統具備 **Soft Fail 機制**，若 API 抓取失敗將自動沿用舊數據）。
 2.  讀取 `data/temp/candidates.json`。
-3.  **執行去罐頭化 AI 分析**：
+3.  **由 Gemini CLI 執行深度分析**：
     *   **統計分類**：識別 L4 通過標的的產業分佈。
-    *   **深度檢索**：針對「評等 A」或「技術面最強」的標的，必須執行 `google_web_search` 查詢最新產業動態（如：法說會展望、關鍵訂單、技術突破）。
-    *   **質化回填**：將搜尋到的外部資訊與 Python 產出的財務數據結合，產出具備「故事性」與「前瞻性」的分析理由。
-4.  將 AI 分析內容回填至 `reports/WEEKLY_REPORT_YYYY-MM-DD.md` 並呈現在對話中。
-5.  **立即同步更新 `index.html` 並將所有檔案上傳至 GitHub。**
+    *   **深度檢索**：針對 A 級潛力股執行 `google_web_search`。
+    *   **去罐頭化寫作**：結合最新趨勢與 Python 財務數據，手動撰寫具備洞察力的分析內容。
+4.  將 AI 分析內容回填至 `reports/WEEKLY_REPORT_YYYY-MM-DD.md`。
+5.  **強制同步**：更新 `index.html` 並推送到 GitHub。
 
 ---
 

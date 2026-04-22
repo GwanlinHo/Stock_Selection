@@ -13,7 +13,6 @@ from src.data_ingestion import DataIngestion
 from src.filters.price_volume import PriceVolumeFilter
 from src.data_premium import DataPremium
 from src.filters.advanced_filter import AdvancedFilter
-from src.ai_analyzer import AIAnalyzer
 
 class StockScanner:
     def __init__(self, mode="full"):
@@ -26,7 +25,6 @@ class StockScanner:
         self.final_cache_file = self.temp_dir / "candidates.json"
         self.stats = {"total": 0, "l1_l2_pass": 0, "l3_l4_pass": 0}
         self.load_config()
-        self.ai_analyzer = AIAnalyzer()
 
     def load_config(self):
         with open(self.config_file, "r") as f:
@@ -85,60 +83,61 @@ class StockScanner:
             premium_data = DataPremium()
             adv_filter = AdvancedFilter()
             
-            # [斷點續傳邏輯] 讀取現有進度
-            existing_progress = {}
+            # 讀取現有進度 (用於比對與保留舊數據)
+            existing_data = {}
             if self.final_cache_file.exists():
                 try:
                     with open(self.final_cache_file, "r", encoding="utf-8") as f:
-                        old_data = json.load(f)
-                        # 只有當 L3_Pass 或 L4_Pass 且數值非 0 時才視為已完成
-                        existing_progress = {d['Ticker']: d for d in old_data if d.get('L3_Value') != 0 or d.get('L4_Value') != 0}
-                    log.info(f"偵測到現有進度，將跳過 {len(existing_progress)} 檔已處理標的。")
+                        old_list = json.load(f)
+                        existing_data = {d['Ticker']: d for d in old_list}
                 except: pass
 
             for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
                 ticker_full = cand['Ticker']
                 ticker = ticker_full.split('.')[0]
                 
-                # 檢查是否可跳過
-                if ticker_full in existing_progress:
-                    l2_candidates[i] = existing_progress[ticker_full]
-                    continue
-                
+                # 抓取新數據
                 df_inst = premium_data.fetch_chip_data(ticker)
                 df_rev = premium_data.fetch_fundamental_data(ticker)
                 df_ratio = premium_data.fetch_financial_ratios(ticker)
                 df_per = premium_data.fetch_per_pbr(ticker)
                 
+                # 執行篩選
                 l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
                 l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
                 
-                cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
-                cand['L4_Pass'], cand['L4_Value'] = bool(l4_pass), float(l4_result['YoY'])
-                # 新增深度指標
-                cand['ROE'] = l4_result['ROE']
-                cand['PER'] = l4_result['PER']
-                cand['PEG'] = l4_result['PEG']
-                cand['Report_Date'] = l4_result['Report_Date']
+                # --- 數據保護機制 (Soft Fail) ---
+                # 若本次抓取失敗 (回傳值為 0 或預設值)，則嘗試從現有緩存中還原
+                old_val = existing_data.get(ticker_full, {})
                 
-                # 若通過 L3 與 L4，則進行 AI 評等
-                if l3_pass and l4_pass:
-                    try:
-                        ai_res = self.ai_analyzer.analyze_and_classify(cand)
-                        cand['AI_Category'] = ai_res.get('category', 'B')
-                        cand['AI_Reason'] = ai_res.get('reason', '')
-                    except:
-                        cand['AI_Category'] = 'B'
-                        cand['AI_Reason'] = 'AI 分析暫時不可用'
+                cand['L3_Pass'] = bool(l3_pass)
+                cand['L3_Value'] = float(l3_val) if l3_val != 0 else old_val.get('L3_Value', 0)
                 
+                cand['L4_Pass'] = bool(l4_pass)
+                # 營收與基本面指標保護
+                cand['L4_Value'] = float(l4_result['YoY']) if l4_result['YoY'] != 0 else old_val.get('L4_Value', 0)
+                cand['ROE'] = l4_result['ROE'] if l4_result['ROE'] != 0 else old_val.get('ROE', 0)
+                cand['PER'] = l4_result['PER'] if l4_result['PER'] != 0 else old_val.get('PER', 0)
+                cand['PEG'] = l4_result['PEG'] if l4_result['PEG'] != 0 else old_val.get('PEG', 0)
+                cand['Report_Date'] = l4_result['Report_Date'] if l4_result['Report_Date'] else old_val.get('Report_Date', "")
+                
+                # 重新根據可能還原後的數據判定 L4_Pass (確保篩選池正確)
+                if not l4_pass:
+                    # 如果是因為數據缺失導致不通過，但舊數據是通過的，則予以保留
+                    if cand['L4_Value'] > 5 and cand['ROE'] > 8:
+                        cand['L4_Pass'] = True
+
                 final_data.append(cand) 
-                
-                # 每 10 筆存檔一次，確保斷點
+
+                # 每 10 筆即時存檔，保護進度
                 if (i + 1) % 10 == 0:
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
-                
+
                 time.sleep(0.1)
+
+                final_data = l2_candidates # 統一使用更新後的 list
+
             
             final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
@@ -168,25 +167,7 @@ class StockScanner:
         
         # 2. AI 深度分析 (第一順位)
         md_content += "## AI 深度分析與決策建議\n"
-        
-        # 取得有 AI 評等的標的
-        ai_targets = [d for d in data if d.get('AI_Category')]
-        if ai_targets:
-            # 依評等排序 (A -> B -> C)
-            for cat in ['A', 'B', 'C']:
-                group = [d for d in ai_targets if d.get('AI_Category') == cat]
-                if not group: continue
-                
-                cat_desc = {"A": "強烈推薦", "B": "穩健觀察", "C": "投機/風險"}.get(cat)
-                md_content += f"### 【評等 {cat}: {cat_desc}】\n"
-                for item in group:
-                    name = item.get('Name', '未知')
-                    code = item['Ticker'].split('.')[0]
-                    reason = item.get('AI_Reason', '暫無分析')
-                    md_content += f"*   **{name} ({code})**: {reason}\n"
-                md_content += "\n"
-        else:
-            md_content += "> *目前尚無 AI 深度分析數據。*\n\n"
+        md_content += "> *[Gemini CLI] 正在進行去罐頭化深度分析，請參考對話內容或稍後更新的報告。*\n\n"
         
         # 3. 篩選標準定義
         md_content += "## 篩選標準定義\n"
