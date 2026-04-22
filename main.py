@@ -105,12 +105,21 @@ class StockScanner:
                 
                 df_inst = premium_data.fetch_chip_data(ticker)
                 df_rev = premium_data.fetch_fundamental_data(ticker)
+                df_ratio = premium_data.fetch_financial_ratios(ticker)
+                df_per = premium_data.fetch_per_pbr(ticker)
+                
                 l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
-                l4_pass, l4_val = adv_filter.run_l4(ticker, df_rev)
+                l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
                 
                 cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
-                cand['L4_Pass'], cand['L4_Value'] = bool(l4_pass), float(l4_val)
-                final_data.append(cand) # 舊邏輯，改為直接更新 l2_candidates 並定期儲存
+                cand['L4_Pass'], cand['L4_Value'] = bool(l4_pass), float(l4_result['YoY'])
+                # 新增深度指標
+                cand['ROIC'] = l4_result['ROIC']
+                cand['PER'] = l4_result['PER']
+                cand['PEG'] = l4_result['PEG']
+                cand['Report_Date'] = l4_result['Report_Date']
+                
+                final_data.append(cand) 
                 
                 # 每 10 筆存檔一次，確保斷點
                 if (i + 1) % 10 == 0:
@@ -156,8 +165,8 @@ class StockScanner:
 
         # 4. 最終精選池 (僅顯示 L4 通過標的)
         md_content += "## 最終精選池 (Level 4 全通過)\n"
-        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 5日均量 | 籌碼(張) | 營收YoY% |\n"
-        md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 籌碼(張) | 營收YoY% | ROIC% | PER | PEG |\n"
+        md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         
         # 過濾：僅保留同時通過 L3 與 L4 的標的
         final_pool = [d for d in data if d.get('L3_Pass') and d.get('L4_Pass')]
@@ -165,14 +174,32 @@ class StockScanner:
         for item in sorted(final_pool, key=lambda x: x.get('M20_Slope', 0), reverse=True):
             l3_val = item.get('L3_Value', 0)
             l4_val = item.get('L4_Value', 0)
+            roic = item.get('ROIC', 0)
+            per = item.get('PER', 0)
+            peg = item.get('PEG', 0)
+            
             l3_txt = f"{l3_val:+,.1f}"
             l4_txt = f"{l4_val:+.2f}%"
+            roic_txt = f"{roic:.2f}%"
+            per_txt = f"{per:.1f}" if per > 0 else "-"
+            peg_txt = f"{peg:.2f}" if peg > 0 else "-"
+            
             l3_status = "✅"
             l4_status = "✅"
             name = item.get('Name', '未知')
+            
+            # 若財報日期在 45 天內，標記為最新
+            report_date = item.get('Report_Date', '')
+            if report_date:
+                try:
+                    rd = datetime.strptime(report_date, "%Y-%m-%d")
+                    if (datetime.now() - rd).days < 45:
+                        name += " [!]"
+                except: pass
+
             ind = item.get('Industry', '未知')
             code = item['Ticker'].split('.')[0]
-            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {item['AvgDailyVol']:.0f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} |\n"
+            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} | {roic_txt} | {per_txt} | {peg_txt} |\n"
 
         if not final_pool:
             md_content += "> *目前尚無同時符合籌碼與營收篩選標準的標的。*\n"
