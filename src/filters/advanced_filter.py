@@ -17,11 +17,11 @@ class AdvancedFilter:
         return bool(net_buy_shares > 0), float(round(net_buy_shares, 1))
 
     def run_l4(self, ticker: str, df_revenue: pd.DataFrame, df_ratio: pd.DataFrame = None, df_per: pd.DataFrame = None):
-        """第四層基本面過濾: 營收 YoY + ROIC + PER + PEG"""
+        """第四層基本面過濾: 營收 YoY + ROE + PER + PEG"""
         result = {
             "Pass": False,
             "YoY": 0.0,
-            "ROIC": 0.0,
+            "ROE": 0.0,
             "PER": 0.0,
             "PEG": 0.0,
             "EPS_Growth": 0.0,
@@ -37,19 +37,27 @@ class AdvancedFilter:
                     result["YoY"] = float(round(((latest_rev - last_year_rev) / last_year_rev) * 100, 2))
             except Exception: pass
 
-        # 2. ROIC (從財務比率提取)
+        # 2. ROE (從財務報表計算 TTM 年化 ROE)
         if df_ratio is not None and not df_ratio.empty:
             try:
-                roic_data = df_ratio[df_ratio['type'] == 'ROIC']
-                if not roic_data.empty:
-                    result["ROIC"] = float(round(roic_data.iloc[-1]['value'], 2))
-                    result["Report_Date"] = str(roic_data.iloc[-1]['date'])
+                # 取得數據
+                net_income_data = df_ratio[df_ratio['type'] == 'IncomeAfterTaxes']
+                equity_data = df_ratio[df_ratio['type'] == 'EquityAttributableToOwnersOfParent']
+                eps_data = df_ratio[df_ratio['type'] == 'EPS']
+                
+                if not net_income_data.empty and not equity_data.empty:
+                    # 計算 TTM 稅後淨利 (近四季加總)
+                    ttm_ni = net_income_data.tail(4)['value'].sum()
+                    latest_eq = equity_data.iloc[-1]['value']
+                    result["Report_Date"] = str(net_income_data.iloc[-1]['date'])
+                    if latest_eq > 0:
+                        # 年化 ROE (TTM)
+                        result["ROE"] = float(round((ttm_ni / latest_eq) * 100, 2))
                 
                 # 計算 EPS Growth (用於 PEG)
-                eps_data = df_ratio[df_ratio['type'] == 'BasicEarningsPerShare']
-                if len(eps_data) >= 5: # 至少要有四五個季度資料
+                if len(eps_data) >= 5:
                     latest_eps = eps_data.iloc[-1]['value']
-                    prev_year_eps = eps_data.iloc[-5]['value'] # 去年同期
+                    prev_year_eps = eps_data.iloc[-5]['value']
                     if prev_year_eps > 0:
                         result["EPS_Growth"] = float(round(((latest_eps - prev_year_eps) / prev_year_eps) * 100, 2))
             except Exception: pass
@@ -62,7 +70,13 @@ class AdvancedFilter:
                     result["PEG"] = float(round(result["PER"] / result["EPS_Growth"], 2))
             except Exception: pass
 
-        # 綜合判定: YoY > 0 且 ROIC > 5% (基本門檻，可依需求調整)
-        result["Pass"] = bool(result["YoY"] > 0 and result["ROIC"] > 5)
+        # 綜合判定: 調整門檻
+        # 1. 營收 YoY > 5%
+        # 2. ROE > 8% (年化門檻)
+        # 3. PEG 不作為硬性過濾，僅供參考
+        yoy_pass = result["YoY"] > 5
+        roe_pass = result["ROE"] > 8
+        
+        result["Pass"] = bool(yoy_pass and roe_pass)
         
         return result["Pass"], result

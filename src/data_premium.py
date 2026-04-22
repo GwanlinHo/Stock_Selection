@@ -51,7 +51,7 @@ class DataPremium:
             raw_ticker = ticker.split('.')[0]
             # 抓取近兩年資料以利比較
             start_date = (pd.Timestamp.now() - pd.Timedelta(days=730)).strftime('%Y-%m-%d')
-            df_ratio = self.dl.taiwan_stock_financial_ratios(
+            df_ratio = self.dl.taiwan_stock_financial_statement(
                 stock_id=raw_ticker,
                 start_date=start_date
             )

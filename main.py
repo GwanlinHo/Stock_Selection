@@ -114,7 +114,7 @@ class StockScanner:
                 cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
                 cand['L4_Pass'], cand['L4_Value'] = bool(l4_pass), float(l4_result['YoY'])
                 # 新增深度指標
-                cand['ROIC'] = l4_result['ROIC']
+                cand['ROE'] = l4_result['ROE']
                 cand['PER'] = l4_result['PER']
                 cand['PEG'] = l4_result['PEG']
                 cand['Report_Date'] = l4_result['Report_Date']
@@ -157,15 +157,23 @@ class StockScanner:
         # 2. AI 深度分析 (第一順位)
         md_content += "## AI 深度分析與市場動態\n"
         
-        # 3. 篩選漏斗統計
-        md_content += "## 篩選漏斗統計\n"
+        # 3. 篩選標準定義
+        md_content += "## 篩選標準定義\n"
+        md_content += "| 關卡 | 類型 | 詳細條件 |\n"
+        md_content += "| :--- | :--- | :--- |\n"
+        md_content += "| **L1** | 技術面 | 股價 > MA20 且 MA20 斜率 > 0.5% (趨勢確認) |\n"
+        md_content += "| **L2** | 成交量 | 5 日均量 > 1,000 張 (流動性確認) |\n"
+        md_content += "| **L3** | 籌碼面 | 外資 + 投信近 15 日累計買超 > 0 (大人動向) |\n"
+        md_content += "| **L4** | 基本面 | 營收 YoY > 5% 且 ROE > 8% (年化) (PEG 供參考) |\n\n"
+
+        # 4. 篩選漏斗統計
         md_content += f"*   **[L1/L2] 價量趨勢通過**: {self.stats['l1_l2_pass']} 檔\n"
         md_content += f"*   **[L3] 法人籌碼偏多**: {self.stats['l3_pass']} 檔\n"
         md_content += f"*   **[L4] 營收年增成長**: {self.stats['l4_pass']} 檔 (最終精選)\n\n"
 
         # 4. 最終精選池 (僅顯示 L4 通過標的)
         md_content += "## 最終精選池 (Level 4 全通過)\n"
-        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 籌碼(張) | 營收YoY% | ROIC% | PER | PEG |\n"
+        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 籌碼(張) | 營收YoY% | ROE% | PER | PEG |\n"
         md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         
         # 過濾：僅保留同時通過 L3 與 L4 的標的
@@ -174,13 +182,13 @@ class StockScanner:
         for item in sorted(final_pool, key=lambda x: x.get('M20_Slope', 0), reverse=True):
             l3_val = item.get('L3_Value', 0)
             l4_val = item.get('L4_Value', 0)
-            roic = item.get('ROIC', 0)
+            roe = item.get('ROE', 0)
             per = item.get('PER', 0)
             peg = item.get('PEG', 0)
             
             l3_txt = f"{l3_val:+,.1f}"
             l4_txt = f"{l4_val:+.2f}%"
-            roic_txt = f"{roic:.2f}%"
+            roe_txt = f"{roe:.2f}%"
             per_txt = f"{per:.1f}" if per > 0 else "-"
             peg_txt = f"{peg:.2f}" if peg > 0 else "-"
             
@@ -199,7 +207,7 @@ class StockScanner:
 
             ind = item.get('Industry', '未知')
             code = item['Ticker'].split('.')[0]
-            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} | {roic_txt} | {per_txt} | {peg_txt} |\n"
+            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} | {roe_txt} | {per_txt} | {peg_txt} |\n"
 
         if not final_pool:
             md_content += "> *目前尚無同時符合籌碼與營收篩選標準的標的。*\n"
