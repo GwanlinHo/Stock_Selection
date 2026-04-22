@@ -13,6 +13,7 @@ from src.data_ingestion import DataIngestion
 from src.filters.price_volume import PriceVolumeFilter
 from src.data_premium import DataPremium
 from src.filters.advanced_filter import AdvancedFilter
+from src.ai_analyzer import AIAnalyzer
 
 class StockScanner:
     def __init__(self, mode="full"):
@@ -25,6 +26,7 @@ class StockScanner:
         self.final_cache_file = self.temp_dir / "candidates.json"
         self.stats = {"total": 0, "l1_l2_pass": 0, "l3_l4_pass": 0}
         self.load_config()
+        self.ai_analyzer = AIAnalyzer()
 
     def load_config(self):
         with open(self.config_file, "r") as f:
@@ -119,6 +121,16 @@ class StockScanner:
                 cand['PEG'] = l4_result['PEG']
                 cand['Report_Date'] = l4_result['Report_Date']
                 
+                # 若通過 L3 與 L4，則進行 AI 評等
+                if l3_pass and l4_pass:
+                    try:
+                        ai_res = self.ai_analyzer.analyze_and_classify(cand)
+                        cand['AI_Category'] = ai_res.get('category', 'B')
+                        cand['AI_Reason'] = ai_res.get('reason', '')
+                    except:
+                        cand['AI_Category'] = 'B'
+                        cand['AI_Reason'] = 'AI 分析暫時不可用'
+                
                 final_data.append(cand) 
                 
                 # 每 10 筆存檔一次，確保斷點
@@ -155,7 +167,26 @@ class StockScanner:
         md_content = f"# 台股選股掃描綜合週報 ({date_str})\n\n"
         
         # 2. AI 深度分析 (第一順位)
-        md_content += "## AI 深度分析與市場動態\n"
+        md_content += "## AI 深度分析與決策建議\n"
+        
+        # 取得有 AI 評等的標的
+        ai_targets = [d for d in data if d.get('AI_Category')]
+        if ai_targets:
+            # 依評等排序 (A -> B -> C)
+            for cat in ['A', 'B', 'C']:
+                group = [d for d in ai_targets if d.get('AI_Category') == cat]
+                if not group: continue
+                
+                cat_desc = {"A": "強烈推薦", "B": "穩健觀察", "C": "投機/風險"}.get(cat)
+                md_content += f"### 【評等 {cat}: {cat_desc}】\n"
+                for item in group:
+                    name = item.get('Name', '未知')
+                    code = item['Ticker'].split('.')[0]
+                    reason = item.get('AI_Reason', '暫無分析')
+                    md_content += f"*   **{name} ({code})**: {reason}\n"
+                md_content += "\n"
+        else:
+            md_content += "> *目前尚無 AI 深度分析數據。*\n\n"
         
         # 3. 篩選標準定義
         md_content += "## 篩選標準定義\n"
