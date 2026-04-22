@@ -236,7 +236,8 @@ class StockScanner:
 
     def generate_index_html(self, md_content):
         """將 Markdown 轉換為漂亮的 HTML 並存為 index.html"""
-        html_body = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])
+        # 使用更完整的擴充功能
+        html_body = markdown.markdown(md_content, extensions=['tables', 'fenced_code', 'nl2br'])
         
         html_template = f"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -257,6 +258,10 @@ class StockScanner:
             .markdown-body {{ padding: 15px; }}
         }}
         body {{ background-color: #f6f8fa; }}
+        /* 表格樣式強化 */
+        table {{ width: 100%; border-collapse: collapse; margin-bottom: 16px; }}
+        th, td {{ border: 1px solid #dfe2e5; padding: 6px 13px; text-align: left; }}
+        tr:nth-child(2n) {{ background-color: #f6f8fa; }}
     </style>
 </head>
 <body>

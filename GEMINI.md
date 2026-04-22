@@ -10,9 +10,9 @@
 跳過 2000 檔標的的技術面掃描，直接讀取上一次的 L2 結果進行籌碼與基本面精煉。
 *   **動作**: `uv run main.py --mode skip-scan` + AI 分析 + **更新 index.html** + **Git 同步 (GitHub)**。
 
-### 3. `stock selection report` (僅重新產生報告)
-完全不抓取新數據，直接讀取上一次的精選結果產出 Markdown 週報。
-*   **動作**: `uv run main.py --mode report-only` + AI 分析 + **更新 index.html** + **Git 同步 (GitHub)**。
+### 4. `stock selection sync` (僅同步網頁內容)
+當手動修改了 `reports/*.md` 檔案（例如填入 AI 分析）後，執行此指令同步至 `index.html`。
+*   **動作**: `uv run main.py --mode sync` + **Git 同步 (GitHub)**。
 
 ---
 
@@ -21,7 +21,7 @@
 *   **禁止表情符號**: 嚴格禁止在程式碼、日誌、Markdown 報告或任何輸出文件中使用表情符號 (Emojis)。
 *   **專業語氣**: 保持專業且簡潔的技術描述。
 *   **狀態表示**: 若需表示狀態，請使用傳統符號（如 [O], [X], [!]）取代圖示。
-*   **原子化更新**: 每次產生或手動修改 `.md` 報告後，**必須立即更新 `index.html`**，確保 GitHub Pages 內容與最新報告完全同步。
+*   **自動化更新**: 每次產生或手動修改 `.md` 報告後，**必須執行 `uv run main.py --mode sync`**，確保 `index.html` 內容與最新報告完全同步。
 *   **強制同步**: 每次完成報告更新（含 .md 與 index.html）後，**必須執行 git add/commit/push 將成果同步至 GitHub**。
 
 當您下達上述指令後，我會：
