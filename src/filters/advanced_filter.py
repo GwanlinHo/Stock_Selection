@@ -41,17 +41,33 @@ class AdvancedFilter:
         if df_ratio is not None and not df_ratio.empty:
             try:
                 # 取得數據
-                net_income_data = df_ratio[df_ratio['type'] == 'IncomeAfterTaxes']
-                equity_data = df_ratio[df_ratio['type'] == 'EquityAttributableToOwnersOfParent']
-                eps_data = df_ratio[df_ratio['type'] == 'EPS']
+                ni_data = df_ratio[df_ratio['type'] == 'IncomeAfterTaxes'].sort_values('date')
+                equity_data = df_ratio[df_ratio['type'] == 'EquityAttributableToOwnersOfParent'].sort_values('date')
+                eps_data = df_ratio[df_ratio['type'] == 'EPS'].sort_values('date')
                 
-                if not net_income_data.empty and not equity_data.empty:
-                    # 計算 TTM 稅後淨利 (近四季加總)
-                    ttm_ni = net_income_data.tail(4)['value'].sum()
+                if len(ni_data) >= 4 and not equity_data.empty:
+                    # FinMind 的 IncomeAfterTaxes 是累計值 (Cumulative)
+                    # 邏輯：TTM = 當前累計 + (去年全年 - 去年同期累計)
+                    # 為簡化並精準計算，我們取最新的四個季度，並對累計值進行差分處理
+                    # 但更簡單且精準的方法是：直接找 EPS 累計加總 (EPS 通常也是累計，但這裡我們用淨利差分)
+                    
+                    # 1. 算出每季獨立淨利 (diff)
+                    # 注意：每逢 Q1 (date 包含 -03-31) 不需要減去前一筆，因為它是年度開始
+                    ni_values = ni_data['value'].tolist()
+                    ni_dates = ni_data['date'].tolist()
+                    quarterly_ni = []
+                    for idx in range(len(ni_values)):
+                        if idx == 0 or "-03-31" in ni_dates[idx]:
+                            quarterly_ni.append(ni_values[idx])
+                        else:
+                            quarterly_ni.append(ni_values[idx] - ni_values[idx-1])
+                    
+                    # 2. 取最後四季獨立淨利之和 (TTM)
+                    ttm_ni = sum(quarterly_ni[-4:])
                     latest_eq = equity_data.iloc[-1]['value']
-                    result["Report_Date"] = str(net_income_data.iloc[-1]['date'])
+                    result["Report_Date"] = str(ni_data.iloc[-1]['date'])
+                    
                     if latest_eq > 0:
-                        # 年化 ROE (TTM)
                         result["ROE"] = float(round((ttm_ni / latest_eq) * 100, 2))
                 
                 # 計算 EPS Growth (用於 PEG)
