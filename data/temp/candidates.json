@@ -1169,8 +1169,8 @@
         "ROIC": 0.0,
         "PER": 0.0,
         "PEG": 0.0,
-        "Report_Date": "",
-        "ROE": 0.0
+        "Report_Date": "2025-12-31",
+        "ROE": 100.31
     },
     {
         "Ticker": "3437.TW",
@@ -3254,7 +3254,7 @@
         "L3_Pass": true,
         "L3_Value": 312.0,
         "L4_Pass": false,
-        "L4_Value": 0.0,
+        "L4_Value": -36.55,
         "ROE": 0.0,
         "PER": 0.0,
         "PEG": 0.0,
