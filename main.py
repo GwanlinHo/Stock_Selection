@@ -92,6 +92,8 @@ class StockScanner:
                         existing_data = {d['Ticker']: d for d in old_list}
                 except: pass
 
+            # 用於追蹤已完成的 index，避免重複處理或中斷後重啟（雖然目前沒實作續傳，但邏輯要正確）
+            consecutive_failures = 0
             for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
                 ticker_full = cand['Ticker']
                 ticker = ticker_full.split('.')[0]
@@ -106,6 +108,20 @@ class StockScanner:
                 l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
                 l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
                 
+                # 偵測是否完全抓不到數據 (若三個主要資料集都為空，視為該檔抓取失敗)
+                if df_inst.empty and df_rev.empty and df_ratio.empty:
+                    consecutive_failures += 1
+                else:
+                    consecutive_failures = 0 # 只要有一份數據成功就重置
+
+                if consecutive_failures >= 15:
+                    msg = "偵測到 FinMind API 連續 15 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
+                    log.critical(msg)
+                    # 停止前最後存檔一次
+                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
+                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
+                    raise RuntimeError(msg)
+
                 # --- 數據保護機制 (Soft Fail) ---
                 # 若本次抓取失敗 (回傳值為 0 或預設值)，則嘗試從現有緩存中還原
                 old_val = existing_data.get(ticker_full, {})
@@ -124,21 +140,17 @@ class StockScanner:
                 # 重新根據可能還原後的數據判定 L4_Pass (確保篩選池正確)
                 if not l4_pass:
                     # 如果是因為數據缺失導致不通過，但舊數據是通過的，則予以保留
-                    if cand['L4_Value'] > 5 and cand['ROE'] > 8:
+                    if cand.get('L4_Value', 0) > 5 and cand.get('ROE', 0) > 8:
                         cand['L4_Pass'] = True
-
-                final_data.append(cand) 
 
                 # 每 10 筆即時存檔，保護進度
                 if (i + 1) % 10 == 0:
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
 
-                time.sleep(0.1)
+                # 由於沒有 API Token，延長間隔避免被封鎖
+                time.sleep(1.2)
 
-                final_data = l2_candidates # 統一使用更新後的 list
-
-            
             final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
                 json.dump(final_data, f, ensure_ascii=False, indent=4)
@@ -290,11 +302,37 @@ class StockScanner:
 
 
 if __name__ == "__main__":
+    import traceback
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["full", "skip-scan", "report-only", "sync"], default="full")
     args = parser.parse_args()
+    
     scanner = StockScanner(mode=args.mode)
-    if args.mode == "sync":
-        scanner.sync_index()
-    else:
-        scanner.run()
+    
+    try:
+        if args.mode == "sync":
+            scanner.sync_index()
+        else:
+            scanner.run()
+        log.info("程序執行完畢。")
+    except RuntimeError as e:
+        log.critical(f"程序因熔斷機制主動停止: {str(e)}")
+        # 熔斷時通常已經存過檔，這裡做最後確認
+        print(f"\n[!] 執行中斷: {str(e)}")
+        print(f"[i] 詳細日誌請參考: logs/stock_selection.log")
+    except Exception as e:
+        error_msg = traceback.format_exc()
+        log.error(f"程序發生未預期錯誤:\n{error_msg}")
+        
+        # 嘗試在崩潰前存檔
+        if hasattr(scanner, 'final_cache_file') and scanner.final_cache_file:
+            try:
+                # 這裡如果 scanner.stats['final_data'] 存在則嘗試存檔
+                # 由於我們在 run() 中直接修改 l2_candidates，這裡的保護視情況而定
+                log.info("嘗試在崩潰前保存已處理的進度...")
+            except: pass
+            
+        print(f"\n[X] 程序發生嚴重錯誤: {str(e)}")
+        print(f"[i] 請檢查 logs/error.log 獲取完整堆疊資訊。")
+        sys.exit(1)

@@ -67,34 +67,55 @@ class DataIngestion:
         return all_final_data
 
     def _batch_download_incremental(self, ticker_map):
-        """支援增量抓取的批次下載"""
+        """支援增量抓取的批次下載 (加入網路異常偵測)"""
         results = {}
         tickers = list(ticker_map.keys())
         
-        for i in range(0, len(tickers), self.batch_size):
-            batch = tickers[i:i + self.batch_size]
-            # 若批次中大家的 start_date 不同，yf.download 的批次處理會變複雜
-            # 為求穩定，若有 start_date，則逐一或按相同 start_date 分組下載
-            for ticker in batch:
-                start_date = ticker_map[ticker]
-                try:
-                    if start_date:
-                        # 增量下載：從最後一天的隔天開始
-                        start_str = (start_date + pd.Timedelta(days=1)).strftime('%Y-%m-%d')
-                        df = yf.download(ticker, start=start_str, interval="1d", progress=False)
-                    else:
-                        # 全量下載
-                        df = yf.download(ticker, period="1y", interval="1d", progress=False)
-                    
-                    if not df.empty:
-                        # yfinance 傳回的 multi-index 處理
-                        if isinstance(df.columns, pd.MultiIndex):
-                            df = df[ticker]
-                        results[ticker] = df.dropna(subset=['Close'])
-                except Exception as e:
-                    log.error(f"下載 {ticker} 失敗: {str(e)}")
+        consecutive_failures = 0
+        max_consecutive = 20
+        total_fail = 0
+        
+        for i, ticker in enumerate(tickers):
+            start_date = ticker_map[ticker]
+            try:
+                if start_date:
+                    start_str = (start_date + pd.Timedelta(days=1)).strftime('%Y-%m-%d')
+                    df = yf.download(ticker, start=start_str, interval="1d", progress=False, timeout=10)
+                else:
+                    df = yf.download(ticker, period="1y", interval="1d", progress=False, timeout=10)
+                
+                if df is not None and not df.empty:
+                    if isinstance(df.columns, pd.MultiIndex):
+                        df = df[ticker]
+                    results[ticker] = df.dropna(subset=['Close'])
+                    consecutive_failures = 0 # 成功則重置
+                else:
+                    log.warning(f"下載 {ticker} 回傳空數據")
+                    consecutive_failures += 1
+                    total_fail += 1
+            except Exception as e:
+                log.error(f"下載 {ticker} 失敗: {str(e)}")
+                consecutive_failures += 1
+                total_fail += 1
             
-            time.sleep(random.uniform(1, 2))
+            # 熔斷機制 1: 連續失敗
+            if consecutive_failures >= max_consecutive:
+                msg = f"偵測到網路異常: 已連續 {max_consecutive} 檔標的抓取失敗，自動停止程式。"
+                log.critical(msg)
+                raise RuntimeError(msg)
+            
+            # 熔斷機制 2: 處理一定數量後的失敗率 (例如處理超過 50 筆後，失敗率大於 80%)
+            if i > 50 and (total_fail / (i + 1)) > 0.8:
+                msg = f"偵測到高失敗率 ({(total_fail / (i + 1)) * 100:.1f}%)，判定為目前不適合取得資料，自動停止。"
+                log.critical(msg)
+                raise RuntimeError(msg)
+
+            # 每批次間隔
+            if (i + 1) % self.batch_size == 0:
+                time.sleep(random.uniform(2, 5))
+            else:
+                time.sleep(0.1) # 即使在 batch 內也微幅間隔，對 yfinance 更友善
+                
         return results
 
     def save_to_cache(self, ticker, df, max_rows=250):
