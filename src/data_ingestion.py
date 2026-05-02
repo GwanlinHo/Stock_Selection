@@ -86,7 +86,10 @@ class DataIngestion:
                 
                 if df is not None and not df.empty:
                     if isinstance(df.columns, pd.MultiIndex):
-                        df = df[ticker]
+                        # 如果是 MultiIndex，結構通常是 (Price, Ticker)
+                        # 我們移除 Ticker 層級，保留 Price 層級 (Open, High, Low, Close, Volume)
+                        df = df.copy()
+                        df.columns = df.columns.get_level_values(0)
                     results[ticker] = df.dropna(subset=['Close'])
                     consecutive_failures = 0 # 成功則重置
                 else:
