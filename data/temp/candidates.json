@@ -1377,13 +1377,13 @@
         "Name": "TPK-KY",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
+        "L3_Value": -4905.6,
+        "L4_Pass": true,
         "L4_Value": 23.59,
-        "ROE": 0,
-        "PER": 25.76,
+        "ROE": 114.52,
+        "PER": 22.29,
         "PEG": 0.0,
-        "Report_Date": ""
+        "Report_Date": "2025-12-31"
     },
     {
         "Ticker": "3711.TW",
@@ -1395,13 +1395,13 @@
         "Name": "日月光投控",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 1515.1,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": ""
+        "L3_Value": -4473.8,
+        "L4_Pass": true,
+        "L4_Value": 14.57,
+        "ROE": 102.03,
+        "PER": 51.45,
+        "PEG": 0.92,
+        "Report_Date": "2025-12-31"
     },
     {
         "Ticker": "3714.TW",
@@ -1413,7 +1413,7 @@
         "Name": "富采",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": -10057.1,
+        "L3_Value": -1364.0,
         "L4_Pass": false,
         "L4_Value": -6.51,
         "ROE": 0,
@@ -1627,7 +1627,15 @@
         "AvgDailyVol": 7451718.6,
         "M20_Slope": 0.016684421817270777,
         "Name": "有成精密",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": 0,
+        "L4_Pass": false,
+        "L4_Value": 0,
+        "ROE": 0,
+        "PER": 0,
+        "PEG": 0,
+        "Report_Date": ""
     },
     {
         "Ticker": "4956.TW",
@@ -1637,7 +1645,15 @@
         "AvgDailyVol": 17101148.8,
         "M20_Slope": 0.024935928503827406,
         "Name": "光鋐",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": 0,
+        "L4_Pass": false,
+        "L4_Value": 0,
+        "ROE": 0,
+        "PER": 0,
+        "PEG": 0,
+        "Report_Date": ""
     },
     {
         "Ticker": "4958.TW",
@@ -1647,7 +1663,15 @@
         "AvgDailyVol": 27941754.8,
         "M20_Slope": 0.016432953549517966,
         "Name": "臻鼎-KY",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": 0,
+        "L4_Pass": false,
+        "L4_Value": 0,
+        "ROE": 0,
+        "PER": 0,
+        "PEG": 0,
+        "Report_Date": ""
     },
     {
         "Ticker": "4960.TW",
