@@ -94,83 +94,95 @@ class StockScanner:
 
             # 用於追蹤已完成的 index，避免重複處理或中斷後重啟
             consecutive_failures = 0
-            today_str = datetime.now().strftime('%Y-%m-%d')
+            today = datetime.now()
+            today_str = today.strftime('%Y-%m-%d')
             
             for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
                 ticker_full = cand['Ticker']
                 ticker = ticker_full.split('.')[0]
                 old_val = existing_data.get(ticker_full, {})
                 
-                # --- 增量更新檢查 (Incremental Update) ---
-                # 若已有資料且 Fetch 日期在 30 天內，則跳過 API 抓取
-                last_fetched = old_val.get('Fetched_At', "")
-                is_fresh = False
-                if last_fetched:
-                    try:
-                        last_date = datetime.strptime(last_fetched, '%Y-%m-%d')
-                        if (datetime.now() - last_date).days < 30:
-                            is_fresh = True
+                # --- 細粒度增量更新檢查 (Granular Incremental Update) ---
+                last_fetched_str = old_val.get('Fetched_At', "")
+                last_fetched = None
+                if last_fetched_str:
+                    try: last_fetched = datetime.strptime(last_fetched_str, '%Y-%m-%d')
                     except: pass
                 
-                if is_fresh:
-                    # 直接從緩存還原數據
+                # 判定各維度數據是否新鮮
+                # 籌碼面 (L3) 效期：7 天 (週報需求)
+                # 基本面 (L4) 效期：30 天 (月營收與財報需求)
+                chip_is_fresh = last_fetched and (today - last_fetched).days < 7
+                fund_is_fresh = last_fetched and (today - last_fetched).days < 30
+                
+                # 若兩者皆新鮮，完全跳過 API 抓取
+                if chip_is_fresh and fund_is_fresh:
+                    for key in ['L3_Pass', 'L3_Value', 'L4_Pass', 'L4_Value', 'ROE', 'PER', 'PEG', 'Report_Date', 'Fetched_At']:
+                        cand[key] = old_val.get(key, 0 if 'Value' in key or key in ['ROE', 'PER', 'PEG'] else (False if 'Pass' in key else ""))
+                    continue
+
+                # 準備抓取容器
+                df_inst, df_rev, df_ratio, df_per = None, None, None, None
+                
+                # 1. 抓取籌碼數據 (若不新鮮或過期)
+                if not chip_is_fresh:
+                    df_inst = premium_data.fetch_chip_data(ticker)
+                
+                # 2. 抓取基本面數據 (若不新鮮或過期)
+                if not fund_is_fresh:
+                    df_rev = premium_data.fetch_fundamental_data(ticker)
+                    df_ratio = premium_data.fetch_financial_ratios(ticker)
+                    df_per = premium_data.fetch_per_pbr(ticker)
+
+                # 執行篩選邏輯
+                # L3 邏輯：優先使用新抓取的，若無新抓取則從 old_val 還原結果
+                if df_inst is not None:
+                    l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
+                    cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
+                else:
                     cand['L3_Pass'] = old_val.get('L3_Pass', False)
                     cand['L3_Value'] = old_val.get('L3_Value', 0)
-                    cand['L4_Pass'] = old_val.get('L4_Pass', False)
-                    cand['L4_Value'] = old_val.get('L4_Value', 0)
-                    cand['ROE'] = old_val.get('ROE', 0)
-                    cand['PER'] = old_val.get('PER', 0)
-                    cand['PEG'] = old_val.get('PEG', 0)
-                    cand['Report_Date'] = old_val.get('Report_Date', "")
-                    cand['Fetched_At'] = last_fetched
-                    continue # 跳過 API 呼叫
 
-                # 抓取新數據
-                df_inst = premium_data.fetch_chip_data(ticker)
-                df_rev = premium_data.fetch_fundamental_data(ticker)
-                df_ratio = premium_data.fetch_financial_ratios(ticker)
-                df_per = premium_data.fetch_per_pbr(ticker)
+                # L4 邏輯：優先使用新抓取的，若無新抓取則從 old_val 還原結果
+                if df_rev is not None and df_ratio is not None:
+                    l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
+                    cand['L4_Pass'] = bool(l4_pass)
+                    cand['L4_Value'] = float(l4_result['YoY'])
+                    cand['ROE'] = l4_result['ROE']
+                    cand['PER'] = l4_result['PER']
+                    cand['PEG'] = l4_result['PEG']
+                    cand['Report_Date'] = l4_result['Report_Date']
+                else:
+                    # 還原基本面舊數據
+                    for key in ['L4_Pass', 'L4_Value', 'ROE', 'PER', 'PEG', 'Report_Date']:
+                        cand[key] = old_val.get(key, 0 if key != 'Report_Date' else "")
+
+                # 偵測抓取是否完全失敗 (僅針對有發起請求的部分)
+                fetch_attempted = (not chip_is_fresh) or (not fund_is_fresh)
+                all_empty = (df_inst is None or df_inst.empty) and (df_rev is None or df_rev.empty)
                 
-                # 執行篩選
-                l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
-                l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
-                
-                # 偵測是否完全抓不到數據 (若三個主要資料集都為空，視為該檔抓取失敗)
-                fetch_failed = df_inst.empty and df_rev.empty and df_ratio.empty
-                if fetch_failed:
+                if fetch_attempted and all_empty:
                     consecutive_failures += 1
                 else:
-                    consecutive_failures = 0 # 只要有一份數據成功就重置
+                    consecutive_failures = 0
 
                 if consecutive_failures >= 15:
                     msg = "偵測到 FinMind API 連續 15 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
                     log.critical(msg)
-                    # 停止前最後存檔一次，確保 Fetched_At 等資訊不遺失
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
                     raise RuntimeError(msg)
 
-                # --- 數據保護機制 (Soft Fail) ---
-                # 若本次抓取失敗 (回傳值為 0 或預設值)，則嘗試從現有緩存中還原
-                cand['L3_Pass'] = bool(l3_pass)
-                cand['L3_Value'] = float(l3_val) if l3_val != 0 else old_val.get('L3_Value', 0)
-                
-                cand['L4_Pass'] = bool(l4_pass)
-                # 營收與基本面指標保護
-                cand['L4_Value'] = float(l4_result['YoY']) if l4_result['YoY'] != 0 else old_val.get('L4_Value', 0)
-                cand['ROE'] = l4_result['ROE'] if l4_result['ROE'] != 0 else old_val.get('ROE', 0)
-                cand['PER'] = l4_result['PER'] if l4_result['PER'] != 0 else old_val.get('PER', 0)
-                cand['PEG'] = l4_result['PEG'] if l4_result['PEG'] != 0 else old_val.get('PEG', 0)
-                cand['Report_Date'] = l4_result['Report_Date'] if l4_result['Report_Date'] else old_val.get('Report_Date', "")
-                
-                # 記錄更新日期：僅在抓取未完全失敗時更新為今天，否則保留舊日期 (以便下次重試)
-                cand['Fetched_At'] = today_str if not fetch_failed else last_fetched
+                # 記錄更新日期：只要有嘗試更新且非完全失敗，就標註為今天
+                cand['Fetched_At'] = today_str if fetch_attempted and not all_empty else last_fetched_str
 
-                # 重新根據可能還原後的數據判定 L4_Pass (確保篩選池正確)
-                if not l4_pass:
-                    # 如果是因為數據缺失導致不通過，但舊數據是通過的，則予以保留
-                    if cand.get('L4_Value', 0) > 5 and cand.get('ROE', 0) > 8:
-                        cand['L4_Pass'] = True
+                # 每 10 筆即時存檔，保護進度
+                if (i + 1) % 10 == 0:
+                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
+                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
+
+                if fetch_attempted:
+                    time.sleep(1.2)
 
                 # 每 10 筆即時存檔，保護進度
                 if (i + 1) % 10 == 0:
