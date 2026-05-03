@@ -92,12 +92,39 @@ class StockScanner:
                         existing_data = {d['Ticker']: d for d in old_list}
                 except: pass
 
-            # 用於追蹤已完成的 index，避免重複處理或中斷後重啟（雖然目前沒實作續傳，但邏輯要正確）
+            # 用於追蹤已完成的 index，避免重複處理或中斷後重啟
             consecutive_failures = 0
+            today_str = datetime.now().strftime('%Y-%m-%d')
+            
             for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
                 ticker_full = cand['Ticker']
                 ticker = ticker_full.split('.')[0]
+                old_val = existing_data.get(ticker_full, {})
                 
+                # --- 增量更新檢查 (Incremental Update) ---
+                # 若已有資料且 Fetch 日期在 30 天內，則跳過 API 抓取
+                last_fetched = old_val.get('Fetched_At', "")
+                is_fresh = False
+                if last_fetched:
+                    try:
+                        last_date = datetime.strptime(last_fetched, '%Y-%m-%d')
+                        if (datetime.now() - last_date).days < 30:
+                            is_fresh = True
+                    except: pass
+                
+                if is_fresh:
+                    # 直接從緩存還原數據
+                    cand['L3_Pass'] = old_val.get('L3_Pass', False)
+                    cand['L3_Value'] = old_val.get('L3_Value', 0)
+                    cand['L4_Pass'] = old_val.get('L4_Pass', False)
+                    cand['L4_Value'] = old_val.get('L4_Value', 0)
+                    cand['ROE'] = old_val.get('ROE', 0)
+                    cand['PER'] = old_val.get('PER', 0)
+                    cand['PEG'] = old_val.get('PEG', 0)
+                    cand['Report_Date'] = old_val.get('Report_Date', "")
+                    cand['Fetched_At'] = last_fetched
+                    continue # 跳過 API 呼叫
+
                 # 抓取新數據
                 df_inst = premium_data.fetch_chip_data(ticker)
                 df_rev = premium_data.fetch_fundamental_data(ticker)
@@ -109,7 +136,8 @@ class StockScanner:
                 l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
                 
                 # 偵測是否完全抓不到數據 (若三個主要資料集都為空，視為該檔抓取失敗)
-                if df_inst.empty and df_rev.empty and df_ratio.empty:
+                fetch_failed = df_inst.empty and df_rev.empty and df_ratio.empty
+                if fetch_failed:
                     consecutive_failures += 1
                 else:
                     consecutive_failures = 0 # 只要有一份數據成功就重置
@@ -117,15 +145,13 @@ class StockScanner:
                 if consecutive_failures >= 15:
                     msg = "偵測到 FinMind API 連續 15 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
                     log.critical(msg)
-                    # 停止前最後存檔一次
+                    # 停止前最後存檔一次，確保 Fetched_At 等資訊不遺失
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
                     raise RuntimeError(msg)
 
                 # --- 數據保護機制 (Soft Fail) ---
                 # 若本次抓取失敗 (回傳值為 0 或預設值)，則嘗試從現有緩存中還原
-                old_val = existing_data.get(ticker_full, {})
-                
                 cand['L3_Pass'] = bool(l3_pass)
                 cand['L3_Value'] = float(l3_val) if l3_val != 0 else old_val.get('L3_Value', 0)
                 
@@ -137,6 +163,9 @@ class StockScanner:
                 cand['PEG'] = l4_result['PEG'] if l4_result['PEG'] != 0 else old_val.get('PEG', 0)
                 cand['Report_Date'] = l4_result['Report_Date'] if l4_result['Report_Date'] else old_val.get('Report_Date', "")
                 
+                # 記錄更新日期：僅在抓取未完全失敗時更新為今天，否則保留舊日期 (以便下次重試)
+                cand['Fetched_At'] = today_str if not fetch_failed else last_fetched
+
                 # 重新根據可能還原後的數據判定 L4_Pass (確保篩選池正確)
                 if not l4_pass:
                     # 如果是因為數據缺失導致不通過，但舊數據是通過的，則予以保留
