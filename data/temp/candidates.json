@@ -1282,14 +1282,14 @@
         "Name": "佰鴻",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Value": -266.0,
+        "L4_Pass": true,
+        "L4_Value": 22.68,
+        "ROE": 93.32,
+        "PER": 28.94,
+        "PEG": 0.43,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3033.TW",
@@ -1300,15 +1300,15 @@
         "M20_Slope": 0.0057943388140980386,
         "Name": "威健",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Pass": true,
+        "L3_Value": 3980.8,
+        "L4_Pass": true,
+        "L4_Value": 12.61,
+        "ROE": 100.0,
+        "PER": 21.06,
+        "PEG": 0.54,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3037.TW",
@@ -1320,14 +1320,14 @@
         "Name": "欣興",
         "Industry": "電子零組件業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Value": -5858.0,
+        "L4_Pass": true,
+        "L4_Value": 23.27,
+        "ROE": 166.03,
+        "PER": 133.97,
+        "PEG": 0.3,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3042.TW",
@@ -1338,15 +1338,15 @@
         "M20_Slope": 0.022967929845628003,
         "Name": "晶技",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 1133.0,
         "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
+        "L4_Value": 2.66,
+        "ROE": 100.23,
+        "PER": 31.26,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3044.TW",
@@ -1357,15 +1357,15 @@
         "M20_Slope": 0.013495276653171389,
         "Name": "健鼎",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Pass": true,
+        "L3_Value": 1333.6,
+        "L4_Pass": true,
+        "L4_Value": 24.38,
+        "ROE": 100.0,
+        "PER": 23.93,
+        "PEG": 2.21,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3051.TW",
@@ -1377,14 +1377,14 @@
         "Name": "力特",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -1333.0,
         "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
+        "L4_Value": -5.71,
+        "ROE": 100.0,
+        "PER": 28.82,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3135.TW",
@@ -1395,15 +1395,15 @@
         "M20_Slope": 0.01632231404958673,
         "Name": "凌航",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 3074.5,
         "L4_Pass": false,
         "L4_Value": 0.0,
         "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
+        "PER": 26.9,
+        "PEG": 0.26,
         "Report_Date": "",
-        "Fetched_At": ""
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3167.TW",
@@ -1415,14 +1415,14 @@
         "Name": "大量",
         "Industry": "電機機械",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Value": -1451.8,
+        "L4_Pass": true,
+        "L4_Value": 146.84,
+        "ROE": 100.0,
+        "PER": 105.43,
+        "PEG": 0.48,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3189.TW",
@@ -1433,15 +1433,15 @@
         "M20_Slope": 0.025782467921813167,
         "Name": "景碩",
         "Industry": "半導體業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 1047.7,
+        "L4_Pass": true,
+        "L4_Value": 25.06,
+        "ROE": 146.02,
+        "PER": 152.15,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3209.TW",
@@ -1452,15 +1452,15 @@
         "M20_Slope": 0.011485042781850417,
         "Name": "全科",
         "Industry": "電子通路業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Pass": true,
+        "L3_Value": 154.1,
+        "L4_Pass": true,
+        "L4_Value": 11.85,
+        "ROE": 102.77,
+        "PER": 17.21,
+        "PEG": 0.14,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3231.TW",
@@ -1471,15 +1471,15 @@
         "M20_Slope": 0.0053614346459603945,
         "Name": "緯創",
         "Industry": "電腦及週邊設備業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
-        "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "L3_Pass": true,
+        "L3_Value": 4340.7,
+        "L4_Pass": true,
+        "L4_Value": 117.7,
+        "ROE": 200.15,
+        "PER": 16.3,
+        "PEG": 0.4,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3338.TW",
@@ -1490,15 +1490,15 @@
         "M20_Slope": 0.012133389496899257,
         "Name": "泰碩",
         "Industry": "電子零組件業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 51.3,
+        "L4_Pass": true,
+        "L4_Value": 5.2,
+        "ROE": 100.0,
+        "PER": 41.28,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3437.TW",
@@ -1510,14 +1510,14 @@
         "Name": "榮創",
         "Industry": "光電業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Value": -2281.5,
         "L4_Pass": false,
-        "L4_Value": 0.0,
+        "L4_Value": -21.73,
         "ROE": 0.0,
         "PER": 0.0,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3532.TW",
@@ -1529,14 +1529,14 @@
         "Name": "台勝科",
         "Industry": "半導體業",
         "L3_Pass": false,
-        "L3_Value": 0.0,
-        "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
-        "PER": 0.0,
+        "L3_Value": -1300.5,
+        "L4_Pass": true,
+        "L4_Value": 15.78,
+        "ROE": 100.0,
+        "PER": 131.33,
         "PEG": 0.0,
-        "Report_Date": "",
-        "Fetched_At": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3535.TW",
@@ -1547,14 +1547,15 @@
         "M20_Slope": 0.010334849111202976,
         "Name": "晶彩科",
         "Industry": "光電業",
-        "L3_Pass": false,
-        "L3_Value": 0.0,
+        "L3_Pass": true,
+        "L3_Value": 728.1,
         "L4_Pass": false,
-        "L4_Value": 0.0,
-        "ROE": 0.0,
+        "L4_Value": -9.27,
+        "ROE": 100.0,
         "PER": 0.0,
         "PEG": 0.0,
-        "Report_Date": ""
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3550.TW",
@@ -1564,7 +1565,16 @@
         "AvgDailyVol": 4108438.8,
         "M20_Slope": 0.009537308540570773,
         "Name": "聯穎",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -268.5,
+        "L4_Pass": false,
+        "L4_Value": 29.91,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3583.TW",
@@ -1574,7 +1584,16 @@
         "AvgDailyVol": 3514011.0,
         "M20_Slope": 0.024786731593014248,
         "Name": "辛耘",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -835.8,
+        "L4_Pass": true,
+        "L4_Value": 6.08,
+        "ROE": 104.13,
+        "PER": 57.38,
+        "PEG": 1.78,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3588.TW",
@@ -1584,7 +1603,16 @@
         "AvgDailyVol": 2367469.2,
         "M20_Slope": 0.013389649161728894,
         "Name": "通嘉",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 91.0,
+        "L4_Pass": true,
+        "L4_Value": 28.73,
+        "ROE": 100.0,
+        "PER": 124.69,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3591.TW",
@@ -1594,7 +1622,16 @@
         "AvgDailyVol": 2839873.0,
         "M20_Slope": 0.007808264618414549,
         "Name": "艾笛森",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -563.0,
+        "L4_Pass": false,
+        "L4_Value": 11.63,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3605.TW",
@@ -1604,7 +1641,16 @@
         "AvgDailyVol": 17685476.8,
         "M20_Slope": 0.02391252645674334,
         "Name": "宏致",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -840.9,
+        "L4_Pass": false,
+        "L4_Value": 3.35,
+        "ROE": 100.0,
+        "PER": 21.24,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3645.TW",
@@ -1614,7 +1660,16 @@
         "AvgDailyVol": 8051279.0,
         "M20_Slope": 0.017172482519908844,
         "Name": "達邁",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -2931.5,
+        "L4_Pass": true,
+        "L4_Value": 23.85,
+        "ROE": 95.67,
+        "PER": 63.92,
+        "PEG": 0.27,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3661.TW",
@@ -1624,7 +1679,16 @@
         "AvgDailyVol": 2356794.6,
         "M20_Slope": 0.024289709995583688,
         "Name": "世芯-KY",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 759.3,
+        "L4_Pass": false,
+        "L4_Value": -46.57,
+        "ROE": 100.23,
+        "PER": 61.71,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3665.TW",
@@ -1634,7 +1698,16 @@
         "AvgDailyVol": 2795539.4,
         "M20_Slope": 0.02213625617880937,
         "Name": "貿聯-KY",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": true,
+        "L3_Value": 1412.0,
+        "L4_Pass": true,
+        "L4_Value": 22.21,
+        "ROE": 99.98,
+        "PER": 63.66,
+        "PEG": 0.98,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3673.TW",
@@ -1644,7 +1717,16 @@
         "AvgDailyVol": 9861949.2,
         "M20_Slope": 0.014621769214887524,
         "Name": "TPK-KY",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -3126.6,
+        "L4_Pass": true,
+        "L4_Value": 23.59,
+        "ROE": 114.52,
+        "PER": 22.66,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3701.TW",
@@ -1654,7 +1736,16 @@
         "AvgDailyVol": 8673865.4,
         "M20_Slope": 0.008063874107448781,
         "Name": "大眾控",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": false,
+        "L3_Value": -1419.5,
+        "L4_Pass": false,
+        "L4_Value": -30.35,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3702.TW",
@@ -1664,7 +1755,16 @@
         "AvgDailyVol": 13066872.8,
         "M20_Slope": 0.006799163179916378,
         "Name": "大聯大",
-        "Industry": "電子通路業"
+        "Industry": "電子通路業",
+        "L3_Pass": true,
+        "L3_Value": 5105.7,
+        "L4_Pass": true,
+        "L4_Value": 28.58,
+        "ROE": 106.61,
+        "PER": 17.36,
+        "PEG": 0.23,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3711.TW",
@@ -1674,7 +1774,16 @@
         "AvgDailyVol": 26739644.2,
         "M20_Slope": 0.017404971185749962,
         "Name": "日月光投控",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 109.4,
+        "L4_Pass": true,
+        "L4_Value": 14.57,
+        "ROE": 102.03,
+        "PER": 56.51,
+        "PEG": 1.01,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3714.TW",
@@ -1684,7 +1793,16 @@
         "AvgDailyVol": 11271372.0,
         "M20_Slope": 0.022409732458064456,
         "Name": "富采",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -1845.0,
+        "L4_Pass": false,
+        "L4_Value": -6.51,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4540.TW",
@@ -1694,7 +1812,16 @@
         "AvgDailyVol": 13099723.0,
         "M20_Slope": 0.026688132701673892,
         "Name": "全球傳動",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -1415.1,
+        "L4_Pass": true,
+        "L4_Value": 75.05,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4576.TW",
@@ -1704,7 +1831,16 @@
         "AvgDailyVol": 3607409.2,
         "M20_Slope": 0.025974025974025875,
         "Name": "大銀微系統",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -1148.1,
+        "L4_Pass": true,
+        "L4_Value": 49.48,
+        "ROE": 105.44,
+        "PER": 115.92,
+        "PEG": 0.69,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4720.TW",
@@ -1714,7 +1850,16 @@
         "AvgDailyVol": 13130917.4,
         "M20_Slope": 0.019817586510481214,
         "Name": "德淵",
-        "Industry": "化學工業"
+        "Industry": "化學工業",
+        "L3_Pass": false,
+        "L3_Value": -1721.3,
+        "L4_Pass": true,
+        "L4_Value": 25.16,
+        "ROE": 92.8,
+        "PER": 34.32,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4919.TW",
@@ -1724,7 +1869,16 @@
         "AvgDailyVol": 5999672.6,
         "M20_Slope": 0.024759808645472777,
         "Name": "新唐",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -885.6,
+        "L4_Pass": false,
+        "L4_Value": -6.06,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4927.TW",
@@ -1734,7 +1888,16 @@
         "AvgDailyVol": 36714498.6,
         "M20_Slope": 0.012308477307470544,
         "Name": "泰鼎-KY",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -12441.0,
+        "L4_Pass": false,
+        "L4_Value": -10.65,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4949.TW",
@@ -1744,7 +1907,16 @@
         "AvgDailyVol": 3223170.2,
         "M20_Slope": 0.02294124640683794,
         "Name": "有成精密",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -1026.5,
+        "L4_Pass": true,
+        "L4_Value": 42.24,
+        "ROE": 100.0,
+        "PER": 55.26,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4956.TW",
@@ -1754,7 +1926,16 @@
         "AvgDailyVol": 2059994.2,
         "M20_Slope": 0.018160719063729798,
         "Name": "光鋐",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -261.0,
+        "L4_Pass": true,
+        "L4_Value": 12.6,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4958.TW",
@@ -1764,7 +1945,16 @@
         "AvgDailyVol": 77278762.8,
         "M20_Slope": 0.0377142857142858,
         "Name": "臻鼎-KY",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -9019.5,
+        "L4_Pass": true,
+        "L4_Value": 7.18,
+        "ROE": 145.61,
+        "PER": 68.11,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4960.TW",
@@ -1774,7 +1964,16 @@
         "AvgDailyVol": 5321344.6,
         "M20_Slope": 0.02397455887154051,
         "Name": "誠美材",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -2031.7,
+        "L4_Pass": false,
+        "L4_Value": -23.86,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4967.TW",
@@ -1784,7 +1983,16 @@
         "AvgDailyVol": 33763766.2,
         "M20_Slope": 0.017502668089647788,
         "Name": "十銓",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 429.4,
+        "L4_Pass": true,
+        "L4_Value": 120.49,
+        "ROE": 100.0,
+        "PER": 21.78,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4977.TW",
@@ -1794,7 +2002,16 @@
         "AvgDailyVol": 9990492.2,
         "M20_Slope": 0.009790886014746794,
         "Name": "眾達-KY",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -940.2,
+        "L4_Pass": false,
+        "L4_Value": -19.39,
+        "ROE": 100.0,
+        "PER": 49.66,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4989.TW",
@@ -1804,7 +2021,16 @@
         "AvgDailyVol": 3901145.8,
         "M20_Slope": 0.026513697606844043,
         "Name": "榮科",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -9775.0,
+        "L4_Pass": false,
+        "L4_Value": 53.99,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5471.TW",
@@ -1814,7 +2040,16 @@
         "AvgDailyVol": 2103923.2,
         "M20_Slope": 0.005549794774079236,
         "Name": "松翰",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 497.0,
+        "L4_Pass": true,
+        "L4_Value": 24.01,
+        "ROE": 100.0,
+        "PER": 60.35,
+        "PEG": 12.68,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6108.TW",
@@ -1824,7 +2059,16 @@
         "AvgDailyVol": 5543499.0,
         "M20_Slope": 0.008235125912983705,
         "Name": "競國",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 87.0,
+        "L4_Pass": true,
+        "L4_Value": 22.42,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6117.TW",
@@ -1834,7 +2078,16 @@
         "AvgDailyVol": 2188963.6,
         "M20_Slope": 0.011989202550929334,
         "Name": "迎廣",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": true,
+        "L3_Value": 196.0,
+        "L4_Pass": true,
+        "L4_Value": 31.53,
+        "ROE": 99.98,
+        "PER": 23.24,
+        "PEG": 0.56,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6139.TW",
@@ -1844,7 +2097,16 @@
         "AvgDailyVol": 3035414.6,
         "M20_Slope": 0.011424100156494452,
         "Name": "亞翔",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": false,
+        "L3_Value": -802.9,
+        "L4_Pass": true,
+        "L4_Value": 47.45,
+        "ROE": 134.73,
+        "PER": 22.89,
+        "PEG": 0.17,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6153.TW",
@@ -1854,7 +2116,16 @@
         "AvgDailyVol": 4897287.6,
         "M20_Slope": 0.005920497240785225,
         "Name": "嘉聯益",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -1275.4,
+        "L4_Pass": false,
+        "L4_Value": 1.2,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6165.TW",
@@ -1864,7 +2135,16 @@
         "AvgDailyVol": 3073248.8,
         "M20_Slope": 0.008965038339275595,
         "Name": "浪凡",
-        "Industry": "數位雲端"
+        "Industry": "數位雲端",
+        "L3_Pass": true,
+        "L3_Value": 5564.9,
+        "L4_Pass": false,
+        "L4_Value": 2.95,
+        "ROE": 102.38,
+        "PER": 12.49,
+        "PEG": 0.1,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6197.TW",
@@ -1874,7 +2154,16 @@
         "AvgDailyVol": 8238955.6,
         "M20_Slope": 0.01377487129539443,
         "Name": "佳必琪",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 2182.6,
+        "L4_Pass": true,
+        "L4_Value": 12.34,
+        "ROE": 106.34,
+        "PER": 26.36,
+        "PEG": 0.78,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6202.TW",
@@ -1884,7 +2173,16 @@
         "AvgDailyVol": 4509472.0,
         "M20_Slope": 0.007159331872528418,
         "Name": "盛群",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1384.0,
+        "L4_Pass": true,
+        "L4_Value": 19.86,
+        "ROE": 21.06,
+        "PER": 84.09,
+        "PEG": 0.0,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6205.TW",
@@ -1894,7 +2192,16 @@
         "AvgDailyVol": 12160017.0,
         "M20_Slope": 0.02573343983065553,
         "Name": "詮欣",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 177.0,
+        "L4_Pass": false,
+        "L4_Value": -16.67,
+        "ROE": 99.59,
+        "PER": 47.01,
+        "PEG": 4.14,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6213.TW",
@@ -1904,7 +2211,16 @@
         "AvgDailyVol": 8445827.8,
         "M20_Slope": 0.026053393374075216,
         "Name": "聯茂",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 1766.7,
+        "L4_Pass": true,
+        "L4_Value": 13.8,
+        "ROE": 100.0,
+        "PER": 69.71,
+        "PEG": 0.72,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6257.TW",
@@ -1914,7 +2230,16 @@
         "AvgDailyVol": 11502396.4,
         "M20_Slope": 0.008759333716255058,
         "Name": "矽格",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1669.1,
+        "L4_Pass": true,
+        "L4_Value": 16.75,
+        "ROE": 111.0,
+        "PER": 30.88,
+        "PEG": 0.88,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6269.TW",
@@ -1924,7 +2249,16 @@
         "AvgDailyVol": 3079042.0,
         "M20_Slope": 0.00675357490066999,
         "Name": "台郡",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 1359.1,
+        "L4_Pass": false,
+        "L4_Value": 8.56,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6278.TW",
@@ -1934,7 +2268,16 @@
         "AvgDailyVol": 6576777.6,
         "M20_Slope": 0.029331779331779377,
         "Name": "台表科",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -2514.9,
+        "L4_Pass": false,
+        "L4_Value": -2.63,
+        "ROE": 82.09,
+        "PER": 20.55,
+        "PEG": 0.0,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6405.TW",
@@ -1944,7 +2287,16 @@
         "AvgDailyVol": 2813847.6,
         "M20_Slope": 0.027312777257457,
         "Name": "悅城",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": true,
+        "L3_Value": 670.0,
+        "L4_Pass": false,
+        "L4_Value": -76.0,
+        "ROE": -5203.55,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6415.TW",
@@ -1954,7 +2306,16 @@
         "AvgDailyVol": 4309298.6,
         "M20_Slope": 0.021882494004796024,
         "Name": "矽力*-KY",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1249.3,
+        "L4_Pass": true,
+        "L4_Value": 12.02,
+        "ROE": 101.35,
+        "PER": 68.08,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6426.TW",
@@ -1964,7 +2325,16 @@
         "AvgDailyVol": 3342917.4,
         "M20_Slope": 0.021615612648221344,
         "Name": "統新",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -620.3,
+        "L4_Pass": true,
+        "L4_Value": 70.04,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6456.TW",
@@ -1974,7 +2344,16 @@
         "AvgDailyVol": 4176712.0,
         "M20_Slope": 0.01797336939523924,
         "Name": "GIS-KY",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": true,
+        "L3_Value": 216.3,
+        "L4_Pass": false,
+        "L4_Value": -15.22,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6526.TW",
@@ -1984,7 +2363,16 @@
         "AvgDailyVol": 2273387.6,
         "M20_Slope": 0.008415147265077184,
         "Name": "達發",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 777.5,
+        "L4_Pass": true,
+        "L4_Value": 5.7,
+        "ROE": 96.14,
+        "PER": 34.01,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6531.TW",
@@ -1994,7 +2382,16 @@
         "AvgDailyVol": 5514469.8,
         "M20_Slope": 0.03203992915794554,
         "Name": "愛普*",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -182.3,
+        "L4_Pass": true,
+        "L4_Value": 112.62,
+        "ROE": 97.95,
+        "PER": 119.53,
+        "PEG": 2.3,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6658.TW",
@@ -2004,7 +2401,16 @@
         "AvgDailyVol": 3587749.6,
         "M20_Slope": 0.04350500657099361,
         "Name": "聯策",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": true,
+        "L3_Value": 394.0,
+        "L4_Pass": true,
+        "L4_Value": 60.87,
+        "ROE": 90.38,
+        "PER": 105.51,
+        "PEG": 6.12,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6669.TW",
@@ -2014,7 +2420,16 @@
         "AvgDailyVol": 3217991.4,
         "M20_Slope": 0.017427122940430924,
         "Name": "緯穎",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": true,
+        "L3_Value": 8.4,
+        "L4_Pass": true,
+        "L4_Value": 13.87,
+        "ROE": 100.0,
+        "PER": 17.67,
+        "PEG": 0.19,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6672.TW",
@@ -2024,7 +2439,16 @@
         "AvgDailyVol": 11109892.8,
         "M20_Slope": 0.02892885864492315,
         "Name": "騰輝電子-KY",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 217.0,
+        "L4_Pass": true,
+        "L4_Value": 32.73,
+        "ROE": 100.0,
+        "PER": 45.98,
+        "PEG": 2.32,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6695.TW",
@@ -2034,7 +2458,16 @@
         "AvgDailyVol": 2673493.2,
         "M20_Slope": 0.010710988935598008,
         "Name": "芯鼎",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 951.0,
+        "L4_Pass": false,
+        "L4_Value": -4.75,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6706.TW",
@@ -2044,7 +2477,16 @@
         "AvgDailyVol": 8796279.0,
         "M20_Slope": 0.014544098452358883,
         "Name": "惠特",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": true,
+        "L3_Value": 8568.1,
+        "L4_Pass": false,
+        "L4_Value": -59.57,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6789.TW",
@@ -2054,7 +2496,16 @@
         "AvgDailyVol": 13339454.2,
         "M20_Slope": 0.03183520599250942,
         "Name": "采鈺",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 74.3,
+        "L4_Pass": false,
+        "L4_Value": 6.24,
+        "ROE": 0.0,
+        "PER": 152.75,
+        "PEG": 0.0,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6805.TW",
@@ -2064,7 +2515,16 @@
         "AvgDailyVol": 2575816.2,
         "M20_Slope": 0.008434370057986295,
         "Name": "富世達",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 378.7,
+        "L4_Pass": true,
+        "L4_Value": 95.02,
+        "ROE": 100.0,
+        "PER": 71.45,
+        "PEG": 0.87,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6830.TW",
@@ -2074,7 +2534,16 @@
         "AvgDailyVol": 2277906.4,
         "M20_Slope": 0.026418438553199572,
         "Name": "汎銓",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": false,
+        "L3_Value": -269.4,
+        "L4_Pass": false,
+        "L4_Value": 22.88,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6909.TW",
@@ -2084,7 +2553,16 @@
         "AvgDailyVol": 2186219.4,
         "M20_Slope": 0.01633942544477645,
         "Name": "創控",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -445.0,
+        "L4_Pass": false,
+        "L4_Value": -9.62,
+        "ROE": 0.0,
+        "PER": 61.15,
+        "PEG": 28.98,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "7711.TW",
@@ -2094,7 +2572,16 @@
         "AvgDailyVol": 2545964.6,
         "M20_Slope": 0.02385406922357354,
         "Name": "永擎",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": false,
+        "L3_Value": -104.9,
+        "L4_Pass": false,
+        "L4_Value": 0.0,
+        "ROE": 81.4,
+        "PER": 36.88,
+        "PEG": 0.0,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8021.TW",
@@ -2104,7 +2591,16 @@
         "AvgDailyVol": 2543127.6,
         "M20_Slope": 0.022580873504636414,
         "Name": "尖點",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": true,
+        "L3_Value": 75.9,
+        "L4_Pass": true,
+        "L4_Value": 51.36,
+        "ROE": 119.72,
+        "PER": 155.11,
+        "PEG": 0.73,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8028.TW",
@@ -2114,7 +2610,16 @@
         "AvgDailyVol": 22642449.6,
         "M20_Slope": 0.015786877158362196,
         "Name": "昇陽半導體",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -2599.1,
+        "L4_Pass": false,
+        "L4_Value": 25.57,
+        "ROE": 0.0,
+        "PER": 56.6,
+        "PEG": 5.05,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8039.TW",
@@ -2124,7 +2629,16 @@
         "AvgDailyVol": 11672594.4,
         "M20_Slope": 0.011137924633376647,
         "Name": "台虹",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -3023.9,
+        "L4_Pass": true,
+        "L4_Value": 10.46,
+        "ROE": 164.82,
+        "PER": 56.54,
+        "PEG": 0.55,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8046.TW",
@@ -2134,7 +2648,16 @@
         "AvgDailyVol": 22134329.6,
         "M20_Slope": 0.033354050134659335,
         "Name": "南電",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -823.9,
+        "L4_Pass": true,
+        "L4_Value": 39.47,
+        "ROE": 100.0,
+        "PER": 327.57,
+        "PEG": 0.58,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8103.TW",
@@ -2144,7 +2667,16 @@
         "AvgDailyVol": 7111141.2,
         "M20_Slope": 0.02467001819485918,
         "Name": "瀚荃",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -842.4,
+        "L4_Pass": true,
+        "L4_Value": 25.79,
+        "ROE": 99.74,
+        "PER": 27.89,
+        "PEG": 0.5,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8150.TW",
@@ -2154,7 +2686,16 @@
         "AvgDailyVol": 22104673.2,
         "M20_Slope": 0.012409042007623874,
         "Name": "南茂",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 15539.8,
+        "L4_Pass": true,
+        "L4_Value": 23.13,
+        "ROE": 100.0,
+        "PER": 107.75,
+        "PEG": 0.88,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8210.TW",
@@ -2164,7 +2705,16 @@
         "AvgDailyVol": 3696660.0,
         "M20_Slope": 0.013250705360741613,
         "Name": "勤誠",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": false,
+        "L3_Value": -1105.4,
+        "L4_Pass": true,
+        "L4_Value": 44.72,
+        "ROE": 103.67,
+        "PER": 40.49,
+        "PEG": 0.34,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8261.TW",
@@ -2174,7 +2724,16 @@
         "AvgDailyVol": 2713364.2,
         "M20_Slope": 0.00964587804402779,
         "Name": "富鼎",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -111.0,
+        "L4_Pass": true,
+        "L4_Value": 10.86,
+        "ROE": 115.35,
+        "PER": 20.46,
+        "PEG": 2.47,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8996.TW",
@@ -2184,7 +2743,16 @@
         "AvgDailyVol": 2315530.8,
         "M20_Slope": 0.01881695388914769,
         "Name": "高力",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -421.6,
+        "L4_Pass": true,
+        "L4_Value": 205.35,
+        "ROE": 100.0,
+        "PER": 138.03,
+        "PEG": 0.56,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "1569.TWO",
@@ -2194,7 +2762,16 @@
         "AvgDailyVol": 4487860.0,
         "M20_Slope": 0.008043139794656226,
         "Name": "濱川",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": false,
+        "L3_Value": -300.2,
+        "L4_Pass": false,
+        "L4_Value": 11.41,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "1595.TWO",
@@ -2204,7 +2781,16 @@
         "AvgDailyVol": 5715867.8,
         "M20_Slope": 0.03183256759636228,
         "Name": "川寶",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -184.0,
+        "L4_Pass": false,
+        "L4_Value": -20.91,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "1785.TWO",
@@ -2214,7 +2800,16 @@
         "AvgDailyVol": 19841908.2,
         "M20_Slope": 0.028987718327689652,
         "Name": "光洋科",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": false,
+        "L3_Value": -16911.8,
+        "L4_Pass": true,
+        "L4_Value": 95.58,
+        "ROE": 99.9,
+        "PER": 54.14,
+        "PEG": 0.76,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "2070.TWO",
@@ -2224,7 +2819,16 @@
         "AvgDailyVol": 2093944.8,
         "M20_Slope": 0.02372208661985404,
         "Name": "精湛",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -138.0,
+        "L4_Pass": true,
+        "L4_Value": 22.84,
+        "ROE": 100.0,
+        "PER": 27.39,
+        "PEG": 0.55,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3081.TWO",
@@ -2234,7 +2838,16 @@
         "AvgDailyVol": 3858553.8,
         "M20_Slope": 0.022421052631578946,
         "Name": "聯亞",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -920.1,
+        "L4_Pass": false,
+        "L4_Value": 89.35,
+        "ROE": 0.0,
+        "PER": 360.71,
+        "PEG": 0.56,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3105.TWO",
@@ -2244,7 +2857,16 @@
         "AvgDailyVol": 30532184.2,
         "M20_Slope": 0.019115209283050074,
         "Name": "穩懋",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -6764.9,
+        "L4_Pass": true,
+        "L4_Value": 34.25,
+        "ROE": 93.3,
+        "PER": 131.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3122.TWO",
@@ -2254,7 +2876,16 @@
         "AvgDailyVol": 2105427.8,
         "M20_Slope": 0.015901862679398835,
         "Name": "笙泉",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 71.0,
+        "L4_Pass": false,
+        "L4_Value": 3.95,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3152.TWO",
@@ -2264,7 +2895,16 @@
         "AvgDailyVol": 2932748.8,
         "M20_Slope": 0.012051915945611795,
         "Name": "璟德",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": true,
+        "L3_Value": 1.3,
+        "L4_Pass": false,
+        "L4_Value": -0.96,
+        "ROE": 0.0,
+        "PER": 18.05,
+        "PEG": 0.0,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3162.TWO",
@@ -2274,7 +2914,16 @@
         "AvgDailyVol": 8484958.0,
         "M20_Slope": 0.012744386984435235,
         "Name": "精確",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -1733.9,
+        "L4_Pass": true,
+        "L4_Value": 21.35,
+        "ROE": 95.91,
+        "PER": 44.41,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3163.TWO",
@@ -2284,7 +2933,16 @@
         "AvgDailyVol": 5971282.4,
         "M20_Slope": 0.015901296156073347,
         "Name": "波若威",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -216.2,
+        "L4_Pass": true,
+        "L4_Value": 23.67,
+        "ROE": 100.0,
+        "PER": 201.77,
+        "PEG": 3.4,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3221.TWO",
@@ -2294,7 +2952,16 @@
         "AvgDailyVol": 2193531.2,
         "M20_Slope": 0.009094741020149044,
         "Name": "台嘉碩",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -260.0,
+        "L4_Pass": false,
+        "L4_Value": -4.5,
+        "ROE": 87.65,
+        "PER": 543.75,
+        "PEG": 21.75,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3227.TWO",
@@ -2304,7 +2971,16 @@
         "AvgDailyVol": 2240543.8,
         "M20_Slope": 0.007783590659691092,
         "Name": "原相",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -63.5,
+        "L4_Pass": false,
+        "L4_Value": -5.42,
+        "ROE": 99.32,
+        "PER": 16.88,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3234.TWO",
@@ -2314,7 +2990,16 @@
         "AvgDailyVol": 2134620.8,
         "M20_Slope": 0.014483895157186864,
         "Name": "光環",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -1747.0,
+        "L4_Pass": false,
+        "L4_Value": -9.16,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3260.TWO",
@@ -2324,7 +3009,16 @@
         "AvgDailyVol": 44366459.8,
         "M20_Slope": 0.013043197520501095,
         "Name": "威剛",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -7727.6,
+        "L4_Pass": true,
+        "L4_Value": 181.48,
+        "ROE": 104.53,
+        "PER": 19.03,
+        "PEG": 0.02,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3264.TWO",
@@ -2334,7 +3028,16 @@
         "AvgDailyVol": 13385896.0,
         "M20_Slope": 0.010710412147505392,
         "Name": "欣銓",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 2112.0,
+        "L4_Pass": true,
+        "L4_Value": 27.02,
+        "ROE": 126.74,
+        "PER": 33.26,
+        "PEG": 0.62,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3265.TWO",
@@ -2344,7 +3047,16 @@
         "AvgDailyVol": 2125564.8,
         "M20_Slope": 0.007788637751985374,
         "Name": "台星科",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1273.4,
+        "L4_Pass": true,
+        "L4_Value": 25.29,
+        "ROE": 100.0,
+        "PER": 32.37,
+        "PEG": 2.51,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3289.TWO",
@@ -2354,7 +3066,16 @@
         "AvgDailyVol": 2520232.2,
         "M20_Slope": 0.021165275715856968,
         "Name": "宜特",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": false,
+        "L3_Value": -2107.0,
+        "L4_Pass": false,
+        "L4_Value": -11.15,
+        "ROE": 85.92,
+        "PER": 40.33,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3317.TWO",
@@ -2364,7 +3085,16 @@
         "AvgDailyVol": 6105474.0,
         "M20_Slope": 0.006137889155572584,
         "Name": "尼克森",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 839.0,
+        "L4_Pass": false,
+        "L4_Value": 12.55,
+        "ROE": 0.0,
+        "PER": 35.48,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3324.TWO",
@@ -2374,7 +3104,16 @@
         "AvgDailyVol": 5762420.4,
         "M20_Slope": 0.01265884178872825,
         "Name": "雙鴻",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": true,
+        "L3_Value": 489.8,
+        "L4_Pass": true,
+        "L4_Value": 91.73,
+        "ROE": 104.92,
+        "PER": 42.11,
+        "PEG": 0.44,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3374.TWO",
@@ -2384,7 +3123,16 @@
         "AvgDailyVol": 18641193.2,
         "M20_Slope": 0.01299958511962381,
         "Name": "精材",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -6975.4,
+        "L4_Pass": false,
+        "L4_Value": 14.25,
+        "ROE": 0.0,
+        "PER": 40.48,
+        "PEG": 3.09,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3390.TWO",
@@ -2394,7 +3142,16 @@
         "AvgDailyVol": 4478212.2,
         "M20_Slope": 0.009731857864198378,
         "Name": "旭軟",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -2.0,
+        "L4_Pass": true,
+        "L4_Value": 23.11,
+        "ROE": 100.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3430.TWO",
@@ -2404,7 +3161,16 @@
         "AvgDailyVol": 2918537.6,
         "M20_Slope": 0.029921968892791653,
         "Name": "奇鈦科",
-        "Industry": "化學工業"
+        "Industry": "化學工業",
+        "L3_Pass": false,
+        "L3_Value": -114.0,
+        "L4_Pass": true,
+        "L4_Value": 74.15,
+        "ROE": 100.0,
+        "PER": 42.54,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3455.TWO",
@@ -2414,7 +3180,16 @@
         "AvgDailyVol": 4113798.2,
         "M20_Slope": 0.03179036977919672,
         "Name": "由田",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -417.2,
+        "L4_Pass": false,
+        "L4_Value": -83.58,
+        "ROE": 100.0,
+        "PER": 100.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3483.TWO",
@@ -2424,7 +3199,16 @@
         "AvgDailyVol": 2696274.6,
         "M20_Slope": 0.010180022250170293,
         "Name": "力致",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": false,
+        "L3_Value": -0.8,
+        "L4_Pass": true,
+        "L4_Value": 34.96,
+        "ROE": 100.0,
+        "PER": 25.08,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3498.TWO",
@@ -2434,7 +3218,16 @@
         "AvgDailyVol": 2658907.8,
         "M20_Slope": 0.011723619007390973,
         "Name": "陽程",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": true,
+        "L3_Value": 1741.0,
+        "L4_Pass": true,
+        "L4_Value": 156.95,
+        "ROE": 99.78,
+        "PER": 200.83,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3587.TWO",
@@ -2444,7 +3237,16 @@
         "AvgDailyVol": 3720179.4,
         "M20_Slope": 0.019162760095402544,
         "Name": "閎康",
-        "Industry": "其他電子業"
+        "Industry": "其他電子業",
+        "L3_Pass": false,
+        "L3_Value": -583.7,
+        "L4_Pass": true,
+        "L4_Value": 21.27,
+        "ROE": 100.0,
+        "PER": 55.08,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3680.TWO",
@@ -2454,7 +3256,16 @@
         "AvgDailyVol": 4933310.4,
         "M20_Slope": 0.018645446096654354,
         "Name": "家登",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 2735.8,
+        "L4_Pass": false,
+        "L4_Value": -23.43,
+        "ROE": 106.87,
+        "PER": 59.81,
+        "PEG": 0.63,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3689.TWO",
@@ -2464,7 +3275,16 @@
         "AvgDailyVol": 4035521.0,
         "M20_Slope": 0.010808724184520406,
         "Name": "湧德",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -487.7,
+        "L4_Pass": true,
+        "L4_Value": 41.8,
+        "ROE": 102.76,
+        "PER": 18.08,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3707.TWO",
@@ -2474,7 +3294,16 @@
         "AvgDailyVol": 15733813.8,
         "M20_Slope": 0.015884640397455824,
         "Name": "漢磊",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 4457.9,
+        "L4_Pass": false,
+        "L4_Value": 22.32,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "3709.TWO",
@@ -2484,7 +3313,16 @@
         "AvgDailyVol": 4960234.6,
         "M20_Slope": 0.013566829456304838,
         "Name": "鑫聯大投控",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": true,
+        "L3_Value": 795.1,
+        "L4_Pass": true,
+        "L4_Value": 23.32,
+        "ROE": 99.92,
+        "PER": 11.98,
+        "PEG": 0.06,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4707.TWO",
@@ -2494,7 +3332,16 @@
         "AvgDailyVol": 3018519.2,
         "M20_Slope": 0.013964452002689181,
         "Name": "磐亞",
-        "Industry": "化學工業"
+        "Industry": "化學工業",
+        "L3_Pass": false,
+        "L3_Value": -909.0,
+        "L4_Pass": false,
+        "L4_Value": -15.87,
+        "ROE": 0.0,
+        "PER": 16.8,
+        "PEG": 4.54,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4741.TWO",
@@ -2504,7 +3351,16 @@
         "AvgDailyVol": 2082621.0,
         "M20_Slope": 0.014765162889870462,
         "Name": "泓瀚",
-        "Industry": "化學工業"
+        "Industry": "化學工業",
+        "L3_Pass": false,
+        "L3_Value": -298.0,
+        "L4_Pass": true,
+        "L4_Value": 8.31,
+        "ROE": 97.08,
+        "PER": 180.34,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4749.TWO",
@@ -2514,7 +3370,16 @@
         "AvgDailyVol": 2484152.4,
         "M20_Slope": 0.011271440239586194,
         "Name": "新應材",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 525.6,
+        "L4_Pass": true,
+        "L4_Value": 32.67,
+        "ROE": 100.21,
+        "PER": 90.91,
+        "PEG": 2.63,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4933.TWO",
@@ -2524,7 +3389,16 @@
         "AvgDailyVol": 3197614.8,
         "M20_Slope": 0.01364774094926114,
         "Name": "友輝",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -361.0,
+        "L4_Pass": false,
+        "L4_Value": 3.89,
+        "ROE": 100.0,
+        "PER": 12.31,
+        "PEG": 2.56,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4966.TWO",
@@ -2534,7 +3408,16 @@
         "AvgDailyVol": 3474022.8,
         "M20_Slope": 0.010018637921426893,
         "Name": "譜瑞-KY",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -594.3,
+        "L4_Pass": false,
+        "L4_Value": 3.36,
+        "ROE": 77.37,
+        "PER": 17.76,
+        "PEG": 0.0,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4973.TWO",
@@ -2544,7 +3427,16 @@
         "AvgDailyVol": 9011124.4,
         "M20_Slope": 0.014143436845237773,
         "Name": "廣穎",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -315.9,
+        "L4_Pass": true,
+        "L4_Value": 98.79,
+        "ROE": 100.0,
+        "PER": 40.47,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4979.TWO",
@@ -2554,7 +3446,16 @@
         "AvgDailyVol": 2189991.4,
         "M20_Slope": 0.025849156882639997,
         "Name": "華星光",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -154.2,
+        "L4_Pass": true,
+        "L4_Value": 20.18,
+        "ROE": 100.0,
+        "PER": 123.2,
+        "PEG": 2.15,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "4991.TWO",
@@ -2564,7 +3465,16 @@
         "AvgDailyVol": 3735426.8,
         "M20_Slope": 0.024747977328775934,
         "Name": "環宇-KY",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -1653.5,
+        "L4_Pass": true,
+        "L4_Value": 39.97,
+        "ROE": 100.0,
+        "PER": 4513.33,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5289.TWO",
@@ -2574,7 +3484,16 @@
         "AvgDailyVol": 5543706.2,
         "M20_Slope": 0.01817517581514281,
         "Name": "宜鼎",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": true,
+        "L3_Value": 121.6,
+        "L4_Pass": true,
+        "L4_Value": 484.78,
+        "ROE": 100.27,
+        "PER": 59.62,
+        "PEG": 0.28,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5347.TWO",
@@ -2584,7 +3503,16 @@
         "AvgDailyVol": 39040203.8,
         "M20_Slope": 0.01123381568926119,
         "Name": "世界",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 3850.1,
+        "L4_Pass": true,
+        "L4_Value": 7.29,
+        "ROE": 95.36,
+        "PER": 35.12,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5386.TWO",
@@ -2594,7 +3522,16 @@
         "AvgDailyVol": 3164344.6,
         "M20_Slope": 0.01714369803546478,
         "Name": "青雲",
-        "Industry": "電腦及週邊設備業"
+        "Industry": "電腦及週邊設備業",
+        "L3_Pass": true,
+        "L3_Value": 366.4,
+        "L4_Pass": false,
+        "L4_Value": 546.79,
+        "ROE": 0.0,
+        "PER": 46.23,
+        "PEG": 0.23,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5439.TWO",
@@ -2604,7 +3541,16 @@
         "AvgDailyVol": 7595859.8,
         "M20_Slope": 0.0159370867840489,
         "Name": "高技",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -1363.7,
+        "L4_Pass": true,
+        "L4_Value": 60.32,
+        "ROE": 100.0,
+        "PER": 28.57,
+        "PEG": 0.09,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5443.TWO",
@@ -2614,7 +3560,16 @@
         "AvgDailyVol": 13030027.4,
         "M20_Slope": 0.013310185855399281,
         "Name": "均豪",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1879.2,
+        "L4_Pass": true,
+        "L4_Value": 63.97,
+        "ROE": 138.9,
+        "PER": 53.09,
+        "PEG": 0.27,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5483.TWO",
@@ -2624,7 +3579,16 @@
         "AvgDailyVol": 22154671.2,
         "M20_Slope": 0.010816326530612269,
         "Name": "中美晶",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -2462.6,
+        "L4_Pass": true,
+        "L4_Value": 9.19,
+        "ROE": 200.09,
+        "PER": 20.34,
+        "PEG": 0.05,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5498.TWO",
@@ -2634,7 +3598,16 @@
         "AvgDailyVol": 3939290.4,
         "M20_Slope": 0.0164033130091679,
         "Name": "凱崴",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 1001.8,
+        "L4_Pass": true,
+        "L4_Value": 47.66,
+        "ROE": 101.3,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "5864.TWO",
@@ -2644,7 +3617,16 @@
         "AvgDailyVol": 4605622.4,
         "M20_Slope": 0.010421887513511115,
         "Name": "致和證",
-        "Industry": "金融保險業"
+        "Industry": "金融保險業",
+        "L3_Pass": true,
+        "L3_Value": 3116.9,
+        "L4_Pass": false,
+        "L4_Value": 0.0,
+        "ROE": 0.0,
+        "PER": 11.72,
+        "PEG": 0.0,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6015.TWO",
@@ -2654,7 +3636,16 @@
         "AvgDailyVol": 3035474.0,
         "M20_Slope": 0.006190463683306428,
         "Name": "宏遠證",
-        "Industry": "金融保險業"
+        "Industry": "金融保險業",
+        "L3_Pass": true,
+        "L3_Value": 3392.7,
+        "L4_Pass": false,
+        "L4_Value": 0.0,
+        "ROE": 100.0,
+        "PER": 19.28,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6016.TWO",
@@ -2664,7 +3655,16 @@
         "AvgDailyVol": 10130590.6,
         "M20_Slope": 0.008855878744304163,
         "Name": "康和證",
-        "Industry": "金融保險業"
+        "Industry": "金融保險業",
+        "L3_Pass": true,
+        "L3_Value": 5290.0,
+        "L4_Pass": false,
+        "L4_Value": 0.0,
+        "ROE": 100.32,
+        "PER": 10.15,
+        "PEG": 0.05,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6104.TWO",
@@ -2674,7 +3674,16 @@
         "AvgDailyVol": 2318928.4,
         "M20_Slope": 0.007039683165352702,
         "Name": "創惟",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -89.0,
+        "L4_Pass": false,
+        "L4_Value": -3.8,
+        "ROE": 100.0,
+        "PER": 17.3,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6147.TWO",
@@ -2684,7 +3693,16 @@
         "AvgDailyVol": 39689426.6,
         "M20_Slope": 0.040636272735883314,
         "Name": "頎邦",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -714.2,
+        "L4_Pass": true,
+        "L4_Value": 11.45,
+        "ROE": 137.18,
+        "PER": 52.34,
+        "PEG": 0.0,
+        "Report_Date": "2026-03-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6173.TWO",
@@ -2694,7 +3712,16 @@
         "AvgDailyVol": 2711543.0,
         "M20_Slope": 0.01788465196661036,
         "Name": "信昌電",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -259.0,
+        "L4_Pass": true,
+        "L4_Value": 12.69,
+        "ROE": 100.0,
+        "PER": 27.61,
+        "PEG": 0.32,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6175.TWO",
@@ -2704,7 +3731,16 @@
         "AvgDailyVol": 3472886.4,
         "M20_Slope": 0.012634212996511698,
         "Name": "立敦",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -575.4,
+        "L4_Pass": true,
+        "L4_Value": 18.86,
+        "ROE": 131.01,
+        "PER": 23.54,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6182.TWO",
@@ -2714,7 +3750,16 @@
         "AvgDailyVol": 38121736.6,
         "M20_Slope": 0.009940413921347606,
         "Name": "合晶",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 10473.1,
+        "L4_Pass": true,
+        "L4_Value": 8.37,
+        "ROE": 216.54,
+        "PER": 490.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6187.TWO",
@@ -2724,7 +3769,16 @@
         "AvgDailyVol": 3976660.6,
         "M20_Slope": 0.018560623636954203,
         "Name": "萬潤",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -776.8,
+        "L4_Pass": true,
+        "L4_Value": 19.59,
+        "ROE": 103.56,
+        "PER": 86.03,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6190.TWO",
@@ -2734,7 +3788,16 @@
         "AvgDailyVol": 17479588.8,
         "M20_Slope": 0.012234336225241385,
         "Name": "萬泰科",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": true,
+        "L3_Value": 762.0,
+        "L4_Pass": true,
+        "L4_Value": 11.86,
+        "ROE": 109.14,
+        "PER": 32.88,
+        "PEG": 5.7,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6207.TWO",
@@ -2744,7 +3807,16 @@
         "AvgDailyVol": 6583599.4,
         "M20_Slope": 0.013802497855109555,
         "Name": "雷科",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -141.6,
+        "L4_Pass": true,
+        "L4_Value": 14.28,
+        "ROE": 94.3,
+        "PER": 70.44,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6218.TWO",
@@ -2754,7 +3826,16 @@
         "AvgDailyVol": 5709612.6,
         "M20_Slope": 0.025044724311238397,
         "Name": "豪勉",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -845.0,
+        "L4_Pass": false,
+        "L4_Value": -16.1,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6231.TWO",
@@ -2764,7 +3845,16 @@
         "AvgDailyVol": 2357664.0,
         "M20_Slope": 0.010262257696693313,
         "Name": "系微",
-        "Industry": "資訊服務業"
+        "Industry": "資訊服務業",
+        "L3_Pass": false,
+        "L3_Value": -154.0,
+        "L4_Pass": true,
+        "L4_Value": 14.54,
+        "ROE": 100.0,
+        "PER": 47.9,
+        "PEG": 16.02,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6234.TWO",
@@ -2774,7 +3864,16 @@
         "AvgDailyVol": 12035892.2,
         "M20_Slope": 0.03583249364978341,
         "Name": "高僑",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": true,
+        "L3_Value": 1567.8,
+        "L4_Pass": true,
+        "L4_Value": 63.64,
+        "ROE": 100.0,
+        "PER": 1160.0,
+        "PEG": 12.76,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6261.TWO",
@@ -2784,7 +3883,16 @@
         "AvgDailyVol": 12806986.2,
         "M20_Slope": 0.011627907082544993,
         "Name": "久元",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 2371.0,
+        "L4_Pass": false,
+        "L4_Value": 4.15,
+        "ROE": 95.91,
+        "PER": 23.76,
+        "PEG": 0.45,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6274.TWO",
@@ -2794,7 +3902,16 @@
         "AvgDailyVol": 3389671.6,
         "M20_Slope": 0.026065675348312927,
         "Name": "台燿",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 1543.5,
+        "L4_Pass": true,
+        "L4_Value": 72.34,
+        "ROE": 100.0,
+        "PER": 91.51,
+        "PEG": 1.98,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6290.TWO",
@@ -2804,7 +3921,16 @@
         "AvgDailyVol": 12393753.2,
         "M20_Slope": 0.0194516295913088,
         "Name": "良維",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -118.0,
+        "L4_Pass": true,
+        "L4_Value": 16.46,
+        "ROE": 100.18,
+        "PER": 33.51,
+        "PEG": 1.68,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6425.TWO",
@@ -2814,7 +3940,16 @@
         "AvgDailyVol": 4425835.2,
         "M20_Slope": 0.013315236645269995,
         "Name": "易發",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -306.5,
+        "L4_Pass": true,
+        "L4_Value": 7.17,
+        "ROE": 101.58,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6462.TWO",
@@ -2824,7 +3959,16 @@
         "AvgDailyVol": 2714904.4,
         "M20_Slope": 0.010580158665655598,
         "Name": "神盾",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -255.0,
+        "L4_Pass": false,
+        "L4_Value": 100.42,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6488.TWO",
@@ -2834,7 +3978,16 @@
         "AvgDailyVol": 10976680.8,
         "M20_Slope": 0.015592922084270145,
         "Name": "環球晶",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 4451.4,
+        "L4_Pass": false,
+        "L4_Value": 0.09,
+        "ROE": 100.0,
+        "PER": 39.63,
+        "PEG": 0.09,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6530.TWO",
@@ -2844,7 +3997,16 @@
         "AvgDailyVol": 3288653.6,
         "M20_Slope": 0.016003012343226222,
         "Name": "創威",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -1248.1,
+        "L4_Pass": false,
+        "L4_Value": 10.57,
+        "ROE": 0.0,
+        "PER": 61.28,
+        "PEG": 4.2,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6532.TWO",
@@ -2854,7 +4016,16 @@
         "AvgDailyVol": 3712509.4,
         "M20_Slope": 0.014114326028265883,
         "Name": "瑞耘",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -445.9,
+        "L4_Pass": false,
+        "L4_Value": -4.13,
+        "ROE": 100.0,
+        "PER": 13.68,
+        "PEG": 0.05,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6588.TWO",
@@ -2864,7 +4035,16 @@
         "AvgDailyVol": 3127857.4,
         "M20_Slope": 0.0072319652865666245,
         "Name": "東典光電",
-        "Industry": "通信網路業"
+        "Industry": "通信網路業",
+        "L3_Pass": false,
+        "L3_Value": -477.0,
+        "L4_Pass": true,
+        "L4_Value": 146.24,
+        "ROE": 96.81,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6664.TWO",
@@ -2874,7 +4054,16 @@
         "AvgDailyVol": 2947060.2,
         "M20_Slope": 0.0215040241448691,
         "Name": "群翊",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -1410.8,
+        "L4_Pass": true,
+        "L4_Value": 22.91,
+        "ROE": 100.0,
+        "PER": 30.71,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "6761.TWO",
@@ -2884,7 +4073,16 @@
         "AvgDailyVol": 2058825.4,
         "M20_Slope": 0.016376122556788136,
         "Name": "穩得",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -188.0,
+        "L4_Pass": false,
+        "L4_Value": -14.75,
+        "ROE": 100.0,
+        "PER": 28.88,
+        "PEG": 26.25,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8027.TWO",
@@ -2894,7 +4092,16 @@
         "AvgDailyVol": 21587436.6,
         "M20_Slope": 0.018223989396951624,
         "Name": "鈦昇",
-        "Industry": "電機機械"
+        "Industry": "電機機械",
+        "L3_Pass": false,
+        "L3_Value": -1197.6,
+        "L4_Pass": false,
+        "L4_Value": -9.58,
+        "ROE": 97.02,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8040.TWO",
@@ -2904,7 +4111,16 @@
         "AvgDailyVol": 3403155.0,
         "M20_Slope": 0.01709985985031939,
         "Name": "九暘",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": false,
+        "L3_Value": -144.6,
+        "L4_Pass": false,
+        "L4_Value": 46.02,
+        "ROE": 0.0,
+        "PER": 0.0,
+        "PEG": 0.0,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8064.TWO",
@@ -2914,7 +4130,16 @@
         "AvgDailyVol": 17681796.4,
         "M20_Slope": 0.026365226624682724,
         "Name": "東捷",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": true,
+        "L3_Value": 2690.0,
+        "L4_Pass": true,
+        "L4_Value": 27.24,
+        "ROE": 107.64,
+        "PER": 83.82,
+        "PEG": 0.17,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8074.TWO",
@@ -2924,7 +4149,16 @@
         "AvgDailyVol": 5483089.4,
         "M20_Slope": 0.020101241075424638,
         "Name": "鉅橡",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 1801.0,
+        "L4_Pass": true,
+        "L4_Value": 31.68,
+        "ROE": 102.7,
+        "PER": 65.41,
+        "PEG": 0.61,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8086.TWO",
@@ -2934,7 +4168,16 @@
         "AvgDailyVol": 6833345.4,
         "M20_Slope": 0.009374436632413793,
         "Name": "宏捷科",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 1253.4,
+        "L4_Pass": false,
+        "L4_Value": 47.95,
+        "ROE": 0.0,
+        "PER": 44.79,
+        "PEG": 0.03,
+        "Report_Date": "",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8111.TWO",
@@ -2944,7 +4187,16 @@
         "AvgDailyVol": 4261852.8,
         "M20_Slope": 0.008351037727884234,
         "Name": "立碁",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -608.9,
+        "L4_Pass": false,
+        "L4_Value": -8.5,
+        "ROE": 99.85,
+        "PER": 181.84,
+        "PEG": 0.0,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8155.TWO",
@@ -2954,7 +4206,16 @@
         "AvgDailyVol": 5564150.8,
         "M20_Slope": 0.025954086854803333,
         "Name": "博智",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": false,
+        "L3_Value": -1565.1,
+        "L4_Pass": true,
+        "L4_Value": 32.92,
+        "ROE": 99.78,
+        "PER": 60.32,
+        "PEG": 0.42,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8240.TWO",
@@ -2964,7 +4225,16 @@
         "AvgDailyVol": 11233074.6,
         "M20_Slope": 0.01176938305539867,
         "Name": "華宏",
-        "Industry": "光電業"
+        "Industry": "光電業",
+        "L3_Pass": false,
+        "L3_Value": -1079.6,
+        "L4_Pass": false,
+        "L4_Value": -8.14,
+        "ROE": 102.26,
+        "PER": 30.18,
+        "PEG": 0.1,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8358.TWO",
@@ -2974,7 +4244,16 @@
         "AvgDailyVol": 8165560.0,
         "M20_Slope": 0.023781584917468585,
         "Name": "金居",
-        "Industry": "電子零組件業"
+        "Industry": "電子零組件業",
+        "L3_Pass": true,
+        "L3_Value": 3089.2,
+        "L4_Pass": true,
+        "L4_Value": 42.81,
+        "ROE": 100.0,
+        "PER": 95.61,
+        "PEG": 1.01,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     },
     {
         "Ticker": "8383.TWO",
@@ -2984,6 +4263,15 @@
         "AvgDailyVol": 3179339.2,
         "M20_Slope": 0.01736632917333771,
         "Name": "千附",
-        "Industry": "半導體業"
+        "Industry": "半導體業",
+        "L3_Pass": true,
+        "L3_Value": 291.0,
+        "L4_Pass": true,
+        "L4_Value": 58.16,
+        "ROE": 116.81,
+        "PER": 19.5,
+        "PEG": 0.45,
+        "Report_Date": "2025-12-31",
+        "Fetched_At": "2026-05-04"
     }
 ]
