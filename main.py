@@ -180,7 +180,7 @@ class StockScanner:
 
                 # 僅在實際打 FinMind (L4) 後節流 1.2 秒避免被封鎖
                 if l4_fetched:
-                    time.sleep(1.2)
+                    time.sleep(2.5)
 
             final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
@@ -212,7 +212,12 @@ class StockScanner:
         md_content += "## AI 深度分析與決策建議\n"
         ai_file = self.report_dir / f"ai_analysis_{date_str}.md"
         if ai_file.exists():
-            md_content += ai_file.read_text(encoding="utf-8").strip() + "\n\n"
+            ai_text = ai_file.read_text(encoding="utf-8").strip()
+            # 移除 AI 檔自帶的最上層大標 (# ...)，避免與報告章節標題重複
+            ai_lines = ai_text.split("\n")
+            if ai_lines and ai_lines[0].lstrip().startswith("# "):
+                ai_lines = ai_lines[1:]
+            md_content += "\n".join(ai_lines).strip() + "\n\n"
         else:
             md_content += "> *深度分析撰寫中，完成後將更新於本區塊。*\n\n"
         
@@ -251,8 +256,8 @@ class StockScanner:
             per_txt = f"{per:.1f}" if per > 0 else "-"
             peg_txt = f"{peg:.2f}" if peg > 0 else "-"
             
-            l3_status = "✅"
-            l4_status = "✅"
+            l3_status = "[O]"
+            l4_status = "[O]"
             name = item.get('Name', '未知')
             
             # 若財報日期在 45 天內，標記為最新
