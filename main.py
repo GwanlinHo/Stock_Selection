@@ -13,6 +13,7 @@ from src.data_ingestion import DataIngestion
 from src.filters.price_volume import PriceVolumeFilter
 from src.data_premium import DataPremium
 from src.filters.advanced_filter import AdvancedFilter
+from src.data_bulk import BulkChipProvider
 
 class StockScanner:
     def __init__(self, mode="full"):
@@ -82,7 +83,11 @@ class StockScanner:
         if self.mode in ["full", "skip-scan"] and l2_candidates:
             premium_data = DataPremium()
             adv_filter = AdvancedFilter()
-            
+
+            # 全市場批次籌碼 (免費 TWSE/TPEx)，一次抓取取代逐檔 FinMind L3
+            chip_provider = BulkChipProvider(days=15)
+            chip_provider.build()
+
             # 讀取現有進度 (用於比對與保留舊數據)
             existing_data = {}
             if self.final_cache_file.exists():
@@ -102,48 +107,37 @@ class StockScanner:
                 ticker = ticker_full.split('.')[0]
                 old_val = existing_data.get(ticker_full, {})
                 
-                # --- 細粒度增量更新檢查 (Granular Incremental Update) ---
-                last_fetched_str = old_val.get('Fetched_At', "")
-                last_fetched = None
-                if last_fetched_str:
-                    try: last_fetched = datetime.strptime(last_fetched_str, '%Y-%m-%d')
+                # --- 增量更新檢查 ---
+                # 籌碼(L3)改用免費批次資料，每次重算 (成本低)；基本面(L4)仍走 FinMind，
+                # 保留 30 天效期，並以獨立時間戳記 L4_Fetched_At 判定 (與籌碼脫鉤)。
+                l4_fetched_str = old_val.get('L4_Fetched_At') or old_val.get('Fetched_At', "")
+                l4_last = None
+                if l4_fetched_str:
+                    try: l4_last = datetime.strptime(l4_fetched_str, '%Y-%m-%d')
                     except: pass
-                
-                # 判定各維度數據是否新鮮
-                # 籌碼面 (L3) 效期：7 天 (週報需求)
-                # 基本面 (L4) 效期：30 天 (月營收與財報需求)
-                chip_is_fresh = last_fetched and (today - last_fetched).days < 7
-                fund_is_fresh = last_fetched and (today - last_fetched).days < 30
-                
-                # 若兩者皆新鮮，完全跳過 API 抓取
-                if chip_is_fresh and fund_is_fresh:
-                    for key in ['L3_Pass', 'L3_Value', 'L4_Pass', 'L4_Value', 'ROE', 'PER', 'PEG', 'Report_Date', 'Fetched_At']:
-                        cand[key] = old_val.get(key, 0 if 'Value' in key or key in ['ROE', 'PER', 'PEG'] else (False if 'Pass' in key else ""))
-                    continue
+                fund_is_fresh = l4_last and (today - l4_last).days < 30
 
                 # 準備抓取容器
                 df_inst, df_rev, df_ratio, df_per = None, None, None, None
-                
-                # 1. 抓取籌碼數據 (若不新鮮或過期)
-                if not chip_is_fresh:
-                    df_inst = premium_data.fetch_chip_data(ticker)
-                
-                # 2. 抓取基本面數據 (若不新鮮或過期)
-                if not fund_is_fresh:
-                    df_rev = premium_data.fetch_fundamental_data(ticker)
-                    df_ratio = premium_data.fetch_financial_ratios(ticker)
-                    df_per = premium_data.fetch_per_pbr(ticker)
 
-                # 執行篩選邏輯
-                # L3 邏輯：優先使用新抓取的，若無新抓取則從 old_val 還原結果
-                if df_inst is not None:
+                # === L3 籌碼面：全市場批次資料 (免費 TWSE/TPEx，不耗 FinMind) ===
+                df_inst = chip_provider.get_chip_df(ticker)
+                if df_inst is not None and not df_inst.empty:
                     l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
                     cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
                 else:
                     cand['L3_Pass'] = old_val.get('L3_Pass', False)
                     cand['L3_Value'] = old_val.get('L3_Value', 0)
 
-                # L4 邏輯：優先使用新抓取的，若無新抓取則從 old_val 還原結果
+                # === L4 基本面：僅在 L3 通過時才抓 (省 FinMind 額度) ===
+                # L3 未過的標的不可能進最終精選池，毋須再花 3 支 API 抓基本面。
+                # 條件：L3 通過，且 (基本面數據已過期 或 從未抓過 L4)。
+                l4_cached = bool(old_val.get('Report_Date'))
+                if cand['L3_Pass'] and (not fund_is_fresh or not l4_cached):
+                    df_rev = premium_data.fetch_fundamental_data(ticker)
+                    df_ratio = premium_data.fetch_financial_ratios(ticker)
+                    df_per = chip_provider.get_per_df(ticker)   # PER 改用免費批次 (TWSE BWIBBU / TPEx)
+
                 if df_rev is not None and df_ratio is not None:
                     l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
                     cand['L4_Pass'] = bool(l4_pass)
@@ -153,17 +147,16 @@ class StockScanner:
                     cand['PEG'] = l4_result['PEG']
                     cand['Report_Date'] = l4_result['Report_Date']
                 else:
-                    # 還原基本面舊數據
+                    # 還原基本面舊數據 (L3 未過或本次未抓)
                     for key in ['L4_Pass', 'L4_Value', 'ROE', 'PER', 'PEG', 'Report_Date']:
                         cand[key] = old_val.get(key, 0 if key != 'Report_Date' else "")
 
-                # 偵測抓取是否完全失敗 (僅針對有發起請求的部分)
-                fetch_attempted = (not chip_is_fresh) or (not fund_is_fresh)
-                all_empty = (df_inst is None or df_inst.empty) and (df_rev is None or df_rev.empty)
-                
-                if fetch_attempted and all_empty:
+                # === FinMind 節流與失敗偵測 (僅針對 L4；籌碼已改免費批次源) ===
+                l4_fetched = df_rev is not None
+                l4_empty = l4_fetched and (df_rev is None or df_rev.empty) and (df_ratio is None or df_ratio.empty)
+                if l4_fetched and l4_empty:
                     consecutive_failures += 1
-                else:
+                elif l4_fetched:
                     consecutive_failures = 0
 
                 if consecutive_failures >= 15:
@@ -173,24 +166,21 @@ class StockScanner:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
                     raise RuntimeError(msg)
 
-                # 記錄更新日期：只要有嘗試更新且非完全失敗，就標註為今天
-                cand['Fetched_At'] = today_str if fetch_attempted and not all_empty else last_fetched_str
+                # 時間戳記：Fetched_At 記整體處理日；L4_Fetched_At 為 L4 專屬效期戳記
+                cand['Fetched_At'] = today_str
+                if l4_fetched and not l4_empty:
+                    cand['L4_Fetched_At'] = today_str
+                else:
+                    cand['L4_Fetched_At'] = l4_fetched_str   # 本次未抓 L4，沿用舊效期戳記
 
                 # 每 10 筆即時存檔，保護進度
                 if (i + 1) % 10 == 0:
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
 
-                if fetch_attempted:
+                # 僅在實際打 FinMind (L4) 後節流 1.2 秒避免被封鎖
+                if l4_fetched:
                     time.sleep(1.2)
-
-                # 每 10 筆即時存檔，保護進度
-                if (i + 1) % 10 == 0:
-                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
-                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
-
-                # 由於沒有 API Token，延長間隔避免被封鎖
-                time.sleep(1.2)
 
             final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
@@ -218,9 +208,13 @@ class StockScanner:
         # 1. 標題
         md_content = f"# 台股選股掃描綜合週報 ({date_str})\n\n"
         
-        # 2. AI 深度分析 (第一順位)
+        # 2. AI 深度分析 (第一順位) — 由獨立的 AI 分析檔注入，避免就地編輯報告
         md_content += "## AI 深度分析與決策建議\n"
-        md_content += "> *[Gemini CLI] 正在進行去罐頭化深度分析，請參考對話內容或稍後更新的報告。*\n\n"
+        ai_file = self.report_dir / f"ai_analysis_{date_str}.md"
+        if ai_file.exists():
+            md_content += ai_file.read_text(encoding="utf-8").strip() + "\n\n"
+        else:
+            md_content += "> *深度分析撰寫中，完成後將更新於本區塊。*\n\n"
         
         # 3. 篩選標準定義
         md_content += "## 篩選標準定義\n"
