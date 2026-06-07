@@ -8,12 +8,21 @@ class AdvancedFilter:
     def run_l3(self, ticker: str, df_inst: pd.DataFrame):
         if df_inst is None or df_inst.empty:
             return False, 0.0
-            
-        recent_inst = df_inst.tail(15) 
-        buy = float(recent_inst[recent_inst['name'].isin(['Foreign_Investor', 'Investment_Trust'])]['buy'].sum())
-        sell = float(recent_inst[recent_inst['name'].isin(['Foreign_Investor', 'Investment_Trust'])]['sell'].sum())
+
+        # 僅取外資與投信
+        inst = df_inst[df_inst['name'].isin(['Foreign_Investor', 'Investment_Trust'])]
+        if inst.empty:
+            return False, 0.0
+
+        # 取最近 15 個「交易日」累計 (依日期取，避免每日多列導致實際只算到數天)
+        if 'date' in inst.columns:
+            last_dates = sorted(inst['date'].astype(str).unique())[-15:]
+            inst = inst[inst['date'].astype(str).isin(last_dates)]
+
+        buy = float(inst['buy'].sum())
+        sell = float(inst['sell'].sum())
         net_buy_shares = (buy - sell) / 1000
-        
+
         return bool(net_buy_shares > 0), float(round(net_buy_shares, 1))
 
     def run_l4(self, ticker: str, df_revenue: pd.DataFrame, df_ratio: pd.DataFrame = None, df_per: pd.DataFrame = None):
