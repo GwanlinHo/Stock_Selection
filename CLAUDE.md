@@ -16,6 +16,23 @@
 
 ---
 
+## 價值成長策略 (value_growth) — 與動能並存
+
+另有一套「價值成長」選股 (分支 feat/value-growth-backtest 開發)，與上述動能策略**並存且不重疊**：
+動能抓「已轉強的強勢股」、價值成長抓「便宜的成長股 (低 PER/PEG + 高 ROE + 營收成長)」。
+趨勢/大盤擇時交由 investment_analysis (總經報告) 負責，本策略刻意不含趨勢與籌碼條件。
+
+*   **切換**: `config/settings.json` 的 `active_strategy` (momentum | value_growth)，或 `--strategy value_growth`。
+*   **當期選股**: `uv run main.py --strategy value_growth --mode full`
+*   **回測**: `uv run run_backtest.py --years 5 --top 15`  (首跑會下載價格長歷史並快取；之後加 `--no-fetch`)
+*   **資料源**: 全程免費、零 FinMind。月營收/財報走 mopsov 批次端點 (見 src/data_free.py)，PER/籌碼走既有 TWSE/TPEx。
+
+### 重要：回測結論 (務必告知使用者，勿誤用)
+5 年回測 (2021-2026，含 2022 空頭) 顯示此策略**機械化操作的報酬 (CAGR 19%) 與最大回檔 (-50%) 皆顯著不如直接持有 0050** (報酬 270%、回檔 -34%)。3 年版那個漂亮的低回檔是「無空頭環境」造成的假象。
+**因此此策略定位為「選股靈感/研究清單工具」，不可當作機械化交易訊號或抗跌衛星。** 產出清單僅供人工進一步研究。
+
+---
+
 ## 選股規範與風格要求
 
 *   **禁止表情符號**: 嚴格禁止在程式碼、日誌、Markdown 報告或任何輸出文件中使用表情符號 (Emojis)。

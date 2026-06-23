@@ -79,7 +79,10 @@ class StockScanner:
         qg = vg_params.get("quality_growth", {})
         safe = vg_params.get("safety_net", {})
 
-        md = f"# 台股價值成長選股週報 ({date_str})\n\n"
+        md = f"# 台股價值成長選股清單 ({date_str})\n\n"
+        md += ("> **定位：研究靈感工具，非買進訊號。** 5 年回測 (含 2022 空頭) 顯示本策略"
+               "機械化操作的報酬與抗跌性皆不如直接持有 0050，故本清單僅作為「便宜成長股」"
+               "的人工研究起點，請自行查證基本面與估值後再決策。\n\n")
         md += "## AI 深度分析與決策建議\n"
         ai_file = self.report_dir / f"ai_analysis_{date_str}.md"
         if ai_file.exists():
