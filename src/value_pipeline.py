@@ -76,8 +76,10 @@ def select_value_growth(metrics: dict, vg_config: dict):
 
 
 # ---------- 當期選股：組裝即時免費資料 ----------
-def run_current_selection(tickers_info: list, vg_config: dict, as_of: date = None):
+def run_current_selection(tickers_info: list, vg_config: dict, as_of: date = None,
+                          exclude_industries=None):
     """跑當期價值成長選股，回傳排序後的精選清單。"""
+    exclude_industries = set(exclude_industries or [])
     from src.data_ingestion import DataIngestion
     from src.data_bulk import BulkChipProvider
     from src.data_free import BulkRevenueProvider, BulkFinancialProvider
@@ -107,6 +109,8 @@ def run_current_selection(tickers_info: list, vg_config: dict, as_of: date = Non
     # 5. 組裝每檔指標
     metrics = {}
     for t in tickers_info:
+        if t.get("Industry", "") in exclude_industries:
+            continue
         yf = t["yfinance_ticker"]
         code = str(t["Ticker"]).split(".")[0]
         df = raw.get(yf)

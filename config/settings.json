@@ -66,6 +66,7 @@
     },
     "value_growth": {
         "active_level": "Standard",
+        "exclude_industries": ["金融保險業", "金融業", "證券業"],
         "levels": {
             "Standard": {
                 "liquidity": {

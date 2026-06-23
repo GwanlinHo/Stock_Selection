@@ -61,7 +61,10 @@ class StockScanner:
 
         tickers_info = TickerManager().load_tickers()
         self.stats["total"] = len(tickers_info)
-        selected = run_current_selection(tickers_info, vg_params)
+        selected = run_current_selection(
+            tickers_info, vg_params,
+            exclude_industries=self.vg_config.get("exclude_industries", []),
+        )
         self.stats["vg_pass"] = len(selected)
 
         # 落地候選池供 AI 分析使用

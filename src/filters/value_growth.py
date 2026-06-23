@@ -90,16 +90,17 @@ class ValueGrowthFilter:
         """價值成長綜合評分：估值越便宜、品質與成長越高，分數越高。
 
         以低 PEG 為核心 (成長相對股價便宜)，加上 ROE 與營收成長加分。
-        分數僅用於排序，非硬性門檻；缺值以中性方式處理。
+        各項皆設上限做 winsorize，避免低基期造成的離群成長率 (YoY 數百%)
+        灌爆排名。分數僅用於排序，非硬性門檻；缺值以中性方式處理。
         """
         score = 0.0
-        # PEG 越低越好：以 (1 / PEG) 計分，PEG<1 得高分
+        # PEG 越低越好：以 (1 / PEG) 計分，上限 2.0 (PEG<0.5 即封頂)
         if peg and peg > 0:
             score += min(2.0, 1.0 / peg) * 40
-        # ROE 品質加分
+        # ROE 品質加分，上限 40%
         if roe is not None:
-            score += max(0.0, roe) * 1.5
-        # 營收成長加分
+            score += min(40.0, max(0.0, roe)) * 1.5
+        # 營收成長加分，上限 50% (抑制低基期暴衝)
         if yoy is not None:
-            score += max(0.0, yoy) * 1.0
+            score += min(50.0, max(0.0, yoy)) * 1.0
         return round(score, 2)
