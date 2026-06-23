@@ -5,28 +5,36 @@ from src.utils.logger import log
 class AdvancedFilter:
     """第三、四層過濾網: 籌碼與基本面過濾 (修正 JSON 序列化版)"""
 
-    def run_l3(self, ticker: str, df_inst: pd.DataFrame):
+    def run_l3(self, ticker: str, df_inst: pd.DataFrame, config: dict = None):
+        config = config or {}
+        days = config.get("inst_net_buy_days", 15)
+        institutions = config.get("institutions", ['Foreign_Investor', 'Investment_Trust'])
+        net_buy_min = config.get("inst_net_buy_min", 0)
+
         if df_inst is None or df_inst.empty:
             return False, 0.0
 
-        # 僅取外資與投信
-        inst = df_inst[df_inst['name'].isin(['Foreign_Investor', 'Investment_Trust'])]
+        # 僅取設定指定的法人別 (預設外資與投信)
+        inst = df_inst[df_inst['name'].isin(institutions)]
         if inst.empty:
             return False, 0.0
 
-        # 取最近 15 個「交易日」累計 (依日期取，避免每日多列導致實際只算到數天)
+        # 取最近 N 個「交易日」累計 (依日期取，避免每日多列導致實際只算到數天)
         if 'date' in inst.columns:
-            last_dates = sorted(inst['date'].astype(str).unique())[-15:]
+            last_dates = sorted(inst['date'].astype(str).unique())[-days:]
             inst = inst[inst['date'].astype(str).isin(last_dates)]
 
         buy = float(inst['buy'].sum())
         sell = float(inst['sell'].sum())
         net_buy_shares = (buy - sell) / 1000
 
-        return bool(net_buy_shares > 0), float(round(net_buy_shares, 1))
+        return bool(net_buy_shares > net_buy_min), float(round(net_buy_shares, 1))
 
-    def run_l4(self, ticker: str, df_revenue: pd.DataFrame, df_ratio: pd.DataFrame = None, df_per: pd.DataFrame = None):
+    def run_l4(self, ticker: str, df_revenue: pd.DataFrame, df_ratio: pd.DataFrame = None, df_per: pd.DataFrame = None, config: dict = None):
         """第四層基本面過濾: 營收 YoY + ROE + PER + PEG"""
+        config = config or {}
+        yoy_min = config.get("yoy_min", 5)
+        roe_min = config.get("roe_min", 8)
         result = {
             "Pass": False,
             "YoY": 0.0,
@@ -95,12 +103,12 @@ class AdvancedFilter:
                     result["PEG"] = float(round(result["PER"] / result["EPS_Growth"], 2))
             except Exception: pass
 
-        # 綜合判定: 調整門檻
-        # 1. 營收 YoY > 5%
-        # 2. ROE > 8% (年化門檻)
+        # 綜合判定: 門檻由 config 提供
+        # 1. 營收 YoY > yoy_min
+        # 2. ROE > roe_min (年化門檻)
         # 3. PEG 不作為硬性過濾，僅供參考
-        yoy_pass = result["YoY"] > 5
-        roe_pass = result["ROE"] > 8
+        yoy_pass = result["YoY"] > yoy_min
+        roe_pass = result["ROE"] > roe_min
         
         result["Pass"] = bool(yoy_pass and roe_pass)
         

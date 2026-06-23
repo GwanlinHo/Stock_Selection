@@ -1,26 +1,65 @@
 {
     "active_level": "Strict",
+    "runtime": {
+        "l4_freshness_days": 30,
+        "report_retention_days": 30,
+        "finmind_fail_limit": 15,
+        "finmind_throttle_sec": 2.5
+    },
     "levels": {
         "Strict": {
-            "ma_20_slope": 0.005,
-            "ma_60_slope": 0.0,
-            "min_volume_avg": 2000000,
-            "yoy_min": 0,
-            "inst_net_buy_days": 5
+            "l1_l2": {
+                "ma_fast": 20,
+                "ma_slow": 60,
+                "ma_20_slope": 0.005,
+                "ma_60_slope": 0.0,
+                "min_volume_avg": 2000000
+            },
+            "l3": {
+                "inst_net_buy_days": 15,
+                "inst_net_buy_min": 0,
+                "institutions": ["Foreign_Investor", "Investment_Trust"]
+            },
+            "l4": {
+                "yoy_min": 5,
+                "roe_min": 8
+            }
         },
         "Neutral": {
-            "ma_20_slope": 0.0,
-            "ma_60_slope": -0.001,
-            "min_volume_avg": 500,
-            "yoy_min": -5,
-            "inst_net_buy_days": 3
+            "l1_l2": {
+                "ma_fast": 20,
+                "ma_slow": 60,
+                "ma_20_slope": 0.0,
+                "ma_60_slope": -0.001,
+                "min_volume_avg": 500000
+            },
+            "l3": {
+                "inst_net_buy_days": 10,
+                "inst_net_buy_min": -500,
+                "institutions": ["Foreign_Investor", "Investment_Trust"]
+            },
+            "l4": {
+                "yoy_min": 0,
+                "roe_min": 5
+            }
         },
         "Loose": {
-            "ma_20_slope": -0.005,
-            "ma_60_slope": -0.01,
-            "min_volume_avg": 100,
-            "yoy_min": -15,
-            "inst_net_buy_days": 1
+            "l1_l2": {
+                "ma_fast": 20,
+                "ma_slow": 60,
+                "ma_20_slope": -0.005,
+                "ma_60_slope": -0.01,
+                "min_volume_avg": 100000
+            },
+            "l3": {
+                "inst_net_buy_days": 5,
+                "inst_net_buy_min": -2000,
+                "institutions": ["Foreign_Investor", "Investment_Trust"]
+            },
+            "l4": {
+                "yoy_min": -10,
+                "roe_min": 0
+            }
         }
     }
 }

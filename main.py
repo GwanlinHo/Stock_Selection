@@ -32,13 +32,14 @@ class StockScanner:
             full_config = json.load(f)
             self.active_level = full_config["active_level"]
             self.params = full_config["levels"][self.active_level]
+            self.runtime = full_config.get("runtime", {})
 
     def cleanup_old_files(self):
         """清理超過 30 天的舊週報"""
         log.info("掃描報告資料夾，清理超過 30 天的舊週報...")
         count = 0
         now = time.time()
-        expiry_seconds = 30 * 86400
+        expiry_seconds = self.runtime.get("report_retention_days", 30) * 86400
         for path in self.report_dir.glob("WEEKLY_REPORT_*.md"):
             if (now - os.path.getmtime(path)) > expiry_seconds:
                 path.unlink()
@@ -58,9 +59,10 @@ class StockScanner:
         if self.mode == "full":
             yfinance_tickers = [t['yfinance_ticker'] for t in tickers_info]
             raw_data = DataIngestion(batch_size=50).fetch_weekly_data(yfinance_tickers)
+            l12 = self.params["l1_l2"]
             pv_filter = PriceVolumeFilter(config={
-                "ma_fast": 20, "ma_slow": 60, "min_volume": self.params["min_volume_avg"],
-                "ma_20_slope": self.params["ma_20_slope"], "ma_60_slope": self.params["ma_60_slope"]
+                "ma_fast": l12["ma_fast"], "ma_slow": l12["ma_slow"], "min_volume": l12["min_volume_avg"],
+                "ma_20_slope": l12["ma_20_slope"], "ma_60_slope": l12["ma_60_slope"]
             })
             l2_candidates = pv_filter.run(raw_data)
             for cand in l2_candidates:
@@ -85,7 +87,10 @@ class StockScanner:
             adv_filter = AdvancedFilter()
 
             # 全市場批次籌碼 (免費 TWSE/TPEx)，一次抓取取代逐檔 FinMind L3
-            chip_provider = BulkChipProvider(days=15)
+            # 抓取天數須涵蓋 L3 累計天數，否則會出現「資料不足以計算」的情形
+            l3_cfg = self.params["l3"]
+            l4_cfg = self.params["l4"]
+            chip_provider = BulkChipProvider(days=l3_cfg["inst_net_buy_days"])
             chip_provider.build()
 
             # 讀取現有進度 (用於比對與保留舊數據)
@@ -115,7 +120,7 @@ class StockScanner:
                 if l4_fetched_str:
                     try: l4_last = datetime.strptime(l4_fetched_str, '%Y-%m-%d')
                     except: pass
-                fund_is_fresh = l4_last and (today - l4_last).days < 30
+                fund_is_fresh = l4_last and (today - l4_last).days < self.runtime.get("l4_freshness_days", 30)
 
                 # 準備抓取容器
                 df_inst, df_rev, df_ratio, df_per = None, None, None, None
@@ -123,7 +128,7 @@ class StockScanner:
                 # === L3 籌碼面：全市場批次資料 (免費 TWSE/TPEx，不耗 FinMind) ===
                 df_inst = chip_provider.get_chip_df(ticker)
                 if df_inst is not None and not df_inst.empty:
-                    l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst)
+                    l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst, l3_cfg)
                     cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
                 else:
                     cand['L3_Pass'] = old_val.get('L3_Pass', False)
@@ -139,7 +144,7 @@ class StockScanner:
                     df_per = chip_provider.get_per_df(ticker)   # PER 改用免費批次 (TWSE BWIBBU / TPEx)
 
                 if df_rev is not None and df_ratio is not None:
-                    l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per)
+                    l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per, l4_cfg)
                     cand['L4_Pass'] = bool(l4_pass)
                     cand['L4_Value'] = float(l4_result['YoY'])
                     cand['ROE'] = l4_result['ROE']
@@ -159,8 +164,8 @@ class StockScanner:
                 elif l4_fetched:
                     consecutive_failures = 0
 
-                if consecutive_failures >= 15:
-                    msg = "偵測到 FinMind API 連續 15 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
+                if consecutive_failures >= self.runtime.get("finmind_fail_limit", 15):
+                    msg = f"偵測到 FinMind API 連續 {self.runtime.get('finmind_fail_limit', 15)} 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
                     log.critical(msg)
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
@@ -178,9 +183,9 @@ class StockScanner:
                     with open(self.final_cache_file, "w", encoding="utf-8") as f:
                         json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
 
-                # 僅在實際打 FinMind (L4) 後節流 1.2 秒避免被封鎖
+                # 僅在實際打 FinMind (L4) 後節流避免被封鎖 (秒數由 config 提供)
                 if l4_fetched:
-                    time.sleep(2.5)
+                    time.sleep(self.runtime.get("finmind_throttle_sec", 2.5))
 
             final_data = l2_candidates # 統一使用更新後的 list
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
@@ -221,14 +226,24 @@ class StockScanner:
         else:
             md_content += "> *深度分析撰寫中，完成後將更新於本區塊。*\n\n"
         
-        # 3. 篩選標準定義
-        md_content += "## 篩選標準定義\n"
+        # 3. 篩選標準定義 (依 config 實際門檻動態生成，避免與設定脫節)
+        l12 = self.params["l1_l2"]
+        l3p = self.params["l3"]
+        l4p = self.params["l4"]
+        inst_name_map = {
+            "Foreign_Investor": "外資",
+            "Investment_Trust": "投信",
+            "Dealer": "自營商",
+        }
+        inst_label = " + ".join(inst_name_map.get(n, n) for n in l3p.get("institutions", []))
+        vol_lots = int(l12["min_volume_avg"] / 1000)
+        md_content += f"## 篩選標準定義 (採用標準: {self.active_level})\n"
         md_content += "| 關卡 | 類型 | 詳細條件 |\n"
         md_content += "| :--- | :--- | :--- |\n"
-        md_content += "| **L1** | 技術面 | 股價 > MA20 且 MA20 斜率 > 0.5% (趨勢確認) |\n"
-        md_content += "| **L2** | 成交量 | 5 日均量 > 1,000 張 (流動性確認) |\n"
-        md_content += "| **L3** | 籌碼面 | 外資 + 投信近 15 日累計買超 > 0 (大人動向) |\n"
-        md_content += "| **L4** | 基本面 | 營收 YoY > 5% 且 ROE > 8% (年化) (PEG 供參考) |\n\n"
+        md_content += f"| **L1** | 技術面 | 股價 > MA{l12['ma_fast']} 且 MA{l12['ma_fast']} 斜率 > {l12['ma_20_slope']*100:.2f}% (趨勢確認) |\n"
+        md_content += f"| **L2** | 成交量 | 5 日均量 > {vol_lots:,} 張 (流動性確認) |\n"
+        md_content += f"| **L3** | 籌碼面 | {inst_label}近 {l3p['inst_net_buy_days']} 日累計買超 > {l3p['inst_net_buy_min']:,} 張 (大人動向) |\n"
+        md_content += f"| **L4** | 基本面 | 營收 YoY > {l4p['yoy_min']}% 且 ROE > {l4p['roe_min']}% (年化) (PEG 供參考) |\n\n"
 
         # 4. 篩選漏斗統計
         md_content += f"*   **[L1/L2] 價量趨勢通過**: {self.stats['l1_l2_pass']} 檔\n"
