@@ -27,6 +27,19 @@ _UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKi
 _SLEEP = 1.2   # 對 mopsov 友善，避免被視為攻擊
 
 
+def _open(req, retries=2, backoff=2.0):
+    """送出請求並回傳 bytes；遇暫時性錯誤 (如 502) 重試。"""
+    last = None
+    for attempt in range(retries + 1):
+        try:
+            return urllib.request.urlopen(req, timeout=40).read()
+        except Exception as e:
+            last = e
+            if attempt < retries:
+                time.sleep(backoff * (attempt + 1))
+    raise last
+
+
 def _to_num(s):
     try:
         return float(str(s).replace(",", "").replace("(", "-").replace(")", "").strip() or 0)
@@ -94,7 +107,7 @@ class BulkRevenueProvider:
             url = self._url(roc_year, month, market)
             try:
                 req = urllib.request.Request(url, headers=_UA)
-                raw = urllib.request.urlopen(req, timeout=30).read()
+                raw = _open(req)
                 html = raw.decode("big5", errors="ignore")   # 月營收頁為 BIG5
                 merged.update(self._parse(html))
             except Exception as e:
@@ -125,7 +138,7 @@ class BulkFinancialProvider:
         }
         data = urllib.parse.urlencode(params).encode("utf-8")
         req = urllib.request.Request(url, data=data, headers=_UA)
-        return urllib.request.urlopen(req, timeout=40).read().decode("utf-8", errors="ignore")
+        return _open(req).decode("utf-8", errors="ignore")
 
     def _parse_income(self, html: str) -> dict:
         out = {}
