@@ -16,7 +16,7 @@ from src.filters.advanced_filter import AdvancedFilter
 from src.data_bulk import BulkChipProvider
 
 class StockScanner:
-    def __init__(self, mode="full"):
+    def __init__(self, mode="full", strategy=None):
         self.mode = mode
         self.report_dir = Path("reports")
         self.temp_dir = Path("data/temp")
@@ -26,13 +26,18 @@ class StockScanner:
         self.final_cache_file = self.temp_dir / "candidates.json"
         self.stats = {"total": 0, "l1_l2_pass": 0, "l3_l4_pass": 0}
         self.load_config()
+        # 命令列可覆蓋 config 的 active_strategy
+        if strategy:
+            self.active_strategy = strategy
 
     def load_config(self):
         with open(self.config_file, "r") as f:
             full_config = json.load(f)
+            self.active_strategy = full_config.get("active_strategy", "momentum")
             self.active_level = full_config["active_level"]
             self.params = full_config["levels"][self.active_level]
             self.runtime = full_config.get("runtime", {})
+            self.vg_config = full_config.get("value_growth", {})
 
     def cleanup_old_files(self):
         """清理超過 30 天的舊週報"""
@@ -46,10 +51,79 @@ class StockScanner:
                 count += 1
         if count > 0: log.info(f"已清理 {count} 份舊報告。")
 
+    def run_value_growth(self):
+        """價值成長選股流程 (零 FinMind，全免費資料)。"""
+        from src.value_pipeline import run_current_selection
+        level = self.vg_config.get("active_level", "Standard")
+        vg_params = self.vg_config["levels"][level]
+        log.info(f"=== 啟動選股程序 [策略: 價值成長] [標準: {level}] ===")
+        self.cleanup_old_files()
+
+        tickers_info = TickerManager().load_tickers()
+        self.stats["total"] = len(tickers_info)
+        selected = run_current_selection(tickers_info, vg_params)
+        self.stats["vg_pass"] = len(selected)
+
+        # 落地候選池供 AI 分析使用
+        with open(self.final_cache_file, "w", encoding="utf-8") as f:
+            json.dump(selected, f, ensure_ascii=False, indent=4)
+        self.generate_value_report(selected, level, vg_params)
+
+    def generate_value_report(self, selected, level, vg_params):
+        date_str = datetime.now().strftime("%Y-%m-%d")
+        report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
+        val = vg_params.get("valuation", {})
+        qg = vg_params.get("quality_growth", {})
+        safe = vg_params.get("safety_net", {})
+
+        md = f"# 台股價值成長選股週報 ({date_str})\n\n"
+        md += "## AI 深度分析與決策建議\n"
+        ai_file = self.report_dir / f"ai_analysis_{date_str}.md"
+        if ai_file.exists():
+            ai_lines = ai_file.read_text(encoding="utf-8").strip().split("\n")
+            if ai_lines and ai_lines[0].lstrip().startswith("# "):
+                ai_lines = ai_lines[1:]
+            md += "\n".join(ai_lines).strip() + "\n\n"
+        else:
+            md += "> *深度分析撰寫中，完成後將更新於本區塊。*\n\n"
+
+        md += f"## 篩選標準定義 (策略: 價值成長 / 標準: {level})\n"
+        md += "| 關卡 | 類型 | 詳細條件 |\n| :--- | :--- | :--- |\n"
+        md += f"| P1 | 流動性 | 5 日均量 > {int(vg_params.get('liquidity',{}).get('min_volume_avg',0)/1000):,} 張 |\n"
+        md += f"| P2 | 估值便宜 | 0 < PER <= {val.get('per_max')}；PEG <= {val.get('peg_max')}{'（必要）' if val.get('peg_required') else '（參考）'} |\n"
+        md += f"| P3 | 品質成長 | ROE >= {qg.get('roe_min')}%、營收 YoY >= {qg.get('yoy_min')}%、EPS 成長 >= {qg.get('eps_growth_min')}% |\n"
+        md += f"| 安全網 | 軟性技術 | 排除股價低於季線逾 {abs(int(safe.get('max_below_ma_pct',0)*100))}% 的急殺股 |\n\n"
+        md += "> 趨勢與大盤擇時不在本表，交由 investment_analysis 總經報告負責。\n\n"
+
+        md += f"*   **掃描標的**: {self.stats.get('total',0)} 檔\n"
+        md += f"*   **價值成長精選**: {self.stats.get('vg_pass',0)} 檔\n\n"
+
+        md += "## 最終精選池 (依價值成長分數排序)\n"
+        md += "| 排名 | 代碼 | 名稱 | 產業 | 收盤 | PER | PEG | ROE% | 營收YoY% | EPS成長% | 分數 |\n"
+        md += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        for i, s in enumerate(selected, 1):
+            per = f"{s['PER']:.1f}" if s.get('PER') else "-"
+            peg = f"{s['PEG']:.2f}" if s.get('PEG') else "-"
+            roe = f"{s['ROE']:.2f}" if s.get('ROE') is not None else "-"
+            yoy = f"{s['YoY']:+.2f}" if s.get('YoY') is not None else "-"
+            epsg = f"{s['EPS_Growth']:+.2f}" if s.get('EPS_Growth') is not None else "-"
+            md += f"| {i} | {s['Ticker']} | {s.get('Name','')} | {s.get('Industry','')} | {s['Close']:.2f} | {per} | {peg} | {roe} | {yoy} | {epsg} | {s['Score']:.1f} |\n"
+        if not selected:
+            md += "> *目前無符合價值成長標準的標的 (可能市場估值偏高或成長放緩)。*\n"
+
+        with open(report_file, "w", encoding="utf-8") as f:
+            f.write(md)
+        log.info(f"價值成長週報已產出: {report_file}")
+        self.generate_index_html(open(report_file, encoding="utf-8").read())
+
     def run(self):
+        # 價值成長策略走獨立管線 (與動能完全分離)
+        if self.active_strategy == "value_growth":
+            return self.run_value_growth()
+
         log.info(f"=== 啟動選股程序 [模式: {self.mode}] [標準: {self.active_level}] ===")
         self.cleanup_old_files()
-        
+
         tickers_info = TickerManager().load_tickers()
         meta_map = {str(t['Ticker']): {"Name": t['Name'], "Industry": t['Industry']} for t in tickers_info}
         self.stats["total"] = len(tickers_info)
@@ -361,9 +435,11 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["full", "skip-scan", "report-only", "sync"], default="full")
+    parser.add_argument("--strategy", choices=["momentum", "value_growth"], default=None,
+                        help="覆蓋 config 的 active_strategy；不指定則依 config")
     args = parser.parse_args()
-    
-    scanner = StockScanner(mode=args.mode)
+
+    scanner = StockScanner(mode=args.mode, strategy=args.strategy)
     
     try:
         if args.mode == "sync":
