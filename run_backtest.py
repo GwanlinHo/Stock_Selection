@@ -16,10 +16,12 @@ from datetime import date, timedelta
 from src.utils.logger import log
 from src.tickers import TickerManager
 from src.backtest import Backtester, fetch_histories, generate_backtest_report
+from src.strategies import get_strategy
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--strategy", choices=["value_growth", "momentum"], default="value_growth")
     ap.add_argument("--years", type=int, default=3, help="回測期間年數 (預設 3)")
     ap.add_argument("--hist-years", type=int, default=6, help="下載價格歷史年數 (需 >= years+1)")
     ap.add_argument("--top", type=int, default=15, help="每期持股檔數 (預設 15)")
@@ -30,9 +32,15 @@ def main():
 
     cfg = json.load(open("config/settings.json", encoding="utf-8"))
     vg = cfg["value_growth"]
-    level = vg.get("active_level", "Standard")
-    params = vg["levels"][level]
+    # 兩策略共用同一標的池排除清單，確保回測對比公平
     exclude = vg.get("exclude_industries", [])
+    if args.strategy == "value_growth":
+        level = vg.get("active_level", "Standard")
+        params = vg["levels"][level]
+    else:
+        level = cfg.get("active_level", "Strict")
+        params = cfg["levels"][level]   # 含 l1_l2 / l3 / l4
+    strategy = get_strategy(args.strategy)
 
     tickers_info = TickerManager().load_tickers()
     universe = {}
@@ -48,20 +56,20 @@ def main():
     end = date.today()
     start = date(end.year - args.years, end.month, 1)
     period_desc = f"{start.isoformat()} ~ {end.isoformat()}"
-    log.info(f"=== 價值成長回測 [{period_desc}] 標的池 {len(universe)} 檔 ===")
+    log.info(f"=== {args.strategy} 回測 [{period_desc}] 標的池 {len(universe)} 檔 ===")
 
     if not args.no_fetch:
         yf = [u["yfinance_ticker"] for u in universe.values()] + [args.benchmark]
         log.info(f"確保價格歷史 (下載未快取者，共 {len(yf)} 檔)...")
         fetch_histories(yf, years=args.hist_years)
 
-    bt = Backtester(params, exclude_industries=exclude)
+    bt = Backtester(strategy, params, exclude_industries=exclude)
     res = bt.run(universe, start, end, top_n=args.top, benchmark=args.benchmark)
     m = res["metrics"]
-    log.info(f"回測完成: 總報酬 {m.get('total_return')}% | CAGR {m.get('cagr')}% | "
+    log.info(f"回測完成 [{args.strategy}]: 總報酬 {m.get('total_return')}% | CAGR {m.get('cagr')}% | "
              f"MDD {m.get('max_drawdown')}% | Sharpe {m.get('sharpe')} | "
              f"0050 {m.get('bench_total_return')}%")
-    generate_backtest_report(res, level, params, period_desc, args.top)
+    generate_backtest_report(res, level, params, period_desc, args.top, strategy_name=args.strategy)
 
 
 if __name__ == "__main__":

@@ -116,19 +116,21 @@ def _svg_equity(dates, equity, bench_eq, w=860, h=320, pad=50):
             f'</svg>')
 
 
-def generate_backtest_report(res, level, params, period_desc, top_n, report_dir="reports"):
+def generate_backtest_report(res, level, params, period_desc, top_n, report_dir="reports",
+                             strategy_name="value_growth"):
     """產出回測報告 (Markdown + 獨立 HTML，含內嵌 SVG 淨值曲線)。"""
     from datetime import datetime
     rd = Path(report_dir)
     rd.mkdir(parents=True, exist_ok=True)
     today = datetime.now().strftime("%Y-%m-%d")
+    label = {"value_growth": "價值成長", "momentum": "趨勢動能"}.get(strategy_name, strategy_name)
     m = res["metrics"]
     dates = res["rebal_dates"]
     svg = _svg_equity(dates, res["equity"], res["bench_eq"])
 
-    md = f"# 價值成長策略回測報告 ({today})\n\n"
+    md = f"# {label}策略回測報告 ({today})\n\n"
     md += (f"- 回測期間: {period_desc}　|　換股頻率: 月頻　|　持股: 前 {top_n} 檔等權重\n"
-           f"- 篩選標準: 價值成長 / {level}　|　基準: 0050\n\n")
+           f"- 策略: {label} / {level}　|　基準: 0050\n\n")
     md += ("> **重要限制**：(1) 存活者偏誤——標的池採目前清單近似，未還原歷史下市/新上市成分，"
            "實際結果可能偏樂觀。(2) 未計交易成本、滑價與稅費。(3) 月營收/財報採公布後時點，"
            "已盡量避免前視偏誤。本報告僅供策略驗證參考，非投資建議。\n\n")
@@ -168,91 +170,55 @@ def generate_backtest_report(res, level, params, period_desc, top_n, report_dir=
 
 
 class Backtester:
-    def __init__(self, vg_config: dict, exclude_industries=None):
-        self.vg = vg_config
-        self.exclude = set(exclude_industries or [])
-        self.ma_slow = vg_config.get("safety_net", {}).get("ma_slow", 60)
+    """策略無關回測引擎。傳入任一 Strategy 物件即可回測。"""
+
+    def __init__(self, strategy, params: dict, exclude_industries=None):
+        self.strategy = strategy
+        self.params = params
+        self.exclude = exclude_industries or []
         self.rev = BulkRevenueProvider()
         self.fin = FundamentalsAssembler(BulkFinancialProvider())
-        self._fund_cache = {}   # (year,season) -> metrics dict
-        self._rev_cache = {}    # (year,month) -> revenue map
-
-    def _fund_at(self, d: date):
-        key = as_of_financial_period(d)
-        if key not in self._fund_cache:
-            self._fund_cache[key] = self.fin.metrics_at(*key)
-        return self._fund_cache[key]
-
-    def _rev_at(self, d: date):
-        key = as_of_revenue_period(d)
-        if key not in self._rev_cache:
-            self._rev_cache[key] = self.rev.get_month(*key)
-        return self._rev_cache[key]
 
     @staticmethod
-    def _price_asof(df, d: date):
-        """回傳 <= d 的最後收盤價與該列位置；無資料回 (None,None)。"""
+    def _close_asof(df, d: date):
+        if df is None:
+            return None
         sub = df[df.index <= pd.Timestamp(d)]
-        if sub.empty:
-            return None, None
-        return float(sub["Close"].iloc[-1]), sub
-
-    def _metrics_at(self, universe, histories, d: date):
-        """組裝 universe 在 d 當下的時點指標 (供 select_value_growth)。"""
-        fund = self._fund_at(d)
-        rev = self._rev_at(d)
-        metrics = {}
-        for code, info in universe.items():
-            if info.get("Industry", "") in self.exclude:
-                continue
-            df = histories.get(info["yfinance_ticker"])
-            if df is None:
-                continue
-            close, sub = self._price_asof(df, d)
-            if close is None or len(sub) < self.ma_slow + 1:
-                continue
-            ma = float(sub["Close"].rolling(self.ma_slow).mean().iloc[-1])
-            avg_vol = float(sub["Volume"].tail(5).mean())
-            fm = fund.get(code, {})
-            eps_ttm = fm.get("eps_ttm")
-            per = round(close / eps_ttm, 2) if eps_ttm and eps_ttm > 0 else None
-            metrics[code] = {
-                "avg_vol": avg_vol, "per": per, "close": close, "ma_slow": ma,
-                "roe": fm.get("roe_ttm"), "eps_growth": fm.get("eps_yoy"),
-                "yoy": rev.get(code, {}).get("yoy"),
-            }
-        return metrics
+        return float(sub["Close"].iloc[-1]) if not sub.empty else None
 
     def run(self, universe: dict, start: date, end: date, top_n=15, benchmark="0050.TW"):
         """universe: {code: {yfinance_ticker, Name, Industry}}。回傳結果 dict。"""
+        from src.strategies import DataContext
         histories = {info["yfinance_ticker"]: load_history(info["yfinance_ticker"])
                      for info in universe.values()}
         histories = {k: v for k, v in histories.items() if v is not None}
         bench_df = load_history(benchmark)
+        ctx = DataContext(universe, histories, self.fin, self.rev, self.exclude)
         rebal = _month_ends(start, end)
-        log.info(f"[Backtest] 換股日 {len(rebal)} 個，標的池 {len(histories)} 檔有歷史。")
+        log.info(f"[Backtest] 策略={self.strategy.name} 換股日 {len(rebal)} 個，"
+                 f"標的池 {len(histories)} 檔有歷史。")
 
         equity, bench_eq = [1.0], [1.0]
         port_rets, bench_rets, picks_log = [], [], []
 
         for i in range(len(rebal) - 1):
             d0, d1 = rebal[i], rebal[i + 1]
-            metrics = self._metrics_at(universe, histories, d0)
-            picks = select_value_growth(metrics, self.vg)[:top_n]
+            metrics = self.strategy.assemble(ctx, d0)
+            picks = self.strategy.select(metrics, self.params)[:top_n]
 
             # 投組報酬：等權重，d0->d1 的價格變動
             rets = []
             for p in picks:
                 df = histories.get(universe[p["Ticker"]]["yfinance_ticker"])
-                c0, _ = self._price_asof(df, d0)
-                c1, _ = self._price_asof(df, d1)
+                c0 = self._close_asof(df, d0)
+                c1 = self._close_asof(df, d1)
                 if c0 and c1 and c0 > 0:
                     rets.append(c1 / c0 - 1)
             port_ret = sum(rets) / len(rets) if rets else 0.0
 
             # 基準報酬
-            b0, _ = self._price_asof(bench_df, d0) if bench_df is not None else (None, None)
-            b1, _ = self._price_asof(bench_df, d1) if bench_df is not None else (None, None)
+            b0 = self._close_asof(bench_df, d0)
+            b1 = self._close_asof(bench_df, d1)
             bench_ret = (b1 / b0 - 1) if (b0 and b1 and b0 > 0) else 0.0
 
             equity.append(equity[-1] * (1 + port_ret))
