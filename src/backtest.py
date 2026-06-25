@@ -31,28 +31,55 @@ _BT_CACHE = Path("data/cache_bt")
 
 
 # ---------- 價格歷史 (長期、獨立快取) ----------
-def fetch_histories(yf_tickers, years=5, throttle=0.3):
-    """抓取並快取長期日線歷史。已快取者跳過。回傳成功檔數。"""
+def _norm_cols(df):
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+    return df
+
+
+def fetch_histories(yf_tickers, years=5, throttle=0.3, refresh=False, stale_days=5):
+    """抓取並快取長期日線歷史。
+
+    refresh=False: 已快取者跳過 (首次建檔)。
+    refresh=True : 已快取者若最新日期超過 stale_days 天，增量補抓近期並合併
+                   (供每月刷新回測，使快取跟上最新交易日)。
+    回傳處理成功檔數。
+    """
     import yfinance as yf
+    from datetime import datetime as _dt
     _BT_CACHE.mkdir(parents=True, exist_ok=True)
     ok = 0
     for i, tk in enumerate(yf_tickers):
         path = _BT_CACHE / f"{tk}.parquet"
-        if path.exists():
-            ok += 1
-            continue
         try:
-            df = yf.download(tk, period=f"{years}y", interval="1d", progress=False, timeout=15)
-            if df is not None and not df.empty:
-                if isinstance(df.columns, pd.MultiIndex):
-                    df.columns = df.columns.get_level_values(0)
-                df.dropna(subset=["Close"]).to_parquet(path)
+            if path.exists():
+                if not refresh:
+                    ok += 1
+                    continue
+                old = pd.read_parquet(path)
+                old.index = pd.to_datetime(old.index)
+                last = old.index.max()
+                if (_dt.now() - last).days < stale_days:
+                    ok += 1
+                    continue
+                start = (last + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+                new = yf.download(tk, start=start, interval="1d", progress=False, timeout=15)
+                if new is not None and not new.empty:
+                    new = _norm_cols(new).dropna(subset=["Close"])
+                    merged = pd.concat([old, new])
+                    merged = merged[~merged.index.duplicated(keep="last")].sort_index()
+                    merged.to_parquet(path)
                 ok += 1
+            else:
+                df = yf.download(tk, period=f"{years}y", interval="1d", progress=False, timeout=15)
+                if df is not None and not df.empty:
+                    _norm_cols(df).dropna(subset=["Close"]).to_parquet(path)
+                    ok += 1
         except Exception as e:
             log.warning(f"[Backtest] 下載 {tk} 歷史失敗: {e}")
         time.sleep(throttle)
         if (i + 1) % 50 == 0:
-            log.info(f"[Backtest] 歷史下載進度 {i+1}/{len(yf_tickers)}")
+            log.info(f"[Backtest] 歷史{'刷新' if refresh else '下載'}進度 {i+1}/{len(yf_tickers)}")
     return ok
 
 

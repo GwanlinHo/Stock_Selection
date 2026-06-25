@@ -12,11 +12,19 @@ export PYTHONPATH=$PYTHONPATH:.
 
 DATE=$(date +%Y-%m-%d)
 
-echo "[1/4] 掃描 + 籌碼/基本面精煉 + 骨架報告 (full)..."
+echo "[1/4] 掃描 + 動能(無L3)選股 + 骨架報告 (full)..."
 uv run main.py --mode full
 
 echo "[2/4] Claude 深度分析，寫入專屬 AI 檔 reports/ai_analysis_${DATE}.md ..."
-claude -p "請依照本專案目錄的 CLAUDE.md 執行台股選股深度分析：讀取 data/temp/candidates.json，針對 L3 與 L4 全通過的最終精選池標的，做去罐頭化的深度分析（宏觀趨勢、核心標的深度點評、指標矛盾與風險）。將分析內容以 Markdown 寫入 reports/ai_analysis_${DATE}.md。要求：不得出現任何 AI 工具或模型名稱；只寫這一個檔，不要修改其他檔案、不要執行任何 git 指令。" --model claude-opus-4-8 --dangerously-skip-permissions
+claude -p "請依照本專案目錄的 CLAUDE.md 為台股動能(無L3)選股週報撰寫 AI 分析，將內容以 Markdown 寫入 reports/ai_analysis_${DATE}.md，只用以下兩個 ## 標題：
+
+## 宏觀趨勢與大盤研判
+請讀取 /home/pi/WorkDir/investment_analysis/index.html (最新總經報告) 的內容，綜合其多空研判與風險水位，判斷本週是否適合進場（此為攻擊型選股，須多頭才進場）。
+
+## 核心標的深度點評
+讀取 data/temp/candidates.json (最終精選池)，針對分數前幾名的標的，結合產業趨勢與最新財報展望做去罐頭化深度點評，指出指標矛盾與風險。
+
+要求：不得出現任何 AI 工具或模型名稱；繁體中文；只寫這一個檔，不要修改其他檔案、不要執行任何 git 指令。" --model claude-opus-4-8 --dangerously-skip-permissions
 
 echo "[3/4] 重新生成報告 (注入 AI 分析) 與 index.html (report-only)..."
 uv run main.py --mode report-only

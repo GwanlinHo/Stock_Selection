@@ -12,7 +12,7 @@ from datetime import date, datetime
 
 from src.utils.logger import log
 from src.tickers import TickerManager
-from src.backtest import Backtester, load_history
+from src.backtest import Backtester, load_history, fetch_histories
 from src.strategies import get_strategy
 
 COLORS = {"value": "#2ca02c", "mom": "#1f77b4", "mom_l3": "#ff7f0e", "bench": "#d62728"}
@@ -57,6 +57,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--years", type=int, default=5)
     ap.add_argument("--top", type=int, default=15)
+    ap.add_argument("--refresh", action="store_true",
+                    help="增量更新價格長快取至最新交易日 (月度刷新用)")
     args = ap.parse_args()
 
     cfg = json.load(open("config/settings.json", encoding="utf-8"))
@@ -69,6 +71,11 @@ def main():
     universe = {str(t["Ticker"]).split(".")[0]:
                 {"yfinance_ticker": t["yfinance_ticker"], "Name": t.get("Name", ""),
                  "Industry": t.get("Industry", "")} for t in ti}
+
+    if args.refresh:
+        log.info("增量刷新價格長快取至最新交易日...")
+        yf = [u["yfinance_ticker"] for u in universe.values()] + ["0050.TW"]
+        fetch_histories(yf, years=args.years + 1, refresh=True)
 
     end = date.today()
     start = date(end.year - args.years, end.month, 1)
