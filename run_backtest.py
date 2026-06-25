@@ -27,6 +27,7 @@ def main():
     ap.add_argument("--top", type=int, default=15, help="每期持股檔數 (預設 15)")
     ap.add_argument("--benchmark", default="0050.TW")
     ap.add_argument("--no-fetch", action="store_true", help="不下載歷史，僅用既有快取")
+    ap.add_argument("--with-chips", action="store_true", help="動能啟用 L3 歷史法人籌碼 (首跑需逐日補抓)")
     ap.add_argument("--limit", type=int, default=0, help="限制標的池檔數 (測試用，0=全部)")
     args = ap.parse_args()
 
@@ -63,7 +64,7 @@ def main():
         log.info(f"確保價格歷史 (下載未快取者，共 {len(yf)} 檔)...")
         fetch_histories(yf, years=args.hist_years)
 
-    bt = Backtester(strategy, params, exclude_industries=exclude)
+    bt = Backtester(strategy, params, exclude_industries=exclude, use_chips=args.with_chips)
     res = bt.run(universe, start, end, top_n=args.top, benchmark=args.benchmark)
     m = res["metrics"]
     log.info(f"回測完成 [{args.strategy}]: 總報酬 {m.get('total_return')}% | CAGR {m.get('cagr')}% | "

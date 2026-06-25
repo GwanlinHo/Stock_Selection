@@ -172,12 +172,16 @@ def generate_backtest_report(res, level, params, period_desc, top_n, report_dir=
 class Backtester:
     """策略無關回測引擎。傳入任一 Strategy 物件即可回測。"""
 
-    def __init__(self, strategy, params: dict, exclude_industries=None):
+    def __init__(self, strategy, params: dict, exclude_industries=None, use_chips=False):
         self.strategy = strategy
         self.params = params
         self.exclude = exclude_industries or []
         self.rev = BulkRevenueProvider()
         self.fin = FundamentalsAssembler(BulkFinancialProvider())
+        self.chip = None
+        if use_chips:
+            from src.data_chips import HistoricalChipProvider
+            self.chip = HistoricalChipProvider()
 
     @staticmethod
     def _close_asof(df, d: date):
@@ -193,7 +197,8 @@ class Backtester:
                      for info in universe.values()}
         histories = {k: v for k, v in histories.items() if v is not None}
         bench_df = load_history(benchmark)
-        ctx = DataContext(universe, histories, self.fin, self.rev, self.exclude)
+        ctx = DataContext(universe, histories, self.fin, self.rev, self.exclude,
+                          chip_provider=self.chip)
         rebal = _month_ends(start, end)
         log.info(f"[Backtest] 策略={self.strategy.name} 換股日 {len(rebal)} 個，"
                  f"標的池 {len(histories)} 檔有歷史。")

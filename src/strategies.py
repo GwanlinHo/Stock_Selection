@@ -20,14 +20,25 @@ class DataContext:
     """持有所有資料源，提供時點對齊查詢；當期與回測共用。"""
 
     def __init__(self, universe, histories, fundamentals_assembler, revenue_provider,
-                 exclude_industries=None):
+                 exclude_industries=None, chip_provider=None):
         self.universe = universe                 # {code: {yfinance_ticker, Name, Industry}}
         self.histories = histories               # {yf_ticker: price df}
         self.fin = fundamentals_assembler
         self.rev = revenue_provider
+        self.chip = chip_provider                # 歷史籌碼 (僅動能 L3 需要; None 則略過)
         self.exclude = set(exclude_industries or [])
         self._fund_cache = {}
         self._rev_cache = {}
+        self._chip_cache = {}
+
+    def chips(self, d, days):
+        """回傳 <=d 近 days 交易日的全市場外資+投信累計淨買(張)；無 provider 回 None。"""
+        if self.chip is None:
+            return None
+        key = (d, days)
+        if key not in self._chip_cache:
+            self._chip_cache[key] = self.chip.window_netbuy(d, days)
+        return self._chip_cache[key]
 
     def fundamentals(self, d):
         from src.value_pipeline import as_of_financial_period
@@ -112,6 +123,7 @@ class MomentumStrategy(Strategy):
         ma_fast, ma_slow = 20, 60
         fund = ctx.fundamentals(as_of)
         rev = ctx.revenue(as_of)
+        chips = ctx.chips(as_of, 15)   # None 表示不啟用 L3
         metrics = {}
         for code, info in ctx.universe.items():
             if info.get("Industry", "") in ctx.exclude:
@@ -129,7 +141,7 @@ class MomentumStrategy(Strategy):
             m20_slope = (m20_now - m20_prev) / m20_prev
             m60_slope = (m60_now - m60_prev) / m60_prev if (not pd.isna(m60_prev) and m60_prev > 0) else None
             fm = fund.get(code, {})
-            metrics[code] = {
+            rec = {
                 "close": float(closes.iloc[-1]),
                 "ma20": float(m20_now), "m20_slope": float(m20_slope),
                 "m60_slope": float(m60_slope) if m60_slope is not None else None,
@@ -137,6 +149,9 @@ class MomentumStrategy(Strategy):
                 "roe": fm.get("roe_ttm"), "yoy": rev.get(code, {}).get("yoy"),
                 "Name": info.get("Name", ""), "Industry": info.get("Industry", ""),
             }
+            if chips is not None:                 # 啟用 L3 才帶入籌碼
+                rec["net_buy"] = chips.get(code, 0.0)
+            metrics[code] = rec
         return metrics
 
     def select(self, metrics, params):
@@ -161,6 +176,10 @@ class MomentumStrategy(Strategy):
                 continue
             if yoy is None or yoy <= l4.get("yoy_min", -1e9):
                 continue
+            # L3: 法人籌碼 (僅當 assemble 帶入 net_buy 時啟用)
+            if "net_buy" in m:
+                if m["net_buy"] <= params.get("l3", {}).get("inst_net_buy_min", 0):
+                    continue
             passed.append({
                 "Ticker": code, "Close": m["close"],
                 "M20_Slope": round(m["m20_slope"], 4),
