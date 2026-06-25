@@ -25,137 +25,22 @@
 </head>
 <body>
     <article class="markdown-body">
-        <h1>台股選股掃描綜合週報 (2026-06-19)</h1>
-<h2>AI 深度分析與決策建議</h2>
+        <h1>台股動能選股週報 (2026-06-25)</h1>
 <blockquote>
-<p>本報告聚焦「最終精選池」：於本週掃描中<strong>同時通過 L3（法人籌碼淨買超）與 L4（基本面：營收 YoY 與年化 ROE）兩道過濾</strong>的標的，共 <strong>71 檔</strong>。相較上期，本週資金主軸出現明顯位移——<strong>PCB／銅箔載板供應鏈成群入池、航空雙雄吸金量體躍居全池之首</strong>，記憶體與被動元件漲價循環則延續但不再獨大。以下結合籌碼量體、估值結構與產業趨勢做去罐頭化交叉解讀，並逐一拆解指標之間的矛盾與潛在風險。</p>
+<p><strong>本工具策略重心（請勿遺忘）</strong></p>
+<p>這是「攻擊型個股選股」工具，與 <code>investment_analysis</code>（總經擇時/防守）分工：後者判斷多空與股債現金配置、決定<strong>何時</strong>進場；本工具決定多頭時<strong>買哪些股</strong>。</p>
+<p>production 採「<strong>動能（無 L3）</strong>」：經 5 年回測（含 2022 空頭）為各攻擊型策略中表現最佳者（加 L3 法人籌碼、價值成長型皆較差，已捨棄）。</p>
+<p><strong>重要</strong>：機械化操作下無一策略能穩定勝過 0050，務必搭配 investment_analysis 的多空研判、<strong>僅在多頭時進場</strong>，本清單僅為選股依據而非擇時訊號。</p>
 </blockquote>
-<h2>篩選邏輯回顧</h2>
-<p>本期最終精選池為同時通過 L3（籌碼）與 L4（基本面）的標的，共 <strong>71 檔</strong>。兩道關卡的實質定義為：</p>
-<ul>
-<li><strong>L3 籌碼</strong>：外資與投信合計，近 15 個交易日累計淨買超張數為正（欄位 <code>L3_Value</code>）。此為「方向性」門檻，不設量體下限，因此通過僅代表法人近期偏多，<strong>強弱必須另看淨買張數的絕對量級</strong>。</li>
-<li><strong>L4 基本面</strong>：單月營收 YoY 為正且達門檻（欄位 <code>L4_Value</code> 即 YoY 百分比），且 TTM 年化 ROE 站上門檻。YoY 取最新月營收對去年同月，ROE 以近四季淨利對最新一季母公司權益估算。</li>
-</ul>
-<p>判讀前必須先認清這兩道門檻的「形狀」：<strong>L3 寬鬆、L4 看的是動能而非估值</strong>。估值（PER／PEG）在系統內僅供參考、不作硬性過濾，因此精選池裡同時並存本益比不到 5 倍的循環／認列股，與 300～585 倍的景氣落底股，必須由人工分流。這正是本報告後段「指標矛盾」的核心工作。本期財報基準為 <strong>2026-03-31（Q1）</strong>，籌碼與基本面資料擷取日散落於 06-07 至 06-19。</p>
-<hr />
-<h2>一、宏觀趨勢：主軸由「漲價」轉向「載板與資本支出」，航空成為吸金新焦點</h2>
-<p>71 檔的產業分佈高度集中於電子，但內部權重相較上期已重新洗牌：</p>
-<table>
-<thead>
-<tr>
-<th>族群</th>
-<th>檔數</th>
-<th>結構意涵</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>電子零組件業</td>
-<td>21</td>
-<td>全池之首，<strong>重心由被動元件移向 PCB／銅箔載板</strong></td>
-</tr>
-<tr>
-<td>半導體業</td>
-<td>14</td>
-<td>記憶體報價反轉為核心，封測與利基 IC 跟進</td>
-</tr>
-<tr>
-<td>電腦及週邊設備業</td>
-<td>7</td>
-<td>AI 伺服器 ODM 與工業電腦／儲存</td>
-</tr>
-<tr>
-<td>塑膠工業／造紙／化學／紡織</td>
-<td>8</td>
-<td>石化與紙業景氣落底翻揚，低基期補漲</td>
-</tr>
-<tr>
-<td>建材營造業</td>
-<td>3</td>
-<td>結案認列驅動，高 ROE、極低 PER</td>
-</tr>
-<tr>
-<td>光電業</td>
-<td>3</td>
-<td>大立光、群創、聯一光，結構分歧大</td>
-</tr>
-<tr>
-<td>航運業</td>
-<td>2</td>
-<td>長榮航、華航，<strong>本期法人吸金量體全池第一</strong></td>
-</tr>
-<tr>
-<td>其他（電機、電子通路、生技、油電、資服等）</td>
-<td>13</td>
-<td>分散，個別題材為主</td>
-</tr>
-</tbody>
-</table>
-<p>可歸納出本期三條主線，與上期相比有承接也有轉向：</p>
-<p><strong>主線一（本期最強訊號）：PCB／銅箔載板的「材料漲價＋AI 拉貨」雙引擎。</strong> 電子零組件 21 檔中，臻鼎-KY、台燿、聯茂、健鼎、楠梓電、騰輝電子-KY、台光電成群入池，半導體族群的封裝載板亦同步觸發。這條線的特徵是<strong>營收成長扎實、ROE 普遍三位數</strong>（臻鼎 394%、台燿 132%、健鼎 104%），且多數法人同步買超。背後是 AI 伺服器與高速運算對高層數 PCB、ABF／BT 載板、高頻高速銅箔的結構性拉貨，疊加上游銅價與玻纖布的成本轉嫁。<strong>當「同一條材料漲價＋AI 拉貨」故事能讓近十檔個股同步觸發營收與籌碼門檻，要留意的不是有沒有題材，而是價格是否已把漲價預期吃滿（見台燿 PER 132、台光電 PER 121）。</strong></p>
-<p><strong>主線二（延續）：記憶體報價反轉。</strong> 華邦電（YoY 182%、法人買超 12.9 萬張）、南亞科（YoY 730%、買超 11.0 萬張）、旺宏（YoY 176%、買超 4.6 萬張）、鈺創（YoY 605%）構成標準型與利基型記憶體的完整曝險。這一輪是 DRAM／Flash 報價自谷底反轉的<strong>價格彈性</strong>，而非單純出貨成長，因此 YoY 數字普遍以三位數呈現——這是低基期的算術結果，不可線性外推。</p>
-<p><strong>主線三（本期新焦點）：航空雙雄的籌碼異動。</strong> 長榮航（L3 淨買 18.8 萬張）、華航（13.6 萬張）佔據本期法人吸金量體前三名，且兩者 PER 僅 8 倍上下。<strong>這是一個必須反著讀的訊號</strong>：航空獲利處於相對高基期，極低本益比配合法人大買，可能反映的是市場對運價／客運維持高檔的押注，但也可能是循環頂部前的最後一波籌碼擁擠。油價、客貨運價與匯率才是決定因素，估值便宜不構成買進理由（詳見第三節）。</p>
-<p><strong>主線四（價值補漲）：傳產落底與資產認列。</strong> 南亞（YoY 31%、法人買超 17.6 萬張，傳產中量體最大）、台化、永豐餘、正隆、和桐反映石化與紙業景氣自底部回升；達麗、冠德、三發地產則是建商結案認列推升當期獲利，呈現「低基期＋一次性」特徵，估值訊號（PER／ROE）會出現極端值，須用循環股邏輯解讀。</p>
-<hr />
-<h2>二、核心標的深度點評</h2>
-<p>以下挑選各主線中訊號最強、或矛盾最值得拆解者，逐一點評。括號內依序為營收 YoY、PER、法人近 15 日淨買張數等關鍵讀數。</p>
-<h3>PCB／銅箔載板主線</h3>
-<p><strong>臻鼎-KY（4958）</strong>｜YoY 37%、PER 71、ROE 395%、PEG 0.7<br />
-全球軟硬板與載板龍頭，本期股價站上 642 元、20 日均線（541）與 60 日均線（399）呈強多排列，趨勢動能在全池名列前茅。<strong>PEG 0.7 是這條主線中相對少見的「成長尚未被估值充分定價」訊號</strong>——PER 71 倍看似高，但對應的是 AI 載板放量帶動的獲利成長，PEG 反而落在 1 以下。風險在於 ROE 395% 屬計算口徑放大值（見第三節第 1 點），不可當作真實股東報酬；且股價短線已大幅偏離 60 日線，追價須留意均線乖離過大的回測風險。</p>
-<p><strong>台燿（6274）／台光電（2383）</strong>｜高速銅箔基板雙雄<br />
-台燿（YoY 124%、PER 132、PEG 1.67）與台光電（YoY 115%、PER 121、PEG 2.49）是高速 CCL 的核心受惠者，營收成長皆破百。但兩者 PER 同步衝到 120～130 倍、PEG 站上 1.6～2.5，<strong>估值已把 AI 拉貨預期高度反映</strong>。台光電股價 5600 元、台燿 1835 元，屬於「題材純度高但估值領先基本面」的一類，宜以下游 AI 伺服器拉貨的實際出貨數據（而非營收 YoY）作為持有依據，嚴控追價。</p>
-<p><strong>健鼎（3044）／聯茂（6213）／楠梓電（2316）</strong>｜估值相對克制的一群<br />
-相對台燿、台光電，健鼎（PER 27.8、PEG 1.1）、楠梓電（PER 13.3、PEG 0.09）估值明顯收斂，楠梓電 PEG 僅 0.09、PER 13 倍配 ROE 131%，是這條主線中「價格與成長最平衡」的代表，可作為 PCB 鏈中體質與估值兼顧的核心觀察。聯茂 PEG 顯示為 0（EPS 成長率無法計算，非真便宜，須個別查證）。</p>
-<h3>記憶體主線</h3>
-<p><strong>華邦電（2344）</strong>｜YoY 182%、PER 51、ROE 140、法人買超 12.9 萬張<br />
-利基型記憶體（NOR Flash、利基 DRAM）報價走出多年低谷，量價齊揚是 YoY 暴衝主因。法人買超量體全池前段班，籌碼是「真強」而非剛過門檻。PER 51 倍對記憶體股偏高，<strong>但記憶體是典型循環股，本益比高點通常出現在獲利剛起步、E 仍低的上行早段</strong>，因此 51 倍未必貴。風險在報價循環的持續性：若 Q2／Q3 漲勢趨緩，高 PER 將失去支撐。</p>
-<p><strong>南亞科（2408）</strong>｜YoY 730%、PER 33、ROE 150、法人買超 11.0 萬張<br />
-全池營收 YoY 最高，純度最高的標準型 DRAM 曝險。730% 須打折看待——這是去年同期接近虧損的<strong>低基期效應</strong>，是報價從地板反彈的算術結果，不可外推。可取之處在於法人同步大幅買超，籌碼與基本面方向一致。投資邏輯應聚焦「這一輪 DRAM 上行循環走到第幾局」，而非 YoY 數字本身。</p>
-<p><strong>旺宏（2337）</strong>｜YoY 176%、PER 0（無資料）、法人買超 4.6 萬張<br />
-營收 YoY 翻倍、法人量體可觀，但 <strong>PER 顯示 0 代表系統無有效本益比資料</strong>（可能對應虧損年度或資料源缺漏），估值面屬黑箱。動能與籌碼具備，但在納入決策前必須回查最新財報確認獲利結構是否已轉正，不可僅憑 YoY 與買超就放行。</p>
-<h3>AI 伺服器／工業電腦主線</h3>
-<p><strong>廣達（2382）</strong>｜YoY 94%、PER 18.7、PEG 2.15、ROE 113、法人買超 7.6 萬張<br />
-AI 伺服器 ODM 龍頭，成長來自<strong>實質出貨而非報價彈性</strong>，能見度高於記憶體與載板主線。PER 18.7 倍不貴，但 PEG 2.15 提示市場已把高成長價格化了一部分。法人量體在全池前段，是池中「穩」的一端，適合作為核心配置而非短打。</p>
-<p><strong>凌華（6166）／威強電（3022）</strong>｜工業電腦與邊緣運算<br />
-凌華（YoY 63%、PER 36.8、PEG 0.09）與威強電（YoY 92%、PER 24.7、ROE 109）受惠邊緣 AI 與自動化需求，凌華 PEG 0.09 顯示成長尚未被估值反映，但工業電腦營收具專案波動性，單季高成長未必等於穩定成長率，PEG 分母（EPS 成長率）可能因認列節奏失真。</p>
-<p><strong>高力（8996）</strong>｜YoY 40%、PER 113、PEG 0.33、ROE 130<br />
-板式熱交換器切入資料中心液冷，是 AI 散熱題材的代表。股價 1590 元、相對 60 日線（1102）大幅領先，PER 113 倍偏高但 PEG 僅 0.33，呈現「高 PER、低 PEG」的成長股組合——市場已給予高估值，但若液冷滲透率如預期放量，成長仍可消化估值。風險在散熱競爭格局變動快，須緊盯訂單能見度。</p>
-<h3>航空／傳產價值主線</h3>
-<p><strong>長榮航（2618）／華航（2610）</strong>｜法人吸金量體全池第一、第三<br />
-長榮航（YoY 22%、PER 8.07、ROE 127、法人買超 18.8 萬張）、華航（YoY 28%、PER 8.59、買超 13.6 萬張）本期籌碼量體睥睨全池。<strong>但低 PER 在循環股是陷阱訊號而非便宜訊號</strong>——航空獲利處於相對高基期，8 倍出頭的本益比往往對應市場對運價／客運回落的預期（循環頂部的典型特徵）。法人大買與低估值並存，更可能是高檔籌碼擁擠而非價值低估。油價、客貨運價指數與匯率是決定因素，估值便宜不構成買進理由。</p>
-<p><strong>南亞（1303）</strong>｜YoY 31%、PER 46、ROE 137、法人買超 17.6 萬張<br />
-台塑集團石化代表，傳產中法人量體最大。營收翻正反映石化景氣自底部回升，股價 139 元、20 日線（104）與 60 日線（92）強多排列，動能明確。PER 46 倍須以循環股邏輯解讀——目前 E 仍處復甦早段，本益比偏高未必昂貴，重點在石化價差能否延續，而非單看 PER。</p>
-<p><strong>藥華藥（6446）</strong>｜YoY 108%、PER 58.75、PEG 1.12、ROE 110<br />
-池中唯一生技股，成長來自自有新藥的海外放量。PER 58 倍對製藥屬正常範圍，PEG 1.12 顯示估值與成長大致匹配。<strong>這是池中少數「成長來自產品滲透率而非價格循環」的標的</strong>，邏輯與電子族群截然不同，可作為分散配置的考量。</p>
-<hr />
-<h2>三、指標矛盾與風險：本期務必校正的七個讀數陷阱</h2>
-<p>本系統的數據口徑會在特定情況下失真，若照單全收將嚴重誤判。以下逐一指出並給出正確解讀。</p>
-<p><strong>1. ROE 普遍異常偏高，不可當作真實股東報酬率。</strong><br />
-精選池中 ROE 破 200% 者眾，慶騰高達 4,782%、永豐餘 535%、臻鼎 395%、宏旭-KY 392%、中美晶 359%。這並非公司真有如此報酬，而是計算口徑所致——分子採「近四季淨利」、分母採「最新單季母公司權益」，當權益基數偏小或當期有一次性大額利益時，數值被嚴重放大。<strong>正確用法：把 ROE 當作「獲利動能是否轉強」的方向訊號，而非橫向比較的絕對水準。</strong> 對三位數以上者一律回查財報確認獲利結構，不得作為選股加分項。</p>
-<p><strong>2. 營收 YoY 的超高數字多為低基期或一次性，不可線性外推。</strong><br />
-南亞科 730%、鈺創 605%、台汽電 533%、三發地產 312%、至上 253%、國眾 199%——這些三位數成長絕大多數來自去年同期極低基期（產業谷底）或單一事件（認列、處分）。<strong>正確用法：高 YoY 只證明「動能翻正」，能否延續要看連續數月趨勢與基期是否將墊高，而非單月絕對值。</strong></p>
-<p><strong>3. 高 PER 與低 PER 都可能是循環訊號，方向相反。</strong><br />
-台化 PER 325、群創 PER 585 看似昂貴，但石化與面板正處獲利低基期——這是「E 太低」造成的高 PER，是景氣底部特徵，反而可能是布局時點；反之長榮航、華航 PER 8 倍看似便宜，卻是「E 在高基期」造成的低 PER，是循環頂部警訊。<strong>正確用法：循環股的 PER 要反著讀，低點布局往往發生在高 PER、出場往往發生在低 PER。</strong></p>
-<p><strong>4. PEG 的極端值與零值各有陷阱。</strong><br />
-日電貿 PEG 29.63、強茂 12.18、群創 8.78、長科<em> 4.03、安碁 3.14——這些是 EPS 成長遠跟不上股價／估值的「偏貴」警訊（其中群創 PER 585 配 PEG 8.78 為雙重警訊）。另一方面，池中大量標的 PEG 顯示為 0，這</em><em>不是便宜，而是 EPS 成長率無法計算</em>*（虧轉盈、資料缺漏或成長為負時系統歸零），切勿誤讀為「PEG 極低＝超值」。楠梓電（0.09）、凌華（0.09）等真低 PEG 須與「歸零」者區分。</p>
-<p><strong>5. PER = 0 代表無資料，非零本益比。</strong><br />
-旺宏、承啟、銘異、聯穎顯示 PER 0.0，意為當期無有效本益比資料（可能為虧損年度或資料源缺漏）。這類標的雖通過籌碼與營收門檻，但<strong>估值面屬黑箱，須個別查證後才可納入決策</strong>。旺宏雖有 4.6 萬張法人買超與 176% YoY，仍不例外。</p>
-<p><strong>6. 籌碼門檻寬鬆，須區分「真買超」與「剛過線」。</strong><br />
-L3 僅要求法人近 15 日淨買超為正，未設量體門檻。本期量體呈現極端落差：長榮航（18.8 萬張）、南亞（17.6 萬張）、華航（13.6 萬張）、華邦電（12.9 萬張）為「真強」一端；相對地東浦（378 張）、大立光（388 張）、愛普<em>（418 張）、百徽（434 張）、興勤（558 張）的買超量體極小，籌碼訊號偏弱，與前述龍頭不可同日而語。</em><em>正確用法：以 L3_Value（淨買張數）二次排序，量體與股本相對顯著者才視為有效籌碼支撐。</em>*</p>
-<p><strong>7. 趨勢過熱與均線乖離的追價風險。</strong><br />
-部分標的股價已大幅領先 60 日均線：大立光（5195 vs 3068）、禾伸堂（902 vs 385）、華新科（561 vs 240）、宏旭-KY（51.7 vs 25.8）等乖離率偏高。動能強勁固然反映資金認同，但<strong>短線乖離過大者一旦題材降溫，回測均線的幅度同樣劇烈</strong>，不宜在乖離高點追價，宜等待回測或以分批方式控管成本。</p>
-<hr />
-<h2>結語：本期操作框架</h2>
-<p>本期精選池的價值不在 71 檔名單本身，而在於它清楚映照出資金主軸的位移——<strong>從上期的「記憶體＋被動元件漲價」，轉向本期的「PCB／銅箔載板的 AI 拉貨」，並出現航空雙雄籌碼異常擁擠的新訊號</strong>。</p>
-<p>操作上建議分流處理：</p>
-<ul>
-<li><strong>體質與估值平衡的一端</strong>（廣達、楠梓電、健鼎、凌華）：成長來自實質出貨、PEG 相對合理，可作為核心持有。</li>
-<li><strong>漲價／拉貨循環的一端</strong>（記憶體、高速銅箔載板）：彈性大但估值已高（台燿、台光電 PER 破百），須以下游出貨與報價供需數據而非營收 YoY 作為進出依據，嚴控追價與均線乖離。</li>
-<li><strong>循環與認列題材的一端</strong>（航空、建材、石化、紙業）：必須用循環股／一次性認列邏輯解讀其 PER 與 ROE，特別警惕航空「低 PER＋法人大買」的高檔擁擠，避免落入「低 PER 便宜、高 ROE 優質」的表面陷阱。</li>
-<li><strong>估值黑箱者</strong>（旺宏、承啟、銘異、聯穎等 PER=0）：先回查財報確認獲利結構，再決定是否納入。</li>
-</ul>
-<p>最後提醒：本期財報基準為 2026-03-31（Q1），部分籌碼與基本面資料擷取日早至 06-07，距今已有時間落差，且 Q2 財報即將進入公布期。重大部位決策前，務必回查最新月營收、法人動向與股價相對均線位置。</p>
-<h2>篩選標準定義</h2>
+<h2>宏觀趨勢與大盤研判</h2>
+<blockquote>
+<p><em>待 AI 撰寫：綜合 investment_analysis 總經訊號，研判目前多空格局與風險水位，決定本週是否適合進場。</em></p>
+</blockquote>
+<h2>核心標的深度點評</h2>
+<blockquote>
+<p><em>待 AI 撰寫：針對精選池前幾名，結合產業趨勢與最新財報展望做深度點評，並指出指標矛盾與風險。</em></p>
+</blockquote>
+<h2>篩選標準定義 (策略: 動能(無L3) / 標準: Strict)</h2>
 <table>
 <thead>
 <tr>
@@ -166,900 +51,511 @@ L3 僅要求法人近 15 日淨買超為正，未設量體門檻。本期量體�
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>L1</strong></td>
-<td style="text-align: left;">技術面</td>
-<td style="text-align: left;">股價 &gt; MA20 且 MA20 斜率 &gt; 0.5% (趨勢確認)</td>
+<td style="text-align: left;">L1</td>
+<td style="text-align: left;">趨勢</td>
+<td style="text-align: left;">收盤 &gt; MA20 且 MA20 斜率 &gt; 0.50%、MA60不下彎</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>L2</strong></td>
-<td style="text-align: left;">成交量</td>
-<td style="text-align: left;">5 日均量 &gt; 1,000 張 (流動性確認)</td>
+<td style="text-align: left;">L2</td>
+<td style="text-align: left;">量能</td>
+<td style="text-align: left;">5 日均量 &gt; 2,000 張</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>L3</strong></td>
-<td style="text-align: left;">籌碼面</td>
-<td style="text-align: left;">外資 + 投信近 15 日累計買超 &gt; 0 (大人動向)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>L4</strong></td>
+<td style="text-align: left;">L4</td>
 <td style="text-align: left;">基本面</td>
-<td style="text-align: left;">營收 YoY &gt; 5% 且 ROE &gt; 8% (年化) (PEG 供參考)</td>
+<td style="text-align: left;">營收 YoY &gt; 5% 且 ROE &gt; 8%</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>L3 法人籌碼經回測證實會降低報酬，已移除。趨勢/大盤擇時請參考 investment_analysis 總經報告；回測顯示本策略接近但未穩定勝過 0050，宜搭配多空研判 (多頭才進場) 使用。</p>
+</blockquote>
 <ul>
-<li><strong>[L1/L2] 價量趨勢通過</strong>: 229 檔</li>
-<li><strong>[L3] 法人籌碼偏多</strong>: 138 檔</li>
-<li><strong>[L4] 營收年增成長</strong>: 71 檔 (最終精選)</li>
+<li><strong>掃描標的</strong>: 1954 檔</li>
+<li><strong>動能精選</strong>: 39 檔</li>
 </ul>
-<h2>最終精選池 (Level 4 全通過)</h2>
+<h2>策略回測績效 (截至 2026-06-25)</h2>
+<ul>
+<li>回測期間 2021-06-01 ~ 2026-06-25；月頻換股、前 15 檔等權重、對標 0050</li>
+</ul>
 <table>
 <thead>
 <tr>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">本策略</th>
+<th style="text-align: left;">0050</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">總報酬率</td>
+<td style="text-align: left;">236.61%</td>
+<td style="text-align: left;">249.57%</td>
+</tr>
+<tr>
+<td style="text-align: left;">年化 CAGR</td>
+<td style="text-align: left;">28.0%</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">最大回檔</td>
+<td style="text-align: left;">-40.86%</td>
+<td style="text-align: left;">-29.19%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sharpe</td>
+<td style="text-align: left;">0.86</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>歷史回測 (含存活者偏誤、未計交易成本)，非未來績效保證。執行 <code>uv run run_summary.py</code> 可更新。</p>
+</blockquote>
+<h2>最終精選池 (依 MA20 斜率排序)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">排名</th>
 <th style="text-align: left;">代碼</th>
 <th style="text-align: left;">名稱</th>
 <th style="text-align: left;">產業</th>
 <th style="text-align: left;">收盤</th>
 <th style="text-align: left;">MA20斜率</th>
-<th style="text-align: left;">籌碼(張)</th>
-<th style="text-align: left;">營收YoY%</th>
 <th style="text-align: left;">ROE%</th>
-<th style="text-align: left;">PER</th>
-<th style="text-align: left;">PEG</th>
+<th style="text-align: left;">營收YoY%</th>
+<th style="text-align: left;">分數</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">2243</td>
-<td style="text-align: left;">宏旭-KY</td>
-<td style="text-align: left;">汽車工業</td>
-<td style="text-align: left;">51.70</td>
-<td style="text-align: left;">0.0494</td>
-<td style="text-align: left;">[O] +3,285.1</td>
-<td style="text-align: left;">[O] +15.41%</td>
-<td style="text-align: left;">391.72%</td>
-<td style="text-align: left;">11.3</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">1714</td>
-<td style="text-align: left;">和桐</td>
-<td style="text-align: left;">化學工業</td>
-<td style="text-align: left;">20.35</td>
-<td style="text-align: left;">0.0432</td>
-<td style="text-align: left;">[O] +21,402.7</td>
-<td style="text-align: left;">[O] +84.85%</td>
-<td style="text-align: left;">297.49%</td>
-<td style="text-align: left;">18.0</td>
-<td style="text-align: left;">0.10</td>
-</tr>
-<tr>
-<td style="text-align: left;">2492</td>
-<td style="text-align: left;">華新科</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">561.00</td>
-<td style="text-align: left;">0.0368</td>
-<td style="text-align: left;">[O] +2,133.6</td>
-<td style="text-align: left;">[O] +16.04%</td>
-<td style="text-align: left;">163.91%</td>
-<td style="text-align: left;">79.7</td>
-<td style="text-align: left;">2.01</td>
-</tr>
-<tr>
-<td style="text-align: left;">3026</td>
-<td style="text-align: left;">禾伸堂</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">902.00</td>
-<td style="text-align: left;">0.0361</td>
-<td style="text-align: left;">[O] +2,548.3</td>
-<td style="text-align: left;">[O] +21.34%</td>
-<td style="text-align: left;">98.49%</td>
-<td style="text-align: left;">98.5</td>
-<td style="text-align: left;">1.40</td>
-</tr>
-<tr>
-<td style="text-align: left;">2305</td>
-<td style="text-align: left;">全友</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">33.65</td>
-<td style="text-align: left;">0.0341</td>
-<td style="text-align: left;">[O] +1,844.8</td>
-<td style="text-align: left;">[O] +81.07%</td>
-<td style="text-align: left;">230.55%</td>
-<td style="text-align: left;">83.3</td>
-<td style="text-align: left;">1.07</td>
-</tr>
-<tr>
-<td style="text-align: left;">3550</td>
-<td style="text-align: left;">聯穎</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">37.25</td>
-<td style="text-align: left;">0.0336</td>
-<td style="text-align: left;">[O] +8,178.2</td>
-<td style="text-align: left;">[O] +36.57%</td>
-<td style="text-align: left;">23.14%</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">2344</td>
-<td style="text-align: left;">華邦電</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">218.50</td>
-<td style="text-align: left;">0.0326</td>
-<td style="text-align: left;">[O] +128,847.5</td>
-<td style="text-align: left;">[O] +181.97%</td>
-<td style="text-align: left;">140.39%</td>
-<td style="text-align: left;">51.0</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">3441</td>
-<td style="text-align: left;">聯一光</td>
-<td style="text-align: left;">光電業</td>
-<td style="text-align: left;">92.30</td>
-<td style="text-align: left;">0.0325</td>
-<td style="text-align: left;">[O] +1,630.7</td>
-<td style="text-align: left;">[O] +44.90%</td>
-<td style="text-align: left;">110.29%</td>
-<td style="text-align: left;">52.8</td>
-<td style="text-align: left;">2.57</td>
-</tr>
-<tr>
-<td style="text-align: left;">8043</td>
-<td style="text-align: left;">蜜望實</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">226.50</td>
-<td style="text-align: left;">0.0311</td>
-<td style="text-align: left;">[O] +537.9</td>
-<td style="text-align: left;">[O] +59.57%</td>
-<td style="text-align: left;">240.84%</td>
-<td style="text-align: left;">68.0</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">3090</td>
-<td style="text-align: left;">日電貿</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">332.50</td>
-<td style="text-align: left;">0.0293</td>
-<td style="text-align: left;">[O] +1,639.2</td>
-<td style="text-align: left;">[O] +20.00%</td>
-<td style="text-align: left;">106.65%</td>
-<td style="text-align: left;">53.3</td>
-<td style="text-align: left;">29.63</td>
-</tr>
-<tr>
-<td style="text-align: left;">5328</td>
-<td style="text-align: left;">華容</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">56.50</td>
-<td style="text-align: left;">0.0279</td>
-<td style="text-align: left;">[O] +5,906.9</td>
-<td style="text-align: left;">[O] +23.10%</td>
-<td style="text-align: left;">216.50%</td>
-<td style="text-align: left;">125.6</td>
-<td style="text-align: left;">1.05</td>
-</tr>
-<tr>
-<td style="text-align: left;">1303</td>
-<td style="text-align: left;">南亞</td>
-<td style="text-align: left;">塑膠工業</td>
-<td style="text-align: left;">139.00</td>
-<td style="text-align: left;">0.0254</td>
-<td style="text-align: left;">[O] +176,089.8</td>
-<td style="text-align: left;">[O] +31.35%</td>
-<td style="text-align: left;">136.68%</td>
-<td style="text-align: left;">46.1</td>
-<td style="text-align: left;">0.02</td>
-</tr>
-<tr>
-<td style="text-align: left;">3481</td>
-<td style="text-align: left;">群創</td>
-<td style="text-align: left;">光電業</td>
-<td style="text-align: left;">64.40</td>
-<td style="text-align: left;">0.0237</td>
-<td style="text-align: left;">[O] +56,654.5</td>
-<td style="text-align: left;">[O] +10.28%</td>
-<td style="text-align: left;">47.46%</td>
-<td style="text-align: left;">585.5</td>
-<td style="text-align: left;">8.78</td>
-</tr>
-<tr>
-<td style="text-align: left;">2408</td>
-<td style="text-align: left;">南亞科</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">459.50</td>
-<td style="text-align: left;">0.0233</td>
-<td style="text-align: left;">[O] +110,295.5</td>
-<td style="text-align: left;">[O] +730.14%</td>
-<td style="text-align: left;">150.01%</td>
-<td style="text-align: left;">33.5</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6693</td>
-<td style="text-align: left;">廣閎科</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">215.00</td>
-<td style="text-align: left;">0.0228</td>
-<td style="text-align: left;">[O] +569.1</td>
-<td style="text-align: left;">[O] +115.16%</td>
-<td style="text-align: left;">214.06%</td>
-<td style="text-align: left;">160.4</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6548</td>
-<td style="text-align: left;">長科*</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">86.10</td>
-<td style="text-align: left;">0.0225</td>
-<td style="text-align: left;">[O] +7,765.9</td>
-<td style="text-align: left;">[O] +36.65%</td>
-<td style="text-align: left;">115.90%</td>
-<td style="text-align: left;">53.7</td>
-<td style="text-align: left;">4.03</td>
-</tr>
-<tr>
-<td style="text-align: left;">6432</td>
-<td style="text-align: left;">今展科</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">86.90</td>
-<td style="text-align: left;">0.0223</td>
-<td style="text-align: left;">[O] +1,061.6</td>
-<td style="text-align: left;">[O] +28.54%</td>
-<td style="text-align: left;">89.27%</td>
-<td style="text-align: left;">91.0</td>
-<td style="text-align: left;">1.52</td>
-</tr>
-<tr>
-<td style="text-align: left;">8996</td>
-<td style="text-align: left;">高力</td>
-<td style="text-align: left;">電機機械</td>
-<td style="text-align: left;">1590.00</td>
-<td style="text-align: left;">0.0222</td>
-<td style="text-align: left;">[O] +5,395.3</td>
-<td style="text-align: left;">[O] +40.03%</td>
-<td style="text-align: left;">130.17%</td>
-<td style="text-align: left;">113.4</td>
-<td style="text-align: left;">0.33</td>
-</tr>
-<tr>
-<td style="text-align: left;">3008</td>
-<td style="text-align: left;">大立光</td>
-<td style="text-align: left;">光電業</td>
-<td style="text-align: left;">5195.00</td>
-<td style="text-align: left;">0.0222</td>
-<td style="text-align: left;">[O] +388.4</td>
-<td style="text-align: left;">[O] +41.83%</td>
-<td style="text-align: left;">105.09%</td>
-<td style="text-align: left;">32.4</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">3290</td>
-<td style="text-align: left;">東浦</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">69.80</td>
-<td style="text-align: left;">0.0212</td>
-<td style="text-align: left;">[O] +377.5</td>
-<td style="text-align: left;">[O] +96.16%</td>
-<td style="text-align: left;">116.22%</td>
-<td style="text-align: left;">13.2</td>
-<td style="text-align: left;">0.02</td>
-</tr>
-<tr>
+<td style="text-align: left;">1</td>
 <td style="text-align: left;">4551</td>
 <td style="text-align: left;">智伸科</td>
 <td style="text-align: left;">汽車工業</td>
-<td style="text-align: left;">221.50</td>
-<td style="text-align: left;">0.0203</td>
-<td style="text-align: left;">[O] +2,332.0</td>
-<td style="text-align: left;">[O] +26.74%</td>
-<td style="text-align: left;">112.29%</td>
-<td style="text-align: left;">33.2</td>
-<td style="text-align: left;">1.09</td>
+<td style="text-align: left;">249.50</td>
+<td style="text-align: left;">0.0288</td>
+<td style="text-align: left;">8.57</td>
+<td style="text-align: left;">+26.74</td>
+<td style="text-align: left;">2.9</td>
 </tr>
 <tr>
-<td style="text-align: left;">6259</td>
-<td style="text-align: left;">百徽</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2327</td>
+<td style="text-align: left;">國巨*</td>
 <td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">35.85</td>
-<td style="text-align: left;">0.0203</td>
-<td style="text-align: left;">[O] +434.3</td>
-<td style="text-align: left;">[O] +40.52%</td>
-<td style="text-align: left;">93.26%</td>
-<td style="text-align: left;">43.7</td>
-<td style="text-align: left;">1.01</td>
+<td style="text-align: left;">1125.00</td>
+<td style="text-align: left;">0.0245</td>
+<td style="text-align: left;">15.64</td>
+<td style="text-align: left;">+47.46</td>
+<td style="text-align: left;">2.5</td>
 </tr>
 <tr>
-<td style="text-align: left;">4534</td>
-<td style="text-align: left;">慶騰</td>
-<td style="text-align: left;">電機機械</td>
-<td style="text-align: left;">33.65</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">2408</td>
+<td style="text-align: left;">南亞科</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">477.00</td>
+<td style="text-align: left;">0.0211</td>
+<td style="text-align: left;">17.94</td>
+<td style="text-align: left;">+730.13</td>
+<td style="text-align: left;">2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">3290</td>
+<td style="text-align: left;">東浦</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">71.30</td>
+<td style="text-align: left;">0.0206</td>
+<td style="text-align: left;">17.81</td>
+<td style="text-align: left;">+96.15</td>
+<td style="text-align: left;">2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">3008</td>
+<td style="text-align: left;">大立光</td>
+<td style="text-align: left;">光電業</td>
+<td style="text-align: left;">5165.00</td>
 <td style="text-align: left;">0.0197</td>
-<td style="text-align: left;">[O] +2,862.1</td>
-<td style="text-align: left;">[O] +29.23%</td>
-<td style="text-align: left;">4782.69%</td>
-<td style="text-align: left;">174.5</td>
-<td style="text-align: left;">-</td>
+<td style="text-align: left;">11.35</td>
+<td style="text-align: left;">+42.67</td>
+<td style="text-align: left;">2.0</td>
 </tr>
 <tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">2316</td>
+<td style="text-align: left;">楠梓電</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">234.50</td>
+<td style="text-align: left;">0.0189</td>
+<td style="text-align: left;">20.39</td>
+<td style="text-align: left;">+39.07</td>
+<td style="text-align: left;">1.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">8043</td>
+<td style="text-align: left;">蜜望實</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">199.00</td>
+<td style="text-align: left;">0.0187</td>
+<td style="text-align: left;">9.49</td>
+<td style="text-align: left;">+59.56</td>
+<td style="text-align: left;">1.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">2344</td>
+<td style="text-align: left;">華邦電</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">219.50</td>
+<td style="text-align: left;">0.0181</td>
+<td style="text-align: left;">13.00</td>
+<td style="text-align: left;">+181.96</td>
+<td style="text-align: left;">1.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">1708</td>
+<td style="text-align: left;">東鹼</td>
+<td style="text-align: left;">化學工業</td>
+<td style="text-align: left;">52.80</td>
+<td style="text-align: left;">0.0177</td>
+<td style="text-align: left;">11.33</td>
+<td style="text-align: left;">+18.38</td>
+<td style="text-align: left;">1.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">6446</td>
+<td style="text-align: left;">藥華藥</td>
+<td style="text-align: left;">生技醫療業</td>
+<td style="text-align: left;">1195.00</td>
+<td style="text-align: left;">0.0163</td>
+<td style="text-align: left;">17.21</td>
+<td style="text-align: left;">+108.47</td>
+<td style="text-align: left;">1.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">5347</td>
+<td style="text-align: left;">世界</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">220.00</td>
+<td style="text-align: left;">0.0159</td>
+<td style="text-align: left;">11.31</td>
+<td style="text-align: left;">+19.47</td>
+<td style="text-align: left;">1.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
 <td style="text-align: left;">2379</td>
 <td style="text-align: left;">瑞昱</td>
 <td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">819.00</td>
-<td style="text-align: left;">0.0195</td>
-<td style="text-align: left;">[O] +4,125.2</td>
-<td style="text-align: left;">[O] +21.87%</td>
-<td style="text-align: left;">51.32%</td>
-<td style="text-align: left;">22.2</td>
-<td style="text-align: left;">-</td>
+<td style="text-align: left;">814.00</td>
+<td style="text-align: left;">0.0154</td>
+<td style="text-align: left;">31.68</td>
+<td style="text-align: left;">+21.86</td>
+<td style="text-align: left;">1.5</td>
 </tr>
 <tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">6548</td>
+<td style="text-align: left;">長科*</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">86.60</td>
+<td style="text-align: left;">0.0151</td>
+<td style="text-align: left;">13.76</td>
+<td style="text-align: left;">+36.65</td>
+<td style="text-align: left;">1.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">2481</td>
+<td style="text-align: left;">強茂</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">192.00</td>
+<td style="text-align: left;">0.0143</td>
+<td style="text-align: left;">8.30</td>
+<td style="text-align: left;">+13.66</td>
+<td style="text-align: left;">1.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">6197</td>
+<td style="text-align: left;">佳必琪</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">373.50</td>
+<td style="text-align: left;">0.0142</td>
+<td style="text-align: left;">27.41</td>
+<td style="text-align: left;">+41.77</td>
+<td style="text-align: left;">1.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">2610</td>
+<td style="text-align: left;">華航</td>
+<td style="text-align: left;">航運業</td>
+<td style="text-align: left;">24.20</td>
+<td style="text-align: left;">0.0141</td>
+<td style="text-align: left;">15.22</td>
+<td style="text-align: left;">+27.73</td>
+<td style="text-align: left;">1.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">3406</td>
+<td style="text-align: left;">玉晶光</td>
+<td style="text-align: left;">光電業</td>
+<td style="text-align: left;">759.00</td>
+<td style="text-align: left;">0.0129</td>
+<td style="text-align: left;">14.24</td>
+<td style="text-align: left;">+30.24</td>
+<td style="text-align: left;">1.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">18</td>
 <td style="text-align: left;">8096</td>
 <td style="text-align: left;">擎亞</td>
 <td style="text-align: left;">電子通路業</td>
 <td style="text-align: left;">155.50</td>
-<td style="text-align: left;">0.0185</td>
-<td style="text-align: left;">[O] +8,992.2</td>
-<td style="text-align: left;">[O] +154.50%</td>
-<td style="text-align: left;">59.24%</td>
-<td style="text-align: left;">77.5</td>
-<td style="text-align: left;">1.02</td>
+<td style="text-align: left;">0.0127</td>
+<td style="text-align: left;">8.80</td>
+<td style="text-align: left;">+154.50</td>
+<td style="text-align: left;">1.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">8358</td>
-<td style="text-align: left;">金居</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">700.00</td>
-<td style="text-align: left;">0.0173</td>
-<td style="text-align: left;">[O] +836.1</td>
-<td style="text-align: left;">[O] +41.38%</td>
-<td style="text-align: left;">121.62%</td>
-<td style="text-align: left;">110.2</td>
-<td style="text-align: left;">1.15</td>
-</tr>
-<tr>
-<td style="text-align: left;">3060</td>
-<td style="text-align: left;">銘異</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">37.90</td>
-<td style="text-align: left;">0.0168</td>
-<td style="text-align: left;">[O] +13,608.8</td>
-<td style="text-align: left;">[O] +27.80%</td>
-<td style="text-align: left;">56.14%</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">2316</td>
-<td style="text-align: left;">楠梓電</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">205.50</td>
-<td style="text-align: left;">0.0165</td>
-<td style="text-align: left;">[O] +4,777.4</td>
-<td style="text-align: left;">[O] +39.08%</td>
-<td style="text-align: left;">131.39%</td>
-<td style="text-align: left;">13.3</td>
-<td style="text-align: left;">0.09</td>
-</tr>
-<tr>
-<td style="text-align: left;">3357</td>
-<td style="text-align: left;">臺慶科</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">348.00</td>
-<td style="text-align: left;">0.0163</td>
-<td style="text-align: left;">[O] +2,834.0</td>
-<td style="text-align: left;">[O] +37.77%</td>
-<td style="text-align: left;">107.52%</td>
-<td style="text-align: left;">35.8</td>
-<td style="text-align: left;">2.54</td>
-</tr>
-<tr>
-<td style="text-align: left;">4958</td>
-<td style="text-align: left;">臻鼎-KY</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">642.00</td>
-<td style="text-align: left;">0.0162</td>
-<td style="text-align: left;">[O] +1,995.2</td>
-<td style="text-align: left;">[O] +37.40%</td>
-<td style="text-align: left;">394.60%</td>
-<td style="text-align: left;">71.1</td>
-<td style="text-align: left;">0.70</td>
-</tr>
-<tr>
-<td style="text-align: left;">6274</td>
-<td style="text-align: left;">台燿</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">1835.00</td>
-<td style="text-align: left;">0.0162</td>
-<td style="text-align: left;">[O] +7,498.6</td>
-<td style="text-align: left;">[O] +124.42%</td>
-<td style="text-align: left;">132.62%</td>
-<td style="text-align: left;">132.6</td>
-<td style="text-align: left;">1.67</td>
-</tr>
-<tr>
-<td style="text-align: left;">2428</td>
-<td style="text-align: left;">興勤</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">316.00</td>
-<td style="text-align: left;">0.0156</td>
-<td style="text-align: left;">[O] +557.7</td>
-<td style="text-align: left;">[O] +19.35%</td>
-<td style="text-align: left;">116.52%</td>
-<td style="text-align: left;">25.7</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6672</td>
-<td style="text-align: left;">騰輝電子-KY</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">245.50</td>
-<td style="text-align: left;">0.0155</td>
-<td style="text-align: left;">[O] +5,127.2</td>
-<td style="text-align: left;">[O] +34.99%</td>
-<td style="text-align: left;">119.40%</td>
-<td style="text-align: left;">44.4</td>
-<td style="text-align: left;">0.69</td>
-</tr>
-<tr>
-<td style="text-align: left;">1708</td>
-<td style="text-align: left;">東鹼</td>
-<td style="text-align: left;">化學工業</td>
-<td style="text-align: left;">50.30</td>
-<td style="text-align: left;">0.0144</td>
-<td style="text-align: left;">[O] +809.4</td>
-<td style="text-align: left;">[O] +18.38%</td>
-<td style="text-align: left;">104.80%</td>
-<td style="text-align: left;">14.9</td>
-<td style="text-align: left;">1.92</td>
-</tr>
-<tr>
-<td style="text-align: left;">6446</td>
-<td style="text-align: left;">藥華藥</td>
-<td style="text-align: left;">生技醫療業</td>
-<td style="text-align: left;">1060.00</td>
-<td style="text-align: left;">0.0143</td>
-<td style="text-align: left;">[O] +3,767.5</td>
-<td style="text-align: left;">[O] +108.47%</td>
-<td style="text-align: left;">109.90%</td>
-<td style="text-align: left;">58.8</td>
-<td style="text-align: left;">1.12</td>
-</tr>
-<tr>
-<td style="text-align: left;">6166</td>
-<td style="text-align: left;">凌華</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">155.50</td>
-<td style="text-align: left;">0.0141</td>
-<td style="text-align: left;">[O] +3,021.1</td>
-<td style="text-align: left;">[O] +63.16%</td>
-<td style="text-align: left;">133.55%</td>
-<td style="text-align: left;">36.8</td>
-<td style="text-align: left;">0.09</td>
-</tr>
-<tr>
-<td style="text-align: left;">6196</td>
-<td style="text-align: left;">帆宣</td>
-<td style="text-align: left;">其他電子業</td>
-<td style="text-align: left;">567.00</td>
-<td style="text-align: left;">0.0136</td>
-<td style="text-align: left;">[O] +1,766.8</td>
-<td style="text-align: left;">[O] +64.89%</td>
-<td style="text-align: left;">88.44%</td>
-<td style="text-align: left;">34.9</td>
-<td style="text-align: left;">2.30</td>
-</tr>
-<tr>
-<td style="text-align: left;">8926</td>
-<td style="text-align: left;">台汽電</td>
-<td style="text-align: left;">油電燃氣業</td>
-<td style="text-align: left;">79.00</td>
-<td style="text-align: left;">0.0129</td>
-<td style="text-align: left;">[O] +7,629.0</td>
-<td style="text-align: left;">[O] +532.81%</td>
-<td style="text-align: left;">120.36%</td>
-<td style="text-align: left;">17.1</td>
-<td style="text-align: left;">0.05</td>
-</tr>
-<tr>
-<td style="text-align: left;">5483</td>
-<td style="text-align: left;">中美晶</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">2303</td>
+<td style="text-align: left;">聯電</td>
 <td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">181.00</td>
-<td style="text-align: left;">0.0121</td>
-<td style="text-align: left;">[O] +6,689.0</td>
-<td style="text-align: left;">[O] +5.67%</td>
-<td style="text-align: left;">359.49%</td>
-<td style="text-align: left;">22.6</td>
-<td style="text-align: left;">0.42</td>
+<td style="text-align: left;">178.50</td>
+<td style="text-align: left;">0.0125</td>
+<td style="text-align: left;">12.32</td>
+<td style="text-align: left;">+17.78</td>
+<td style="text-align: left;">1.2</td>
 </tr>
 <tr>
-<td style="text-align: left;">3303</td>
-<td style="text-align: left;">岱稜</td>
-<td style="text-align: left;">其他電子業</td>
-<td style="text-align: left;">61.00</td>
-<td style="text-align: left;">0.0116</td>
-<td style="text-align: left;">[O] +1,358.4</td>
-<td style="text-align: left;">[O] +21.27%</td>
-<td style="text-align: left;">86.88%</td>
-<td style="text-align: left;">14.3</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">9946</td>
-<td style="text-align: left;">三發地產</td>
-<td style="text-align: left;">建材營造業</td>
-<td style="text-align: left;">20.60</td>
-<td style="text-align: left;">0.0110</td>
-<td style="text-align: left;">[O] +2,590.7</td>
-<td style="text-align: left;">[O] +312.16%</td>
-<td style="text-align: left;">175.32%</td>
-<td style="text-align: left;">5.0</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">5351</td>
-<td style="text-align: left;">鈺創</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">94.00</td>
-<td style="text-align: left;">0.0109</td>
-<td style="text-align: left;">[O] +20,067.3</td>
-<td style="text-align: left;">[O] +605.48%</td>
-<td style="text-align: left;">141.19%</td>
-<td style="text-align: left;">96.9</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6174</td>
-<td style="text-align: left;">安碁</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">52.30</td>
-<td style="text-align: left;">0.0103</td>
-<td style="text-align: left;">[O] +450.3</td>
-<td style="text-align: left;">[O] +24.83%</td>
-<td style="text-align: left;">98.11%</td>
-<td style="text-align: left;">69.9</td>
-<td style="text-align: left;">3.14</td>
-</tr>
-<tr>
-<td style="text-align: left;">1904</td>
-<td style="text-align: left;">正隆</td>
-<td style="text-align: left;">造紙工業</td>
-<td style="text-align: left;">23.10</td>
-<td style="text-align: left;">0.0101</td>
-<td style="text-align: left;">[O] +9,401.1</td>
-<td style="text-align: left;">[O] +12.89%</td>
-<td style="text-align: left;">188.58%</td>
-<td style="text-align: left;">18.8</td>
-<td style="text-align: left;">0.03</td>
-</tr>
-<tr>
+<td style="text-align: left;">20</td>
 <td style="text-align: left;">2618</td>
 <td style="text-align: left;">長榮航</td>
 <td style="text-align: left;">航運業</td>
-<td style="text-align: left;">42.55</td>
-<td style="text-align: left;">0.0097</td>
-<td style="text-align: left;">[O] +187,836.6</td>
-<td style="text-align: left;">[O] +22.11%</td>
-<td style="text-align: left;">126.50%</td>
-<td style="text-align: left;">8.1</td>
-<td style="text-align: left;">0.21</td>
+<td style="text-align: left;">44.50</td>
+<td style="text-align: left;">0.0125</td>
+<td style="text-align: left;">21.04</td>
+<td style="text-align: left;">+22.10</td>
+<td style="text-align: left;">1.2</td>
 </tr>
 <tr>
-<td style="text-align: left;">2382</td>
-<td style="text-align: left;">廣達</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">376.00</td>
-<td style="text-align: left;">0.0095</td>
-<td style="text-align: left;">[O] +75,595.3</td>
-<td style="text-align: left;">[O] +94.38%</td>
-<td style="text-align: left;">113.21%</td>
-<td style="text-align: left;">18.7</td>
-<td style="text-align: left;">2.15</td>
-</tr>
-<tr>
-<td style="text-align: left;">2481</td>
-<td style="text-align: left;">強茂</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">4973</td>
+<td style="text-align: left;">廣穎</td>
 <td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">160.00</td>
-<td style="text-align: left;">0.0094</td>
-<td style="text-align: left;">[O] +17,659.0</td>
-<td style="text-align: left;">[O] +13.66%</td>
-<td style="text-align: left;">140.40%</td>
-<td style="text-align: left;">50.8</td>
-<td style="text-align: left;">12.18</td>
+<td style="text-align: left;">182.00</td>
+<td style="text-align: left;">0.0121</td>
+<td style="text-align: left;">24.25</td>
+<td style="text-align: left;">+187.19</td>
+<td style="text-align: left;">1.2</td>
 </tr>
 <tr>
-<td style="text-align: left;">3022</td>
-<td style="text-align: left;">威強電</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">3026</td>
+<td style="text-align: left;">禾伸堂</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">771.00</td>
+<td style="text-align: left;">0.0113</td>
+<td style="text-align: left;">13.29</td>
+<td style="text-align: left;">+21.34</td>
+<td style="text-align: left;">1.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">4931</td>
+<td style="text-align: left;">新盛力</td>
 <td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">84.50</td>
+<td style="text-align: left;">257.00</td>
+<td style="text-align: left;">0.0101</td>
+<td style="text-align: left;">15.81</td>
+<td style="text-align: left;">+178.64</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">3630</td>
+<td style="text-align: left;">新鉅科</td>
+<td style="text-align: left;">光電業</td>
+<td style="text-align: left;">32.15</td>
+<td style="text-align: left;">0.0100</td>
+<td style="text-align: left;">14.42</td>
+<td style="text-align: left;">+5.68</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">8996</td>
+<td style="text-align: left;">高力</td>
+<td style="text-align: left;">電機機械</td>
+<td style="text-align: left;">1460.00</td>
+<td style="text-align: left;">0.0098</td>
+<td style="text-align: left;">28.07</td>
+<td style="text-align: left;">+40.02</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">6175</td>
+<td style="text-align: left;">立敦</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">116.50</td>
 <td style="text-align: left;">0.0093</td>
-<td style="text-align: left;">[O] +4,570.4</td>
-<td style="text-align: left;">[O] +92.40%</td>
-<td style="text-align: left;">108.92%</td>
-<td style="text-align: left;">24.7</td>
-<td style="text-align: left;">-</td>
+<td style="text-align: left;">9.42</td>
+<td style="text-align: left;">+25.02</td>
+<td style="text-align: left;">0.9</td>
 </tr>
 <tr>
-<td style="text-align: left;">2383</td>
-<td style="text-align: left;">台光電</td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">8936</td>
+<td style="text-align: left;">國統</td>
+<td style="text-align: left;">其他業</td>
+<td style="text-align: left;">59.30</td>
+<td style="text-align: left;">0.0083</td>
+<td style="text-align: left;">15.44</td>
+<td style="text-align: left;">+11.16</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">3450</td>
+<td style="text-align: left;">聯鈞</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">586.00</td>
+<td style="text-align: left;">0.0082</td>
+<td style="text-align: left;">9.39</td>
+<td style="text-align: left;">+49.91</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">2472</td>
+<td style="text-align: left;">立隆電</td>
 <td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">5600.00</td>
-<td style="text-align: left;">0.0091</td>
-<td style="text-align: left;">[O] +968.4</td>
-<td style="text-align: left;">[O] +114.63%</td>
-<td style="text-align: left;">105.02%</td>
-<td style="text-align: left;">121.5</td>
-<td style="text-align: left;">2.49</td>
+<td style="text-align: left;">397.00</td>
+<td style="text-align: left;">0.0081</td>
+<td style="text-align: left;">14.82</td>
+<td style="text-align: left;">+29.95</td>
+<td style="text-align: left;">0.8</td>
 </tr>
 <tr>
-<td style="text-align: left;">2337</td>
-<td style="text-align: left;">旺宏</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">3034</td>
+<td style="text-align: left;">聯詠</td>
 <td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">169.00</td>
-<td style="text-align: left;">0.0090</td>
-<td style="text-align: left;">[O] +45,664.2</td>
-<td style="text-align: left;">[O] +175.80%</td>
-<td style="text-align: left;">132.78%</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">-</td>
+<td style="text-align: left;">561.00</td>
+<td style="text-align: left;">0.0076</td>
+<td style="text-align: left;">20.65</td>
+<td style="text-align: left;">+9.35</td>
+<td style="text-align: left;">0.8</td>
 </tr>
 <tr>
-<td style="text-align: left;">1326</td>
-<td style="text-align: left;">台化</td>
-<td style="text-align: left;">塑膠工業</td>
-<td style="text-align: left;">54.20</td>
-<td style="text-align: left;">0.0088</td>
-<td style="text-align: left;">[O] +82,349.8</td>
-<td style="text-align: left;">[O] +15.45%</td>
-<td style="text-align: left;">105.28%</td>
-<td style="text-align: left;">325.3</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">2520</td>
-<td style="text-align: left;">冠德</td>
-<td style="text-align: left;">建材營造業</td>
-<td style="text-align: left;">36.40</td>
-<td style="text-align: left;">0.0088</td>
-<td style="text-align: left;">[O] +1,295.4</td>
-<td style="text-align: left;">[O] +52.33%</td>
-<td style="text-align: left;">213.92%</td>
-<td style="text-align: left;">14.5</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">2610</td>
-<td style="text-align: left;">華航</td>
-<td style="text-align: left;">航運業</td>
-<td style="text-align: left;">22.00</td>
-<td style="text-align: left;">0.0084</td>
-<td style="text-align: left;">[O] +136,228.4</td>
-<td style="text-align: left;">[O] +27.73%</td>
-<td style="text-align: left;">98.95%</td>
-<td style="text-align: left;">8.6</td>
-<td style="text-align: left;">0.37</td>
-</tr>
-<tr>
-<td style="text-align: left;">3044</td>
-<td style="text-align: left;">健鼎</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">573.00</td>
-<td style="text-align: left;">0.0084</td>
-<td style="text-align: left;">[O] +8,156.2</td>
-<td style="text-align: left;">[O] +46.57%</td>
-<td style="text-align: left;">103.92%</td>
-<td style="text-align: left;">27.8</td>
-<td style="text-align: left;">1.10</td>
-</tr>
-<tr>
-<td style="text-align: left;">5471</td>
-<td style="text-align: left;">松翰</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">60.90</td>
-<td style="text-align: left;">0.0079</td>
-<td style="text-align: left;">[O] +869.7</td>
-<td style="text-align: left;">[O] +27.34%</td>
-<td style="text-align: left;">97.62%</td>
-<td style="text-align: left;">62.8</td>
-<td style="text-align: left;">0.58</td>
-</tr>
-<tr>
-<td style="text-align: left;">2425</td>
-<td style="text-align: left;">承啟</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">39.40</td>
-<td style="text-align: left;">0.0075</td>
-<td style="text-align: left;">[O] +612.5</td>
-<td style="text-align: left;">[O] +95.17%</td>
-<td style="text-align: left;">229.67%</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6531</td>
-<td style="text-align: left;">愛普*</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">1025.00</td>
-<td style="text-align: left;">0.0074</td>
-<td style="text-align: left;">[O] +417.9</td>
-<td style="text-align: left;">[O] +89.34%</td>
-<td style="text-align: left;">157.31%</td>
-<td style="text-align: left;">104.2</td>
-<td style="text-align: left;">1.01</td>
-</tr>
-<tr>
-<td style="text-align: left;">5410</td>
-<td style="text-align: left;">國眾</td>
-<td style="text-align: left;">資訊服務業</td>
-<td style="text-align: left;">44.75</td>
-<td style="text-align: left;">0.0074</td>
-<td style="text-align: left;">[O] +1,482.0</td>
-<td style="text-align: left;">[O] +199.23%</td>
-<td style="text-align: left;">94.06%</td>
-<td style="text-align: left;">14.4</td>
-<td style="text-align: left;">0.11</td>
-</tr>
-<tr>
-<td style="text-align: left;">8112</td>
-<td style="text-align: left;">至上</td>
-<td style="text-align: left;">電子通路業</td>
-<td style="text-align: left;">98.20</td>
-<td style="text-align: left;">0.0070</td>
-<td style="text-align: left;">[O] +29,688.8</td>
-<td style="text-align: left;">[O] +253.18%</td>
-<td style="text-align: left;">178.87%</td>
-<td style="text-align: left;">11.8</td>
-<td style="text-align: left;">0.01</td>
-</tr>
-<tr>
-<td style="text-align: left;">6202</td>
-<td style="text-align: left;">盛群</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">67.00</td>
-<td style="text-align: left;">0.0069</td>
-<td style="text-align: left;">[O] +6,789.1</td>
-<td style="text-align: left;">[O] +6.63%</td>
-<td style="text-align: left;">21.06%</td>
-<td style="text-align: left;">101.5</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">4306</td>
-<td style="text-align: left;">炎洲</td>
-<td style="text-align: left;">塑膠工業</td>
-<td style="text-align: left;">15.85</td>
-<td style="text-align: left;">0.0069</td>
-<td style="text-align: left;">[O] +13,234.6</td>
-<td style="text-align: left;">[O] +24.04%</td>
-<td style="text-align: left;">83.74%</td>
-<td style="text-align: left;">39.3</td>
-<td style="text-align: left;">0.39</td>
-</tr>
-<tr>
-<td style="text-align: left;">2404</td>
-<td style="text-align: left;">漢唐</td>
-<td style="text-align: left;">其他電子業</td>
-<td style="text-align: left;">1265.00</td>
-<td style="text-align: left;">0.0068</td>
-<td style="text-align: left;">[O] +613.0</td>
-<td style="text-align: left;">[O] +102.23%</td>
-<td style="text-align: left;">120.66%</td>
-<td style="text-align: left;">22.4</td>
-<td style="text-align: left;">0.41</td>
-</tr>
-<tr>
-<td style="text-align: left;">1907</td>
-<td style="text-align: left;">永豐餘</td>
-<td style="text-align: left;">造紙工業</td>
-<td style="text-align: left;">28.20</td>
-<td style="text-align: left;">0.0068</td>
-<td style="text-align: left;">[O] +3,562.5</td>
-<td style="text-align: left;">[O] +7.53%</td>
-<td style="text-align: left;">535.28%</td>
-<td style="text-align: left;">20.1</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">5285</td>
-<td style="text-align: left;">界霖</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">93.70</td>
-<td style="text-align: left;">0.0066</td>
-<td style="text-align: left;">[O] +1,941.7</td>
-<td style="text-align: left;">[O] +28.38%</td>
-<td style="text-align: left;">109.75%</td>
-<td style="text-align: left;">43.7</td>
-<td style="text-align: left;">0.33</td>
-</tr>
-<tr>
-<td style="text-align: left;">6177</td>
-<td style="text-align: left;">達麗</td>
-<td style="text-align: left;">建材營造業</td>
-<td style="text-align: left;">50.40</td>
-<td style="text-align: left;">0.0064</td>
-<td style="text-align: left;">[O] +3,796.7</td>
-<td style="text-align: left;">[O] +149.18%</td>
-<td style="text-align: left;">218.30%</td>
-<td style="text-align: left;">6.8</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
-<td style="text-align: left;">6213</td>
-<td style="text-align: left;">聯茂</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">280.00</td>
-<td style="text-align: left;">0.0064</td>
-<td style="text-align: left;">[O] +8,581.0</td>
-<td style="text-align: left;">[O] +29.31%</td>
-<td style="text-align: left;">129.08%</td>
-<td style="text-align: left;">68.5</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr>
+<td style="text-align: left;">31</td>
 <td style="text-align: left;">4904</td>
 <td style="text-align: left;">遠傳</td>
 <td style="text-align: left;">通信網路業</td>
 <td style="text-align: left;">108.50</td>
-<td style="text-align: left;">0.0063</td>
-<td style="text-align: left;">[O] +13,610.1</td>
-<td style="text-align: left;">[O] +13.73%</td>
-<td style="text-align: left;">114.17%</td>
-<td style="text-align: left;">27.5</td>
-<td style="text-align: left;">1.91</td>
+<td style="text-align: left;">0.0075</td>
+<td style="text-align: left;">14.81</td>
+<td style="text-align: left;">+13.72</td>
+<td style="text-align: left;">0.8</td>
 </tr>
 <tr>
-<td style="text-align: left;">5289</td>
-<td style="text-align: left;">宜鼎</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">1930.00</td>
-<td style="text-align: left;">0.0061</td>
-<td style="text-align: left;">[O] +602.0</td>
-<td style="text-align: left;">[O] +640.80%</td>
-<td style="text-align: left;">110.10%</td>
-<td style="text-align: left;">25.9</td>
-<td style="text-align: left;">0.02</td>
-</tr>
-<tr>
-<td style="text-align: left;">6126</td>
-<td style="text-align: left;">信音</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">2428</td>
+<td style="text-align: left;">興勤</td>
 <td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">40.30</td>
-<td style="text-align: left;">0.0059</td>
-<td style="text-align: left;">[O] +825.5</td>
-<td style="text-align: left;">[O] +48.32%</td>
-<td style="text-align: left;">129.68%</td>
-<td style="text-align: left;">51.8</td>
-<td style="text-align: left;">1.13</td>
+<td style="text-align: left;">308.00</td>
+<td style="text-align: left;">0.0073</td>
+<td style="text-align: left;">11.99</td>
+<td style="text-align: left;">+29.74</td>
+<td style="text-align: left;">0.7</td>
 </tr>
 <tr>
-<td style="text-align: left;">1434</td>
-<td style="text-align: left;">福懋</td>
-<td style="text-align: left;">紡織纖維</td>
-<td style="text-align: left;">16.95</td>
-<td style="text-align: left;">0.0052</td>
-<td style="text-align: left;">[O] +12,425.8</td>
-<td style="text-align: left;">[O] +5.63%</td>
-<td style="text-align: left;">157.53%</td>
-<td style="text-align: left;">28.2</td>
-<td style="text-align: left;">0.35</td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">9945</td>
+<td style="text-align: left;">潤泰新</td>
+<td style="text-align: left;">其他業</td>
+<td style="text-align: left;">26.90</td>
+<td style="text-align: left;">0.0072</td>
+<td style="text-align: left;">8.88</td>
+<td style="text-align: left;">+72.00</td>
+<td style="text-align: left;">0.7</td>
 </tr>
 <tr>
-<td style="text-align: left;">4952</td>
-<td style="text-align: left;">凌通</td>
+<td style="text-align: left;">34</td>
+<td style="text-align: left;">6208</td>
+<td style="text-align: left;">日揚</td>
 <td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">57.90</td>
+<td style="text-align: left;">105.00</td>
+<td style="text-align: left;">0.0066</td>
+<td style="text-align: left;">11.57</td>
+<td style="text-align: left;">+12.44</td>
+<td style="text-align: left;">0.7</td>
+</tr>
+<tr>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">8358</td>
+<td style="text-align: left;">金居</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">630.00</td>
+<td style="text-align: left;">0.0057</td>
+<td style="text-align: left;">16.16</td>
+<td style="text-align: left;">+41.37</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">2404</td>
+<td style="text-align: left;">漢唐</td>
+<td style="text-align: left;">其他電子業</td>
+<td style="text-align: left;">1365.00</td>
+<td style="text-align: left;">0.0053</td>
+<td style="text-align: left;">70.64</td>
+<td style="text-align: left;">+85.01</td>
+<td style="text-align: left;">0.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">2323</td>
+<td style="text-align: left;">中環</td>
+<td style="text-align: left;">光電業</td>
+<td style="text-align: left;">11.45</td>
 <td style="text-align: left;">0.0051</td>
-<td style="text-align: left;">[O] +717.8</td>
-<td style="text-align: left;">[O] +20.39%</td>
-<td style="text-align: left;">20.13%</td>
-<td style="text-align: left;">52.2</td>
-<td style="text-align: left;">2.74</td>
+<td style="text-align: left;">12.64</td>
+<td style="text-align: left;">+16.91</td>
+<td style="text-align: left;">0.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">2347</td>
+<td style="text-align: left;">聯強</td>
+<td style="text-align: left;">電子通路業</td>
+<td style="text-align: left;">95.00</td>
+<td style="text-align: left;">0.0051</td>
+<td style="text-align: left;">12.21</td>
+<td style="text-align: left;">+129.27</td>
+<td style="text-align: left;">0.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">39</td>
+<td style="text-align: left;">3357</td>
+<td style="text-align: left;">臺慶科</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">316.00</td>
+<td style="text-align: left;">0.0051</td>
+<td style="text-align: left;">11.26</td>
+<td style="text-align: left;">+37.77</td>
+<td style="text-align: left;">0.5</td>
 </tr>
 </tbody>
 </table>

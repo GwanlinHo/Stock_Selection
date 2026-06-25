@@ -1,18 +1,24 @@
 # Stock Selection Workflow 指導手冊
 
+> **production 策略 = 動能(無L3)**，全程零 FinMind、走可插拔平台（與回測同一套邏輯）。
+> 詳細功能總覽見 `README.md`。
+
 ## 常用指令
 
-### 1. `stock selection` (完整執行)
-啟動全流程掃描。適合每週五或週日執行。
-*   **動作**: `uv run main.py --mode full` + AI 分析 + **更新 index.html** + **Git 同步 (GitHub)**。
+### 1. `stock selection` (完整執行，週末報告)
+啟動全市場掃描並產出週報。適合每週五或週日執行。
+*   **動作**: `uv run main.py --mode full` + AI 撰寫報告 + **更新 index.html** + **Git 同步**。
+*   預設策略由 `config/settings.json` 的 `active_strategy` 決定（目前 momentum）；
+    亦可 `--strategy momentum|value_growth` 覆蓋。
 
-### 2. `stock selection skip` (跳過海選)
-跳過 2000 檔標的的技術面掃描，直接讀取上一次的 L2 結果進行籌碼與基本面精煉。
-*   **動作**: `uv run main.py --mode skip-scan` + AI 分析 + **更新 index.html** + **Git 同步 (GitHub)**。
+### 2. `stock selection sync` (僅同步網頁內容)
+手動修改 `reports/*.md`（例如填入 AI 分析）後，同步至 `index.html`。
+*   **動作**: `uv run main.py --mode sync` + **Git 同步**。
 
-### 4. `stock selection sync` (僅同步網頁內容)
-當手動修改了 `reports/*.md` 檔案（例如填入 AI 分析）後，執行此指令同步至 `index.html`。
-*   **動作**: `uv run main.py --mode sync` + **Git 同步 (GitHub)**。
+### 3. 回測與總結
+*   `uv run run_backtest.py --strategy momentum --years 5`：單策略回測。
+*   `uv run run_summary.py --years 5`：多策略對比，並更新 `data/backtest_summary.json`
+    （每份週報會自動嵌入此回測績效）。
 
 ---
 
@@ -43,13 +49,15 @@
 *   **強制同步**: 每次完成報告更新（含 .md 與 index.html）後，**必須執行 git add/commit/push 將成果同步至 GitHub**。
 
 當您下達上述指令後，我會：
-1.  執行對應的 Python 模式（系統具備 **Soft Fail 機制**，若 API 抓取失敗將自動沿用舊數據）。
-2.  讀取 `data/temp/candidates.json`。
-3.  **由 Claude Code 執行深度分析**：
-    *   **統計分類**：識別 L4 通過標的的產業分佈。
-    *   **深度檢索**：針對 A 級潛力股使用 WebSearch 工具搜尋。
-    *   **去罐頭化寫作**：結合最新趨勢與 Python 財務數據，手動撰寫具備洞察力的分析內容。
-4.  將 AI 分析內容回填至 `reports/WEEKLY_REPORT_YYYY-MM-DD.md`。
+1.  執行對應的 Python 策略（零 FinMind，全免費資料；失敗自動沿用快取）。
+2.  讀取 `data/temp/candidates.json`（最終精選池）。
+3.  **由 Claude Code 撰寫報告的兩個 AI 區塊**，存入 `reports/ai_analysis_YYYY-MM-DD.md`
+    （Python 產報告時會自動注入；檔內請用以下兩個 `##` 標題）：
+    *   **## 宏觀趨勢與大盤研判**：綜合 `investment_analysis` 的最新總經/多空訊號，
+        研判本週是否適合進場（多頭才進攻）。
+    *   **## 核心標的深度點評**：針對精選池前幾名做去罐頭化深度點評
+        （結合產業趨勢、最新財報展望、WebSearch），並指出指標矛盾與風險。
+4.  報告另含自動產生的「篩選標準、策略回測績效、最終精選池」三區塊（毋須手寫）。
 5.  **強制同步**：更新 `index.html` 並推送到 GitHub。
 
 ---

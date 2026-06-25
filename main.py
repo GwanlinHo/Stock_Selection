@@ -10,10 +10,6 @@ from tqdm import tqdm
 from src.utils.logger import log, ErrorCode
 from src.tickers import TickerManager
 from src.data_ingestion import DataIngestion
-from src.filters.price_volume import PriceVolumeFilter
-from src.data_premium import DataPremium
-from src.filters.advanced_filter import AdvancedFilter
-from src.data_bulk import BulkChipProvider
 
 class StockScanner:
     def __init__(self, mode="full", strategy=None):
@@ -72,6 +68,29 @@ class StockScanner:
             json.dump(selected, f, ensure_ascii=False, indent=4)
         self.generate_value_report(selected, level, vg_params)
 
+    def _backtest_section(self, strategy_key):
+        """讀取 data/backtest_summary.json，產生「策略回測績效」區塊；無檔則回空字串。"""
+        f = Path("data/backtest_summary.json")
+        if not f.exists():
+            return ""
+        try:
+            s = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            return ""
+        st = s.get("strategies", {}).get(strategy_key)
+        if not st:
+            return ""
+        b = s.get("benchmark", {})
+        md = f"## 策略回測績效 (截至 {s.get('as_of','')})\n"
+        md += f"- 回測期間 {s.get('period','')}；月頻換股、前 {s.get('top_n','')} 檔等權重、對標 0050\n\n"
+        md += "| 指標 | 本策略 | 0050 |\n| :--- | :--- | :--- |\n"
+        md += f"| 總報酬率 | {st.get('total_return')}% | {b.get('total_return')}% |\n"
+        md += f"| 年化 CAGR | {st.get('cagr')}% | - |\n"
+        md += f"| 最大回檔 | {st.get('max_drawdown')}% | {b.get('max_drawdown')}% |\n"
+        md += f"| Sharpe | {st.get('sharpe')} | - |\n\n"
+        md += "> 歷史回測 (含存活者偏誤、未計交易成本)，非未來績效保證。執行 `uv run run_summary.py` 可更新。\n\n"
+        return md
+
     def generate_value_report(self, selected, level, vg_params):
         date_str = datetime.now().strftime("%Y-%m-%d")
         report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
@@ -104,6 +123,8 @@ class StockScanner:
         md += f"*   **掃描標的**: {self.stats.get('total',0)} 檔\n"
         md += f"*   **價值成長精選**: {self.stats.get('vg_pass',0)} 檔\n\n"
 
+        md += self._backtest_section("value_growth")
+
         md += "## 最終精選池 (依價值成長分數排序)\n"
         md += "| 排名 | 代碼 | 名稱 | 產業 | 收盤 | PER | PEG | ROE% | 營收YoY% | EPS成長% | 分數 |\n"
         md += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
@@ -122,264 +143,108 @@ class StockScanner:
         log.info(f"價值成長週報已產出: {report_file}")
         self.generate_index_html(open(report_file, encoding="utf-8").read())
 
-    def run(self):
-        # 價值成長策略走獨立管線 (與動能完全分離)
-        if self.active_strategy == "value_growth":
-            return self.run_value_growth()
+    def run_momentum_live(self):
+        """動能選股流程 (無 L3、零 FinMind、走可插拔平台；與回測同一套邏輯)。"""
+        from src.strategies import get_strategy, DataContext
+        from src.data_ingestion import DataIngestion
+        from src.data_free import BulkRevenueProvider, BulkFinancialProvider
+        from src.fundamentals import FundamentalsAssembler
 
-        log.info(f"=== 啟動選股程序 [模式: {self.mode}] [標準: {self.active_level}] ===")
+        level = self.active_level
+        params = self.params   # config levels[active_level]: l1_l2 / l3 / l4
+        log.info(f"=== 啟動選股程序 [策略: 動能(無L3)] [標準: {level}] ===")
         self.cleanup_old_files()
 
         tickers_info = TickerManager().load_tickers()
-        meta_map = {str(t['Ticker']): {"Name": t['Name'], "Industry": t['Industry']} for t in tickers_info}
         self.stats["total"] = len(tickers_info)
-        l2_candidates = []
-        final_data = []
+        universe = {str(t['Ticker']).split('.')[0]:
+                    {"yfinance_ticker": t['yfinance_ticker'], "Name": t.get('Name', ''),
+                     "Industry": t.get('Industry', '')} for t in tickers_info}
 
-        if self.mode == "full":
-            yfinance_tickers = [t['yfinance_ticker'] for t in tickers_info]
-            raw_data = DataIngestion(batch_size=50).fetch_weekly_data(yfinance_tickers)
-            l12 = self.params["l1_l2"]
-            pv_filter = PriceVolumeFilter(config={
-                "ma_fast": l12["ma_fast"], "ma_slow": l12["ma_slow"], "min_volume": l12["min_volume_avg"],
-                "ma_20_slope": l12["ma_20_slope"], "ma_60_slope": l12["ma_60_slope"]
-            })
-            l2_candidates = pv_filter.run(raw_data)
-            for cand in l2_candidates:
-                pure_ticker = cand['Ticker'].split('.')[0]
-                info = meta_map.get(pure_ticker, {"Name": "未知", "Industry": "未知"})
-                cand.update(info)
-            with open(self.l2_cache_file, "w", encoding="utf-8") as f:
-                json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
+        if self.mode == "report-only" and self.final_cache_file.exists():
+            picks = json.load(open(self.final_cache_file, encoding="utf-8"))
         else:
-            if self.l2_cache_file.exists():
-                with open(self.l2_cache_file, "r", encoding="utf-8") as f:
-                    l2_candidates = json.load(f)
-                for cand in l2_candidates:
-                    pure_ticker = cand['Ticker'].split('.')[0]
-                    info = meta_map.get(pure_ticker, {"Name": "未知", "Industry": "未知"})
-                    cand.update(info)
-
-        self.stats["l1_l2_pass"] = len(l2_candidates)
-
-        if self.mode in ["full", "skip-scan"] and l2_candidates:
-            premium_data = DataPremium()
-            adv_filter = AdvancedFilter()
-
-            # 全市場批次籌碼 (免費 TWSE/TPEx)，一次抓取取代逐檔 FinMind L3
-            # 抓取天數須涵蓋 L3 累計天數，否則會出現「資料不足以計算」的情形
-            l3_cfg = self.params["l3"]
-            l4_cfg = self.params["l4"]
-            chip_provider = BulkChipProvider(days=l3_cfg["inst_net_buy_days"])
-            chip_provider.build()
-
-            # 讀取現有進度 (用於比對與保留舊數據)
-            existing_data = {}
-            if self.final_cache_file.exists():
-                try:
-                    with open(self.final_cache_file, "r", encoding="utf-8") as f:
-                        old_list = json.load(f)
-                        existing_data = {d['Ticker']: d for d in old_list}
-                except: pass
-
-            # 用於追蹤已完成的 index，避免重複處理或中斷後重啟
-            consecutive_failures = 0
-            today = datetime.now()
-            today_str = today.strftime('%Y-%m-%d')
-            
-            for i, cand in enumerate(tqdm(l2_candidates, desc="精煉數據")):
-                ticker_full = cand['Ticker']
-                ticker = ticker_full.split('.')[0]
-                old_val = existing_data.get(ticker_full, {})
-                
-                # --- 增量更新檢查 ---
-                # 籌碼(L3)改用免費批次資料，每次重算 (成本低)；基本面(L4)仍走 FinMind，
-                # 保留 30 天效期，並以獨立時間戳記 L4_Fetched_At 判定 (與籌碼脫鉤)。
-                l4_fetched_str = old_val.get('L4_Fetched_At') or old_val.get('Fetched_At', "")
-                l4_last = None
-                if l4_fetched_str:
-                    try: l4_last = datetime.strptime(l4_fetched_str, '%Y-%m-%d')
-                    except: pass
-                fund_is_fresh = l4_last and (today - l4_last).days < self.runtime.get("l4_freshness_days", 30)
-
-                # 準備抓取容器
-                df_inst, df_rev, df_ratio, df_per = None, None, None, None
-
-                # === L3 籌碼面：全市場批次資料 (免費 TWSE/TPEx，不耗 FinMind) ===
-                df_inst = chip_provider.get_chip_df(ticker)
-                if df_inst is not None and not df_inst.empty:
-                    l3_pass, l3_val = adv_filter.run_l3(ticker, df_inst, l3_cfg)
-                    cand['L3_Pass'], cand['L3_Value'] = bool(l3_pass), float(l3_val)
-                else:
-                    cand['L3_Pass'] = old_val.get('L3_Pass', False)
-                    cand['L3_Value'] = old_val.get('L3_Value', 0)
-
-                # === L4 基本面：僅在 L3 通過時才抓 (省 FinMind 額度) ===
-                # L3 未過的標的不可能進最終精選池，毋須再花 3 支 API 抓基本面。
-                # 條件：L3 通過，且 (基本面數據已過期 或 從未抓過 L4)。
-                l4_cached = bool(old_val.get('Report_Date'))
-                if cand['L3_Pass'] and (not fund_is_fresh or not l4_cached):
-                    df_rev = premium_data.fetch_fundamental_data(ticker)
-                    df_ratio = premium_data.fetch_financial_ratios(ticker)
-                    df_per = chip_provider.get_per_df(ticker)   # PER 改用免費批次 (TWSE BWIBBU / TPEx)
-
-                if df_rev is not None and df_ratio is not None:
-                    l4_pass, l4_result = adv_filter.run_l4(ticker, df_rev, df_ratio, df_per, l4_cfg)
-                    cand['L4_Pass'] = bool(l4_pass)
-                    cand['L4_Value'] = float(l4_result['YoY'])
-                    cand['ROE'] = l4_result['ROE']
-                    cand['PER'] = l4_result['PER']
-                    cand['PEG'] = l4_result['PEG']
-                    cand['Report_Date'] = l4_result['Report_Date']
-                else:
-                    # 還原基本面舊數據 (L3 未過或本次未抓)
-                    for key in ['L4_Pass', 'L4_Value', 'ROE', 'PER', 'PEG', 'Report_Date']:
-                        cand[key] = old_val.get(key, 0 if key != 'Report_Date' else "")
-
-                # === FinMind 節流與失敗偵測 (僅針對 L4；籌碼已改免費批次源) ===
-                l4_fetched = df_rev is not None
-                l4_empty = l4_fetched and (df_rev is None or df_rev.empty) and (df_ratio is None or df_ratio.empty)
-                if l4_fetched and l4_empty:
-                    consecutive_failures += 1
-                elif l4_fetched:
-                    consecutive_failures = 0
-
-                if consecutive_failures >= self.runtime.get("finmind_fail_limit", 15):
-                    msg = f"偵測到 FinMind API 連續 {self.runtime.get('finmind_fail_limit', 15)} 檔標的抓取失敗，判定為目前不適合取得資料，自動停止。"
-                    log.critical(msg)
-                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
-                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
-                    raise RuntimeError(msg)
-
-                # 時間戳記：Fetched_At 記整體處理日；L4_Fetched_At 為 L4 專屬效期戳記
-                cand['Fetched_At'] = today_str
-                if l4_fetched and not l4_empty:
-                    cand['L4_Fetched_At'] = today_str
-                else:
-                    cand['L4_Fetched_At'] = l4_fetched_str   # 本次未抓 L4，沿用舊效期戳記
-
-                # 每 10 筆即時存檔，保護進度
-                if (i + 1) % 10 == 0:
-                    with open(self.final_cache_file, "w", encoding="utf-8") as f:
-                        json.dump(l2_candidates, f, ensure_ascii=False, indent=4)
-
-                # 僅在實際打 FinMind (L4) 後節流避免被封鎖 (秒數由 config 提供)
-                if l4_fetched:
-                    time.sleep(self.runtime.get("finmind_throttle_sec", 2.5))
-
-            final_data = l2_candidates # 統一使用更新後的 list
+            raw = DataIngestion(batch_size=50).fetch_weekly_data(
+                [t['yfinance_ticker'] for t in tickers_info])
+            ctx = DataContext(universe, raw,
+                              FundamentalsAssembler(BulkFinancialProvider()),
+                              BulkRevenueProvider(),
+                              self.vg_config.get("exclude_industries", []),
+                              chip_provider=None)   # 不帶籌碼 = 無 L3
+            strat = get_strategy("momentum")
+            metrics = strat.assemble(ctx, datetime.now().date())
+            picks = strat.select(metrics, params)
             with open(self.final_cache_file, "w", encoding="utf-8") as f:
-                json.dump(final_data, f, ensure_ascii=False, indent=4)
-        else:
-            if self.final_cache_file.exists():
-                with open(self.final_cache_file, "r", encoding="utf-8") as f:
-                    final_data = json.load(f)
-                for cand in final_data:
-                    pure_ticker = cand['Ticker'].split('.')[0]
-                    info = meta_map.get(pure_ticker, {"Name": "未知", "Industry": "未知"})
-                    cand.update(info)
+                json.dump(picks, f, ensure_ascii=False, indent=4)
 
-        # 計算各階段統計
-        self.stats["l1_l2_pass"] = len(l2_candidates)
-        self.stats["l3_pass"] = len([d for d in final_data if d.get('L3_Pass')])
-        self.stats["l4_pass"] = len([d for d in final_data if d.get('L3_Pass') and d.get('L4_Pass')])
-        
-        self.generate_rich_report(final_data)
+        self.stats["mom_pass"] = len(picks)
+        self.generate_momentum_report(picks, level, params)
 
-    def generate_rich_report(self, data):
+    def generate_momentum_report(self, picks, level, params):
         date_str = datetime.now().strftime("%Y-%m-%d")
         report_file = self.report_dir / f"WEEKLY_REPORT_{date_str}.md"
-        
-        # 1. 標題
-        md_content = f"# 台股選股掃描綜合週報 ({date_str})\n\n"
-        
-        # 2. AI 深度分析 (第一順位) — 由獨立的 AI 分析檔注入，避免就地編輯報告
-        md_content += "## AI 深度分析與決策建議\n"
+        l12, l4 = params["l1_l2"], params["l4"]
+
+        md = f"# 台股動能選股週報 ({date_str})\n\n"
+        md += (
+            "> **本工具策略重心（請勿遺忘）**\n>\n"
+            "> 這是「攻擊型個股選股」工具，與 `investment_analysis`（總經擇時/防守）分工："
+            "後者判斷多空與股債現金配置、決定**何時**進場；本工具決定多頭時**買哪些股**。\n>\n"
+            "> production 採「**動能（無 L3）**」：經 5 年回測（含 2022 空頭）為各攻擊型策略中"
+            "表現最佳者（加 L3 法人籌碼、價值成長型皆較差，已捨棄）。\n>\n"
+            "> **重要**：機械化操作下無一策略能穩定勝過 0050，務必搭配 investment_analysis 的"
+            "多空研判、**僅在多頭時進場**，本清單僅為選股依據而非擇時訊號。\n\n")
+        # AI 三段 (宏觀趨勢 / 核心標的深度點評) 由 ai_analysis 檔注入；缺檔則留骨架
         ai_file = self.report_dir / f"ai_analysis_{date_str}.md"
         if ai_file.exists():
-            ai_text = ai_file.read_text(encoding="utf-8").strip()
-            # 移除 AI 檔自帶的最上層大標 (# ...)，避免與報告章節標題重複
-            ai_lines = ai_text.split("\n")
+            ai_lines = ai_file.read_text(encoding="utf-8").strip().split("\n")
             if ai_lines and ai_lines[0].lstrip().startswith("# "):
                 ai_lines = ai_lines[1:]
-            md_content += "\n".join(ai_lines).strip() + "\n\n"
+            md += "\n".join(ai_lines).strip() + "\n\n"
         else:
-            md_content += "> *深度分析撰寫中，完成後將更新於本區塊。*\n\n"
-        
-        # 3. 篩選標準定義 (依 config 實際門檻動態生成，避免與設定脫節)
-        l12 = self.params["l1_l2"]
-        l3p = self.params["l3"]
-        l4p = self.params["l4"]
-        inst_name_map = {
-            "Foreign_Investor": "外資",
-            "Investment_Trust": "投信",
-            "Dealer": "自營商",
-        }
-        inst_label = " + ".join(inst_name_map.get(n, n) for n in l3p.get("institutions", []))
-        vol_lots = int(l12["min_volume_avg"] / 1000)
-        md_content += f"## 篩選標準定義 (採用標準: {self.active_level})\n"
-        md_content += "| 關卡 | 類型 | 詳細條件 |\n"
-        md_content += "| :--- | :--- | :--- |\n"
-        md_content += f"| **L1** | 技術面 | 股價 > MA{l12['ma_fast']} 且 MA{l12['ma_fast']} 斜率 > {l12['ma_20_slope']*100:.2f}% (趨勢確認) |\n"
-        md_content += f"| **L2** | 成交量 | 5 日均量 > {vol_lots:,} 張 (流動性確認) |\n"
-        md_content += f"| **L3** | 籌碼面 | {inst_label}近 {l3p['inst_net_buy_days']} 日累計買超 > {l3p['inst_net_buy_min']:,} 張 (大人動向) |\n"
-        md_content += f"| **L4** | 基本面 | 營收 YoY > {l4p['yoy_min']}% 且 ROE > {l4p['roe_min']}% (年化) (PEG 供參考) |\n\n"
+            md += ("## 宏觀趨勢與大盤研判\n> *待 AI 撰寫：綜合 investment_analysis 總經訊號，"
+                   "研判目前多空格局與風險水位，決定本週是否適合進場。*\n\n")
+            md += ("## 核心標的深度點評\n> *待 AI 撰寫：針對精選池前幾名，結合產業趨勢與最新"
+                   "財報展望做深度點評，並指出指標矛盾與風險。*\n\n")
 
-        # 4. 篩選漏斗統計
-        md_content += f"*   **[L1/L2] 價量趨勢通過**: {self.stats['l1_l2_pass']} 檔\n"
-        md_content += f"*   **[L3] 法人籌碼偏多**: {self.stats['l3_pass']} 檔\n"
-        md_content += f"*   **[L4] 營收年增成長**: {self.stats['l4_pass']} 檔 (最終精選)\n\n"
+        md += f"## 篩選標準定義 (策略: 動能(無L3) / 標準: {level})\n"
+        md += "| 關卡 | 類型 | 詳細條件 |\n| :--- | :--- | :--- |\n"
+        md += f"| L1 | 趨勢 | 收盤 > MA{l12['ma_fast']} 且 MA{l12['ma_fast']} 斜率 > {l12['ma_20_slope']*100:.2f}%、MA{l12['ma_slow']}不下彎 |\n"
+        md += f"| L2 | 量能 | 5 日均量 > {int(l12['min_volume_avg']/1000):,} 張 |\n"
+        md += f"| L4 | 基本面 | 營收 YoY > {l4['yoy_min']}% 且 ROE > {l4['roe_min']}% |\n\n"
+        md += ("> L3 法人籌碼經回測證實會降低報酬，已移除。趨勢/大盤擇時請參考 investment_analysis 總經報告；"
+               "回測顯示本策略接近但未穩定勝過 0050，宜搭配多空研判 (多頭才進場) 使用。\n\n")
 
-        # 4. 最終精選池 (僅顯示 L4 通過標的)
-        md_content += "## 最終精選池 (Level 4 全通過)\n"
-        md_content += "| 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | 籌碼(張) | 營收YoY% | ROE% | PER | PEG |\n"
-        md_content += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
-        # 過濾：僅保留同時通過 L3 與 L4 的標的
-        final_pool = [d for d in data if d.get('L3_Pass') and d.get('L4_Pass')]
-        
-        for item in sorted(final_pool, key=lambda x: x.get('M20_Slope', 0), reverse=True):
-            l3_val = item.get('L3_Value', 0)
-            l4_val = item.get('L4_Value', 0)
-            roe = item.get('ROE', 0)
-            per = item.get('PER', 0)
-            peg = item.get('PEG', 0)
-            
-            l3_txt = f"{l3_val:+,.1f}"
-            l4_txt = f"{l4_val:+.2f}%"
-            roe_txt = f"{roe:.2f}%"
-            per_txt = f"{per:.1f}" if per > 0 else "-"
-            peg_txt = f"{peg:.2f}" if peg > 0 else "-"
-            
-            l3_status = "[O]"
-            l4_status = "[O]"
-            name = item.get('Name', '未知')
-            
-            # 若財報日期在 45 天內，標記為最新
-            report_date = item.get('Report_Date', '')
-            if report_date:
-                try:
-                    rd = datetime.strptime(report_date, "%Y-%m-%d")
-                    if (datetime.now() - rd).days < 45:
-                        name += " [!]"
-                except: pass
+        md += f"*   **掃描標的**: {self.stats.get('total',0)} 檔\n"
+        md += f"*   **動能精選**: {self.stats.get('mom_pass',0)} 檔\n\n"
 
-            ind = item.get('Industry', '未知')
-            code = item['Ticker'].split('.')[0]
-            md_content += f"| {code} | {name} | {ind} | {item['Close']:.2f} | {item.get('M20_Slope', 0):.4f} | {l3_status} {l3_txt} | {l4_status} {l4_txt} | {roe_txt} | {per_txt} | {peg_txt} |\n"
+        md += self._backtest_section("momentum")
 
-        if not final_pool:
-            md_content += "> *目前尚無同時符合籌碼與營收篩選標準的標的。*\n"
+        md += "## 最終精選池 (依 MA20 斜率排序)\n"
+        md += "| 排名 | 代碼 | 名稱 | 產業 | 收盤 | MA20斜率 | ROE% | 營收YoY% | 分數 |\n"
+        md += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        for i, s in enumerate(picks, 1):
+            roe = f"{s['ROE']:.2f}" if s.get('ROE') is not None else "-"
+            yoy = f"{s['YoY']:+.2f}" if s.get('YoY') is not None else "-"
+            slope = f"{s.get('M20_Slope', 0):.4f}"
+            md += (f"| {i} | {s['Ticker']} | {s.get('Name','')} | {s.get('Industry','')} | "
+                   f"{s['Close']:.2f} | {slope} | {roe} | {yoy} | {s['Score']:.1f} |\n")
+        if not picks:
+            md += "> *目前無符合動能標準的標的 (可能大盤轉弱，宜保守)。*\n"
 
-        # 寫入 Markdown 檔案
         with open(report_file, "w", encoding="utf-8") as f:
-            f.write(md_content)
-        log.info(f"高品質週報已產出: {report_file}")
+            f.write(md)
+        log.info(f"動能週報已產出: {report_file}")
+        self.generate_index_html(open(report_file, encoding="utf-8").read())
 
-        # 產生 index.html 用於 GitHub Pages (讀取最新的檔案內容，包含可能已填寫的 AI 分析)
-        with open(report_file, "r", encoding="utf-8") as f:
-            final_md = f.read()
-        self.generate_index_html(final_md)
+    def run(self):
+        # 各策略走可插拔平台 (零 FinMind)
+        if self.active_strategy == "value_growth":
+            return self.run_value_growth()
+        if self.active_strategy == "momentum":
+            return self.run_momentum_live()
+
+        raise ValueError(f"未知策略: {self.active_strategy}")
 
     def generate_index_html(self, md_content):
         """將 Markdown 轉換為漂亮的 HTML 並存為 index.html"""
