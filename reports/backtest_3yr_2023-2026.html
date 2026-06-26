@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh-TW"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>價值成長回測報告</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"><style>.markdown-body{max-width:980px;margin:0 auto;padding:45px}table{border-collapse:collapse}th,td{border:1px solid #dfe2e5;padding:6px 13px}</style></head><body><article class="markdown-body"><h1>價值成長策略回測報告 (2026-06-23)</h1>
+<ul>
+<li>回測期間: 2023-06-01 ~ 2026-06-23　|　換股頻率: 月頻　|　持股: 前 15 檔等權重</li>
+<li>篩選標準: 價值成長 / Standard　|　基準: 0050</li>
+</ul>
+<blockquote>
+<p><strong>重要限制</strong>：(1) 存活者偏誤——標的池採目前清單近似，未還原歷史下市/新上市成分，實際結果可能偏樂觀。(2) 未計交易成本、滑價與稅費。(3) 月營收/財報採公布後時點，已盡量避免前視偏誤。本報告僅供策略驗證參考，非投資建議。</p>
+</blockquote>
+<h2>績效摘要</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">價值成長策略</th>
+<th style="text-align: left;">0050 基準</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">總報酬率</td>
+<td style="text-align: left;">175.33%</td>
+<td style="text-align: left;">252.85%</td>
+</tr>
+<tr>
+<td style="text-align: left;">年化報酬 (CAGR)</td>
+<td style="text-align: left;">41.52%</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">最大回檔</td>
+<td style="text-align: left;">-15.66%</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sharpe (年化)</td>
+<td style="text-align: left;">1.53</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">月勝率 (勝過基準)</td>
+<td style="text-align: left;">40.0%</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">換股次數</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<h2>淨值曲線</h2>
+<p><svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;border:1px solid #eee;background:#fff"><line x1="50" y1="264.8" x2="810" y2="264.8" stroke="#ccc" stroke-dasharray="4"/><text x="42" y="268.8" font-size="11" text-anchor="end" fill="#888">1.0</text><text x="50" y="288" font-size="11" fill="#888">2023-06-30</text><text x="810" y="288" font-size="11" text-anchor="end" fill="#888">2026-05-31</text><polyline fill="none" stroke="#1f77b4" stroke-width="2" points="50.0,264.8 71.7,262.3 93.4,264.0 115.1,265.8 136.9,270.0 158.6,260.3 180.3,260.2 202.0,260.6 223.7,258.7 245.4,252.8 267.1,244.3 288.9,241.1 310.6,230.8 332.3,230.4 354.0,227.4 375.7,236.6 397.4,233.9 419.1,231.8 440.9,225.1 462.6,231.4 484.3,228.7 506.0,241.8 527.7,244.7 549.4,229.9 571.1,213.7 592.9,203.8 614.6,177.9 636.3,174.1 658.0,157.7 679.7,165.7 701.4,166.1 723.1,168.1 744.9,156.4 766.6,174.4 788.3,138.7 810.0,115.9"/><polyline fill="none" stroke="#d62728" stroke-width="2" stroke-dasharray="5" points="50.0,264.8 71.7,263.8 93.4,265.8 115.1,267.9 136.9,268.9 158.6,262.1 180.3,259.3 202.0,258.0 223.7,251.9 245.4,242.0 267.1,241.6 288.9,236.3 310.6,222.4 332.3,225.6 354.0,225.2 375.7,223.4 397.4,218.1 419.1,221.2 440.9,215.3 462.6,209.6 484.3,215.7 506.0,229.5 527.7,232.4 549.4,224.6 571.1,215.1 592.9,205.2 614.6,202.5 636.3,187.7 658.0,168.2 679.7,174.9 701.4,165.8 723.1,143.3 744.9,119.0 766.6,144.0 788.3,92.4 810.0,50.0"/><text x="660" y="50" font-size="12" fill="#1f77b4">— 價值成長策略</text><text x="660" y="68" font-size="12" fill="#d62728">-- 0050 基準</text></svg></p>
+<h2>各期選股與報酬</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">換股日</th>
+<th style="text-align: left;">選股數</th>
+<th style="text-align: left;">當期報酬%</th>
+<th style="text-align: left;">前五持股</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2023-06-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+3.00</td>
+<td style="text-align: left;">6472, 6691, 8478, 1795, 2230</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-07-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-1.98</td>
+<td style="text-align: left;">6472, 2404, 3078, 2482, 6122</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-08-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-2.14</td>
+<td style="text-align: left;">6472, 1795, 3043, 6203, 3078</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-09-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-4.97</td>
+<td style="text-align: left;">6472, 3293, 3078, 8048, 6122</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-10-31</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">+12.19</td>
+<td style="text-align: left;">2404, 3693, 3078, 8048, 6139</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-11-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+0.06</td>
+<td style="text-align: left;">3693, 3078, 6139, 6122, 3293</td>
+</tr>
+<tr>
+<td style="text-align: left;">2023-12-31</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">-0.48</td>
+<td style="text-align: left;">2404, 3078, 6139, 3293, 6122</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-01-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+2.20</td>
+<td style="text-align: left;">6139, 3293, 6122, 3693, 5483</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-02-29</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+6.45</td>
+<td style="text-align: left;">6712, 6263, 3078, 6139, 2206</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-03-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+8.82</td>
+<td style="text-align: left;">6139, 1442, 2540, 3293, 3188</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-04-30</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">+2.97</td>
+<td style="text-align: left;">6139, 1442, 2348, 3293, 3188</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-05-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+9.54</td>
+<td style="text-align: left;">2731, 2743, 2745, 1442, 6139</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-06-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+0.32</td>
+<td style="text-align: left;">3293, 6669, 1442, 6139, 2383</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-07-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+2.49</td>
+<td style="text-align: left;">3293, 1442, 6139, 2383, 6197</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-08-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-7.53</td>
+<td style="text-align: left;">1442, 6139, 6669, 2383, 8210</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-09-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+2.38</td>
+<td style="text-align: left;">1442, 6669, 2383, 8210, 6197</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-10-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+1.89</td>
+<td style="text-align: left;">6669, 2382, 8210, 2383, 2376</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-11-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+5.60</td>
+<td style="text-align: left;">2348, 6472, 2382, 6669, 2520</td>
+</tr>
+<tr>
+<td style="text-align: left;">2024-12-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-5.04</td>
+<td style="text-align: left;">2348, 3025, 2383, 6669, 2603</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-01-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+2.28</td>
+<td style="text-align: left;">6472, 2383, 2382, 6669, 2731</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-02-28</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-10.78</td>
+<td style="text-align: left;">2731, 2383, 2382, 6669, 2520</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-03-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-2.68</td>
+<td style="text-align: left;">1442, 6472, 3017, 2383, 2382</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-04-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+14.07</td>
+<td style="text-align: left;">3017, 2383, 8210, 2382, 2368</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-05-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+13.47</td>
+<td style="text-align: left;">2382, 3017, 2368, 8210, 6669</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-06-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+7.28</td>
+<td style="text-align: left;">6691, 2382, 6669, 2404, 2539</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-07-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+17.76</td>
+<td style="text-align: left;">2404, 2382, 6669, 1618, 3231</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-08-31</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">+2.23</td>
+<td style="text-align: left;">6669, 1616, 2382, 6869, 2330</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-09-30</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">+9.30</td>
+<td style="text-align: left;">6669, 2404, 2330, 3515, 3231</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-10-31</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">-4.16</td>
+<td style="text-align: left;">6669, 2404, 2449, 2382, 3231</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-11-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-0.22</td>
+<td style="text-align: left;">2404, 6669, 6139, 8932, 6290</td>
+</tr>
+<tr>
+<td style="text-align: left;">2025-12-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-1.06</td>
+<td style="text-align: left;">2404, 6669, 3030, 6139, 8932</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-01-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+6.43</td>
+<td style="text-align: left;">6669, 2404, 2376, 6869, 3030</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-02-28</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">-9.30</td>
+<td style="text-align: left;">6669, 2539, 1616, 2376, 3709</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-03-31</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+20.31</td>
+<td style="text-align: left;">2404, 6669, 6596, 6139, 5439</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-04-30</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">+10.85</td>
+<td style="text-align: left;">2404, 6139, 3260, 2451, 2442</td>
+</tr>
+</tbody>
+</table></article></body></html>
