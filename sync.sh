@@ -3,7 +3,7 @@
 # 只發布報表產物; 原始碼/設定變更請人工另行 commit。(.gitignore 另已過濾 reports/SCAN_DATA_*、REPORT_*)
 
 set -o pipefail
-cd "$(dirname "$0")" || exit 1
+cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 
 WHITELIST=(index.html reports data)
 
