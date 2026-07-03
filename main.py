@@ -303,7 +303,8 @@ class StockScanner:
 
 if __name__ == "__main__":
     import traceback
-    
+    import sys
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["full", "skip-scan", "report-only", "sync"], default="full")
     parser.add_argument("--strategy", choices=["momentum", "value_growth"], default=None,
@@ -327,14 +328,8 @@ if __name__ == "__main__":
         error_msg = traceback.format_exc()
         log.error(f"程序發生未預期錯誤:\n{error_msg}")
         
-        # 嘗試在崩潰前存檔
-        if hasattr(scanner, 'final_cache_file') and scanner.final_cache_file:
-            try:
-                # 這裡如果 scanner.stats['final_data'] 存在則嘗試存檔
-                # 由於我們在 run() 中直接修改 l2_candidates，這裡的保護視情況而定
-                log.info("嘗試在崩潰前保存已處理的進度...")
-            except: pass
-            
+        # 註：run() 過程中的中間結果已於各階段即時落檔（見 scanner.run()），
+        # 此處不再嘗試二次存檔，避免給人「有崩潰保護」的錯覺（原假存檔區塊已移除）。
         print(f"\n[X] 程序發生嚴重錯誤: {str(e)}")
         print(f"[i] 請檢查 logs/error.log 獲取完整堆疊資訊。")
         sys.exit(1)

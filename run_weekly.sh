@@ -10,13 +10,17 @@ cd "$SCRIPT_DIR"
 export PATH=/home/pi/.local/bin:$PATH:/home/pi/.config/nvm/versions/node/v22.17.0/bin
 export PYTHONPATH=$PYTHONPATH:.
 
+# 全域重型鎖(避免與其他 claude/ASR 併發 OOM);wait 模式:週報重要,寧可等也要跑。
+source /home/pi/WorkDir/_lib/heavy_lock.sh
+acquire_heavy_lock /home/pi/WorkDir/_logs/stock_selection_cron.log "stock_weekly" "wait" || exit 0
+
 DATE=$(date +%Y-%m-%d)
 
 echo "[1/4] 掃描 + 動能(無L3)選股 + 骨架報告 (full)..."
 uv run main.py --mode full
 
 echo "[2/4] Claude 深度分析，寫入專屬 AI 檔 reports/ai_analysis_${DATE}.md ..."
-claude -p "請依照本專案目錄的 CLAUDE.md 為台股動能(無L3)選股週報撰寫 AI 分析，將內容以 Markdown 寫入 reports/ai_analysis_${DATE}.md，只用以下兩個 ## 標題：
+timeout 30m claude -p "請依照本專案目錄的 CLAUDE.md 為台股動能(無L3)選股週報撰寫 AI 分析，將內容以 Markdown 寫入 reports/ai_analysis_${DATE}.md，只用以下兩個 ## 標題：
 
 ## 宏觀趨勢與大盤研判
 請讀取 /home/pi/WorkDir/investment_analysis/index.html (最新總經報告) 的內容，綜合其多空研判與風險水位，判斷本週是否適合進場（此為攻擊型選股，須多頭才進場）。
