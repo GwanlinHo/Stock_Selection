@@ -468,5 +468,106 @@
 </tbody>
 </table>
     </article>
+
+    <style>
+        .tts-btn { background: #f0f2f5; border: 1px solid #ddd; border-radius: 20px; padding: 4px 14px; font-size: 14px; font-weight: 600; color: #555; cursor: pointer; margin-left: 12px; vertical-align: middle; transition: all 0.2s; }
+        .tts-btn:hover { background: #e4e6e9; border-color: #ccc; }
+        .tts-btn.playing { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+    </style>
+    <script>
+    (function () {
+        var TTS_SECTIONS = ["宏觀趨勢與大盤研判", "核心標的深度點評", "策略回測績效"];
+        var synth = window.speechSynthesis;
+        if (!synth) return;
+        var activeBtn = null;
+        var chunks = [];
+        var idx = 0;
+
+        function tableToSpeech(tbl) {
+            var headers = Array.prototype.map.call(tbl.querySelectorAll("thead th"), function (th) { return th.innerText.trim(); });
+            var out = [];
+            Array.prototype.forEach.call(tbl.querySelectorAll("tbody tr"), function (tr) {
+                var parts = [];
+                Array.prototype.forEach.call(tr.querySelectorAll("td,th"), function (td, i) {
+                    var c = td.innerText.trim();
+                    if (!c || c === "-" || c === "--") return; // 空值欄不唸
+                    parts.push(i === 0 || !headers[i] ? c : headers[i] + " " + c);
+                });
+                if (parts.length) out.push(parts.join("，") + "。");
+            });
+            return out.join(" ");
+        }
+
+        function sectionText(nodes, title) {
+            var buf = [title + "。"];
+            nodes.forEach(function (n) {
+                if (n.tagName === "TABLE") buf.push(tableToSpeech(n));
+                else buf.push(n.innerText || "");
+            });
+            return buf.join(" ").replace(/\s+/g, " ").trim();
+        }
+
+        function stopTTS() {
+            synth.cancel();
+            if (activeBtn) { activeBtn.classList.remove("playing"); activeBtn.textContent = "朗讀"; }
+            activeBtn = null; chunks = []; idx = 0;
+        }
+
+        function pickVoice() {
+            var voices = synth.getVoices();
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            var isAndroid = /Android/.test(navigator.userAgent);
+            var v = null;
+            if (isIOS) {
+                v = voices.find(function (x) { return x.lang.indexOf("zh-TW") >= 0 && x.name.indexOf("Siri") >= 0; }) ||
+                    voices.find(function (x) { return x.lang.indexOf("zh-TW") >= 0 && (x.name.indexOf("Mei-Jia") >= 0 || x.name.indexOf("Ting-Ting") >= 0); });
+            } else if (isAndroid) {
+                v = voices.find(function (x) { return x.lang.indexOf("zh-TW") >= 0 && x.name.indexOf("Google") >= 0; });
+            }
+            return v || voices.find(function (x) { return x.lang.indexOf("zh-TW") >= 0; }) ||
+                        voices.find(function (x) { return x.lang.indexOf("zh") >= 0; }) || null;
+        }
+
+        function speakNext() {
+            if (idx >= chunks.length || !activeBtn) { stopTTS(); return; }
+            var u = new SpeechSynthesisUtterance(chunks[idx]);
+            var v = pickVoice();
+            if (v) u.voice = v;
+            u.lang = "zh-TW";
+            u.onend = function () { idx++; speakNext(); };
+            u.onerror = function () { stopTTS(); };
+            synth.speak(u);
+        }
+
+        function toggle(btn, text) {
+            if (synth.speaking && activeBtn === btn) { stopTTS(); return; }
+            if (synth.speaking) stopTTS();
+            chunks = text.match(/[^。！？；]+[。！？；]?/g) || [text];
+            idx = 0; activeBtn = btn;
+            btn.classList.add("playing"); btn.textContent = "停止";
+            speakNext();
+        }
+
+        document.addEventListener("visibilitychange", function () { if (document.hidden) stopTTS(); });
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = function () { synth.getVoices(); };
+        }
+
+        Array.prototype.forEach.call(document.querySelectorAll(".markdown-body h2"), function (h2) {
+            var title = h2.innerText.trim();
+            if (!TTS_SECTIONS.some(function (t) { return title.indexOf(t) === 0; })) return;
+            var nodes = [];
+            var n = h2.nextElementSibling;
+            while (n && n.tagName !== "H2") { nodes.push(n); n = n.nextElementSibling; }
+            if (!nodes.length) return;
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "tts-btn";
+            btn.textContent = "朗讀";
+            btn.addEventListener("click", function () { toggle(btn, sectionText(nodes, title)); });
+            h2.appendChild(btn);
+        });
+    })();
+    </script>
 </body>
 </html>
