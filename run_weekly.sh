@@ -28,7 +28,7 @@ timeout 30m claude -p "請依照本專案目錄的 CLAUDE.md 為台股動能(無
 ## 核心標的深度點評
 讀取 data/temp/candidates.json (最終精選池)，針對分數前幾名的標的，結合產業趨勢與最新財報展望做去罐頭化深度點評，指出指標矛盾與風險。
 
-要求：不得出現任何 AI 工具或模型名稱；繁體中文；只寫這一個檔，不要修改其他檔案、不要執行任何 git 指令。" --model claude-opus-4-8 --dangerously-skip-permissions
+要求：不得出現任何 AI 工具或模型名稱；繁體中文；只寫這一個檔，不要修改其他檔案、不要執行任何 git 指令。" --model claude-opus-5 --dangerously-skip-permissions
 
 echo "[3/4] 重新生成報告 (注入 AI 分析) 與 index.html (report-only)..."
 uv run main.py --mode report-only
