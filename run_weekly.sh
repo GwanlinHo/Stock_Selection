@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # cron 環境需顯式設定 PATH (claude 與 uv 皆位於 ~/.local/bin)
-export PATH=/home/pi/.local/bin:$PATH:/home/pi/.config/nvm/versions/node/v22.17.0/bin
+export PATH=/home/pi/.local/bin:$PATH:/home/pi/.node-current/bin
 export PYTHONPATH=$PYTHONPATH:.
 
 # 全域重型鎖(避免與其他 claude/ASR 併發 OOM);wait 模式:週報重要,寧可等也要跑。
