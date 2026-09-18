@@ -25,7 +25,7 @@
 </head>
 <body>
     <article class="markdown-body">
-        <h1>台股動能選股週報 (2026-09-11)</h1>
+        <h1>台股動能選股週報 (2026-09-18)</h1>
 <blockquote>
 <p><strong>本工具策略重心（請勿遺忘）</strong></p>
 <p>這是「攻擊型個股選股」工具，與 <code>investment_analysis</code>（總經擇時/防守）分工：後者判斷多空與股債現金配置、決定<strong>何時</strong>進場；本工具決定多頭時<strong>買哪些股</strong>。</p>
@@ -33,407 +33,469 @@
 <p><strong>重要</strong>：機械化操作下無一策略能穩定勝過 0050，務必搭配 investment_analysis 的多空研判、<strong>僅在多頭時進場</strong>，本清單僅為選股依據而非擇時訊號。</p>
 </blockquote>
 <h2>宏觀趨勢與大盤研判</h2>
-<p><strong>結論：本週研判降為 [X] 不進場。上週設下的兩個重啟條件（外資轉買、新台幣止貶）一個都沒觸發，而且雙雙往反方向擴大；9 月 11 日加權指數單日重挫 755.64 點、外資單日賣超 892.7 億元，是這波回檔中最大的一筆。趨勢結構尚未破壞，但緩衝已經用完。本週不建立任何新攻擊部位，既有部位的停損應上移至 20 日均線並嚴格執行。</strong></p>
-<h3>零、先校正兩個資料時點（否則後面的判斷會錯位）</h3>
-<p>總經報告的資料截至 <strong>9 月 10 日</strong>，而本週精選池使用的是 <strong>9 月 11 日收盤</strong>的價格。這個一天的落差在本週特別關鍵——因為決定性的變化就發生在 9 月 11 日，總經報告尚未涵蓋。以下 9 月 11 日的數據由臺灣證券交易所盤後統計查得，與總經報告併用時請留意時點。</p>
+<p><strong>結論：本週研判由上週的 [X] 不進場，調升為 [O] 條件式進場（半數部位、分批建立）。上週設定的兩項重啟條件——外資連續 2 日買超、加權指數重新站上 5 日均線 46,948 點——在 9 月 18 日同時成立，且當日是帶量上攻而非量縮反彈。但指數尚未突破 9 月 7 日的波段高點 47,326 點，20 日均線斜率也剛好回到 0.50% 的門檻邊緣，聯準會升息、長端殖利率與油價三項壓力仍在進行中。因此本週只恢復一半的攻擊部位，另一半等待指數收盤突破前高後再補。</strong></p>
+<h3>零、資料時點說明</h3>
+<p>總經報告的資料截至 <strong>9 月 17 日</strong>（週四），本週精選池使用的是 <strong>9 月 18 日</strong>（週五）收盤價。9 月 18 日是本週變化最大的一天，以下該日數據由臺灣證券交易所與櫃買中心盤後統計查得，與總經報告併用時請留意時點差。</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">項目</th>
-<th style="text-align: left;">9 月 10 日（總經報告）</th>
-<th style="text-align: left;">9 月 11 日（本報告補充）</th>
+<th style="text-align: left;">9 月 11 日（上週報告）</th>
+<th style="text-align: left;">9 月 17 日（總經報告）</th>
+<th style="text-align: left;">9 月 18 日（本報告補充）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">加權指數</td>
-<td style="text-align: left;">46,940.49（-242.87）</td>
-<td style="text-align: left;">46,184.85（-755.64，-1.61%）</td>
+<td style="text-align: left;">46,184.85（-755.64）</td>
+<td style="text-align: left;">46,288.00（+439.10）</td>
+<td style="text-align: left;"><strong>47,180.75（+892.75，+1.93%）</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;">成交金額</td>
-<td style="text-align: left;">7,507 億（連 3 日縮）</td>
-<td style="text-align: left;">7,622 億（不縮反增）</td>
+<td style="text-align: left;">7,622 億</td>
+<td style="text-align: left;">8,666 億</td>
+<td style="text-align: left;"><strong>11,423 億</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;">外資及陸資</td>
-<td style="text-align: left;">賣超約 383 億</td>
 <td style="text-align: left;">賣超 892.7 億</td>
+<td style="text-align: left;">買超 121.9 億</td>
+<td style="text-align: left;"><strong>買超 870.0 億</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;">三大法人合計</td>
-<td style="text-align: left;">賣超約 488 億</td>
 <td style="text-align: left;">賣超 1,112.6 億</td>
+<td style="text-align: left;">買超 254.7 億</td>
+<td style="text-align: left;"><strong>買超 1,194.5 億</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;">融資餘額</td>
-<td style="text-align: left;">5,919.0 億（單日 +47.3 億）</td>
-<td style="text-align: left;">5,878.7 億（單日 -40.3 億）</td>
+<td style="text-align: left;">5,878.7 億</td>
+<td style="text-align: left;">5,894.0 億</td>
+<td style="text-align: left;">5,940.4 億（+46.4 億）</td>
+</tr>
+<tr>
+<td style="text-align: left;">櫃買指數</td>
+<td style="text-align: left;">395.52</td>
+<td style="text-align: left;">398.17</td>
+<td style="text-align: left;"><strong>412.68（+3.65%）</strong></td>
 </tr>
 </tbody>
 </table>
-<h3>一、上週的兩個重啟條件，檢核結果全數為否</h3>
-<p>上週研判給了明確的機械化條件：「外資轉買」或「新台幣止貶」任一成立才重新啟動攻擊部位。逐項檢核：</p>
+<h3>一、上週的重啟條件：兩項皆成立，但過程中曾先觸發停損條件</h3>
+<p>上週的操作結論寫了三件事，逐項檢核：</p>
 <ul>
-<li><strong>外資轉買 [X]</strong>：不僅沒轉買，賣超規模從 9/10 的 383 億擴大到 9/11 的 892.7 億，單日翻了 2.3 倍。加計自營商自行買賣賣超 50.4 億與避險賣超 251.6 億，三大法人僅投信買超 82.1 億，賣壓集中度比上週更高。</li>
-<li><strong>新台幣止貶 [X]</strong>：9/10 收 31.548 元、貶值 0.43 角，終結先前連 4 個交易日的升勢。方向由前期的一致轉為反轉，這是總經報告本期點名的四項實質變化之一。</li>
+<li><strong>外資連續 2 日轉為買超 [O]</strong>：9/17 買超 121.9 億、9/18 買超 870.0 億，終止先前連 5 日賣超，且第二天規模放大約 7 倍。9/18 三大法人合計買超 1,194.5 億，幾乎完整回補 9/11 單日 1,112.6 億的賣超。</li>
+<li><strong>加權指數重新站上 5 日均線 46,948 點 [O]</strong>：9/18 收 47,180.75 點，高於上週設定的價位；以本週重算的 5 日均線 46,138 點衡量，乖離約 +2.3%。</li>
+<li><strong>若失守 20 日均線應將攻擊部位降至最低 [!] 已觸發</strong>：這一點必須誠實記錄。9/14 至 9/16 連續三個交易日收在 20 日均線之下（9/15 最低收 45,511.49 點，乖離 -1.14%），依上週規則，攻擊部位在本週初已應降至最低。<strong>所以本週的起點不是「續抱」，而是「從低部位重新建倉」</strong>，這也是本週只恢復半數部位的原因之一。</li>
 </ul>
-<p>兩個條件都沒觸發，而且指數本身還多了一項惡化：上週僅是 K 值自高檔下彎，9/10 加權指數、元大台 50、元大台灣 50 正 2 與台積電四檔同日完成 KD 死亡交叉，9/11 台積電再跌至 2,410 元、聯發科跌至 4,585 元（單日 -2.86%）。<strong>權值股先轉弱、指數後補跌的順序已經走完。</strong></p>
-<h3>二、趨勢結構還在，但只剩 0.35% 的緩衝</h3>
-<p>必須把話講清楚：這不是空頭確認，本策略的 L1 趨勢條件在指數層級<strong>仍然成立</strong>。</p>
+<h3>二、趨勢結構：修復了，但只修復到門檻</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">9/11 數值</th>
-<th style="text-align: left;">判讀</th>
+<th style="text-align: left;">日期</th>
+<th style="text-align: right;">收盤</th>
+<th style="text-align: right;">20 日均線</th>
+<th style="text-align: right;">20 日乖離</th>
+<th style="text-align: right;">20 日均線 5 日斜率</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">收盤 vs 20 日均線</td>
-<td style="text-align: left;">46,184.85 vs 46,025.29</td>
-<td style="text-align: left;">[!] 站上，但乖離僅 +0.35%</td>
+<td style="text-align: left;">9/11</td>
+<td style="text-align: right;">46,184.85</td>
+<td style="text-align: right;">46,025</td>
+<td style="text-align: right;">+0.35%</td>
+<td style="text-align: right;">+0.80%</td>
 </tr>
 <tr>
-<td style="text-align: left;">20 日均線 5 日斜率</td>
-<td style="text-align: left;">+0.80%</td>
-<td style="text-align: left;">[O] 仍上揚</td>
+<td style="text-align: left;">9/15</td>
+<td style="text-align: right;">45,511.49</td>
+<td style="text-align: right;">46,036</td>
+<td style="text-align: right;">-1.14%</td>
+<td style="text-align: right;">+0.35%</td>
 </tr>
 <tr>
-<td style="text-align: left;">60 日乖離率</td>
-<td style="text-align: left;">+2.13%（9/10 為 3.81）</td>
-<td style="text-align: left;">[!] 續收斂</td>
+<td style="text-align: left;">9/16</td>
+<td style="text-align: right;">45,848.90</td>
+<td style="text-align: right;">46,092</td>
+<td style="text-align: right;">-0.53%</td>
+<td style="text-align: right;"><strong>+0.29%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">9/17</td>
+<td style="text-align: right;">46,288.00</td>
+<td style="text-align: right;">46,160</td>
+<td style="text-align: right;">+0.28%</td>
+<td style="text-align: right;">+0.33%</td>
+</tr>
+<tr>
+<td style="text-align: left;">9/18</td>
+<td style="text-align: right;">47,180.75</td>
+<td style="text-align: right;">46,258</td>
+<td style="text-align: right;">+2.00%</td>
+<td style="text-align: right;"><strong>+0.50%</strong></td>
 </tr>
 </tbody>
 </table>
-<p>指數仍在 20 日均線之上、均線仍在上揚，這是多方僅存的立足點。但 0.35% 的乖離意味著<strong>再一根中黑就會跌破</strong>，而 5 日均線 46,948 點已在指數上方 1.65% 處形成壓力。上週寫的是「均線之上的回檔，不是跌破」，本週要修正為：<strong>這仍然不是跌破，但緩衝已經薄到不足以支撐任何新增的攻擊部位</strong>。</p>
-<h3>三、9 月 11 日是帶量下跌，不是量縮整理</h3>
-<p>這一點必須與總經報告的敘述作區隔。總經報告記錄的是 9/10 的「量價背離」——成交金額連 3 日縮減至 8 月 25 日以來低點，同時融資餘額卻逆勢增加。9/11 的型態不同也更差：</p>
+<p>值得注意的是：本策略對個股要求「20 日均線斜率 &gt; 0.50%」，若把同一把尺套在指數上，<strong>9/15 至 9/17 指數本身其實是不及格的</strong>，9/18 才剛好回到 0.50%。價格面的修復很乾淨（跌破後三天內收復、9/18 乖離回到 +2%），但均線斜率的修復只到及格線。而 9/7 的波段高點 47,326 點距 9/18 收盤僅 0.31%——<strong>突破與否，是判斷這是「新一段攻勢」還是「區間上緣」的分水嶺</strong>。</p>
+<h3>三、9 月 18 日是廣度擴散的一天，這點與上週正好相反</h3>
+<p>上週的病灶是「只有小型投機股亮燈、市場寬度收縮」。9/18 的型態完全不同：</p>
 <ul>
-<li><strong>成交金額回升至 7,622 億、成交股數 101.1 億股</strong>（9/10 為 86.8 億股），量能在指數重挫 755 點的同一天放大。</li>
-<li><strong>融資餘額轉為單日減少 40.3 億</strong>至 5,878.7 億元（盤後初步統計，各授信機構次日仍會調帳，須以隔日揭示的前日餘額為準）。槓桿終於開始收縮，但<strong>是在指數大跌的同一天被動收縮</strong>，這是被迫減碼而非主動去化的型態。</li>
+<li><strong>成交金額 11,423 億元</strong>，為 9 月 1 日（11,876 億）以來最大，較 9/17 再放大 32%。</li>
+<li><strong>上市股票上漲 748 家（漲停 32 家）、下跌 251 家（跌停 0 家）</strong>，漲跌家數比約 3:1。</li>
+<li><strong>櫃買指數大漲 3.65%</strong> 至 412.68 點，漲幅是加權指數的將近兩倍，站上 8 月至 9 月區間高點（8/13 的 406.12、9/1 的 410.77），但仍低於 7 月 3 日的 445.38 點。</li>
+<li>權值股同步：台積電收 2,460 元（+1.44%），聯發科收 4,710 元（+4.67%），創意、欣銓、中砂、高力等皆以漲停或接近漲停作收。</li>
 </ul>
-<p>上週我指出融資「是在更延伸之後才剛開始收縮」；本週的補充是——收縮已經開始，但絕對水位 5,878.7 億仍高於 8 月底，去化過程尚在極早期。<strong>槓桿在下跌途中收縮，對指數是放大器而非緩衝墊。</strong></p>
-<h3>四、能源仍是唯一的自變數，而它壓在台灣的成本端</h3>
-<p>總經報告本期的主軸清楚：布蘭特原油 9/10 收每桶 108.95 美元、單日大漲 7.65%，西德州中質原油收 103.93 美元、漲 8.21%，兩大指標首度同時站上三位數；美國 8 月生產者物價指數年增率跳升至 5.4%，且分項顯示加速幾乎全部來自能源（最終需求能源單月 +4.2%、柴油月增 24.1%），服務類連續第三個月僅月增 0.1%。歐洲央行 9/10 升息 1 碼至 2.5%，是這條傳導鏈上第一個已發生的政策動作。美國 30 年期公債殖利率收 5.361%，為 2007 年以來最高。</p>
-<p>對台股的意義有三層，且都不利於攻擊型選股：</p>
+<p>總經報告在 9/17 記錄的是「單日價格修復幅度明顯大於指標與評價的修復幅度」；9/18 的放量與廣度，<strong>補上了 9/17 所缺的量能確認</strong>。這是本週研判得以轉向的核心依據。</p>
+<h3>四、仍在進行中的三項壓力（決定了只能進一半）</h3>
+<p>總經報告明確指出，本期的資料「只能確認狀態，不足以確認轉折」。對攻擊型選股而言，以下三項壓力都直接作用在本週精選池的高價成長股上：</p>
 <ol>
-<li><strong>成本端直接承受</strong>：台灣能源近乎全數進口。財政部 8 月礦產品進口年增 70.2% 為各類別之冠，主計總處 8 月消費者物價指數中 95 無鉛汽油年漲約 12%、桶裝瓦斯年漲約 11%，核心 CPI 2.30% 已連 4 個月高於 2% 警戒線。這是<strong>壓縮製造業毛利的變數，不是推升它的變數</strong>。</li>
-<li><strong>評價端被長端利率壓制</strong>：30 年期公債殖利率創 18 年新高，對高本益比、高股價的成長股是直接的折現率壓力。本週精選池中有 663 元的營邦、828 元的大量、302 元的統新，全部落在這個壓力區。</li>
-<li><strong>事件風險未被定價完成</strong>：總經報告 20 則新聞中有 9 則與荷姆茲海峽、伊朗、油輪、制裁相關；沙烏地阿拉伯 8 月原油日產量驟減 112 萬桶至 698 萬桶、為 1990 年以來最低。恐慌指數 9/10 升至近 60 個交易日的第 80 百分位——<strong>這與上週的第 3 百分位是完全相反的狀態</strong>。上週的問題是「風險未被定價」，本週的問題是「風險已開始被定價，而重定價尚未結束」。</li>
+<li><strong>折現率仍在高檔</strong>：聯準會 9/16 以 12-0 升息 1 碼至 3.75%-4.00%，為 2023 年 7 月以來首度升息。美國 10 年期公債殖利率 9/17 雖自 5.006% 回落至 4.947%，仍距 2007 年以來高點僅約 6 個基點。本週精選池中有創意 7,150 元、聯發科 4,710 元、奇鋐 3,430 元、雙鴻 1,480 元、高力 1,430 元，<strong>高價股佔比明顯高於上週</strong>，對折現率的敏感度也更高。</li>
+<li><strong>能源傳導鏈尚未鬆動</strong>：布蘭特原油雖連兩日回落至每桶 104.09 美元，但歐洲汽油餾分油與美國超低硫柴油期貨 9/15 才創歷史新高，沙烏地東西向輸油管線受損程度還被上修。台灣核心 CPI 2.30% 已連 4 個月高於 2%，而台灣央行選擇不動並放寬房貸成數，<strong>與聯準會方向分岔</strong>，新臺幣匯率的穩定度仍待觀察。</li>
+<li><strong>槓桿與避險同步擴張</strong>：融資餘額連 3 日回升至 5,940.4 億元，9/17 融券單日增加近一成、9/18 再增至 222,965 交易單位。多空兩側部位同時變厚，代表市場對方向的分歧並未因兩天大漲而消失；一旦突破失敗，融資的回吐會放大下跌。</li>
 </ol>
-<h3>五、對選股池的直接衝擊：防禦輪動已經寫在名單裡</h3>
-<p>最值得記住的一句話是：<strong>當台灣大（3045）能以 20 日均線斜率排進全市場前 21 名，這份名單反映的就不是攻擊機會，而是防禦輪動。</strong></p>
-<p>本週 21 檔精選池中，台塑化、南亞、和益、彰源、台航、裕民、新興、台灣大共 8 檔屬石化、鋼鐵、航運與電信，佔比 38%。上週那份「AI 機櫃物料清單」式的名單已經解體。這不是分散度改善，而是<strong>市場寬度收縮後，防禦性與能源受惠標的被動能篩選器撈上來</strong>的結果。</p>
-<p>更直接的證據在 9 月 11 日當天：精選池 21 檔中有 12 檔下跌，而漲幅最大的兩檔是聯一光（+9.93% 漲停）與晟鈦（+9.93% 漲停）——<strong>在指數重挫 755 點、外資賣超近 900 億的一天，只有小型投機股亮燈</strong>。這是資金退潮期的典型特徵，不是攻擊訊號。</p>
+<p>此外，下週有一項已排定的事件：美國總統將在白宮為來訪的中國國家主席舉行國宴。這屬於結果未知的事件風險，本文不預判方向，但建議不要在事件前把部位一次建滿。</p>
 <h3>操作結論</h3>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">面向</th>
 <th style="text-align: left;">判定</th>
-<th style="text-align: left;">依據（均為 9/10 至 9/11 已實現數據）</th>
+<th style="text-align: left;">依據</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td style="text-align: left;">重啟條件</td>
+<td style="text-align: left;">[O] 兩項皆成立</td>
+<td style="text-align: left;">外資 9/17、9/18 連 2 日買超；指數收 47,180.75 站上 46,948</td>
+</tr>
+<tr>
 <td style="text-align: left;">趨勢結構</td>
-<td style="text-align: left;">[!] 未破但緩衝耗盡</td>
-<td style="text-align: left;">20 日乖離僅 +0.35%、60 日乖離由 3.81 收斂至 2.13</td>
+<td style="text-align: left;">[!] 剛回到門檻</td>
+<td style="text-align: left;">20 日乖離 +2.00%，但 20 日均線斜率僅 +0.50%；前高 47,326 未破</td>
+</tr>
+<tr>
+<td style="text-align: left;">量能與廣度</td>
+<td style="text-align: left;">[O] 明顯改善</td>
+<td style="text-align: left;">成交 11,423 億；上市漲跌家數 748:251；櫃買 +3.65%</td>
 </tr>
 <tr>
 <td style="text-align: left;">景氣基本面</td>
 <td style="text-align: left;">[O] 仍強勁</td>
-<td style="text-align: left;">8 月出口 824 億美元年增 41% 創新高、製造業 PMI 62.5、景氣連 8 紅</td>
+<td style="text-align: left;">8 月出口年增 41% 創新高、製造業 PMI 62.5、外銷訂單連 18 紅</td>
 </tr>
 <tr>
-<td style="text-align: left;">資金流向</td>
-<td style="text-align: left;">[X] 大幅惡化</td>
-<td style="text-align: left;">外資 9/11 賣超 892.7 億、三大法人合計 -1,112.6 億</td>
+<td style="text-align: left;">利率與匯率</td>
+<td style="text-align: left;">[!] 壓力未解</td>
+<td style="text-align: left;">聯準會升息；美 10 年債 4.947% 仍近 19 年高點；台美央行方向分岔</td>
 </tr>
 <tr>
-<td style="text-align: left;">量價型態</td>
-<td style="text-align: left;">[X] 帶量下跌</td>
-<td style="text-align: left;">指數 -755.64 點同日成交金額不縮反增至 7,622 億</td>
+<td style="text-align: left;">能源與地緣</td>
+<td style="text-align: left;">[!] 進行中</td>
+<td style="text-align: left;">布蘭特仍在 100 美元之上，成品油期貨剛創高，中東供應鏈受損上修</td>
 </tr>
 <tr>
 <td style="text-align: left;">槓桿</td>
-<td style="text-align: left;">[X] 下跌途中被動收縮</td>
-<td style="text-align: left;">融資餘額單日 -40.3 億，但水位仍高於 8 月底</td>
-</tr>
-<tr>
-<td style="text-align: left;">風險定價</td>
-<td style="text-align: left;">[X] 重定價進行中</td>
-<td style="text-align: left;">恐慌指數 60 日百分位 80、30 年期美債殖利率 2007 年以來最高</td>
-</tr>
-<tr>
-<td style="text-align: left;">族群動能</td>
-<td style="text-align: left;">[X] 防禦輪動</td>
-<td style="text-align: left;">精選池 38% 為石化航運鋼鐵電信、9/11 僅兩檔小型股漲停</td>
+<td style="text-align: left;">[!] 兩側同步擴張</td>
+<td style="text-align: left;">融資連 3 日增至 5,940.4 億、融券同步增加</td>
 </tr>
 </tbody>
 </table>
-<p>上週的建議是「不加碼、等待條件觸發」；本週條件檢核全否，且指數本身補跌 755 點。<strong>因此本週的動作不是繼續等待，而是主動降低整體攻擊部位權重。</strong> 重新啟動的條件維持不變並加嚴為兩項須同時成立：外資連續 2 日轉為買超，且加權指數重新站上 5 日均線（46,948 點附近）。若指數失守 20 日均線 46,025 點，應無條件將攻擊部位降至最低。</p>
+<p><strong>執行規則</strong>：</p>
+<ul>
+<li><strong>本週先建立一半部位</strong>，優先選擇「單月與累計營收年增一致、且股價距 20 日均線不超過約 20%」的標的（見下節）。</li>
+<li><strong>補足另一半的條件</strong>：加權指數收盤突破 47,326 點，且外資維持買超。</li>
+<li><strong>撤退條件</strong>：加權指數收盤跌破 20 日均線（目前約 46,258 點，會隨日推移）即再度降至最低部位；上週的經驗說明這條線被跌破的速度可以非常快。</li>
+</ul>
 <h2>核心標的深度點評</h2>
-<p>在逐檔之前，有三項結構性觀察。第三項會直接改變這份名單的排序，請務必先讀。</p>
-<h3>觀察一：本週的「分數」只是 20 日均線斜率乘以 100，不含任何基本面資訊</h3>
-<p>把 21 檔逐筆核對後可確認：Score 欄位等於 M20_Slope 乘以 100，<strong>完全沒有例外</strong>（0.0341 對 3.41、0.0296 對 2.96，一路到 0.0056 對 0.56）。ROE 與營收年增率在這套篩選器裡是<strong>通過與否的門檻</strong>（ROE &gt; 8%、YoY &gt; 5%），不參與排名。</p>
-<p>這個機制解釋了三件反直覺的事：聯一光以 12.1% 的營收年增率坐上榜首；台灣大以 7.14% 的年增率擠進名單；而 ROE 29.72%、營收年增 152.87% 的大量只排第 11。<strong>排名高不代表基本面好，只代表 20 日均線這 20 天比較陡。</strong> 任何把名次當作品質排序的讀法都會出錯。</p>
-<p>還有一個更麻煩的副作用：20 日均線斜率是落後指標。瀚荃本週股價下跌 7.76%，名次卻從上週第 5 升到第 3；富喬斜率幾乎沒動（0.0153 對 0.0156），名次從第 12 跳到第 5。<strong>它們不是變強了，是周圍的標的衰退得更快。</strong> 這正是上週「整池分數向下平移」的延續，而且更極端——本週只有 2 檔分數超過 2.0，10 檔低於 1.0。</p>
-<h3>觀察二：篩選器用的是 7 月營收，8 月營收已在 9 月 10 日前公告完畢</h3>
-<p>本週精選池的 ROE 與營收年增率欄位，與上週報告<strong>逐字完全相同</strong>（聯一光 12.10、大甲 38.52、瀚荃 34.29、順德 54.00、陽程 712.57……）。價格資料已更新至 9/11，但基本面欄位停留在 7 月，8 月數字尚未併入。</p>
-<p>我另外調閱了 8 月的全市場月營收公告，結果對名單的解讀影響很大——<strong>排序前段有一檔的成長已經歸零</strong>。以下為 21 檔的完整對照：</p>
+<p>在逐檔之前，先交代三項結構性觀察。第二項會直接改變名單的使用方式，請先讀。</p>
+<h3>觀察一：名單從防禦輪動回到科技主軸，寬度由 21 檔擴至 33 檔</h3>
+<p>本週精選池 33 檔，較上週 21 檔擴張 57%。組成的變化比數量更重要：</p>
+<ul>
+<li><strong>上週 21 檔中有 8 檔屬石化、鋼鐵、航運與電信（佔 38%）</strong>；本週台航、裕民、新興、台灣大全數出榜，僅剩南亞、和益、台塑化、彰源 4 檔（佔 12%）。</li>
+<li><strong>半導體 9 檔</strong>（巨有科技、欣銓、穩懋、晶宏、創意、順德、矽格、聯發科、晶豪科）、<strong>散熱 4 檔</strong>（雙鴻、高力、奇鋐、建準）成為主體，AI 伺服器供應鏈重新回到名單中心。</li>
+<li>上週榜首聯一光出榜。其 8 月營收年增僅 0.86%，已低於 L4 的 5% 門檻，與上週「成長已歸零」的判斷一致。</li>
+</ul>
+<p>這與上一節的大盤研判互相印證：<strong>上週名單反映的是防禦輪動，本週名單反映的是風險偏好回到科技股</strong>。分數機制與上週相同，Score 仍等於 20 日均線斜率乘以 100，ROE 與營收年增率只負責門檻、不參與排序。</p>
+<h3>觀察二：本週篩選器已換用 8 月營收，但「單月過門檻、累計仍衰退」的標的混進來了</h3>
+<p>上週指出篩選器仍停在 7 月營收；本週 YoY 欄位已全數更新為 8 月數字（例如大甲 81.31%、統新 78.20%，與上週查得的 8 月值一致）。但 L4 門檻只看單月年增率，因此<strong>低基期與專案認列的單月跳升會直接通過篩選</strong>。以本地月營收資料計算 1-8 月累計年增後，名單中有 3 檔的累計營收仍是衰退或近乎停滯：</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">代碼</th>
 <th style="text-align: left;">名稱</th>
-<th style="text-align: right;">篩選器採用（7 月）</th>
-<th style="text-align: right;">8 月實際 YoY</th>
+<th style="text-align: right;">8 月 YoY（篩選器採用）</th>
+<th style="text-align: right;">7 月 YoY</th>
 <th style="text-align: right;">1-8 月累計 YoY</th>
 <th style="text-align: left;">判讀</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">3441</td>
-<td style="text-align: left;">聯一光</td>
-<td style="text-align: right;">+12.10%</td>
-<td style="text-align: right;"><strong>+0.86%</strong></td>
-<td style="text-align: right;">+28.23%</td>
-<td style="text-align: left;">[!] 成長已歸零</td>
+<td style="text-align: left;">6148</td>
+<td style="text-align: left;">驊宏資</td>
+<td style="text-align: right;">+95.40%</td>
+<td style="text-align: right;">-69.65%</td>
+<td style="text-align: right;"><strong>-34.77%</strong></td>
+<td style="text-align: left;">[X] 去年 8 月低基期（當月年減 57%）</td>
 </tr>
 <tr>
-<td style="text-align: left;">2221</td>
-<td style="text-align: left;">大甲</td>
-<td style="text-align: right;">+38.52%</td>
-<td style="text-align: right;">+81.31%</td>
-<td style="text-align: right;">+29.09%</td>
-<td style="text-align: left;">加速</td>
+<td style="text-align: left;">6221</td>
+<td style="text-align: left;">晉泰</td>
+<td style="text-align: right;">+21.47%</td>
+<td style="text-align: right;">-50.54%</td>
+<td style="text-align: right;"><strong>-27.96%</strong></td>
+<td style="text-align: left;">[X] 單月月增 76%，屬出貨時點</td>
 </tr>
 <tr>
-<td style="text-align: left;">8103</td>
-<td style="text-align: left;">瀚荃</td>
-<td style="text-align: right;">+34.29%</td>
-<td style="text-align: right;">+51.59%</td>
-<td style="text-align: right;">+30.55%</td>
-<td style="text-align: left;">加速</td>
+<td style="text-align: left;">3066</td>
+<td style="text-align: left;">李洲</td>
+<td style="text-align: right;">+18.89%</td>
+<td style="text-align: right;">-60.19%</td>
+<td style="text-align: right;"><strong>+3.5%</strong></td>
+<td style="text-align: left;">[X] 月營收僅約 2 千萬元，ROE 與營收規模不相稱</td>
 </tr>
 <tr>
-<td style="text-align: left;">6426</td>
-<td style="text-align: left;">統新</td>
-<td style="text-align: right;">+52.70%</td>
-<td style="text-align: right;">+78.20%</td>
-<td style="text-align: right;">+68.31%</td>
-<td style="text-align: left;">[O] 單月與累計最一致</td>
-</tr>
-<tr>
-<td style="text-align: left;">1815</td>
-<td style="text-align: left;">富喬</td>
-<td style="text-align: right;">+68.10%</td>
-<td style="text-align: right;">+79.20%</td>
-<td style="text-align: right;">+51.19%</td>
-<td style="text-align: left;">加速且累計高</td>
-</tr>
-<tr>
-<td style="text-align: left;">2351</td>
-<td style="text-align: left;">順德</td>
-<td style="text-align: right;">+54.00%</td>
-<td style="text-align: right;">+61.22%</td>
-<td style="text-align: right;">+32.46%</td>
-<td style="text-align: left;">加速</td>
-</tr>
-<tr>
-<td style="text-align: left;">3229</td>
-<td style="text-align: left;">晟鈦</td>
-<td style="text-align: right;">+76.76%</td>
-<td style="text-align: right;">+80.40%</td>
-<td style="text-align: right;">+63.05%</td>
-<td style="text-align: left;">加速</td>
-</tr>
-<tr>
-<td style="text-align: left;">3141</td>
-<td style="text-align: left;">晶宏</td>
-<td style="text-align: right;">+39.60%</td>
-<td style="text-align: right;">+79.77%</td>
-<td style="text-align: right;">+23.93%</td>
-<td style="text-align: left;">[!] 近月才衝</td>
+<td style="text-align: left;">2454</td>
+<td style="text-align: left;">聯發科</td>
+<td style="text-align: right;">+44.08%</td>
+<td style="text-align: right;">+12.15%</td>
+<td style="text-align: right;">+5.8%</td>
+<td style="text-align: left;">[!] 單月月增 32%，全年成長仍低</td>
 </tr>
 <tr>
 <td style="text-align: left;">6218</td>
 <td style="text-align: left;">豪勉</td>
-<td style="text-align: right;">+34.19%</td>
 <td style="text-align: right;">+52.85%</td>
-<td style="text-align: right;">+17.20%</td>
-<td style="text-align: left;">[!] 累計全池最弱</td>
+<td style="text-align: right;">+34.19%</td>
+<td style="text-align: right;">+17.2%</td>
+<td style="text-align: left;">[!] 專案驗收認列</td>
 </tr>
 <tr>
-<td style="text-align: left;">3693</td>
-<td style="text-align: left;">營邦</td>
-<td style="text-align: right;">+148.92%</td>
-<td style="text-align: right;">+171.01%</td>
-<td style="text-align: right;">+25.27%</td>
-<td style="text-align: left;">[!] 低基期回補</td>
-</tr>
-<tr>
-<td style="text-align: left;">3167</td>
-<td style="text-align: left;">大量</td>
-<td style="text-align: right;">+152.87%</td>
-<td style="text-align: right;">+152.97%</td>
-<td style="text-align: right;">+135.15%</td>
-<td style="text-align: left;">[O] 全池唯一高檔一致</td>
-</tr>
-<tr>
-<td style="text-align: left;">3498</td>
-<td style="text-align: left;">陽程</td>
-<td style="text-align: right;">+712.57%</td>
-<td style="text-align: right;">+326.04%</td>
-<td style="text-align: right;">+154.79%</td>
-<td style="text-align: left;">[!] 專案認列，已明顯回落</td>
-</tr>
-<tr>
-<td style="text-align: left;">1709</td>
-<td style="text-align: left;">和益</td>
-<td style="text-align: right;">+83.29%</td>
-<td style="text-align: right;">+82.66%</td>
-<td style="text-align: right;">+22.25%</td>
-<td style="text-align: left;">單月高、累計低</td>
-</tr>
-<tr>
-<td style="text-align: left;">6505</td>
-<td style="text-align: left;">台塑化</td>
-<td style="text-align: right;">+32.34%</td>
-<td style="text-align: right;">+50.28%</td>
-<td style="text-align: right;">+16.71%</td>
-<td style="text-align: left;">[!] 油價換算</td>
-</tr>
-<tr>
-<td style="text-align: left;">2617</td>
-<td style="text-align: left;">台航</td>
-<td style="text-align: right;">+34.09%</td>
-<td style="text-align: right;">+22.29%</td>
-<td style="text-align: right;">+19.00%</td>
-<td style="text-align: left;">[!] 減速</td>
-</tr>
-<tr>
-<td style="text-align: left;">2606</td>
-<td style="text-align: left;">裕民</td>
-<td style="text-align: right;">+26.33%</td>
-<td style="text-align: right;">+18.15%</td>
-<td style="text-align: right;">+25.10%</td>
-<td style="text-align: left;">[!] 減速</td>
-</tr>
-<tr>
-<td style="text-align: left;">2030</td>
-<td style="text-align: left;">彰源</td>
-<td style="text-align: right;">+41.19%</td>
-<td style="text-align: right;">+57.69%</td>
-<td style="text-align: right;">+20.40%</td>
-<td style="text-align: left;">加速</td>
-</tr>
-<tr>
-<td style="text-align: left;">1303</td>
-<td style="text-align: left;">南亞</td>
-<td style="text-align: right;">+44.53%</td>
-<td style="text-align: right;">+46.74%</td>
-<td style="text-align: right;">+23.16%</td>
-<td style="text-align: left;">持平</td>
-</tr>
-<tr>
-<td style="text-align: left;">2421</td>
-<td style="text-align: left;">建準</td>
-<td style="text-align: right;">+31.65%</td>
-<td style="text-align: right;">+26.03%</td>
-<td style="text-align: right;">+21.08%</td>
-<td style="text-align: left;">減速</td>
-</tr>
-<tr>
-<td style="text-align: left;">2605</td>
-<td style="text-align: left;">新興</td>
-<td style="text-align: right;">+36.26%</td>
-<td style="text-align: right;">+58.75%</td>
-<td style="text-align: right;">+38.71%</td>
-<td style="text-align: left;">加速</td>
-</tr>
-<tr>
-<td style="text-align: left;">3045</td>
-<td style="text-align: left;">台灣大</td>
-<td style="text-align: right;">+7.14%</td>
-<td style="text-align: right;">+8.49%</td>
-<td style="text-align: right;">+4.72%</td>
-<td style="text-align: left;">貼著門檻</td>
+<td style="text-align: left;">8227</td>
+<td style="text-align: left;">巨有科技</td>
+<td style="text-align: right;">+42.24%</td>
+<td style="text-align: right;">-13.54%</td>
+<td style="text-align: right;">+73.2%</td>
+<td style="text-align: left;">[!] 單月起伏大，但累計高</td>
 </tr>
 </tbody>
 </table>
-<p><strong>用「單月與累計的距離」讀這張表，比讀任何單一數字都有用</strong>：兩者接近代表成長是結構性的（大量、統新），單月遠高於累計代表是近月才發生的（晶宏、豪勉、營邦、和益），單月低於累計代表正在減速（聯一光、台航）。</p>
-<h3>觀察三：把台塑化、南亞、台航、裕民歸為同一組「能源受惠股」是錯的</h3>
-<p>這是本週最容易犯的分類錯誤。四檔的曝險方向其實兩兩相反：</p>
-<ul>
-<li><strong>台塑化（6505）是賺價差、但毛利被政策設了上限。</strong> 8 月營收 819.06 億元、年增 50.28%，但累計年增僅 16.71%——<strong>這個年增率主要是原油價格換算出來的，不是銷量成長</strong>。煉油毛差確實因中東與俄羅斯煉廠受損、新增產能有限而維持強勢，但公司自 2026 年 5 月起配合國內油價凍漲政策，須吸收約 50 億元成本。也就是說，油價上漲對它是「營收確定放大、毛利被行政措施壓抑」的組合。</li>
-<li><strong>南亞（1303）在原油這條線上是成本承受方。</strong> 它的輕油是原料不是產品，原油大漲推升的是成本端。南亞近月的實質亮點在<strong>電子材料（高階基板需求）</strong>，那是 AI 曝險而非能源曝險。把它和台塑化併列會完全誤判它的驅動來源。</li>
-<li><strong>台航（2617）與裕民（2606）以散裝為主，領不到油輪的天價運費。</strong> 總經報告記錄中東至中國基準航線的超大型油輪日收益逼近 80 萬美元創歷史新高，但那是 VLCC 原油輪的價格，不會進到散裝船東的帳上。實證也支持：兩檔 8 月營收年增率<strong>雙雙減速</strong>（台航 22.29%、裕民 18.15%），與「荷姆茲海峽受阻」的敘事方向相反。散裝的真正長線變數是西芒度鐵礦 2026 年放量——西非至中國航程達 11,000 海里、較澳洲線倍增，靠削減海岬型船的有效供給來推升運價，<strong>與油價無關</strong>。</li>
-<li><strong>新興（2605）是唯一有實質油輪曝險的一檔</strong>，8 月年增 58.75%、累計 38.71% 是三檔中唯一加速者。但須扣一層：公司採「60% 長約、40% 現貨」策略，且僅 3 艘 VLCC，<strong>天價現貨租金只反映在四成運力的一小部分上</strong>，不能用日租金漲幅直接推估獲利彈性。</li>
-</ul>
-<p>結論：<strong>「油價漲所以買航運」在這份名單上是錯誤連結。</strong> 本週能源衝擊的真正受益者只有新興的部分船隊，其餘三檔各有各的故事，不構成同一個籃子。</p>
+<p>作為對照，以下是單月與累計高度一致、成長屬結構性的標的：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">代碼</th>
+<th style="text-align: left;">名稱</th>
+<th style="text-align: right;">8 月 YoY</th>
+<th style="text-align: right;">1-8 月累計 YoY</th>
+<th style="text-align: right;">ROE%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">3167</td>
+<td style="text-align: left;">大量</td>
+<td style="text-align: right;">+152.97%</td>
+<td style="text-align: right;">+135.2%</td>
+<td style="text-align: right;">29.72</td>
+</tr>
+<tr>
+<td style="text-align: left;">8996</td>
+<td style="text-align: left;">高力</td>
+<td style="text-align: right;">+112.83%</td>
+<td style="text-align: right;">+115.0%</td>
+<td style="text-align: right;">26.97</td>
+</tr>
+<tr>
+<td style="text-align: left;">3443</td>
+<td style="text-align: left;">創意</td>
+<td style="text-align: right;">+111.02%</td>
+<td style="text-align: right;">+103.8%</td>
+<td style="text-align: right;">38.83</td>
+</tr>
+<tr>
+<td style="text-align: left;">3324</td>
+<td style="text-align: left;">雙鴻</td>
+<td style="text-align: right;">+67.17%</td>
+<td style="text-align: right;">+81.0%</td>
+<td style="text-align: right;">30.43</td>
+</tr>
+<tr>
+<td style="text-align: left;">3017</td>
+<td style="text-align: left;">奇鋐</td>
+<td style="text-align: right;">+54.34%</td>
+<td style="text-align: right;">+76.1%</td>
+<td style="text-align: right;">53.37</td>
+</tr>
+<tr>
+<td style="text-align: left;">6426</td>
+<td style="text-align: left;">統新</td>
+<td style="text-align: right;">+78.20%</td>
+<td style="text-align: right;">+68.3%</td>
+<td style="text-align: right;">15.28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>這兩張表的結論很直接：驊宏資、晉泰、李洲三檔應從候選中剔除</strong>，它們是被單月數字「騙過」L4 門檻的；而第二張表的六檔，除統新外全數排在第 6 名之後。</p>
+<h3>觀察三：前段班的價格乖離已達極端值</h3>
+<p>本週排名前段的小型股，多數在一週內完成 20% 至 40% 的漲幅，距 20 日均線的乖離遠超過指數層級的 +2%：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">排名</th>
+<th style="text-align: left;">名稱</th>
+<th style="text-align: right;">9/11 收盤</th>
+<th style="text-align: right;">9/18 收盤</th>
+<th style="text-align: right;">週漲幅</th>
+<th style="text-align: right;">距 20 日均線</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">大甲</td>
+<td style="text-align: right;">95.40</td>
+<td style="text-align: right;">127.50</td>
+<td style="text-align: right;">+33.6%</td>
+<td style="text-align: right;"><strong>+44.7%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">巨有科技</td>
+<td style="text-align: right;">239.00</td>
+<td style="text-align: right;">279.00</td>
+<td style="text-align: right;">+16.7%</td>
+<td style="text-align: right;"><strong>+43.2%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">豪勉</td>
+<td style="text-align: right;">44.90</td>
+<td style="text-align: right;">61.60</td>
+<td style="text-align: right;">+37.2%</td>
+<td style="text-align: right;"><strong>+36.3%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">統新</td>
+<td style="text-align: right;">302.00</td>
+<td style="text-align: right;">373.50</td>
+<td style="text-align: right;">+23.7%</td>
+<td style="text-align: right;">+28.1%</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">驊宏資</td>
+<td style="text-align: right;">31.00</td>
+<td style="text-align: right;">39.85</td>
+<td style="text-align: right;">+28.5%</td>
+<td style="text-align: right;">+31.1%</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">雙鴻</td>
+<td style="text-align: right;">1,360</td>
+<td style="text-align: right;">1,480</td>
+<td style="text-align: right;">+8.8%</td>
+<td style="text-align: right;">+13.8%</td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">高力</td>
+<td style="text-align: right;">1,330</td>
+<td style="text-align: right;">1,430</td>
+<td style="text-align: right;">+7.5%</td>
+<td style="text-align: right;">+13.7%</td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">創意</td>
+<td style="text-align: right;">6,120</td>
+<td style="text-align: right;">7,150</td>
+<td style="text-align: right;">+16.8%</td>
+<td style="text-align: right;">+18.2%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>20 日均線斜率排序，本質上會把乖離最大的標的排在最前面。</strong> 在大盤剛從跌破 20 日均線回來、只允許建一半部位的本週，前五名反而是風險報酬比最差的一組。</p>
 <hr />
 <h3>逐檔拆解</h3>
-<p><strong>3441 聯一光（光電業，Score 3.41，榜首）— 全池最尖銳的矛盾：動能第一，成長歸零</strong></p>
-<p>這一檔是本週必須單獨拉出來講的。技術面它是全場最強：20 日均線斜率 3.41% 排名第一，股價一週由 143 元漲至 166 元（+16.08%），9 月 11 日更在指數重挫 755 點的同一天亮燈漲停（+9.93%）。</p>
-<p><strong>指標矛盾（本週最嚴重的一組）</strong>：8 月營收 4,391.6 萬元，<strong>年增率僅 +0.86%、月減 14.52%</strong>。1-8 月累計 3.505 億元、累計年增 28.23%，較 1-7 月的 33.43% 進一步下滑。上週我指出「累計成長率遠高於最新單月，代表動能不是在加速而是在減速」——8 月數字把這個判斷推到了終點：<strong>成長不只是減速，是已經停住了</strong>。而篩選器採用的 7 月數字 12.10% 尚且看不出這一點。</p>
-<p><strong>風險</strong>：公司主業為光學玻璃毛胚與鏡片、稜鏡加工，年營收約 5 億元級距。支撐 166 元股價的是 CPO 光通訊、無人機與機器人視覺的題材，而光通訊光學元件目前仍未取得具規模的訂單——這條線在現階段依然是選擇權而非業績。<strong>在成長歸零的月份放量漲停，且漲停日大盤重挫，這是資金行為而非基本面重估。</strong> 上週評為「前十名中風險報酬比最差」，本週證據更強，維持避開。</p>
-<p><strong>2221 大甲（其他業，Score 2.96，第 2）— 上週的疑點已獲驗證，但規模仍是硬傷</strong></p>
-<p>上週我對它的保留是：「營收 YoY 38.52% 是單月數字，累計僅 21.73%，成長是近月才加速，持續性尚待驗證」。<strong>8 月數據給了正面答案</strong>：單月營收 1.99 億元、年增 81.31%（優於 7 月的 38.52%），累計 11.46 億元、累計年增升至 29.09%。加速是真的，且累計值正在被拉上來。</p>
-<p>驅動來源清楚：不鏽鋼焊接管配件，潔淨級產品供應半導體與光電廠的廠務管線，受惠於<strong>晶圓廠與先進封裝建廠的資本支出</strong>。這使它成為名單中少數不與費城半導體指數直接連動的電子相關標的。</p>
-<p><strong>風險</strong>：年營收十餘億元的極小型公司，9/10 單日跳漲 9.9%（87.8 元至 96.5 元）、9/11 回吐 1.14%，波動度極高。ROE 11.83% 也顯示這是量的成長而非獲利結構躍升。廠務管線訂單與建廠週期綁定，客戶擴產節奏一旦放緩，能見度會迅速消失。維持觀察評價，不宜當核心部位。</p>
-<p><strong>6426 統新（通信網路業，Score 1.57，第 4）— 全池成長品質最一致，但獲利歷史太短</strong></p>
-<p>如果只看「成長的品質」，這是名單裡最乾淨的一檔：8 月營收 7,334 萬元、年增 78.20%，1-8 月累計 5.14 億元、累計年增 68.31%——<strong>單月與累計幾乎重合，代表這不是某個月的一次性跳增，而是一條穩定的成長曲線</strong>。1-7 月累計年增 66.77% 也在同一區間。</p>
-<p>業務進展具體：資料中心用 800G 模組濾光片已進入量產，次世代 1.6T 模組濾光片展開試量產；分波多工（WDM）濾光片切入低軌衛星供應鏈、應用於星間通訊並已小批量交付。2026 年兩大成長主軸為雲端市場與美國 BEAD 通訊基礎建設。</p>
-<p><strong>指標矛盾</strong>：ROE 15.28% 看起來健康，但必須知道它的來歷——<strong>公司是在 2025 年第三季才單季恢復獲利，走出前兩年的營運低谷</strong>。這個 ROE 是在被前幾年虧損壓低的股東權益基數上、用很短的獲利歷史算出來的，與長期穩定經營者的同等數字不可類比。</p>
-<p><strong>風險</strong>：302 元的股價已計入轉機完成的劇本，9/11 單日回檔 6.21%（在此之前一週漲 12.06%）顯示部位相當浮動。更關鍵的是<strong>題材重疊</strong>：它與榜首聯一光同屬 CPO／光通訊光學元件族群，而費城半導體指數 9/10 已跌破 20 日均線、單日重挫 2.66% 為全表最深。同時持有兩檔並不構成分散。</p>
-<p><strong>1815 富喬（電子零組件業，Score 1.56，第 5）— 故事最完整，但籌碼最擁擠</strong></p>
-<p>基本面在名單中最扎實：8 月營收 9.12 億元、年增 79.20%，1-8 月累計 57.79 億元、累計年增 51.19%，單月與累計皆為高檔。第二季毛利率達 40%。公司自 2026 年 7 月 1 日起調漲 E-glass 玻纖布 30%、FLD2 玻纖布 15%。2026 年首要任務是「高階產能倍增計畫」，要把 Low-Dk 與 Low-CTE 先進製程產品的產能佔比從 2025 年底的 17.5% 拉升至 60%；泰國新廠投資已啟動，預計明年下半年開始出貨。</p>
-<p><strong>指標矛盾</strong>：毛利率 40%、營收年增 79%，ROE 卻只有 14.74%。解釋與統新類似但更明確——<strong>公司是在 2025 年前三季才轉盈、EPS 僅 0.81 元</strong>，股東權益基數承載著先前數年的虧損，而正在進行的倍增計畫仍在資本化階段，獲利槓桿尚未完全釋放。這是「轉機剛發生」而非「高獲利平台已建立」。</p>
-<p><strong>風險</strong>：本週 5 日均量高達 70,342 張，為 21 檔中最高，對 127.5 元的股價而言籌碼相當擁擠。名次從上週第 12 跳到本週第 5，但 20 日均線斜率幾乎沒動（0.0153 至 0.0156）——<strong>這個名次是別人退得比較快換來的，不是自己走得比較強</strong>。在外資單日賣超 893 億的環境下，高換手標的的賣壓放大效果最明顯。</p>
-<p><strong>8103 瀚荃（電子零組件業，Score 1.60，第 3）— 基本面追上來了，但股價本週是跌的</strong></p>
-<p>8 月營收 4.03 億元、年增 51.59%（優於 7 月的 34.29%），累計 28.06 億元、年增 30.55%。上週我指出「題材的等級高於目前財務數字的等級」——8 月數字讓兩者的差距縮小了一些，AI 伺服器電源供應器與電池備援模組連接器的轉型正在進入財報。</p>
-<p><strong>指標矛盾</strong>：名次由第 5 升至第 3，<strong>但本週股價下跌 7.76%（122.5 元至 113 元）</strong>。這是觀察一所描述的落後性最清楚的例證：20 日均線斜率還記得前面那段漲勢，價格卻已經反向。若把名次當買進理由，買到的是一段已經結束的動能。</p>
-<p><strong>風險</strong>：處在 AI 電源鏈的第三層（雲端業者至電源廠至連接器廠），距終端需求最遠，需求變動傳導過來時有庫存調整的放大效應。ROE 11.03% 仍屬中段。</p>
-<p><strong>3229 晟鈦（電子零組件業，Score 1.25，第 7）— 名單中最燙手的一檔，但名次完全跟不上</strong></p>
-<p>主業為 PCB 上游的磷銅球製造與下游 PCB 鑽孔代工，受惠 AI 伺服器、資料中心與高速網通板需求。8 月營收 1.41 億元、年增 80.40%，累計 10.42 億元、累計年增 63.05%，單月與累計都強。第一季 EPS 0.55 元、年增 816.67%，已由虧轉盈。</p>
-<p><strong>指標矛盾</strong>：本週股價大漲 35.54%、9/11 亮燈漲停，<strong>分數卻只有 1.25、排名第 7</strong>。原因同樣是 20 日均線斜率的平滑效應還沒反映這波急拉。這檔的訊息是反向的——<strong>當一檔股票一週漲 35% 而動能排名只有第 7，代表這波上漲太急、20 日結構還沒跟上，追價者承擔的是純粹的價格風險</strong>。</p>
-<p><strong>風險</strong>：它與富喬（玻纖布）、大量（PCB 鑽孔機）共用同一條 AI 高階 PCB 的終端需求。三檔同時持有不是分散，是同一筆資本支出的三種表達。ROE 12.51% 在剛轉盈的公司身上，同樣有基數偏低的問題。</p>
-<p><strong>3167 大量（電機機械，Score 1.00，第 11）— 全池基本面最強，動能排名第 11，這個落差本身就是重點</strong></p>
-<p>必須把這一檔的數字完整攤開：8 月營收 12.20 億元、年增 152.97%，1-8 月累計 71.72 億元、<strong>累計年增 135.15%</strong>。這是全池唯一一檔單月與累計都在 150%／135% 這種高檔且彼此一致的標的——代表成長是結構性的，不靠低基期。2025 年全年營收 50.77 億元，較 2024 年的約 16 億元成長逾兩倍，毛利率提升至 39%。ROE 29.72% 為 21 檔之冠，且與上述獲利結構完全自洽。</p>
-<p>業務面同樣扎實：AI 伺服器帶動高階 PCB 鑽孔機需求，訂單交期已排至 2026 年 9 至 10 月、部分客戶預訂 2027 年產能；半導體端切入先進封裝的量測（Metrology）與光學檢測（AOI），已進入 CoWoS 製程的晶圓代工與封測供應鏈。南京新廠 2025 年 12 月投產，集團月產能由 250 台提升至 300 台。</p>
-<p><strong>指標矛盾（這一檔的矛盾在價格，不在財報）</strong>：基本面全場第一，動能排名卻只有第 11。原因是股價五個交易日內走了 803 至 938 至 828 元——<strong>自高點回落 11.7%</strong>，把 20 日均線斜率壓了下來。這是上週點評奇鋐與聯發科時講過的同一類情況：好公司未必是好買點。</p>
-<p><strong>風險</strong>：產品組合約 90% 為 PCB 鑽孔機、約 10% 為半導體設備，本質是<strong>設備商</strong>，訂單能見度是斷點式的，交機集中認列後會出現空窗。828 元的股價搭配單週 11.7% 的振幅，在 30 年期美債殖利率創 18 年新高的折現環境下，回檔的幅度不會小。<strong>這是名單中唯一值得列入觀察清單等待回穩的標的，但不是本週的買點。</strong></p>
-<p><strong>3693 營邦（電腦及週邊設備業，Score 1.08，第 10）— 171% 的年增率有八成來自去年的低基期</strong></p>
-<p>8 月營收 12.67 億元、年增 171.01%，數字亮眼。<strong>但累計年增僅 25.27%</strong>——單月與累計之間 145 個百分點的落差，就是這一檔的全部重點。公司月營收是今年才從低檔回升、年增率在 4 月才轉正，上半年處於相對低迷狀態。因此 171% 反映的是<strong>基期回補</strong>，不是需求加速。</p>
-<p>業務進展本身是正面的：已切入超微 MI450 供應鏈、相關機櫃與機殼產品預計 2026 年第二季量產；同時進入 AMD Helios 機櫃與 NVIDIA AI Storage／JBOF 平台，並以生態系核心夥伴身分在 2026 年 GTC 展出 NVMe AI 儲存平台；楊梅新廠導入智慧化與自動化。</p>
-<p><strong>風險</strong>：663 元的股價對應 12.62% 的 ROE，評價已充分反映轉型預期。本週股價原地踏步（0.00%）但 9/11 單日下跌 4.05%。真正的量產貢獻要到 2026 年第二季，中間這段是預期在支撐價格。<strong>明年同期基數墊高後，年增率會反向壓縮</strong>，屆時若量產進度不如預期，落差會很難看。</p>
-<p><strong>3498 陽程（其他電子業，Score 0.90，第 12）— 上週的警告已經開始兌現</strong></p>
-<p>上週我明確標註：「712% 不可年化，這是設備商的專案認列特性，交機集中認列之後下一個空窗期營收會出現斷崖式落差。」<strong>8 月數字已經開始回答</strong>：年增率由 712.57% 降至 326.04%，單月營收 3.59 億元，累計 18.61 億元、累計年增 154.79%。326% 仍然很高，但方向已經確立。ROE 10.78% 維持在「剛從貧乏期翻身」而非「進入高獲利平台」的水準。追蹤重點仍應放在新接訂單而非已認列營收。</p>
-<p><strong>3141 晶宏（半導體業，Score 1.15，第 8）與 6218 豪勉（通信網路業，Score 1.13，第 9）— 兩檔的累計成長都撐不住單月的表象</strong></p>
+<p><strong>2221 大甲（其他業，Score 4.13，第 1）— 基本面加速是真的，但價格已經跑在財報前面太遠</strong></p>
+<p>上週的判斷是「8 月數據給了正面答案」：8 月營收 1.99 億元、年增 81.31%，1-8 月累計年增 29.1%。公司生產半導體廠務用超純氣體、特殊化學品供應系統的不鏽鋼管件，受惠晶圓廠與先進封裝的建廠資本支出；7 月單月稅前淨利 2,800 萬元、年增 600%。</p>
+<p><strong>指標矛盾</strong>：營收累計成長 29%、ROE 11.83%，股價卻在四個交易日內由 89.9 元（9/14）漲至 127.5 元，9/16 大漲 9.8%、9/17 與 9/18 連續漲停，9 月以來已多次觸及漲停，並於 9/1 公告多次達注意交易資訊標準。<strong>股價距 60 日均線約 +105%</strong>，也就是說，兩個多月內股價翻倍，而同期營收累計年增不到三成。</p>
+<p><strong>風險</strong>：年營收十餘億元的小型股，建廠週期訂單呈斷點式，且接近處置標準——一旦被列入處置、改為分盤交易，流動性會瞬間消失。<strong>本週不追，列入觀察等待乖離收斂。</strong></p>
+<p><strong>8227 巨有科技（半導體業，Score 3.26，第 2）— 訂單能見度最好的一檔小型股，但營收月份起伏很大</strong></p>
+<p>公司是 IC 設計服務商，業務由委託設計（NRE）轉進量產（MP）。依公司 3 月法說，當時在手訂單已超過 2025 全年營收，2025 年承接 16 奈米以下先進製程專案逾百件，2026 年 12 奈米以下專案預期倍數成長；第一季 NRE 預收款（合約負債）達 7.54 億元。1-8 月累計營收年增 73.2%，印證 NRE 轉量產正在發生。</p>
+<p><strong>指標矛盾</strong>：7 月年減 13.54%、8 月年增 42.24%，單月之間落差超過 55 個百分點。這是設計服務業的本質：<strong>NRE 依里程碑認列、量產依客戶拉貨，單月數字本身沒有趨勢意義</strong>。另外累計營收成長 73%，ROE 卻只有 10.64%，顯示目前的成長仍以毛利較低的量產晶圓轉售為主，獲利槓桿尚未同步。</p>
+<p><strong>風險</strong>：9/11 漲停後一週再漲 16.7%，股價距 20 日均線 +43%。它與創意同屬 ASIC 設計服務，但規模、客戶集中度與議價能力完全不在同一級距；<strong>若看好 ASIC 題材，創意是更乾淨的表達方式。</strong></p>
+<p><strong>6218 豪勉（通信網路業，Score 2.70，第 3）— 產業分類與股價題材是兩回事</strong></p>
+<p>產業別是通信網路業，實際營收主體是資訊網路周邊的系統整合專案（上半年 5.56 億元、年增 10%），半導體代理與自製設備僅 7,776 萬元。8 月營收 1.41 億元、年增 52.85%、月增 37%，主要來自大型專案驗收；股價題材則是資安專案、MicroLED 晶圓檢測設備與記憶體高溫測試機。</p>
+<p><strong>指標矛盾</strong>：8 月單月年增 52.85%，1-8 月累計年增只有 17.2%——<strong>成長主要集中在專案驗收的月份</strong>。ROE 10.81% 的改善也有相當部分來自存貨跌價及一次性損失由去年同期 1.05 億元降至 1,135 萬元，屬於「減少虧損」而非「本業獲利躍升」。</p>
+<p><strong>風險</strong>：一週漲 37.2%、距 20 日均線 +36%，而驅動股價的 MicroLED 與記憶體測試機目前在營收中佔比很小。<strong>題材的想像空間遠大於財報的實際貢獻，避開。</strong></p>
+<p><strong>6426 統新（通信網路業，Score 2.32，第 4）— 成長品質依舊最一致，但本週已把它用完了</strong></p>
+<p>上週評為「全池成長品質最一致」：8 月營收年增 78.20%、1-8 月累計年增 68.3%，800G 模組濾光片量產、1.6T 試量產，並切入低軌衛星星間通訊。本週基本面沒有新資訊，股價則由 302 元漲至 373.5 元（+23.7%），9/17 亮燈漲停。</p>
+<p><strong>指標矛盾</strong>：上週提醒的問題依然存在——ROE 15.28% 建立在 2025 年第三季才恢復獲利的短歷史上。<strong>一週 23.7% 的漲幅，是在沒有新財報資訊的情況下發生的</strong>，屬於光通訊族群的整體評價上修。8 月營收月減 6.3%，也顯示單月動能並非一路向上。</p>
+<p><strong>風險</strong>：距 20 日均線 +28%、距 60 日均線 +68%。基本面值得持續追蹤，但本週的價位已經不是半數部位該承擔的位置。</p>
+<p><strong>3324 雙鴻（其他電子業，Score 2.00，第 6）— 前段班中唯一「基本面與價格同步」的標的</strong></p>
+<p>8 月營收 31.41 億元、年增 67.17%，為單月歷史第 3 高；1-8 月累計 241.56 億元、年增 81.0%。液冷產品佔營收比重上半年 55%、7 至 8 月已升至 60% 以上。公司於股東會將 2026 年營收成長目標由 50% 上調至 70%，全年挑戰 400 億元；新取得多家大型雲端與晶片業者的液冷訂單，預計第 4 季開始出貨，法人預估第 3 季營收季增 15% 至 20%。</p>
+<p><strong>指標矛盾</strong>：8 月營收月減 16.6%，公司說明為客戶認列時間差。累計成長 81% 高於單月 67%，代表這是<strong>高基期上的持續成長，而不是低基期反彈</strong>——與驊宏資、晉泰正好是兩個極端。ROE 30.43% 與成長幅度自洽。</p>
+<p><strong>風險</strong>：1,480 元已貼近 60 日高點 1,485 元，屬高價股，對長端利率敏感。液冷供應鏈競爭加劇（奇鋐、高力、建準同在名單中），毛利率能否守住三成是下一季最關鍵的驗證點。<strong>本週半數部位的首選之一，但宜分批。</strong></p>
+<p><strong>8996 高力（電機機械，Score 1.37，第 13）— 全池成長最強的散熱股，排名卻只在中段</strong></p>
+<p>8 月營收 12.04 億元、年增 112.83%、月增 30.5%；1-8 月累計 78.55 億元、<strong>累計年增 115.0%</strong>，單月與累計幾乎重合，是名單中僅次於大量的結構性成長。兩條成長線分別是 AI 伺服器液冷散熱與固態氧化物燃料電池相關的熱交換產品，後者對應資料中心缺電下的現場發電需求。台灣新廠與泰國新廠同步擴產。ROE 26.97%。</p>
+<p><strong>指標矛盾</strong>：基本面全池前三，Score 卻只有 1.37。原因在價格路徑：60 日高點 1,555 元，9/15 曾回落至 1,220 元，9/18 漲停才回到 1,430 元，仍低於高點約 8%。<strong>20 日均線斜率被前段回檔壓低，這是本週少數「好公司、乖離合理」的組合</strong>（距 20 日均線 +13.7%）。</p>
+<p><strong>風險</strong>：燃料電池業務的出貨節奏取決於少數終端客戶的建置進度，能見度不如液冷；液冷業務與雙鴻、奇鋐重疊，同時持有並不構成分散。產能擴張期的折舊會先於營收發生。</p>
+<p><strong>3443 創意（半導體業，Score 1.30，第 15）— 全池基本面最好的大型股，本週以漲停創下歷史新高</strong></p>
+<p>8 月營收 58.4 億元、年增 111.02%，1-8 月累計年增 103.8%，ROE 38.83%。9/18 盤中漲停至 7,150 元，首度站上 7,000 元。驅動因素是北美雲端客戶的下一代 AI ASIC 專案預計 2026 年底至 2027 年初量產，以及市場對其切入 CPU 專案的預期。</p>
+<p><strong>指標矛盾</strong>：營收翻倍、ROE 近 39%，排名卻只有第 15——這是觀察一所說的機制：<strong>Score 不衡量基本面</strong>。另一個需要知道的矛盾是，營收翻倍主要來自量產晶圓的轉售（turnkey），這部分毛利率遠低於 NRE，營收成長率不等於獲利成長率。</p>
+<p><strong>風險</strong>：客戶集中度極高，單一雲端客戶的專案時程延後就會造成營收斷層；7,150 元的股價同時承擔 ASIC 題材溢價與折現率壓力。一週漲 16.8%，其中 9/18 單日 10%，<strong>建議等待漲停後的首次回測，不在漲停價追入。</strong></p>
+<p><strong>3006 晶豪科（半導體業，Score 0.61，第 30）— 年增 605% 的背後是記憶體價格，而不是出貨量</strong></p>
+<p>8 月營收 79.0 億元、年增 605.24%，1-8 月累計年增 324.4%，ROE 47.49%。總經報告記錄英特爾執行長 9/15 公開表示記憶體價格已上漲 5 至 7 倍，這幾乎完整解釋了晶豪科的營收跳升——<strong>它是利基型記憶體報價的槓桿，而非市佔或產能的結構性擴張</strong>。</p>
+<p><strong>指標矛盾</strong>：營收年增六倍、ROE 近五成，排名卻是倒數第四。這不是錯殺：同一段談話也指出記憶體成本不可能長期佔產品總成本的 70% 至 80%，<strong>市場已開始為報價高點折價</strong>。股價 291 元與 20 日均線 283 元幾乎持平，動能停滯本身就是訊號。</p>
+<p><strong>風險</strong>：記憶體報價是全池最典型的週期變數，一旦報價轉向，營收與獲利的回落速度會與上漲時一樣快。僅適合列入觀察。</p>
+<p><strong>其餘值得一提的矛盾</strong></p>
 <ul>
-<li><strong>晶宏</strong>：8 月年增 79.77%（7 月為 39.60%），<strong>但累計年增僅 23.93%</strong>。業務面有題材：2026 年全球電子紙模組出貨量估年增 15.8%，北美零售通路的電子貨架標籤裝機潮加速；四色電子紙驅動 IC 已於 2025 年第二季量產，雙穩態顯示 IC 全產品線（T-CON、driver、PMIC）預計 2026 年第二季起放量。但 ROE 僅 8.23%，<strong>是 21 檔中最低、僅略高於 8% 的篩選門檻</strong>。轉投資子公司在 AI 眼鏡光源模組的虧損預期要到 2026 年才開始收斂。本週股價下跌 11.41%，是全池跌幅最大者——動能實際上已經走完。</li>
-<li><strong>豪勉</strong>：8 月年增 52.85%，但<strong>累計年增僅 17.20%</strong>——在全部 21 檔中，扣除貼著門檻的台灣大與受油價換算影響的台塑化之後，這是製造業標的裡累計成長最弱的一檔。ROE 10.81%。成長集中在最近兩個月，可持續性缺乏累計數據支撐。</li>
+<li><strong>2454 聯發科（第 20）</strong>：8 月營收 641.8 億元、年增 44%、月增 32%，但 1-8 月累計年增僅 5.8%。單月與累計落差大，代表今年成長集中在近月，全年成長仍屬溫和；9/18 單日上漲 4.67%，更接近權值股隨大盤回補，而非基本面重新評價。</li>
+<li><strong>6199 天品（第 22）</strong>：累計年增 527.8%，但月營收僅約 8 千萬元，任何單一訂單都能產生三位數成長率，數字不具外推意義。</li>
+<li><strong>3167 大量（第 27）</strong>：累計年增 135.2% 仍為全池最高，本週股價 834 元，與上週 828 元幾乎持平。上週評為「值得列入觀察清單等待回穩」，本週回穩條件已接近成立，但排名因斜率偏低而掉到第 27。</li>
 </ul>
-<p>兩檔都屬於「用近月數字擠進榜單、但全年圖像並不支持」的類型。</p>
-<p><strong>其餘中後段的三點提醒</strong></p>
-<ul>
-<li><strong>2351 順德（第 6）</strong>：導線架廠，8 月年增 61.22%、累計 32.46%，ROE 9.27% 偏低。本質是<strong>跟隨封測稼動率的循環財</strong>，不是結構性成長。在費城半導體指數已跌破 20 日均線的週別，它的 Beta 高於基本面支撐。</li>
-<li><strong>2421 建準（第 19）</strong>：ROE 25.27% 是全池第二高，但 8 月年增 26.03% 較 7 月的 31.65% 減速，且本週股價下跌 7.58%。又是一檔「獲利品質好、動能已停」的組合。</li>
-<li><strong>3045 台灣大（第 21）</strong>：8 月年增 8.49%、累計 4.72%，貼著 5% 門檻通過。它的意義不在個股本身，而在它出現在這份名單裡——<strong>防禦型電信股的 20 日均線斜率能排進全市場前 21 名，說明資金正在往低波動、高現金流的標的搬移</strong>。這與 9/11 外資賣超 892.7 億元是同一件事的兩個切面。</li>
-</ul>
-<hr />
-<h3>給操作者的四點收斂</h3>
-<ol>
-<li><strong>本週的第一順位不是選股，是減碼。</strong> 上週的建議是「不加碼、等條件」；本週兩個重啟條件全數為否、指數補跌 755 點、外資賣超擴大至近 900 億，情況比上週差而不是持平。名單品質本身沒有崩壞，但它現在指向的是「動能的殘影」而非「動能的起點」。</li>
-<li><strong>若要建立觀察清單（注意是觀察，不是買進），優先序為：大量 &gt; 統新 ≈ 富喬 &gt; 大甲，並明確避開聯一光、晶宏與豪勉。</strong> 大量是全池唯一單月與累計成長同時維持在高檔且 ROE 自洽的標的，但須等股價自 938 元的高點回穩；統新與富喬的成長品質好，扣分項是獲利歷史太短、股價已反映轉機；聯一光 8 月成長歸零、晶宏與豪勉的累計年增撐不住單月表象。</li>
-<li><strong>四個必須自行做的數字校正</strong>：聯一光的 12.10%（8 月實為 0.86%）、營邦的 171%（累計僅 25.27%）、陽程的 712%（8 月已降至 326%）、台塑化的 32.34%（8 月 50.28% 主要是油價換算，且毛利受凍漲政策壓抑約 50 億元成本）。<strong>篩選器使用的是 7 月數字，直接拿來比較公司間的成長力會得到錯誤排序。</strong></li>
-<li><strong>不要誤讀本週的「分散」。</strong> 名單裡多出來的石化、鋼鐵、航運與電信，不是分散度改善，是市場寬度收縮後防禦標的被動能篩選器撈上來的結果。真正的重疊仍然存在：富喬、晟鈦、大量共用同一條 AI 高階 PCB 資本支出；聯一光與統新共用同一條 CPO 光通訊題材。而航運三檔的驅動來源各不相同，「油價漲買航運」在這份名單上是錯的。<strong>本週沒有廉價的分散可買，這是不宜建倉的另一個理由。</strong></li>
-</ol>
+<h3>本週建議的使用方式</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">分類</th>
+<th style="text-align: left;">標的</th>
+<th style="text-align: left;">處理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">[O] 半數部位優先</td>
+<td style="text-align: left;">雙鴻、高力、創意（待回測）、大量</td>
+<td style="text-align: left;">單月與累計一致、ROE 自洽、乖離未過熱</td>
+</tr>
+<tr>
+<td style="text-align: left;">[!] 觀察等待乖離收斂</td>
+<td style="text-align: left;">大甲、巨有科技、統新</td>
+<td style="text-align: left;">基本面成立，但一週漲幅 17% 至 34%、距 20 日均線 28% 至 45%</td>
+</tr>
+<tr>
+<td style="text-align: left;">[X] 剔除</td>
+<td style="text-align: left;">驊宏資、晉泰、李洲</td>
+<td style="text-align: left;">1-8 月累計營收衰退或停滯，單月數字僅因低基期或出貨時點通過門檻</td>
+</tr>
+<tr>
+<td style="text-align: left;">[X] 避開</td>
+<td style="text-align: left;">豪勉</td>
+<td style="text-align: left;">題材貢獻遠小於財報比重，獲利改善主要來自減少損失</td>
+</tr>
+</tbody>
+</table>
+<p>最後重申：本名單依 20 日均線斜率排序，<strong>排名反映的是過去 20 天的價格速度，不是基本面品質，也不是買進順序</strong>。本週大盤僅允許恢復半數部位，應從名單中段挑選基本面最扎實、價格乖離最合理的標的，而不是直接買進前五名。</p>
 <h2>篩選標準定義 (策略: 動能(無L3) / 標準: Strict)</h2>
 <table>
 <thead>
@@ -466,7 +528,7 @@
 </blockquote>
 <ul>
 <li><strong>掃描標的</strong>: 1954 檔</li>
-<li><strong>動能精選</strong>: 21 檔</li>
+<li><strong>動能精選</strong>: 33 檔</li>
 </ul>
 <h2>策略回測績效 (截至 2026-09-01)</h2>
 <ul>
@@ -524,233 +586,365 @@
 <tbody>
 <tr>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">3441</td>
-<td style="text-align: left;">聯一光</td>
-<td style="text-align: left;">光電業</td>
-<td style="text-align: left;">166.00</td>
-<td style="text-align: left;">0.0341</td>
-<td style="text-align: left;">11.73</td>
-<td style="text-align: left;">+12.10</td>
-<td style="text-align: left;">3.4</td>
-</tr>
-<tr>
-<td style="text-align: left;">2</td>
 <td style="text-align: left;">2221</td>
 <td style="text-align: left;">大甲</td>
 <td style="text-align: left;">其他業</td>
-<td style="text-align: left;">95.40</td>
-<td style="text-align: left;">0.0296</td>
+<td style="text-align: left;">127.50</td>
+<td style="text-align: left;">0.0413</td>
 <td style="text-align: left;">11.83</td>
-<td style="text-align: left;">+38.52</td>
-<td style="text-align: left;">3.0</td>
+<td style="text-align: left;">+81.31</td>
+<td style="text-align: left;">4.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">8227</td>
+<td style="text-align: left;">巨有科技</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">279.00</td>
+<td style="text-align: left;">0.0326</td>
+<td style="text-align: left;">10.64</td>
+<td style="text-align: left;">+42.24</td>
+<td style="text-align: left;">3.3</td>
 </tr>
 <tr>
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">8103</td>
-<td style="text-align: left;">瀚荃</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">113.00</td>
-<td style="text-align: left;">0.0160</td>
-<td style="text-align: left;">11.03</td>
-<td style="text-align: left;">+34.29</td>
-<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">6218</td>
+<td style="text-align: left;">豪勉</td>
+<td style="text-align: left;">通信網路業</td>
+<td style="text-align: left;">61.60</td>
+<td style="text-align: left;">0.0270</td>
+<td style="text-align: left;">10.81</td>
+<td style="text-align: left;">+52.85</td>
+<td style="text-align: left;">2.7</td>
 </tr>
 <tr>
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">6426</td>
 <td style="text-align: left;">統新</td>
 <td style="text-align: left;">通信網路業</td>
-<td style="text-align: left;">302.00</td>
-<td style="text-align: left;">0.0157</td>
+<td style="text-align: left;">373.50</td>
+<td style="text-align: left;">0.0232</td>
 <td style="text-align: left;">15.28</td>
-<td style="text-align: left;">+52.70</td>
-<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">+78.20</td>
+<td style="text-align: left;">2.3</td>
 </tr>
 <tr>
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">1815</td>
-<td style="text-align: left;">富喬</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">127.50</td>
-<td style="text-align: left;">0.0156</td>
-<td style="text-align: left;">14.74</td>
-<td style="text-align: left;">+68.10</td>
-<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">6148</td>
+<td style="text-align: left;">驊宏資</td>
+<td style="text-align: left;">資訊服務業</td>
+<td style="text-align: left;">39.85</td>
+<td style="text-align: left;">0.0207</td>
+<td style="text-align: left;">9.05</td>
+<td style="text-align: left;">+95.40</td>
+<td style="text-align: left;">2.1</td>
 </tr>
 <tr>
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">2351</td>
-<td style="text-align: left;">順德</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">234.00</td>
-<td style="text-align: left;">0.0148</td>
-<td style="text-align: left;">9.27</td>
-<td style="text-align: left;">+54.00</td>
-<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">3324</td>
+<td style="text-align: left;">雙鴻</td>
+<td style="text-align: left;">其他電子業</td>
+<td style="text-align: left;">1480.00</td>
+<td style="text-align: left;">0.0200</td>
+<td style="text-align: left;">30.43</td>
+<td style="text-align: left;">+67.17</td>
+<td style="text-align: left;">2.0</td>
 </tr>
 <tr>
 <td style="text-align: left;">7</td>
-<td style="text-align: left;">3229</td>
-<td style="text-align: left;">晟鈦</td>
+<td style="text-align: left;">6173</td>
+<td style="text-align: left;">信昌電</td>
 <td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">67.50</td>
-<td style="text-align: left;">0.0125</td>
-<td style="text-align: left;">12.51</td>
-<td style="text-align: left;">+76.76</td>
-<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">314.00</td>
+<td style="text-align: left;">0.0198</td>
+<td style="text-align: left;">8.95</td>
+<td style="text-align: left;">+54.26</td>
+<td style="text-align: left;">2.0</td>
 </tr>
 <tr>
 <td style="text-align: left;">8</td>
-<td style="text-align: left;">3141</td>
-<td style="text-align: left;">晶宏</td>
-<td style="text-align: left;">半導體業</td>
-<td style="text-align: left;">90.80</td>
-<td style="text-align: left;">0.0115</td>
-<td style="text-align: left;">8.23</td>
-<td style="text-align: left;">+39.60</td>
-<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">6221</td>
+<td style="text-align: left;">晉泰</td>
+<td style="text-align: left;">資訊服務業</td>
+<td style="text-align: left;">31.50</td>
+<td style="text-align: left;">0.0189</td>
+<td style="text-align: left;">13.00</td>
+<td style="text-align: left;">+21.47</td>
+<td style="text-align: left;">1.9</td>
 </tr>
 <tr>
 <td style="text-align: left;">9</td>
-<td style="text-align: left;">6218</td>
-<td style="text-align: left;">豪勉</td>
-<td style="text-align: left;">通信網路業</td>
-<td style="text-align: left;">44.90</td>
-<td style="text-align: left;">0.0113</td>
-<td style="text-align: left;">10.81</td>
-<td style="text-align: left;">+34.19</td>
-<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">8103</td>
+<td style="text-align: left;">瀚荃</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">129.50</td>
+<td style="text-align: left;">0.0154</td>
+<td style="text-align: left;">11.03</td>
+<td style="text-align: left;">+51.59</td>
+<td style="text-align: left;">1.5</td>
 </tr>
 <tr>
 <td style="text-align: left;">10</td>
-<td style="text-align: left;">3693</td>
-<td style="text-align: left;">營邦</td>
-<td style="text-align: left;">電腦及週邊設備業</td>
-<td style="text-align: left;">663.00</td>
-<td style="text-align: left;">0.0108</td>
-<td style="text-align: left;">12.62</td>
-<td style="text-align: left;">+148.92</td>
-<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">1560</td>
+<td style="text-align: left;">中砂</td>
+<td style="text-align: left;">電機機械</td>
+<td style="text-align: left;">896.00</td>
+<td style="text-align: left;">0.0151</td>
+<td style="text-align: left;">19.41</td>
+<td style="text-align: left;">+30.37</td>
+<td style="text-align: left;">1.5</td>
 </tr>
 <tr>
 <td style="text-align: left;">11</td>
-<td style="text-align: left;">3167</td>
-<td style="text-align: left;">大量</td>
-<td style="text-align: left;">電機機械</td>
-<td style="text-align: left;">828.00</td>
-<td style="text-align: left;">0.0100</td>
-<td style="text-align: left;">29.72</td>
-<td style="text-align: left;">+152.87</td>
-<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">3264</td>
+<td style="text-align: left;">欣銓</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">268.50</td>
+<td style="text-align: left;">0.0145</td>
+<td style="text-align: left;">19.14</td>
+<td style="text-align: left;">+46.57</td>
+<td style="text-align: left;">1.4</td>
 </tr>
 <tr>
 <td style="text-align: left;">12</td>
-<td style="text-align: left;">3498</td>
-<td style="text-align: left;">陽程</td>
-<td style="text-align: left;">其他電子業</td>
-<td style="text-align: left;">192.00</td>
-<td style="text-align: left;">0.0090</td>
-<td style="text-align: left;">10.78</td>
-<td style="text-align: left;">+712.57</td>
-<td style="text-align: left;">0.9</td>
+<td style="text-align: left;">3105</td>
+<td style="text-align: left;">穩懋</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">500.00</td>
+<td style="text-align: left;">0.0144</td>
+<td style="text-align: left;">8.24</td>
+<td style="text-align: left;">+30.55</td>
+<td style="text-align: left;">1.4</td>
 </tr>
 <tr>
 <td style="text-align: left;">13</td>
-<td style="text-align: left;">1709</td>
-<td style="text-align: left;">和益</td>
-<td style="text-align: left;">化學工業</td>
-<td style="text-align: left;">36.20</td>
-<td style="text-align: left;">0.0087</td>
-<td style="text-align: left;">10.64</td>
-<td style="text-align: left;">+83.29</td>
-<td style="text-align: left;">0.9</td>
+<td style="text-align: left;">8996</td>
+<td style="text-align: left;">高力</td>
+<td style="text-align: left;">電機機械</td>
+<td style="text-align: left;">1430.00</td>
+<td style="text-align: left;">0.0137</td>
+<td style="text-align: left;">26.97</td>
+<td style="text-align: left;">+112.83</td>
+<td style="text-align: left;">1.4</td>
 </tr>
 <tr>
 <td style="text-align: left;">14</td>
-<td style="text-align: left;">6505</td>
-<td style="text-align: left;">台塑化</td>
-<td style="text-align: left;">油電燃氣業</td>
-<td style="text-align: left;">83.60</td>
-<td style="text-align: left;">0.0084</td>
-<td style="text-align: left;">11.27</td>
-<td style="text-align: left;">+32.34</td>
-<td style="text-align: left;">0.8</td>
+<td style="text-align: left;">3141</td>
+<td style="text-align: left;">晶宏</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">93.70</td>
+<td style="text-align: left;">0.0132</td>
+<td style="text-align: left;">8.23</td>
+<td style="text-align: left;">+79.77</td>
+<td style="text-align: left;">1.3</td>
 </tr>
 <tr>
 <td style="text-align: left;">15</td>
-<td style="text-align: left;">2617</td>
-<td style="text-align: left;">台航</td>
-<td style="text-align: left;">航運業</td>
-<td style="text-align: left;">33.65</td>
-<td style="text-align: left;">0.0078</td>
-<td style="text-align: left;">8.64</td>
-<td style="text-align: left;">+34.09</td>
-<td style="text-align: left;">0.8</td>
+<td style="text-align: left;">3443</td>
+<td style="text-align: left;">創意</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">7150.00</td>
+<td style="text-align: left;">0.0130</td>
+<td style="text-align: left;">38.83</td>
+<td style="text-align: left;">+111.02</td>
+<td style="text-align: left;">1.3</td>
 </tr>
 <tr>
 <td style="text-align: left;">16</td>
-<td style="text-align: left;">2606</td>
-<td style="text-align: left;">裕民</td>
-<td style="text-align: left;">航運業</td>
-<td style="text-align: left;">76.50</td>
-<td style="text-align: left;">0.0069</td>
-<td style="text-align: left;">14.21</td>
-<td style="text-align: left;">+26.33</td>
-<td style="text-align: left;">0.7</td>
+<td style="text-align: left;">2351</td>
+<td style="text-align: left;">順德</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">241.50</td>
+<td style="text-align: left;">0.0128</td>
+<td style="text-align: left;">9.27</td>
+<td style="text-align: left;">+61.22</td>
+<td style="text-align: left;">1.3</td>
 </tr>
 <tr>
 <td style="text-align: left;">17</td>
-<td style="text-align: left;">2030</td>
-<td style="text-align: left;">彰源</td>
-<td style="text-align: left;">鋼鐵工業</td>
-<td style="text-align: left;">23.50</td>
-<td style="text-align: left;">0.0065</td>
-<td style="text-align: left;">10.14</td>
-<td style="text-align: left;">+41.19</td>
-<td style="text-align: left;">0.7</td>
+<td style="text-align: left;">3066</td>
+<td style="text-align: left;">李洲</td>
+<td style="text-align: left;">光電業</td>
+<td style="text-align: left;">29.90</td>
+<td style="text-align: left;">0.0125</td>
+<td style="text-align: left;">29.96</td>
+<td style="text-align: left;">+18.89</td>
+<td style="text-align: left;">1.2</td>
 </tr>
 <tr>
 <td style="text-align: left;">18</td>
-<td style="text-align: left;">1303</td>
-<td style="text-align: left;">南亞</td>
-<td style="text-align: left;">塑膠工業</td>
-<td style="text-align: left;">234.50</td>
-<td style="text-align: left;">0.0063</td>
-<td style="text-align: left;">10.30</td>
-<td style="text-align: left;">+44.53</td>
-<td style="text-align: left;">0.6</td>
+<td style="text-align: left;">3026</td>
+<td style="text-align: left;">禾伸堂</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">797.00</td>
+<td style="text-align: left;">0.0111</td>
+<td style="text-align: left;">16.45</td>
+<td style="text-align: left;">+33.21</td>
+<td style="text-align: left;">1.1</td>
 </tr>
 <tr>
 <td style="text-align: left;">19</td>
-<td style="text-align: left;">2421</td>
-<td style="text-align: left;">建準</td>
-<td style="text-align: left;">電子零組件業</td>
-<td style="text-align: left;">164.50</td>
-<td style="text-align: left;">0.0058</td>
-<td style="text-align: left;">25.27</td>
-<td style="text-align: left;">+31.65</td>
-<td style="text-align: left;">0.6</td>
+<td style="text-align: left;">6257</td>
+<td style="text-align: left;">矽格</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">244.50</td>
+<td style="text-align: left;">0.0109</td>
+<td style="text-align: left;">16.19</td>
+<td style="text-align: left;">+28.58</td>
+<td style="text-align: left;">1.1</td>
 </tr>
 <tr>
 <td style="text-align: left;">20</td>
-<td style="text-align: left;">2605</td>
-<td style="text-align: left;">新興</td>
-<td style="text-align: left;">航運業</td>
-<td style="text-align: left;">36.50</td>
-<td style="text-align: left;">0.0058</td>
-<td style="text-align: left;">14.83</td>
-<td style="text-align: left;">+36.26</td>
-<td style="text-align: left;">0.6</td>
+<td style="text-align: left;">2454</td>
+<td style="text-align: left;">聯發科</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">4710.00</td>
+<td style="text-align: left;">0.0107</td>
+<td style="text-align: left;">22.78</td>
+<td style="text-align: left;">+44.08</td>
+<td style="text-align: left;">1.1</td>
 </tr>
 <tr>
 <td style="text-align: left;">21</td>
-<td style="text-align: left;">3045</td>
-<td style="text-align: left;">台灣大</td>
-<td style="text-align: left;">通信網路業</td>
-<td style="text-align: left;">121.00</td>
-<td style="text-align: left;">0.0056</td>
-<td style="text-align: left;">19.15</td>
-<td style="text-align: left;">+7.14</td>
+<td style="text-align: left;">1303</td>
+<td style="text-align: left;">南亞</td>
+<td style="text-align: left;">塑膠工業</td>
+<td style="text-align: left;">238.00</td>
+<td style="text-align: left;">0.0103</td>
+<td style="text-align: left;">10.30</td>
+<td style="text-align: left;">+46.74</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">6199</td>
+<td style="text-align: left;">天品</td>
+<td style="text-align: left;">其他業</td>
+<td style="text-align: left;">113.00</td>
+<td style="text-align: left;">0.0099</td>
+<td style="text-align: left;">15.87</td>
+<td style="text-align: left;">+171.69</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">3017</td>
+<td style="text-align: left;">奇鋐</td>
+<td style="text-align: left;">電腦及週邊設備業</td>
+<td style="text-align: left;">3430.00</td>
+<td style="text-align: left;">0.0087</td>
+<td style="text-align: left;">53.37</td>
+<td style="text-align: left;">+54.34</td>
+<td style="text-align: left;">0.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">1709</td>
+<td style="text-align: left;">和益</td>
+<td style="text-align: left;">化學工業</td>
+<td style="text-align: left;">39.20</td>
+<td style="text-align: left;">0.0084</td>
+<td style="text-align: left;">10.64</td>
+<td style="text-align: left;">+82.66</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">6112</td>
+<td style="text-align: left;">邁達特</td>
+<td style="text-align: left;">資訊服務業</td>
+<td style="text-align: left;">52.10</td>
+<td style="text-align: left;">0.0084</td>
+<td style="text-align: left;">14.08</td>
+<td style="text-align: left;">+18.78</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">2421</td>
+<td style="text-align: left;">建準</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">167.00</td>
+<td style="text-align: left;">0.0075</td>
+<td style="text-align: left;">25.27</td>
+<td style="text-align: left;">+26.03</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">3167</td>
+<td style="text-align: left;">大量</td>
+<td style="text-align: left;">電機機械</td>
+<td style="text-align: left;">834.00</td>
+<td style="text-align: left;">0.0069</td>
+<td style="text-align: left;">29.72</td>
+<td style="text-align: left;">+152.97</td>
+<td style="text-align: left;">0.7</td>
+</tr>
+<tr>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">6505</td>
+<td style="text-align: left;">台塑化</td>
+<td style="text-align: left;">油電燃氣業</td>
+<td style="text-align: left;">86.50</td>
+<td style="text-align: left;">0.0068</td>
+<td style="text-align: left;">11.27</td>
+<td style="text-align: left;">+50.28</td>
+<td style="text-align: left;">0.7</td>
+</tr>
+<tr>
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">3029</td>
+<td style="text-align: left;">零壹</td>
+<td style="text-align: left;">資訊服務業</td>
+<td style="text-align: left;">125.00</td>
+<td style="text-align: left;">0.0062</td>
+<td style="text-align: left;">22.13</td>
+<td style="text-align: left;">+44.44</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">3006</td>
+<td style="text-align: left;">晶豪科</td>
+<td style="text-align: left;">半導體業</td>
+<td style="text-align: left;">291.00</td>
+<td style="text-align: left;">0.0061</td>
+<td style="text-align: left;">47.49</td>
+<td style="text-align: left;">+605.24</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">3044</td>
+<td style="text-align: left;">健鼎</td>
+<td style="text-align: left;">電子零組件業</td>
+<td style="text-align: left;">518.00</td>
+<td style="text-align: left;">0.0060</td>
+<td style="text-align: left;">22.02</td>
+<td style="text-align: left;">+65.47</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">2030</td>
+<td style="text-align: left;">彰源</td>
+<td style="text-align: left;">鋼鐵工業</td>
+<td style="text-align: left;">24.95</td>
+<td style="text-align: left;">0.0057</td>
+<td style="text-align: left;">10.14</td>
+<td style="text-align: left;">+57.69</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">6227</td>
+<td style="text-align: left;">茂綸</td>
+<td style="text-align: left;">電子通路業</td>
+<td style="text-align: left;">132.00</td>
+<td style="text-align: left;">0.0057</td>
+<td style="text-align: left;">30.87</td>
+<td style="text-align: left;">+168.85</td>
 <td style="text-align: left;">0.6</td>
 </tr>
 </tbody>
