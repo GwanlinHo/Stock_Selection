@@ -20,15 +20,27 @@ echo "[1/4] 掃描 + 動能(無L3)選股 + 骨架報告 (full)..."
 uv run main.py --mode full
 
 echo "[2/4] Claude 深度分析，寫入專屬 AI 檔 reports/ai_analysis_${DATE}.md ..."
-timeout 30m claude -p "請依照本專案目錄的 CLAUDE.md 為台股動能(無L3)選股週報撰寫 AI 分析，將內容以 Markdown 寫入 reports/ai_analysis_${DATE}.md，只用以下兩個 ## 標題：
+# 撰寫指示放在 config/ai_analysis_prompt.md（2026-10-16 改精簡版：上限 2,500 字、固定結構）
+AI_OUT="reports/ai_analysis_${DATE}.md"
+PREV=$(ls reports/ai_analysis_*.md 2>/dev/null | grep -v "_${DATE}.md" | sort | tail -1)
+ISSUES="logs/system_issues_${DATE}.md"   # 撰寫時發現的系統問題（不進週報、不發布）
+PROMPT=$(sed -e "/^<!--.*-->$/d" -e "s#__OUT__#${AI_OUT}#g" -e "s#__PREV__#${PREV:-（無）}#g" -e "s#__ISSUES__#${ISSUES}#g" config/ai_analysis_prompt.md)
+timeout 30m claude -p "$PROMPT" --model claude-opus-5 --dangerously-skip-permissions
 
-## 宏觀趨勢與大盤研判
-請讀取 /home/pi/WorkDir/investment_analysis/index.html (最新總經報告) 的內容，綜合其多空研判與風險水位，判斷本週是否適合進場（此為攻擊型選股，須多頭才進場）。
-
-## 核心標的深度點評
-讀取 data/temp/candidates.json (最終精選池)，針對分數前幾名的標的，結合產業趨勢與最新財報展望做去罐頭化深度點評，指出指標矛盾與風險。
-
-要求：不得出現任何 AI 工具或模型名稱；繁體中文；只寫這一個檔，不要修改其他檔案、不要執行任何 git 指令。" --model claude-opus-5 --dangerously-skip-permissions
+# 字數檢查：超過上限就要求壓縮一次（只計漢字，表格與數字不計）
+MAX_ZH=2500
+count_zh() { python3 -c "import re,sys;print(len(re.findall(r'[\u4e00-\u9fff]',open(sys.argv[1],encoding='utf-8').read())))" "$1"; }
+if [ -f "$AI_OUT" ]; then
+  N=$(count_zh "$AI_OUT")
+  echo "AI 分析字數：${N}（上限 ${MAX_ZH}）"
+  if [ "$N" -gt "$MAX_ZH" ]; then
+    echo "[!] 超過上限，要求壓縮一次..."
+    timeout 15m claude -p "請把 ${AI_OUT} 精簡到 ${MAX_ZH} 個中文字以內並直接覆寫該檔：保留兩個 ## 標題、研判結論、表格與「本週可建倉／避開」那一行，刪除重複與修辭；規則同 config/ai_analysis_prompt.md。只改這一個檔，不要執行 git。" --model claude-opus-5 --dangerously-skip-permissions || true
+    echo "壓縮後字數：$(count_zh "$AI_OUT")"
+  fi
+else
+  echo "[!] 找不到 ${AI_OUT}，報告將不含 AI 分析"
+fi
 
 echo "[3/4] 重新生成報告 (注入 AI 分析) 與 index.html (report-only)..."
 uv run main.py --mode report-only
