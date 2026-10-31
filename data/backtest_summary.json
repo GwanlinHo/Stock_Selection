@@ -1,41 +1,41 @@
 {
-  "as_of": "2026-10-01",
-  "period": "2021-10-01 ~ 2026-10-01",
+  "as_of": "2026-11-01",
+  "period": "2021-11-01 ~ 2026-11-01",
   "top_n": 15,
   "benchmark": {
     "name": "0050",
-    "total_return": 280.46,
+    "total_return": 249.58,
     "max_drawdown": -29.19
   },
   "strategies": {
     "momentum": {
       "label": "動能(無L3)",
-      "total_return": 391.47,
-      "cagr": 38.24,
+      "total_return": 389.66,
+      "cagr": 38.14,
       "max_drawdown": -31.0,
       "sharpe": 1.05,
       "win_rate_vs_bench": 55.9,
-      "bench_total_return": 280.46,
+      "bench_total_return": 249.58,
       "months": 59
     },
     "momentum_l3": {
       "label": "動能(含L3)",
-      "total_return": 239.75,
-      "cagr": 28.24,
+      "total_return": 236.01,
+      "cagr": 27.95,
       "max_drawdown": -43.76,
-      "sharpe": 0.87,
+      "sharpe": 0.86,
       "win_rate_vs_bench": 45.8,
-      "bench_total_return": 280.46,
+      "bench_total_return": 249.58,
       "months": 59
     },
     "value_growth": {
       "label": "價值成長",
-      "total_return": 134.35,
-      "cagr": 18.91,
+      "total_return": 106.08,
+      "cagr": 15.84,
       "max_drawdown": -50.19,
-      "sharpe": 0.73,
-      "win_rate_vs_bench": 39.0,
-      "bench_total_return": 280.46,
+      "sharpe": 0.64,
+      "win_rate_vs_bench": 37.3,
+      "bench_total_return": 249.58,
       "months": 59
     }
   }
